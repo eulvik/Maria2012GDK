@@ -1,0 +1,827 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.DrawObjects.Data</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.DrawObjects.Data.DataUtils.DrawObjectDataUtils">
+            <summary>
+             Utility methods for working with DrawObjectData
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DataUtils.DrawObjectDataUtils.GetPrimitiveAs``1(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Int32)">
+            <summary>
+            Retrieves a primitive
+            </summary>
+            <param name="drawObjectData">Draw object data containing primitive</param>
+            <param name="localPrimitiveId">Local primitive id</param>
+            <typeparam name="T">Type of draw object primitive. Must implement IDrawObjectPrimitive</typeparam>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DataUtils.DrawObjectDataUtils.GetFirstPrimitiveAs``1(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Returns first primitive
+            </summary>
+            <param name="drawObjectData">Draw object data containing primitive</param>
+            <typeparam name="T">Type of draw object primitive. Must implement IDrawObjectPrimitive</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.DataUtils.TacticalDrawObjectDataUtils">
+            <summary>
+            Utils for draw object data containing tactical draw objects 
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DataUtils.TacticalDrawObjectDataUtils.GetStandardIdentity(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Attempts to retrieve standardIdentity from draw object data field collection
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <returns>Name if available, otherwise empty string</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DataUtils.TacticalDrawObjectDataUtils.SetStandardIdentity(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.String)">
+            <summary>
+            Sets standardIdentity in draw object data field collection
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="newStandardIdentity">New name</param>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.ChildPrimitiveAttribute">
+            <summary>
+             Attribute signifying that this property is a SubPrimitive and should be included in sub-primitive collection
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.DrawObjectPrimitiveBase">
+            <summary>
+             Implements common functionality used by all primitive types
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.DrawObjectPrimitiveBase.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.DrawObjectPrimitiveBase.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.DrawObjectPrimitiveBase.Fields">
+            <summary>
+             Returns dictionary of extra tags
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.DrawObjectPrimitiveBase.ChildPrimitives">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.DrawObjectPrimitiveBase.PrimitiveTypeId">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.DrawObjectPrimitiveBase.LocalPrimitiveId">
+            <inheritdoc />
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Line">
+            <inheritdoc cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Lines.ILine"></inheritdoc>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Line.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Line.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Line.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Line.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Lines.ILine,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Line.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Line.Points">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData">
+            <summary>
+            Absolute geographical points, represented as latitude, longitude and altitude.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.IsAbsolute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.IsRelative">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.SetLatLon(TPG.GeoUnits.GeoPos)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.SetAltitude(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.GetLatLon">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.GetAltitude">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IPointData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.LatitudePrecisionCode">
+            <summary>
+            Precision code for latitude.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.LongitudePrecisionCode">
+            <summary>
+            Precision code for longitude.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.AltitudePrecisionCode">
+            <summary>
+            Precision code for altitude.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.AbsoluteGeoPointData.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint">
+            <inheritdoc cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint"/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.IsAbsolute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.IsRelative">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.SetLatLon(TPG.GeoUnits.GeoPos)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.SetAltitude(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.GetLatLon">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.GetAltitude">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.Data">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.VerticalDatumText">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.GeoPoint.VerticalReferenceCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Points.LinePoint">
+            <inheritdoc cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.ILinePoint"/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.LinePoint.#ctor(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint)">
+            <summary>
+            Constructor with dependencies
+            </summary>
+            <param name="geoPoint">Geo point</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.LinePoint.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.LinePoint.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.LinePoint.Text">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.LinePoint.Index">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.LinePoint.GeoPoint">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData">
+            <summary>
+            Implementation of data object for relative geographical points.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.IsAbsolute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.IsRelative">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.SetLatLon(TPG.GeoUnits.GeoPos)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.SetAltitude(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.GetLatLon">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.GetAltitude">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IPointData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.XPrecisionCode">
+            <summary>
+            Precision code for X coordinate
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.YPrecisionCode">
+            <summary>
+            Precision code for Y coordinate
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.AltitudePrecisionCode">
+            <summary>
+            Precision code for altitude
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.Point">
+            <summary>
+            Return the XY point coordinate relative to the coordinate system.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.CoordinateSystemId">
+            <summary>
+            Coordinate system ID for the coordinate system this point is relative to.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Points.RelativePointData.CoordinateSystemProvider">
+            <summary>
+            Provider for coordinate systems.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.CorridorArea">
+            <inheritdoc cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea"/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.CorridorArea.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.CorridorArea.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.CorridorArea.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.CorridorArea.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ISurface,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.CorridorArea.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.CorridorArea.Width">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.CorridorArea.CentreLine">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.Ellipse">
+            <inheritdoc cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IEllipse"/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.Ellipse.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.Ellipse.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ISurface,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.Ellipse.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.Ellipse.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.Ellipse.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.Ellipse.CentrePoint">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.Ellipse.FirstConjugateDiameterPoint">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.Ellipse.SecondConjugateDiameterPoint">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.FanArea">
+            <inheritdoc cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea"/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.FanArea.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.FanArea.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.FanArea.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.FanArea.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ISurface,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.FanArea.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.FanArea.MinimumRange">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.FanArea.MaximumRange">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.FanArea.OrientationAngle">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.FanArea.SectorSizeAngle">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.FanArea.VertexPoint">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.OrbitArea">
+            <inheritdoc cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea"/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.OrbitArea.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.OrbitArea.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.OrbitArea.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.OrbitArea.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ISurface,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.OrbitArea.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.OrbitArea.Width">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.OrbitArea.FirstPoint">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.OrbitArea.SecondPoint">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.OrbitArea.OrbitAreaAlignmentCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolyArcArea">
+            <inheritdoc cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IPolyArcArea"/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolyArcArea.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolyArcArea.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolyArcArea.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolyArcArea.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ISurface,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolyArcArea.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolyArcArea.BeginBearingAngle">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolyArcArea.EndBearingAngle">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolyArcArea.ArcRadius">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolyArcArea.DefiningLine">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolyArcArea.BearingOriginPoint">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolygonArea">
+            <inheritdoc cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IPolygonArea"/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolygonArea.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolygonArea.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolygonArea.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolygonArea.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ISurface,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolygonArea.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.PolygonArea.BoundingLine">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.TrackArea">
+            <inheritdoc cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ITrackArea"/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.TrackArea.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.TrackArea.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.TrackArea.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.TrackArea.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ISurface,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.TrackArea.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.TrackArea.LeftWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.TrackArea.RightWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.TrackArea.BeginPoint">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Surfaces.TrackArea.EndPoint">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.VerticalDistance">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.VerticalDistance.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.VerticalDistance.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.VerticalDistance.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.VerticalDistance.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.IVerticalDistance,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.VerticalDistance.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.VerticalDistance.ReferenceCode">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.VerticalDistance.Dimension">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.VerticalDistance.PrecisionCode">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.VerticalDistance.DatumText">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Volumes.ConeVolume">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.ConeVolume.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.ConeVolume.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.ConeVolume.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.ConeVolume.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.IGeometricVolume,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.ConeVolume.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.ConeVolume.DefiningSurface">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.ConeVolume.VertexPoint">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.ConeVolume.LowerVerticalDistance">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.ConeVolume.UpperVerticalDistance">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SphereVolume">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SphereVolume.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SphereVolume.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SphereVolume.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SphereVolume.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.IGeometricVolume,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SphereVolume.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SphereVolume.RadiusDimension">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SphereVolume.CentrePoint">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SphereVolume.LowerVerticalDistance">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SphereVolume.UpperVerticalDistance">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SurfaceVolume">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SurfaceVolume.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SurfaceVolume.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SurfaceVolume.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SurfaceVolume.CopyFrom(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.IGeometricVolume,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SurfaceVolume.PrimitiveTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SurfaceVolume.DefiningSurface">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SurfaceVolume.LowerVerticalDistance">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Geo.Primitives.Volumes.SurfaceVolume.UpperVerticalDistance">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem">
+            <summary>
+             A coordinate system for Geo points.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.ToLatLon(TPG.DrawObjects.Internals.Base.MathUtils.Vector3)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.ToLatLon(System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.FromLatLon(TPG.GeoUnits.GeoPos3D)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.FromLatLon(TPG.GeoUnits.GeoPos)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.CopyFrom(TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.OriginPoint">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.XAxis">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.YAxis">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.ZAxis">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.CoordinateSystemId">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Data.CoordinateSystems.PointReferenceCoordinateSystem.CoordinateSystemTypeId">
+            <inheritdoc />
+        </member>
+        <member name="T:TPG.DrawObjects.Data.DrawObjectData">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DrawObjectData.AddPrimitive(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DrawObjectData.GetPrimitive(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DrawObjectData.ContainsCoordinateSystem(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DrawObjectData.AddCoordinateSystem(System.Int32,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DrawObjectData.GetCoordinateSystem(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DrawObjectData.ClearCoordinateSystems">
+            <summary>
+            Removes all coordinate systems.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DrawObjectData.ClearPrimitives">
+            <summary>
+            Removes all primitives.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DrawObjectData.CopyFrom(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DrawObjectData.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DrawObjectData.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.DrawObjectData.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.DrawObjectData.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.DrawObjectData.DrawObjectTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.DrawObjectData.Primitives">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.DrawObjectData.Fields">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.DrawObjectData.ExtensibleData">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.DrawObjectData.ActiveStyle">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.DrawObjectData.StyleValues">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.DrawObjectData.Generation">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.DrawObjectData.CoordinateSystems">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.IocInstaller">
+            <summary>
+             Installs all services provided by this assembly into IOC container
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.IocInstaller.Install(Castle.Windsor.IWindsorContainer,Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore)">
+            <summary>
+            Installs services implemented in this assembly
+            </summary>
+            <param name="container"></param>
+            <param name="store"></param>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.SortedDrawObjectInfo">
+            <summary>
+            Contains result of sorted draw object query.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.SortedDrawObjectInfo.#ctor(System.Collections.Generic.IEnumerable{TPG.DrawObjects.Contracts.Data.IDrawObjectData},System.Int32,TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="sortedDrawObjects">List of sorted draw objects.</param>
+            <param name="totalDrawObjectCount">Total draw object count.</param>
+            <param name="query">Draw object query.</param>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.SortedDrawObjectInfo.SortedDrawObjects">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.SortedDrawObjectInfo.TotalDrawObjectCount">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.SortedDrawObjectInfo.Query">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Validation.CorridorAreaValidator">
+            <summary>
+            Validates a primitive of type <see cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea"/>.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Validation.CorridorAreaValidator.Validate(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive,TPG.DrawObjects.Contracts.Data.Validation.IValidationResult,TPG.DrawObjects.Contracts.Data.Validation.IDrawObjectPrimitiveValidatorFactory,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Validation.DrawObjectDataValidator">
+            <summary>
+            Provides extension methods on IDrawObjectData for validation.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Validation.DrawObjectDataValidator.Validate(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Contracts.Data.Validation.IDrawObjectPrimitiveValidatorFactory,System.Boolean)">
+            <summary>
+            Extension method that validates the data.
+            </summary>
+            <param name="drawObjectData">The data to validate.</param>
+            <param name="drawObjectValidatorFactory">Factory for creating primitive validators, if null the default implementation will be used.</param>
+            <param name="returnOnFirstError">If true validation returns on first error, if false validation will report all errors found.</param>
+            <returns>The validation result.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Validation.DrawObjectPrimitiveValidatorFactory.New(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Validation.EllipseValidator">
+            <summary>
+            Validates a primitive of type <see cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IEllipse"/>.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Validation.FanAreaValidator">
+            <summary>
+            Validates a primitive of type <see cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea"/>.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Validation.GeoPointValidator">
+            <summary>
+            Validates a primitive of type <see cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint"/>.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Validation.LineValidator">
+            <summary>
+            Validates a primitive of type <see cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Lines.ILine"/>.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Validation.OrbitAreaValidator">
+            <summary>
+            Validates a primitive of type <see cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea"/>.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Validation.PolygonAreaValidator">
+            <summary>
+            Validates a primitive of type <see cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IPolygonArea"/>.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Validation.SurfaceVolumeValidator">
+            <summary>
+            Validates a primitive of type <see cref="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.ISurfaceVolume"/>.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Validation.SurfaceVolumeValidator.Validate(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive,TPG.DrawObjects.Contracts.Data.Validation.IValidationResult,TPG.DrawObjects.Contracts.Data.Validation.IDrawObjectPrimitiveValidatorFactory,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Validation.ValidationError.ErrorMessage">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Validation.ValidationError.ErrorType">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Validation.ValidationResult.ValidationOk">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Validation.ValidationResult.ValidationErrors">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

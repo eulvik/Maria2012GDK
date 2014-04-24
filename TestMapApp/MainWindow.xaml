@@ -1,0 +1,21 @@
+﻿<Window x:Class="TestMapApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mariaUserControl=
+        "clr-namespace:TPG.Maria.MariaUserControl;assembly=TPG.Maria.MariaUserControl"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:testMapApp="clr-namespace:TestMapApp"
+        Title="MainWindow" Height="737" Width="1066"
+        Closing="WindowClosing" AllowDrop="True" Drop="MainWindow_OnDrop">
+ 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <!--<ColumnDefinition Width="*"/>-->
+        </Grid.ColumnDefinitions>
+        <testMapApp:MapUserControl 
+            Grid.Column="0" 
+            Margin="0,0,5,0" 
+            x:Name="MapUserCtrl"/>
+    </Grid>
+</Window>

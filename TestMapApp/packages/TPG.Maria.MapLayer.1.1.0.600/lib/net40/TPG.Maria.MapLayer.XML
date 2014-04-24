@@ -1,0 +1,406 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.Maria.MapLayer</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.Maria.MapLayer.LabelsLayer">
+            <summary>
+            Provides access to Maria User Control, labels layer.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.LabelsLayer.#ctor(TPG.Maria.MapContracts.IMariaMapLayer)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="mapLayer">MapLayer to use for labels.</param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.LabelsLayer.GetGeoLayer(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoFramework.Contracts.Geo.Context.IGeoNavigator,TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel,TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack,TPG.GeoUnits.IGeoUnitsSetting)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.LabelsLayer.SetUndoRedoStack(TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.LabelsLayer.HandlePreviewKeyDown">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.LabelsLayer.HandlePreviewKeyUp">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.LabelsLayer.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.LabelsLayer.Tools">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.LabelsLayer.GeoLayerViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.Maria.MapLayer.LabelsLayer.LayerInitialized">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.LabelsLayer.Visible">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.LabelsLayer.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.LabelsLayer.IsInitialized">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.LabelsLayer.ClipMargins">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.LabelsLayer.GeoContext">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.LabelsLayer.Opacity">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.LabelsLayer.HasLabels">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.Maria.MapLayer.MapResourcesMonitor">
+            <summary>
+            Monitors map resources.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapResourcesMonitor.#ctor(TPG.GeoFramework.Map.Core.Contracts.IMapResources,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="mapResources">Map resources.</param>
+            <param name="interval">Monitoring interval.</param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapResourcesMonitor.TimerOnElapsed(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+            Check for resource changes.
+            </summary>
+            <param name="sender"></param>
+            <param name="elapsedEventArgs"></param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapResourcesMonitor.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.Maria.MapLayer.ExtendedMapLayer">
+            <summary>
+            Contains access to more specialized map functionality.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.ExtendedMapLayer.ApplyFeatureQueryConditions(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.ExtendedMapLayer.ForceRegenerate">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.MapLayerViewModel">
+            <summary>
+            Get or set map layer view model.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.MapFeatureInfo">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.MapFeatureQuerySettings">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.Elevation">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.MapBackground">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.MapRenderSimple">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.AllowedRasterCompressionValues">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.RasterCompression">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.DrawVectorGeometries">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.ShowVectorCoverage">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.FetchVectorLabels">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.VectorGroups">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.MaxTileCacheSize">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.PixelScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.ActualRenderMode">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.ExtendedMapLayer.RequestedRenderMode">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.Maria.MapLayer.MariaElevationProfileControl">
+            <summary>
+            Interaction logic for MariaElevationProfileControl.xaml
+            </summary>
+            <summary>
+            MariaElevationProfileControl
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MariaElevationProfileControl.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="F:TPG.Maria.MapLayer.MariaElevationProfileControl.HighlightDistanceProperty">
+            <summary>
+            Highlight distance.
+            </summary>
+        </member>
+        <member name="F:TPG.Maria.MapLayer.MariaElevationProfileControl.GeoUnitsSettingsProperty">
+            <summary>
+            Geo unit settings.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MariaElevationProfileControl.GeoUnitsSettingsChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle map layer changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MariaElevationProfileControl.GeoUnitsSettingOnGeoUnitsSettingChanged(System.Object,TPG.GeoUnits.GeoUnitsSettingChangedEventArgs)">
+            <summary>
+            Redraw elevation plot when geo units change.
+            </summary>
+            <param name="sender"></param>
+            <param name="eventArgs"></param>
+        </member>
+        <member name="F:TPG.Maria.MapLayer.MariaElevationProfileControl.MapLayerProperty">
+            <summary>
+            Map layer.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MariaElevationProfileControl.MapLayerChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle map layer changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MariaElevationProfileControl.ElevationProfileViewModelOnElevationProfileChanged(System.Object,System.EventArgs)">
+            <summary>
+            Update elevation profile points.
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MariaElevationProfileControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MariaElevationProfileControl.HighlightDistance">
+            <summary>
+            This property controls the highlighted point along the elevation profile. It can be used
+            to illustrate a location along a route. This property is updated by moving the mouse over the elevation profile.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MariaElevationProfileControl.GeoUnitsSettings">
+            <summary>
+            Get or set geo unit settings.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MariaElevationProfileControl.MapLayer">
+            <summary>
+            Get or set map layer.
+            </summary>
+        </member>
+        <member name="T:TPG.Maria.MapLayer.Factories.MapLayerViewModelFactory">
+            <summary>
+            Factory for creating map layer view model instances.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.Factories.MapLayerViewModelFactory.#ctor(TPG.GeoFramework.Map.Core.Contracts.IMapServiceManager,TPG.GeoFramework.MapLayer.Contracts.IMapLayerViewFactory,TPG.GeoFramework.Map.Core.Contracts.ITileCacheManager,TPG.GeoFramework.Map.Core.Contracts.IMapController)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="mapServiceManager">Map service manager.</param>
+            <param name="mapLayerViewFactory">Map layer view model.</param>
+            <param name="tileCacheManager"></param>
+            <param name="mapController"></param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.Factories.MapLayerViewModelFactory.New(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoFramework.Contracts.Geo.Context.IGeoNavigator,TPG.GeoFramework.Map.Core.Contracts.IMapResources,TPG.GeoFramework.Map.Core.Contracts.IElevationData)">
+            <summary>
+            Creates a new instance of map layer view model.
+            </summary>
+            <param name="geoContext">Geo context.</param>
+            <param name="geoNavigator">Geo navigator.</param>
+            <param name="mapResources">Map resources.</param>
+            <param name="elevationData">Map elevation data.</param>
+            <returns>Instance of map layer view model.</returns>
+        </member>
+        <member name="T:TPG.Maria.MapLayer.MapLayer">
+            <summary>
+            Provides access to Maria User Control, map layer.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.#ctor(TPG.GeoFramework.MapCatalogServiceClient.IMapCatalogServiceClient)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="mapCatalogServiceClient">Map catalog manager for locating map services.</param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.MapDataLayersOnCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Handle map data layers collection changed.
+            </summary>
+            <param name="sender"></param>
+            <param name="notifyCollectionChangedEventArgs"></param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.GetGeoLayer(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoFramework.Contracts.Geo.Context.IGeoNavigator,TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel,TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack,TPG.GeoUnits.IGeoUnitsSetting)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.SetUndoRedoStack(TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.MapResourcesMonitorOnResourceChanged(System.Object,System.EventArgs)">
+            <summary>
+            Monitor map resources and refresh collections.
+            </summary>
+            <param name="sender"></param>
+            <param name="eventArgs"></param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.CanExecuteNavigateBackward(System.Object)">
+            <summary>
+            Handle can execute navigate backward.
+            </summary>
+            <param name="obj"></param>
+            <returns>True if backward navigation is possible, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.ExecuteNavigateBackward(System.Object)">
+            <summary>
+            Handle execute navigate backward.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.ExecuteNavigateForward(System.Object)">
+            <summary>
+            Handle execute navigate forward.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.CanExecuteNavigateForward(System.Object)">
+            <summary>
+            Handle can execute navigate forward.
+            </summary>
+            <param name="obj"></param>
+            <returns>True if forward navigation is possible, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.OnMapOpacityChanged">
+            <summary>
+            Forward MapOpacityChanged event handler.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.MapCatalogServiceClientOnServiceConnected(System.Object,System.EventArgs)">
+            <summary>
+            Map catalog service is connected. Raise ServiceConnected event.
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.HandlePreviewKeyDown">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.HandlePreviewKeyUp">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.MapLayer.MapLayer.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.Maria.MapLayer.MapLayer.LayerInitialized">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.Maria.MapLayer.MapLayer.MapOpacityChanged">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.Maria.MapLayer.MapLayer.ServiceConnected">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.MapCatalogServiceClient">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.MapResources">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.MapServiceManager">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.GeoContext">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.TileCacheManager">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.ClipMargins">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.ElevationProfileViewModel">
+            <summary>
+            Get elevation profile view model.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.IsInitialized">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.Visible">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.ExtendedMapLayer">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.MapOpacity">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.ActiveBookmark">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.Bookmarks">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.ActiveMapNames">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.ActiveMapName">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.CategorizedMapDataLayers">
+            <inheritdoc/>         
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.MapDataLayers">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.Tools">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.GeoLayerViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.EleveationProfilePositions">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.NavigateBackwardCommand">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.MapLayer.MapLayer.NavigateForwardCommand">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.DrawObjects.Internals.Base</name>
+    </assembly>
+    <members>
+        <member name="F:TPG.DrawObjects.Internals.Base.Geo.GeoUtils.MeanEarthRadius">
+            <summary>
+            Mean earth radius according to WGS84.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Geo.GeoUtils.GeoToXYZ(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculate cartesian earth-centered coordinates from spherical latitude/longitude
+            </summary>
+            This method calculates a cartesian point with coordinates in meters relative to the earth's center. The X axis
+            runs through the 0 meridian and the equator, the Y axis runs through 90 degrees east and the equator, 
+            and the Z axis run through the north pole.
+            <param name="lat">Input latitude (in degrees)</param>
+            <param name="lon">Input longitude (in degrees)</param>
+            <param name="alt">(Optional) Input altitude (in meters)</param>
+            <param name="radius">(Optional) Earth radius.</param>
+            <returns>A cartesian point in the coordinate system described above.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Geo.GeoUtils.XYZToGeo(TPG.DrawObjects.Internals.Base.MathUtils.Vector3,System.Double)">
+            <summary>
+            Calculate spherical latitude/longitude from earth-centered cartesian coordinates. 
+            </summary>
+            <param name="point">Input point in cartesian coordinates.</param>
+            <param name="radius">Sphere radius</param>
+            <returns>Spherical latitude/longitude/altitude</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Geo.GeoUtils.CalcGreatCircleDistance(TPG.GeoUnits.GeoPos,TPG.GeoUnits.GeoPos,System.Double)">
+            <summary>
+            Calculate the great circle distance between the two given geographic positions.
+            </summary>
+            <param name="ll1"></param>
+            <param name="ll2"></param>
+            <param name="radius"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Base.Guard">
+            <summary>
+             Utility class for checking pre/post-conditions
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.IsOfType``1(System.Object,System.String)">
+            <summary>
+             Throws an exception if object is not of a specified type
+            </summary>
+            <param name="instanceArgument">Instance to check</param>
+            <param name="argumentName">Name/description of instance argument</param>
+            <exception cref="T:System.ArgumentException">Thrown if instance is not of type specified in generic parameter</exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.AreEqual``1(``0,``0,System.String)">
+            <summary>
+             Throws an exception if object is not of a specified type
+            </summary>
+            <param name="expected"></param>
+            <param name="actual"></param>
+            <param name="paramName"></param>
+            <typeparam name="T"></typeparam>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.AreEqual(System.Double,System.Double,System.String,System.Int32)">
+            <summary>
+            </summary>
+            <param name="expected"></param>
+            <param name="actual"></param>
+            <param name="paramName"></param>
+            <param name="precision"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.AreNotEqual``1(``0,``0,System.String)">
+            <summary>
+             Throws an exception if two objects are equal
+            </summary>
+            <param name="notExpected"></param>
+            <param name="actual"></param>
+            <param name="paramName"></param>
+            <typeparam name="T"></typeparam>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.IsNotNull(System.Object,System.String)">
+            <summary>
+             Throws an exception if an object is null
+            </summary>
+            <param name="instanceArgument">Instance to check</param>
+            <param name="argumentName">Name/description of instance being checked</param>
+            <exception cref="T:System.ArgumentException">Thrown if instance is null</exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.IsNotGuidEmpty(System.Guid,System.String)">
+            <summary>
+             Throws an exception if guid is Guid.Empty
+            </summary>
+            <param name="guid">Guid to check</param>
+            <param name="paramName">Name/description of guid being tested</param>
+            <exception cref="T:System.ArgumentException">Thrown if guid is <see cref="F:System.Guid.Empty"/></exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.IsNotNullOrEmptyString(System.String,System.String)">
+            <summary>
+             Throws an exception if string is null or empty
+            </summary>
+            <param name="stringArgument">String to check</param>
+            <param name="argumentName">Name/description of string</param>
+            <exception cref="T:System.ArgumentException">Thrown if string is null or empty</exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.IsTrue(System.Boolean,System.String)">
+            <summary>
+             Throws an exception if condition is not true
+            </summary>
+            <param name="condition">Condition to check</param>
+            <param name="conditionName">Name/description of condition</param>
+            <exception cref="T:System.ArgumentException">Thrown if condition is false</exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.ShouldContainKey(System.Collections.IDictionary,System.Object,System.String,System.String)">
+            <summary>
+             Throws an exception if key is not present in dictionary
+            </summary>
+            <param name="dictionary">Dictionary</param>
+            <param name="key">Key</param>
+            <param name="dictionaryName">Name/description of dictionary</param>
+            <param name="keyName">Name/description of key</param>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">Thrown if key does not exist in dictionary.</exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.ShouldNotContainKey(System.Collections.IDictionary,System.Object,System.String,System.String)">
+             <summary>
+             Throws an exception if current thread and expected thread are not the same
+             </summary>
+            <param name="dictionary">Dictionary</param>
+            <param name="key">Key</param>
+            <param name="dictionaryName">Name/description of dictionary</param>
+            <param name="keyName">Name/description of key</param>
+            <exception cref="T:System.ArgumentException">Thrown is key exists in dictionary.</exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.ShouldContain``1(System.Collections.Generic.IEnumerable{``0},``0,System.String,System.String)">
+            <summary>
+             Throws an exception if item is not present in enumerable
+            </summary>
+             Note: This guard is quite CPU intensive. Do not use it in inner loops.
+            <param name="enumerable"></param>
+            <param name="item"></param>
+            <param name="listName"></param>
+            <param name="itemName"></param>
+            <typeparam name="T"></typeparam>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException"></exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.Guard.IsInSameThread(System.Threading.Thread,System.String)">
+            <summary>
+            Throws an exception if current thread and expected thread are not the same
+            </summary>
+            <param name="expectedThread">Thread to compare against</param>
+            <param name="expectedThreadName">Name of expected thread</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.CurveUtils.CalcBezierInterpolation(System.Windows.Point[],System.Double)">
+            <summary>
+            Calculate the Bezier coefficients for a curve interpolating the given points.
+            </summary>
+            <param name="points">Input points</param>
+            <param name="a"></param>
+            <returns>Tension parameter. Determines how tight the corners will be on the curve.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.GenericMathUtils.NormalizeAngleDegrees(System.Double)">
+            <summary>
+            Normalize the given angle to the interval 0 - 360.
+            </summary>
+            <param name="angle">Input angle</param>
+            <returns>Normalized angle.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.GenericMathUtils.DegreesToRadians(System.Double)">
+            <summary>
+            Convertes from degrees to radians.
+            </summary>
+            <param name="degrees">The degrees to convert</param>
+            <returns>degrees expressed in radians.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.LineMathUtils.CalculateAngleToXAxisNotNormalized(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Calculates the angle between vector defined by p0 and p1 and the positive x-axis.
+            </summary>
+            <param name="p0">Starting point of vector.</param>
+            <param name="p1">Ending ponit of vector.</param>
+            <returns>The angle in the range 0 - 360 degrees</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Base.MathUtils.MathConstants">
+            <summary>
+             Definition of math-related constants
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Internals.Base.MathUtils.MathConstants.RadiansToDegrees">
+            <summary>
+             Constant that can be used to convert from radians to degrees
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Internals.Base.MathUtils.MathConstants.DegreeToRadians">
+            <summary>
+            Constant that can be used to convert from degrees to radians
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Base.MathUtils.PointMathUtils">
+            <summary>
+             Simple point utilities
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.PointMathUtils.RotateAtPoint(System.Double,System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Rotaet point at point.
+            </summary>
+            <param name="angle">Angle in degrees.</param>
+            <param name="point">Point to rotate.</param>
+            <param name="rotationPoint">Rotation center.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.PointMathUtils.RotatePoint(System.Double,System.Windows.Point)">
+            <summary>
+             Rotates a point around origo
+            </summary>
+            <param name="rotationInRadians"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.PointMathUtils.RotatePoint(System.Double,System.Windows.Point,System.Windows.Point)">
+            <summary>
+             Rotates a point around a given center.
+            </summary>
+            <param name="rotationInRadians"></param>
+            <param name="rotationPoint"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.PointMathUtils.CreateScaledPerpendicularVector(System.Windows.Point,System.Windows.Point,System.Double)">
+            <summary>
+            Creates a perpendicular vector to the vector defined by the input points. The resulting vector is also scaled.
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.PointMathUtils.LineLineIntersection(System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Computes the intersection point of two infinite length lines defined each by two points.
+            Algorithm from wikipedia http://en.wikipedia.org/wiki/Line-line_intersection (10/05/11).
+            The algorithm does not handle the case where the two lines are parallel. Client code should
+            test for NaN or infinity in the returned point.
+            </summary>
+            <param name="Line0P0">First point on first line</param>
+            <param name="Line0P1">Second point on first line</param>
+            <param name="Line1P0">First point on second line</param>
+            <param name="Line1P1">Second line on second point</param>
+            <returns>The intersection point</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.PointMathUtils.CheckPointForNaNOrInfinity(System.Windows.Point)">
+            <summary>
+            Checks whether the point contains any NaN or infinity values.
+            </summary>
+            <param name="p">The point to check.</param>
+            <returns>Returns true if Point contains Nan or infinity values, false otherwise.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.PointMathUtils.CalcAveragePosition(System.Windows.Point[])">
+            <summary>
+            Calculate average position of an array of input points.
+            </summary>
+            <param name="points">Input points</param>
+            <returns>The average position of the input points.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.PointMathUtils.CalcRotatedBounds(System.Collections.Generic.IEnumerable{System.Windows.Point},System.Windows.Vector,System.Windows.Vector,System.Windows.Point@,System.Windows.Point@)">
+            <summary>
+            Calculate min/max points for a rotated point set.
+            </summary>
+            <param name="points">Input points</param>
+            <param name="vx">normalized X-axis of the rotated coordinate system.</param>
+            <param name="vy">normalized Y-axis of the rotated coordinate system.</param>
+            <param name="min">Output minimum X- and Y-values.</param>
+            <param name="max">Output maximum X- and Y-values.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.PointMathUtils.CalcRotatedBounds(System.Windows.Point,System.Windows.Vector,System.Windows.Vector,System.Windows.Point@,System.Windows.Point@)">
+            <summary>
+            Calc min/max coordinates for a point relative to a given coordinate system.
+            </summary>
+            <param name="p">Input point</param>
+            <param name="vx">normalized X-axis of the rotated coordinate system.</param>
+            <param name="vy">normalized Y-axis of the rotated coordinate system.</param>
+            <param name="min">Output minimum X- and Y-values.</param>
+            <param name="max">Output maximum X- and Y-values.</param>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Base.MathUtils.Vector3">
+            <summary>
+            3D vector type with double precision.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.Length">
+            <summary>
+             Calculate the length of the vector.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.Normalize">
+            <summary>
+            Normalize vector to unit length.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.Cross(TPG.DrawObjects.Internals.Base.MathUtils.Vector3)">
+            <summary>
+            Cross product
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.Dot(TPG.DrawObjects.Internals.Base.MathUtils.Vector3)">
+            <summary>
+            Dot product
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.Dot(TPG.DrawObjects.Internals.Base.MathUtils.Vector3,TPG.DrawObjects.Internals.Base.MathUtils.Vector3)">
+            <summary>
+            Dot product
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.op_Multiply(TPG.DrawObjects.Internals.Base.MathUtils.Vector3,System.Double)">
+            <summary>
+            Scalar multiplication
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.op_Addition(TPG.DrawObjects.Internals.Base.MathUtils.Vector3,TPG.DrawObjects.Internals.Base.MathUtils.Vector3)">
+            <summary>
+            Addition operator
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.op_Subtraction(TPG.DrawObjects.Internals.Base.MathUtils.Vector3,TPG.DrawObjects.Internals.Base.MathUtils.Vector3)">
+            <summary>
+            Subtraction operator
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.X">
+            <summary>
+            X Coordinate
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.Y">
+            <summary>
+            Y Coordinate
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Base.MathUtils.Vector3.Z">
+            <summary>
+            Z Coordinate
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.Symbols.Contracts</name>
+    </assembly>
+    <members>
+        <member name="M:TPG.GeoFramework.Symbols.Contracts.Providers.IRasterSymbolProvider.GetSymbol(System.String,System.Double,TPG.GeoFramework.Symbols.Contracts.Storage.SymbolColorScheme,System.Boolean,System.Nullable{System.Windows.Media.Color},System.Nullable{TPG.GeoFramework.Symbols.Contracts.Storage.SymbolColorOverride},System.Collections.Generic.SortedDictionary{System.String,System.String})">
+            <summary>
+            General symbol color scheme to use.
+            </summary>
+            <summary>
+            Gets the raster symbol that corresponds to the given parameters.
+            </summary>
+            <param name="symbolCode">The unique code of the symbol.</param>
+            <param name="scale">Scale to use when generating symbol.</param>
+            <param name="symbolColorScheme">Color scheme to use.</param>
+            <param name="dropShadow">Indicates whether the symbol should use drop shadow effect.</param>
+            <param name="dropShadowColor">The color to use for drop shadows.</param>
+            <param name="symbolColorOverride"></param>
+            <param name="customParameters">Parameters used by specific renderers, typically extracted from the style of the element to render</param>
+            <returns>The raster symbol-</returns>
+        </member>
+        <member name="P:TPG.GeoFramework.Symbols.Contracts.Providers.IRasterSymbolProvider.BaseSymbolScaling">
+            <summary>
+            The base symbol scale factor to use.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Symbols.Contracts.Storage.RasterSymbol.Data">
+            <summary>
+            The data representing the symbol.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Symbols.Contracts.Storage.RasterSymbol.CenterX">
+            <summary>
+            Relative placement of symbol center/hotspot [0-1] relative to top left
+            [0.5, 0.5] places center in ver/hor center. [0.5, 0.0] places center at the middle top.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Symbols.Contracts.Storage.RasterSymbol.CenterY">
+            <summary>
+            Relative placement of symbol center/hotspot [0-1] relative to top left
+            [0.5, 0.5] places center in ver/hor center. [0.5, 0.0] places center at the middle top.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Symbols.Contracts.Storage.SymbolColorScheme">
+            <summary>
+            Symbol color scheme
+            </summary>
+        </member>
+    </members>
+</doc>

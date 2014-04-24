@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.DrawObjects.ComponentStarter</name>
+    </assembly>
+    <members>
+        <member name="M:TPG.DrawObjects.ComponentStarter.DrawObjectModuleStarter.InitializeModule">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

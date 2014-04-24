@@ -1,0 +1,727 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.Map.Rendering</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.GeoFramework.Map.Rendering.IMapRenderLayer">
+            <summary>
+            Defines interface for all renderable map layers.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.IMapRenderLayer.UpdateViewport(TPG.GeoFramework.Viewports.Viewport)">
+            <summary>
+            Updates the screen viewport of the layer.
+            </summary>
+            <param name="screenViewport"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.IMapRenderLayer.InvalidateMap">
+            <summary>
+            Invalidates the map.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.IMapRenderLayer.Update">
+            <summary>
+            Causes layer to update all its data.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.IMapRenderLayer.Clear">
+            <summary>
+            Clear image data, causing a redraw when possible
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.IMapRenderLayer.LayerData">
+            <summary>
+            Layer data for the current renerable map.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.IMapRenderLayer.ScreenViewport">
+            <summary>
+            Viewport that represent the complete image to be displayed on the screen.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.IMapRenderLayer.Refresh">
+            <summary>
+            Refresh type for layer.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.IMapRenderLayer.MapLayerId">
+            <summary>
+            Layer identifyer
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.IMapRenderLayer.ScreenViewportChanged">
+            <summary>
+            Indicates if the screen viewport has been changed.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.IMapRenderLayerFactory">
+            <summary>
+            Factory for creating render layers.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.IMapRenderLayerFactory.New(TPG.GeoFramework.Map.Rendering.MapRenderEngineBase,System.String,TPG.GeoFramework.Map.Core.Contracts.IRasterLayerData)">
+            <summary>
+            Creates a new IMapRenderLayer based on the given parameters.
+            </summary>
+            <param name="engine">The render engine to use for this layer.</param>
+            <param name="layerId">The id to use for this layer.</param>
+            <param name="rasterLayerData">The data to base this layer on.</param>
+            <returns>The new layer</returns>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.SlimDx.ISlimDxMapLayer">
+            <summary>
+            Defines the interface for all slim dx based map layers
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.ISlimDxMapLayer.Render(SlimDX.Matrix,SlimDX.Direct3D9.Texture,SlimDX.Vector2)">
+            <summary>
+            Renders the map layer.
+            </summary>
+            <param name="worldViewProjectionMatrix">The current world projection matrix.</param>
+            <param name="srcColor">Source color texture to use as input.</param>
+            <param name="srcSize">the size of the source color texture</param>
+            <returns>True if altered render buffer.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.ISlimDxMapLayer.OnReset">
+            <summary>
+            On device reset.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.ISlimDxMapLayer.Engine">
+            <summary>
+            The SlimDx engine in use.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.ITileCacheDataUpdater">
+            <summary>
+            Defines interface for a tile cache data updater utility.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.ITileCacheDataUpdater.ProcessUpdatesTileCache(TPG.GeoFramework.Map.Core.Contracts.IMapServiceRasterLayerData,TPG.GeoFramework.Map.Core.Contracts.IMapTileCache,TPG.GeoFramework.Contracts.IRasterProjector,System.Double,System.Boolean,System.Double)">
+            <summary>
+            Gets updates for the given layer.
+            </summary>
+            <param name="layerData">The layer data associated with the tile cache update.</param>
+            <param name="tileCache">The tile cache to update.</param>
+            <param name="layerViewport">The viewport of the data to update.</param>
+            <param name="pixelScale"></param>
+            <param name="allowTileWraparound"></param>
+            <param name="targetResolution"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.ITileCacheDataUpdater.CurrentTileIndex">
+            <summary>
+            The latest tiles fetched to tile cache.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.ITransformGrid.Update(TPG.GeoFramework.Contracts.IRasterProjector)">
+            <summary>
+            Sets new parameters to update with.
+            </summary>
+            <param name="destRasterProjector">The new destination raster projector.</param>
+        </member>
+        <member name="E:TPG.GeoFramework.Map.Rendering.MapRenderEngineWrapper.CurrentRendererFailedEvent">
+            <summary>
+            Event fired when the current renderer has encountered an error it cannot recover from.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.Shaders">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.Shaders.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.Shaders.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.Shaders.alpha_blend">
+             <summary>
+               Looks up a localized string similar to float4x4 view_proj_matrix: register(c0);
+            struct VS_OUTPUT {
+               float4 Pos: POSITION;
+               float2 texCoord: TEXCOORD0;
+            };
+            
+            VS_OUTPUT main(float4 Pos: POSITION, float2 texCoord: TEXCOORD0){
+               VS_OUTPUT Out;
+            
+               Out.Pos = mul(view_proj_matrix, Pos);
+               Out.texCoord = texCoord;
+            
+               return Out;
+            }.
+             </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.Shaders.BitmapEffects">
+             <summary>
+               Looks up a localized string similar to float4x4 worldViewProjection : WorldViewProjection;
+            texture inputTexture;
+            float alpha;
+            
+            struct VS_INPUT
+            {
+            	float4 position : POSITION;
+            	float2 texCoord : TEXCOORD0;
+            };
+            
+            struct VS_OUTPUT
+            {
+            	float4 position : POSITION;
+            	float2 texCoord : TEXCOORD0;
+            };
+            
+            struct PS_OUTPUT
+            {
+            	float4 color : COLOR;
+            };
+            
+            sampler linear_sampler = sampler_state
+            {
+            	Texture = (inputTexture);
+            	MipFilter = LINEAR;
+            	MinFilter = LINEAR;
+            	Magfilter = LINEAR;
+            	ADDRESSU = CLAMP;
+            	ADDRESSV = CLAMP;
+            };
+            
+            VS_OUTPUT b [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:TPG.GeoFramework.Map.Rendering.Shaders.dx9_hlsl_fx_simple" -->
+        <!-- Badly formed XML comment ignored for member "P:TPG.GeoFramework.Map.Rendering.Shaders.elevshading" -->
+        <member name="P:TPG.GeoFramework.Map.Rendering.Shaders.MapEffects">
+             <summary>
+               Looks up a localized string similar to float4x4 worldViewProjection : WorldViewProjection;
+            texture inputTexture;
+            bool grayScale = false;
+            float brightness;
+            float alpha;
+            float gamma;
+            float contrast;
+            
+            struct VS_INPUT
+            {
+            	float4 position : POSITION;
+            	float2 texCoord : TEXCOORD0;
+            };
+            
+            struct VS_OUTPUT
+            {
+            	float4 position : POSITION;
+            	float2 texCoord : TEXCOORD0;
+            };
+            
+            struct PS_OUTPUT
+            {
+            	float4 color : COLOR;
+            };
+            
+            sampler linear_sampler = sampler_state
+            {
+            	Texture = (inputTexture);
+            	MipFilter = LINEAR;
+            	MinFilter = LINEAR;
+            	Mag [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:TPG.GeoFramework.Map.Rendering.Shaders.ScreenSpace_Effects" -->
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.Update">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.UpdateViewport(TPG.GeoFramework.Viewports.Viewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.InvalidateMap">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.Render(SlimDX.Matrix,SlimDX.Direct3D9.Texture,SlimDX.Vector2)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.OnReset">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.LayerData">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.ScreenViewport">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.Refresh">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.MapLayerId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.ScreenViewportChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxBitmapLayer.Engine">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams">
+            <summary>
+            Container for parameters to be set on slim dx effects.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.#ctor(System.String,System.String)">
+            <summary>
+            Initializes new container for the effect/technique. 
+            </summary>
+            <param name="effectId">Id of effect parameters are valid for.</param>
+            <param name="techniqueId">Id of technique parameters are valid for.</param>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.EffectId">
+            <summary>
+            Id of effect parameters are valid for.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.TechniqueId">
+            <summary>
+            Id of technique parameters are valid for.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.Textures">
+            <summary>
+            Contains texture parameter name and texture value.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.HasTextures">
+            <summary>
+            Returns true if any texture parameters are set.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.Matrices">
+            <summary>
+            Contains matrix parameter name and matrix value.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.HasMatrices">
+            <summary>
+            Returns true if any matrix parameters are set.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.Colors">
+            <summary>
+            Contains color parameter name and color value.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.HasColors">
+            <summary>
+            Returns true if any color parameters are set.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.Vectors3">
+            <summary>
+            Contains 3D vector parameter name and 3D vector value.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.HasVectors3">
+            <summary>
+            Returns true if any 3D vector parameters are set.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.Vectors4">
+            <summary>
+            Contains 4D vector parameter name and 4D vector value.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.HasVectors4">
+            <summary>
+            Returns true if any 4D vector parameters are set.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.Vectors2">
+            <summary>
+            Contains 2D vector parameter name and 2D vector value.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.HasVectors2">
+            <summary>
+            Returns true if any 2D vector parameters are set.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.Floats">
+            <summary>
+            Contains float parameter name and float value.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.HasFloats">
+            <summary>
+            Returns true if any float parameters are set.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.Bools">
+            <summary>
+            Contains bool parameter name and bool value.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxEffectParams.HasBools">
+            <summary>
+            Returns true if any bool parameters are set.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxGeometryBase">
+            <summary>
+            Abstract class for SlimDx renderable geometry.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxGeometryBase.InitGeometry">
+            <summary>
+            Initializes the actual geometry primitives.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxGeometryBase.PreRender(SlimDX.Direct3D9.Device)">
+            <summary>
+            Ensures that the geometry is ready for rendering.
+            </summary>
+            <param name="dev"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxGeometryBase.RenderGeometry(SlimDX.Direct3D9.Device)">
+            <summary>
+            Renders the geometry to the given device.
+            </summary>
+            <param name="dev">The device to perform rendering on.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxGeometryBase.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationShadingLayer">
+            <summary>
+            Renders the elevation shading layer.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationShadingLayer.#ctor(TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine,TPG.GeoFramework.Map.Core.Contracts.ITileCacheManager,System.String,TPG.GeoFramework.Map.Core.Contracts.IMapServiceRasterLayerData,TPG.GeoFramework.Map.Rendering.ITileCacheDataUpdater)">
+            <summary>
+            Initializes a new slim dx map layer.
+            </summary>
+            <param name="engine">The corresponding engine.</param>
+            <param name="tileCacheManager">Tile cache manager to use.</param>
+            <param name="mapLayerId">The map layer id.</param>
+            <param name="rasterLayerData">The data that defines the layer.</param>
+            <param name="tileCacheDataUpdater"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationShadingLayer.Update">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationShadingLayer.Render(SlimDX.Matrix,SlimDX.Direct3D9.Texture,SlimDX.Vector2)">
+            <inhertidoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationShadingLayer.OnReset">
+            <inhertidoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationShadingLayer.UpdateViewport(TPG.GeoFramework.Viewports.Viewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationShadingLayer.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationShadingLayer.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine">
+            <summary>
+            Render engine using slim dx.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine.#ctor(TPG.GeoFramework.Map.Core.Contracts.IMapResources,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoFramework.Map.Rendering.IMapRenderLayerFactory)">
+            <summary>
+            Initializes the render engine with the given parameters.
+            </summary>
+            <param name="mapResources">Map resources.</param>
+            <param name="geoContext">The geo context.</param>
+            <param name="mapRenderLayerFactory">The factory used to create new layers.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine.OnDeviceDestroyed(System.Object,System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine.OnDeviceLost(System.Object,System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine.OnDeviceReset(System.Object,System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine.OnPreRenderFrame(System.Object,System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine.OnRenderFrame(System.Object,System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine.Effects">
+            <summary>
+            Effects available in this render engine.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine.Device">
+            <summary>
+            The device to use for this render engine.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationAnalysisLayer.Update">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationAnalysisLayer.UpdateViewport(TPG.GeoFramework.Viewports.Viewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationAnalysisLayer.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationAnalysisLayer.Render(SlimDX.Matrix,SlimDX.Direct3D9.Texture,SlimDX.Vector2)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationAnalysisLayer.OnReset">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxElevationAnalysisLayer.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer">
+            <summary>
+            Renders map effects by modifying total result of all previous layers. 
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.#ctor(TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine,System.String,TPG.GeoFramework.Map.Core.Contracts.IRasterLayerData)">
+            <summary>
+            Initializes a new slim dx map layer.
+            </summary>
+            <param name="engine">The corresponding engine.</param>
+            <param name="mapLayerId">The map layer id.</param>
+            <param name="rasterLayerData">The data that defines the layer.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.Update">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.UpdateViewport(TPG.GeoFramework.Viewports.Viewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.InvalidateMap">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.Render(SlimDX.Matrix,SlimDX.Direct3D9.Texture,SlimDX.Vector2)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.OnReset">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.LayerData">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.ScreenViewport">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.Refresh">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.MapLayerId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.ScreenViewportChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsModLayer.Engine">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsUtils">
+            <summary>
+            Utilities for map effects.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapEffectsUtils.GetSlimDxMapEffectParams(TPG.GeoFramework.Map.Core.Contracts.IRasterLayerData,SlimDX.Direct3D9.Texture,SlimDX.Matrix)">
+            <summary>
+            Creates the effect params for map effects.
+            </summary>
+            <param name="rasterLayerData">The data to use.</param>
+            <param name="primaryTexture">Texture that is used for rendering.</param>
+            <param name="worldViewProjectionMatrix">The world view projection matrix.</param>
+            <returns>The shader parameters.</returns>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapLayer">
+            <summary>
+            Renders a map layer using slim dx.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapLayer.#ctor(TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine,TPG.GeoFramework.Map.Core.Contracts.ITileCacheManager,System.String,TPG.GeoFramework.Map.Core.Contracts.IMapServiceRasterLayerData,TPG.GeoFramework.Map.Rendering.ITileCacheDataUpdater)">
+            <summary>
+            Initializes a new slim dx map layer.
+            </summary>
+            <param name="engine">The corresponding engine.</param>
+            <param name="tileCacheManager">Tile cache manager to use.</param>
+            <param name="mapLayerId">Id of the map layer.</param>
+            <param name="rasterLayerData">The data that defines the layer.</param>
+            <param name="tileCacheDataUpdater"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapLayer.Update">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapLayer.Render(SlimDX.Matrix,SlimDX.Direct3D9.Texture,SlimDX.Vector2)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapLayer.OnReset">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapLayer.UpdateViewport(TPG.GeoFramework.Viewports.Viewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapLayer.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapLayer.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapRenderLayerFactory">
+            <summary>
+            Creates a new SlimDx based MapRenderLayer.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxMapRenderLayerFactory.New(TPG.GeoFramework.Map.Rendering.MapRenderEngineBase,System.String,TPG.GeoFramework.Map.Core.Contracts.IRasterLayerData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxQuad.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxTransformGrid">
+            <summary>
+            Transformgrid based on viewport.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxTransformGrid.#ctor(TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayerEngine,TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxLayer,TPG.GeoFramework.Contracts.IRasterProjector,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="engine">The layer engine</param>
+            <param name="srcLayer">The source layer to use-</param>
+            <param name="destRasterProjector">The destination viewport to tranform to.</param>
+            <param name="gridSize">The desired grid size.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxTransformGrid.Update(TPG.GeoFramework.Contracts.IRasterProjector)">
+            <summary>
+            Sets new parameters to update with.
+            </summary>
+            <param name="destRasterProjector">The new destination raster projector.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxTransformGrid.InitGeometry">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxTransformGrid.GridSize">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.SlimDx.SlimDxTransformGrid.RasterProjector">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.TileCacheDataUpdater.ProcessUpdatesTileCache(TPG.GeoFramework.Map.Core.Contracts.IMapServiceRasterLayerData,TPG.GeoFramework.Map.Core.Contracts.IMapTileCache,TPG.GeoFramework.Contracts.IRasterProjector,System.Double,System.Boolean,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.TileCacheDataUpdater.CurrentTileIndex">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.LayerEngine.WPFFX.ElevShadeWPF">
+            <summary>A simple color blending shader for WPF.</summary>
+        </member>
+        <member name="F:TPG.GeoFramework.LayerEngine.WPFFX.ElevShadeWPF.BlendColorProperty">
+            <summary>The brightness offset.</summary>
+        </member>
+        <member name="F:TPG.GeoFramework.LayerEngine.WPFFX.ElevShadeWPF.InputProperty">
+            <summary>The implicit input sampler passed into the pixel shader by WPF.</summary>
+        </member>
+        <member name="P:TPG.GeoFramework.LayerEngine.WPFFX.ElevShadeWPF.BlendColor">
+            <summary>The brightness offset.</summary>
+        </member>
+        <member name="P:TPG.GeoFramework.LayerEngine.WPFFX.ElevShadeWPF.Input">
+            <summary>The implicit input sampler passed into the pixel shader by WPF.</summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.Wpf.WpfLayerEngine">
+            <summary>
+            Render engine for Wpf rendering.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.Wpf.WpfLayerEngine.#ctor(TPG.GeoFramework.Map.Core.Contracts.IMapResources,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoFramework.Map.Rendering.IMapRenderLayerFactory)">
+            <summary>
+            Initializes the Wpf render engine.
+            </summary>
+            <param name="mapResources">The map resources available.</param>
+            <param name="geoContext">The current geo context.</param>
+            <param name="mapRenderLayerFactory">The factory used to create new layers.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.Wpf.WpfLayerEngine.OnLoaded">
+            <summary>
+            Control loaded event.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.Wpf.WpfLayerEngine.OnRender">
+            <summary>
+            Main render loop.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.Wpf.WpfElevationAnalysisLayer">
+            <summary>
+            Placeholder class to gracefully handle LoS layer until a WPF implementation is made.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapLayer.Update">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapLayer.UpdateViewport(TPG.GeoFramework.Viewports.Viewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapLayer.InvalidateMap">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapLayer.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapLayer.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapLayer.LayerData">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapLayer.ScreenViewport">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapLayer.Refresh">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapLayer.MapLayerId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapLayer.ScreenViewportChanged">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapRenderLayerFactory">
+            <summary>
+            Creates a new Wpf based MapRenderLayer.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Map.Rendering.Wpf.WpfMapRenderLayerFactory.New(TPG.GeoFramework.Map.Rendering.MapRenderEngineBase,System.String,TPG.GeoFramework.Map.Core.Contracts.IRasterLayerData)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Map.Rendering.Wpf.WpfTransformGrid.RasterProjector">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

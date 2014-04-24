@@ -1,0 +1,476 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.MapLayer</name>
+    </assembly>
+    <members>
+        <member name="F:TPG.GeoFramework.MapLayer.ElevationProfile.AdornerCursorCoordinateDrawer.locked">
+            <summary>
+            Flag indicating if the coordinates are locked to the closest point or or not.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapLayer.ElevationProfile.AdornerCursorCoordinateDrawer.lockPoint">
+            <summary>
+            The transformed coordinate of the lock point
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapLayer.ElevationProfile.AdornerCursorCoordinateDrawer.mousePoint">
+            <summary>
+            The cursor position. Used for calculating the relative position of the text.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapLayer.ElevationProfile.AdornerCursorCoordinateDrawer.elementTransform">
+            <summary>
+            The transform of the element being adorned
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.AdornerCursorCoordinateDrawer.#ctor(System.Windows.UIElement,System.Windows.Media.MatrixTransform)">
+            <summary>
+            Constructor. Initializes class fields.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.AdornerCursorCoordinateDrawer.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draws a mouse cursor on the adorened element
+            </summary>
+            <param name="drawingContext"></param>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.AdornerCursorCoordinateDrawer.Locked">
+            <summary>
+            Gets/Sets if the coordinates are locked to the LockPoint or not
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.AdornerCursorCoordinateDrawer.LockPoint">
+            <summary>
+            Gets/Sets the coordinate for the cursor to show when it is "Locked"
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.AdornerCursorCoordinateDrawer.MousePoint">
+            <summary>
+            Gets/Sets the current mouse position
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.AdornerCursorCoordinateDrawer.FlipYAxis">
+            <summary>
+            Gets/Sets whether to flip the Y axis or not
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointArgs">
+            <summary>
+            Event args used in the ClosestPointPicker class to indicate
+            when the closest point has changed.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointArgs.locked">
+            <summary>
+            Whether the closest point in within the test distance or not
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointArgs.closestPoint">
+            <summary>
+            The closest point
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointArgs.#ctor(System.Boolean,System.Windows.Point)">
+            <summary>
+            Constructor. Initializes all the fields.
+            </summary>
+            <param name="locked"></param>
+            <param name="closestPoint"></param>
+        </member>
+        <member name="T:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker">
+            <summary>
+            This class picks the closest point to the screen point passed in. Typically
+            used to find the closest scene point to the mouse pointer.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.points">
+            <summary>
+            A list of points to check against
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.minimumDistance">
+            <summary>
+            The minimum distance the cursor has to be away from the closest
+            point to be locked
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.closestPoint">
+            <summary>
+            The closest point to the cursor
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.locked">
+            <summary>
+            Flag indicating that the closest point is within the minimum range
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.#ctor(System.Windows.Size)" -->
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.MouseMoved(System.Windows.Point,System.Windows.Media.GeneralTransform)">
+            <summary>
+            Handles when the mouse moves
+            </summary>
+            <param name="mousePos"></param>
+            <param name="screenToSceneTransform"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.GetEllipseScaledNearestPoint(System.Collections.Generic.IEnumerable{System.Windows.Point},System.Windows.Point,System.Windows.Vector,System.Double@)">
+            <summary>
+            Gets the nearest point but allows for normalising the x and y
+            by different distances, which is required if you scale the x
+            and y seperately, but want to get the visually closest point.
+            </summary>
+            <param name="points"></param>
+            <param name="point"></param>
+            <param name="ratio"></param>
+            <param name="nearestDistanceSquared"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.OnClosestPointChanged">
+            <summary>
+            Fires the ClosestPointChanged event
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.Locked">
+            <summary>
+            Gets if the current point is close enough to any of the other points
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.ClosestPoint">
+            <summary>
+            Gets the closest point
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.MinimumDistance">
+            <summary>
+            Gets/Sets the minimum distance checked for
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.Points">
+            <summary>
+            Gets/Sets the list of points checked against
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointPicker.ClosestPointChanged">
+            <summary>
+            Event that gets fired when the closest point changes and is within
+            minimum range
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl">
+            <summary>
+            Interaction logic for ElevationProfileControl.xaml
+            </summary>
+            <summary>
+            ElevationProfileControl
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.AttachEventsToCanvas(System.Windows.UIElement)">
+            <summary>
+            Attaches mouse handling events to the canvas passed in. The canvas passed in should be the top level canvas.
+            </summary>
+            <param name="eventCanvas"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.ResizePlot">
+            <summary>
+            Resize the plot by changing the transform and drawing the grid lines
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.CalculateGeometry">
+            <summary>
+            Does a one off calculation of the geometry to be rendered
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.SetChartTransform(System.Double,System.Double)">
+            <summary>
+            Set the chart transform
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.ClosestValueInListTimesBaseToInteger(System.Double,System.Double[],System.Double)">
+            <summary>
+            Calculates the closest possible value to the optimalValue passed
+            in, that can be obtained by multiplying one of the numbers in the
+            list by the baseValue to the power of any integer.
+            </summary>
+            <param name="optimalValue">The number to get closest to</param>
+            <param name="numbers">List of numbers to mulitply by</param>
+            <param name="baseValue">The base value</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.Closest_1_5_Pow10(System.Double)">
+            <summary>
+            Calculates the as near to the input as possible, a power of 10 times 1,2, or 5 
+            </summary>
+            <param name="optimalValue"> The value to get closest to</param>
+            <returns>The nearest value to the input value</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.MeasureOverride(System.Windows.Size)">
+            <summary>
+            Add grid lines here
+            </summary>
+            <param name="constraint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.clippedPlotCanvas_IsVisibleChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Adds an adorner when the plot canvas is visible
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.closestPointPicker_ClosestPointChanged(System.Object,TPG.GeoFramework.MapLayer.ElevationProfile.ClosestPointArgs)">
+            <summary>
+            Handles when the closest point to the mouse cursor changes. Hides
+            or shows the closest point, and changes the mouse cursor accordingly.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.clippedPlotCanvas_MouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handles when the mouse leaves the plot. Removes the nearest point indicator.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.clippedPlotCanvas_MouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handles when the mouse enters the plot. Puts back the nearest point indicator.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.Title">
+            <summary>
+            Profile title.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.Points">
+            <summary>
+            This property contains the actual points to be plotted in the elevation profile.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileControl.HighlightDistance">
+            <summary>
+            This property controls the highlighted point along the elevation profile. It can be used
+            to illustrate a location along a route or distance tool for example. This property is
+            by updated by mousing over the elevation profile.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.IElevationProfileViewModel.UpdatePoints(System.Collections.Generic.IList{TPG.GeoUnits.GeoPos})">
+            <summary>
+            Input geo points to calculate elevations for. These points are asynchronously converted to distance/elevation 
+            points as long as  the Active flag is set to true.
+            </summary>
+            <param name="positions"></param>
+        </member>
+        <member name="E:TPG.GeoFramework.MapLayer.ElevationProfile.IElevationProfileViewModel.ElevationProfileChanged">
+            <summary>
+            Elevation profile changed.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.IElevationProfileViewModel.Points">
+            <summary>
+            Currently calculated distance/elevation points. These points are given as distance in the X coordinate 
+            and elevation in the Y coordinate.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.IElevationProfileViewModel.Active">
+            <summary>
+            Flag indicating that the profile view is active and we should automatically recalculate elevations 
+            upon input of geopoints.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.IElevationProfileViewModel.NumElevations">
+            <summary>
+            The total number of elevation calculations to perform on the input points. This number should be based on the 
+            resolution of the output plotting window. The default value is 500.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileViewModel.CalcPoints(System.Collections.Generic.IList{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileViewModel.UpdatePoints(System.Collections.Generic.IList{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileViewModel.ElevationProfileChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileViewModel.Points">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileViewModel.Active">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.ElevationProfile.ElevationProfileViewModel.NumElevations">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.MapLayer.MapLayerView">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerView.#ctor(TPG.GeoFramework.Map.Core.Contracts.IMapServiceManager,TPG.GeoFramework.Map.Core.Contracts.ITileCacheManager)">
+            <summary>
+            Initializes the map layer view.
+            </summary>
+            <param name="msm">The map service manager.</param>
+            <param name="tileCacheManager">The tile cache manager.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerView.HitTestCore(System.Windows.Media.PointHitTestParameters)">
+            <summary>
+            Map layer view (bottom layer) should always return hit test true (if no upper layers already have done so), or no mouse events will fire in the geo control
+            </summary>
+            <param name="hitTestParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerView.Generate">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerView.IsRequesteRenderModeUsed">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerView.ForceRegenerate">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerView.PreRenderOneFrame(System.Windows.Controls.Canvas,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerView.PostRenderOneFrame">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerView.ActualRenderMode">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.MapLayer.MapLayerView.ActualRenderModeChangedEvent">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerView.RequestedRenderMode">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerViewModel.ApplyBookmark(TPG.GeoFramework.MapServiceInterfaces.Bookmark)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerViewModel.ApplyFeatureQueryConditions(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerViewModel.ForceRegenerate">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerViewModel.HandleInputEvent(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerViewModel.Update">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerViewModel.OnDispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerViewModel.IsDirty">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerViewModel.PreExport">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerViewModel.Export(System.Windows.Controls.Canvas,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.MapLayerViewModel.PostExport">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.MapResources">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.MapController">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.Layers">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.Elevation">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.Opacity">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.BackgroundColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.LabelBackgroundBrush">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.LabelForegroundBrush">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.MaxTileCacheSize">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.ActualRenderMode">
+            <inhertidoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.RequestedRenderMode">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.MapRenderSimple">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.DrawVectorGeometries">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.ShowVectorCoverage">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.FetchVectorLabels">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.VectorGroups">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.MapServices">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.AllowedRasterCompressionValues">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.RasterCompression">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.View">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.MapFeatureInfo">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.MapLayerViewModel.MapFeatureQuerySettings">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.MapLayer.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.Tools.MapFeatureQueryTool.MapFeatureQueryTool.ToolName">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.Tools.MapFeatureQueryTool.MapFeatureQueryTool.IsActive">
+            <summary>
+            Get or set if tool is activated (this is not Active as in the tool is selected).
+            </summary>
+        </member>
+    </members>
+</doc>

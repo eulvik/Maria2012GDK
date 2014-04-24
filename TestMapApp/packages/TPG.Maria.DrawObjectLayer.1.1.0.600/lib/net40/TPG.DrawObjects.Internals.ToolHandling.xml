@@ -1,0 +1,2068 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.DrawObjects.Internals.ToolHandling</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.DrawObjectToolDecorationFactory">
+            <summary>
+            Provider for different types of Draw Object tool decoration types.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.DrawObjectToolDecorationFactory.AddDecorationType(System.String,System.Func{TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectToolDecoration})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.DrawObjectToolDecorationFactory.CreateDecoration(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.DrawObjectToolHandler">
+            <summary>
+            Collection of manipulation tools for a DrawObject and a certain view type.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Internals.ToolHandling.DrawObjectToolHandler._tools">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.DrawObjectToolHandler.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.DrawObjectToolHandler.ViewTypeId">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.DrawObjectToolHandler.Tools">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.IocInstaller.Install(Castle.Windsor.IWindsorContainer,Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore)">
+            <inheritdoc />
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolXmlParserProvider">
+            <summary>
+            Provider for DrawObject Tool XML parsers.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolXmlParserProvider.#ctor(TPG.DrawObjects.Internals.Contracts.ToolHandling.Serializers.IToolBaseXmlParser,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectToolFactory)">
+            <summary>
+            Default constructor with dependencies.
+            </summary>
+            <param name="baseXmlParser">Parser for base parameters.</param>
+            <param name="drawObjectToolFactory"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolXmlParserProvider.AddParser(System.String,TPG.DrawObjects.Internals.Contracts.ToolHandling.Serializers.IToolXmlParser)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolXmlParserProvider.GetParser(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolXmlParserProvider.ParserCount">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.ArcDecoratorUtils.DrawArcBetweenVectors(System.Windows.Point,System.Windows.Vector,System.Windows.Vector,TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle,System.Boolean,System.Double)">
+            <summary>
+            Draws an arc between two vectors. Uses the shortest vector to determine location of the arc.
+            </summary>
+            <param name="midPoint">The starting point of both vectors.</param>
+            <param name="v0">First vector</param>
+            <param name="v1">Second vector</param>
+            <param name="renderer">The renderer to do the actual drawing.</param>
+            <param name="dashStyle">Line style of the arc.</param>
+            <param name="color">Color of the arc.</param>
+            <param name="lineThickness">Line thickness of the arc.</param>
+            <param name="positiveAngleOnly">Draws the arc with only positive angles ie. arch is drawn counter clock wise. If false the shortest possible arc is drawn.</param>
+            <param name="locationOnVector">If given the intersection between the arc and the vector is calculated using this as a ration of the shortest vector's length. Has to be
+            in the range 0.0 and 1.0</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.ArcDecoratorUtils.DrawArcBetweenEquiLengthVectors(System.Windows.Point,System.Windows.Vector,System.Windows.Vector,TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle,System.Boolean,System.Double)">
+            <summary>
+            Draws an arc between two vectors of equal length
+            </summary>
+            <param name="midPoint">The starting point of both vectors.</param>
+            <param name="v0">First vector</param>
+            <param name="v1">Second vector</param>
+            <param name="renderer">The renderer to do the actual drawing.</param>
+            <param name="positiveAngleOnly">Draws the arc with only positive angles ie. arch is drawn counter clock wise. If false the shortest possible arc is drawn.</param>
+            <param name="locationOnVector">If given the intersection between the arc and the vector is calculated using this as a ratio the vector length. Has to be
+            in the range 0.0 and 1.0</param>
+            <param name="dashStyle">Line style of the arc.</param>
+            <param name="color">Color of the arc.</param>
+            <param name="lineThickness">Line thickness of the arc.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleToolUtils.GetAllowNegativeScale(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Check if negative scale is allowed. Default is true.
+            </summary>
+            <param name="parameters"> </param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleToolUtils.GetMinimumScale(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Return minimum absolute scale in percent. Default is 1 percent.
+            </summary>
+            <param name="parameters"> </param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusCommand.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusCommand.Undo">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaCircleRadius.FanAreaCircleRadiusToolDecoration.DecorationTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationCommand.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationCommand.Undo">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRangeAlongOrientation.FanAreaRangeAlongOrientationToolDecoration.DecorationTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipCommand.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipCommand.Undo">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorAngleFlip.FanAreaSectorAngleFlipTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeCommand.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeCommand.Undo">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeTool.MaxSectorAngle">
+            <summary>
+            Get the max sector angle that is allowed
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeToolDecoration.#ctor(TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager)">
+            <summary>
+            Constructs the CorridorAreaToolGdiDecoration with a style manager.
+            </summary>
+            <param name="styleManager">The style manager</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeToolDecoration.DecorationTypeId">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSectorRange.FanAreaSectorRangeToolState.HasChanged">
+            <summary>
+            Get or set if object is changed by tool.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorCommand.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorCommand.Undo">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorToolDecoration.#ctor(TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager)">
+            <summary>
+            Constructs the CorridorAreaToolGdiDecoration with a style manager.
+            </summary>
+            <param name="styleManager">The style manager</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorToolDecoration.DecorationTypeId">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaSector.FanAreaSectorToolState.HasChanged">
+            <summary>
+            Get or set if object is changed by tool.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectTransform">
+            <summary>
+            Transformations of DrawObjects
+            </summary>
+            This class handles transformations (move, rotate, scale) of complete draw objects.
+            It works by creating primitive transforms and applying them on each subprimitive.
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectTransform.#ctor(TPG.DrawObjects.Internals.Contracts.Views.Transforms.IPrimitiveTransformFactory)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectTransform.Rotate(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.GeoUnits.GeoPos,System.Double,TPG.GeoFramework.Contracts.IViewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectTransform.Scale(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Double,System.Double,System.Windows.Point,System.Double,TPG.GeoFramework.Contracts.IViewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectTransform.Move(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Windows.Vector,TPG.GeoFramework.Contracts.IViewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleTool.FieldToModify">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleToolDecoration.DecorationTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleToolState.OriginalData">
+            <summary>
+            The IDrawObjectData that was present when the IToolState was initiated.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleToolState.HitIncrementGraphics">
+            <summary>
+            Flag indicating that the last mouse event hit the increment graphics.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.GeneralScaleToolState.HitDecrementGraphics">
+            <summary>
+            Flag indicating that the last mouse event hit the decrement graphics.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool">
+            <summary>
+            Tool to add a point before or after an existing point.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.#ctor(TPG.DrawObjects.Internals.Contracts.Module.ToolHandling.IToolManager,TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataCopier,TPG.DrawObjects.Internals.Contracts.Module.DrawObjectState.IDrawObjectStore,TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager,TPG.DrawObjects.Internals.Contracts.Module.DrawObjectState.IDrawObjectEdits)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="toolManager">Tool manager.</param>
+            <param name="drawObjectDataCopier">Draw object data copier.</param>
+            <param name="drawObjectStore">Draw object store.</param>
+            <param name="styleManager">Style manager.</param>
+            <param name="drawObjectEdits">Contains edited copies of draw object.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <summary>
+            Draw decorations.
+            </summary>
+            <param name="viewRender">View renderer.</param>
+            <param name="viewport">View port.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewState">View state</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <summary>
+            Return if an add vertex is hit by the mouse.
+            </summary>
+            <param name="moduleInputEventArgs">Event arguments.</param>
+            <param name="mousePosition">Mouse position.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewState">View state.</param>
+            <returns>true if vertex is hit, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <summary>
+            Handle input event.
+            </summary>
+            <param name="moduleInputEventArgs">Event arguments.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="drawObjectToolState">Tool state.</param>
+            <param name="inputEventCommand">Input command.</param>
+            <returns>true if handle, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.EndAddOperation(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Lines.ILine,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <summary>
+            End add operation.
+            </summary>
+            <param name="moduleInputEventArgs">Event arguments.</param>
+            <param name="line">Line.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="lineToolState">Tool state.</param>
+            <param name="inputEventCommand">Input command</param>
+            <returns>true if handled, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.InsertSelectedVertex(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Lines.ILine,TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState,TPG.GeoFramework.Contracts.IViewport,System.Windows.Vector)">
+            <summary>
+            Insert selected vertex.
+            </summary>
+            <param name="line">Line to divide.</param>
+            <param name="lineToolState">Tool state.</param>
+            <param name="viewport">View port.</param>
+            <param name="delta">Delta movement.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.StoreVertexStartPosition(TPG.GeoFramework.Contracts.IViewport,System.Windows.Point,TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState)">
+            <summary>
+            Store vertex start position.
+            </summary>
+            <param name="mousePosition">Mouse position.</param>
+            <param name="lineToolState">Tool state.</param>
+            <param name="viewport">View port.</param>        
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.StoreNewVertexPosition(TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState,System.String,TPG.GeoUnits.GeoPos)">
+            <summary>
+            Store new vertex position.
+            </summary>
+            <param name="lineToolState">Tool state.</param>
+            <param name="drawObjectInstanceId">Draw object instance id.</param>
+            <param name="pos">Insert pos.</param>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.IsPolyAreaTool">
+            <summary>
+            Get if this is a polyarea tool.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.IsSmoothTool">
+            <summary>
+            Get if this is a smooth tool.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddTool.IsWholeObjectTool">
+            <summary>
+            Get if tool is whole object tool.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolDecoration">
+            <summary>
+            Add vertex decoration.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolDecoration.#ctor(TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="styleManager">Style manager.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <summary>
+            Return if an add vertex is hit by the mouse.
+            </summary>
+            <param name="viewPoint">View point.</param>
+            <param name="tool">Tool.</param>
+            <param name="viewRender">View renderer.</param>
+            <param name="viewport">View port.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewState">View state.</param>
+            <returns>true if vertex is hit, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolDecoration.MouseOverHitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <summary>
+            Return if mouse is over an add vertex.
+            </summary>
+            <param name="viewPoint">View point.</param>
+            <param name="tool">Tool.</param>
+            <param name="viewRender">View renderer.</param>
+            <param name="viewport">View port.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewState">View state.</param>
+            <returns>true if vertex is hit, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <summary>
+            Draw decoration.
+            </summary>
+            <param name="tool">Tool.</param>
+            <param name="viewRender">View renderer.</param>
+            <param name="viewport">View port.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewState">View state.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolDecoration.DrawGeoDecorations(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <summary>
+            Draw geo decoration.
+            </summary>
+            <param name="tool">Tool.</param>
+            <param name="viewRender">View renderer.</param>
+            <param name="viewport">View port.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewState">View state.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolDecoration.GetPoints(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Lines.ILine,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Get add vertex points.
+            </summary>
+            <param name="line">Actual line.</param>
+            <param name="viewport">View port.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="isAfter">true if point is after cuurent point, otherwise false.</param>
+            <param name="isPolyArea">true if tool is a polyarea tool.</param>
+            <param name="isSmooth">true if tool is smooth tool.</param>
+            <returns>Add vertex point list.</returns>       
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolDecoration.GetDifPoint(System.Double,System.Double)">
+            <summary>
+            Get add dif point.
+            </summary>
+            <param name="xDif">X dif.</param>
+            <param name="yDif">Y dif.</param>
+            <returns>Dif point.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolDecoration.DecorationTypeId">
+            <summary>
+            Get decoration type id.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState">
+            <summary>
+            Add vertex tool state.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.InsertAddVertex(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint,System.Int32,System.Boolean)">
+            <summary>
+            Insert added vertex.
+            </summary>
+            <param name="point">Added point.</param>
+            <param name="index">Added index.</param>
+            <param name="after">true if vertex is added after selected vertex, otherwise false.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.GetAddedVertices">
+            <summary>
+            Get added vertices.
+            </summary>
+            <returns>List of added vertices.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.Clear">
+            <summary>
+            Clear state.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.IsVertexSelected(System.Int32)">
+            <summary>
+            Get if add vertex is selected.
+            </summary>
+            <param name="identifier">Insert vertex index.</param>
+            <returns>true if selected, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.IsAnyVertexHit">
+            <summary>
+            Get if any vertex is hit by the mouse.
+            </summary>
+            <returns>true if any vertex is hit, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.IsAnyVertexSelected">
+            <summary>
+            Get if any vertex is selected.
+            </summary>
+            <returns>true if selected, otherwise false.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.IsMouseOver">
+            <summary>
+            Get or set if mouse is over tool.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.IsFirstVertex">
+            <summary>
+            Get or set if vertex is first vertex.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.IsVertexInitialized">
+            <summary>
+            Get or set if added vertex is initialize.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.IsVertexDoubleClicked">
+            <summary>
+            Get or set if vertex is double clicked.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.VertexAdded">
+            <summary>
+            Get or set if vertex is added.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.HitSelectedVertex">
+            <summary>
+            Get or set if selected vertex is hit by the mouse.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.IsEditing">
+            <summary>
+            Get or set if tool is editing.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.SelectedHandleIndex">
+            <summary>
+            Get or set seletced handle index.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.SelectedVertexIndex">
+            <summary>
+            Get or set seletced vertex index.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.HitVertexIndex">
+            <summary>
+            Get or set hit vertex index.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.MouseStart">
+            <summary>
+            Mouse start position for vertex add operations.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.StartPosition">
+            <summary>
+            Start geo position for vertex add operations.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.OriginalData">
+            <summary>
+            The IDrawObjectData that was present when the IToolState was initiated.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddToolState.IsAfter">
+            <summary>
+            Get or set if vertex is added after current vertex.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexAdd.LineVertexAddCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool">
+            <summary>
+            Tool to insert a point between two existing points.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.#ctor(TPG.DrawObjects.Internals.Contracts.Module.ToolHandling.IToolManager,TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataCopier,TPG.DrawObjects.Internals.Contracts.Module.DrawObjectState.IDrawObjectStore,TPG.DrawObjects.Internals.Contracts.Module.DrawObjectState.IDrawObjectEdits)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="toolManager">Tool manager.</param>
+            <param name="drawObjectDataCopier">Draw object data copier.</param>
+            <param name="drawObjectStore">Draw object store.</param>
+            <param name="drawObjectEdits">Contains edited copies of draw object.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.GetInsertPoints(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Initialize insert point vertices.
+            </summary>
+            <param name="viewport">View port.</param>
+            <param name="drawObjectData">Draw object data.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <summary>
+            Draw decorations.
+            </summary>
+            <param name="viewRender">View renderer.</param>
+            <param name="viewport">View port.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewState">View state</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <summary>
+            Return if an insert vertex is hit by the mouse.
+            </summary>
+            <param name="moduleInputEventArgs">Event arguments.</param>
+            <param name="mousePosition">Mouse position.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewState">View state.</param>
+            <returns>true if vertex is hit, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <summary>
+            Handle input event.
+            </summary>
+            <param name="moduleInputEventArgs">Event arguments.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="drawObjectToolState">Tool state.</param>
+            <param name="inputEventCommand">Input command.</param>
+            <returns>true if handle, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.InsertSelectedVertex(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Lines.ILine,TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState,TPG.GeoFramework.Contracts.IViewport,System.Windows.Vector,System.Collections.Generic.List{TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint})">
+            <summary>
+            Insert selected vertex.
+            </summary>
+            <param name="line">Line to divide.</param>
+            <param name="lineToolState">Tool state.</param>
+            <param name="viewport">View port.</param>
+            <param name="delta">Delta movement.</param>
+            <param name="insertPoints">Insert point list.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.StoreVertexStartPosition(TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState,System.Collections.Generic.List{TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint})">
+            <summary>
+            Store vertex start position.
+            </summary>
+            <param name="lineToolState">Tool state.</param>
+            <param name="insertPoints">Insert point list.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.StoreNewVertexPosition(TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState,System.String,System.Collections.Generic.List{TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint})">
+            <summary>
+            Store new vertex position.
+            </summary>
+            <param name="lineToolState">Tool state.</param>
+            <param name="drawObjectInstanceId">Draw object instance id.</param>
+            <param name="insertPoints">Insert point list.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.IsPolyAreaTool">
+            <summary>
+            Get if this is a polyarea tool.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.IsSmoothTool">
+            <summary>
+            Get if this is a smooth tool.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertTool.IsWholeObjectTool">
+            <summary>
+            Get if tool is whole object tool.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolDecoration">
+            <summary>
+            Insert vertex decoration.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolDecoration.#ctor(TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="styleManager">Style manager.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <summary>
+            Return if an insert vertex is hit by the mouse.
+            </summary>
+            <param name="viewPoint">View point.</param>
+            <param name="tool">Tool.</param>
+            <param name="viewRender">View renderer.</param>
+            <param name="viewport">View port.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewState">View state.</param>
+            <returns>true if vertex is hit, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <summary>
+            Draw decoration.
+            </summary>
+            <param name="tool">Tool.</param>
+            <param name="viewRender">View renderer.</param>
+            <param name="viewport">View port.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewState">View state.</param>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolDecoration.DecorationTypeId">
+            <summary>
+            Get decoration type id.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState">
+            <summary>
+            Insert vertex tool state.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.IsVertexSelected(System.Int32)">
+            <summary>
+            Get if insert vertex is selected.
+            </summary>
+            <param name="identifier">Insert vertex index.</param>
+            <returns>true if selected, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.IsAnyVertexHit">
+            <summary>
+            Get if any vertex is hit by the mouse.
+            </summary>
+            <returns>true if any vertex is hit, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.IsAnyVertexSelected">
+            <summary>
+            Get if any vertex is selected.
+            </summary>
+            <returns>true if selected, otherwise false.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.IsMouseOver">
+            <summary>
+            Get or set if mouse is over tool.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.VerticesInserted">
+            <summary>
+            Get or set if vertex is inserted.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.HitSelectedVertex">
+            <summary>
+            Get or set if selected vertex is hit by the mouse.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.IsEditing">
+            <summary>
+            Get or set if tool is editing.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.InsertedVertexIndex">
+            <summary>
+            Get or set inserted vertex index.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.SelectedVertexIndex">
+            <summary>
+            Get or set seletced vertex index.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.HitVertexIndex">
+            <summary>
+            Get or set hit vertex index.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.MouseStart">
+            <summary>
+            Mouse start position for vertex insert operations.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.StartPosition">
+            <summary>
+            Start geo position for vertex insert operations.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexInsert.LineVertexInsertToolState.OriginalData">
+            <summary>
+            The IDrawObjectData that was present when the IToolState was initiated.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexDeleteCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexDeleteCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexDeleteCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthCommand.#ctor(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea,TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthToolState,TPG.DrawObjects.Internals.Contracts.Module.DrawObjectState.IDrawObjectStore)">
+            <summary>
+            Constructs a OrbitAreaWidthTool command with values from the OrbitAreaWidthToolState
+            </summary>
+            <param name="drawObjectData">Draw object data containing corridor area.</param>
+            <param name="orbitArea">Corridor Area the tool is working on.</param>
+            <param name="orbitAreaWidthToolState">The state of the corridor area width tool</param>
+            <param name="drawObjectStore">Draw object store.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthCommand.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthCommand.Undo">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthToolDecoration.#ctor(TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager)">
+            <summary>
+            Constructs the CorridorAreaToolGdiDecoration with a style manager.
+            </summary>
+            <param name="styleManager">The style manager</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthToolDecoration.DecorationTypeId">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.OrbitAreaWidth.OrbitAreaWidthToolState.HasChanged">
+            <summary>
+            Get or set if object is changed by tool.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateToolDecoration.#ctor(TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseRotate.EllipseRotateToolDecoration.DecorationTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeCommand.#ctor(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea,TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeToolState,TPG.DrawObjects.Internals.Contracts.Module.DrawObjectState.IDrawObjectStore)">
+            <summary>
+            Constructs a CorridorAreaWidthTool command with values from the CorridorAreaWidthToolState
+            </summary>
+            <param name="drawObjectData">Draw object data containing fan area.</param>
+            <param name="fanArea">Corridor Area the tool is working on.</param>
+            <param name="rangeToolState">The state of the corridor area width tool</param>
+            <param name="drawObjectStore">Draw object store.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeCommand.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeCommand.Undo">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeToolDecoration.#ctor(TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager)">
+            <summary>
+            Constructs the CorridorAreaToolGdiDecoration with a style manager.
+            </summary>
+            <param name="styleManager">The style manager</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeToolDecoration.DecorationTypeId">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRange.FanAreaRangeToolState.HasChanged">
+            <summary>
+            Get or set if object is changed by tool.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateCommand.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateCommand.Undo">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateToolDecoration.#ctor(TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager)">
+            <summary>
+            Constructs the CorridorAreaToolGdiDecoration with a style manager.
+            </summary>
+            <param name="styleManager">The style manager</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateToolDecoration.DecorationTypeId">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.FanAreaRotate.FanAreaRotateToolState.HasChanged">
+            <summary>
+            Get or set if object is changed by tool.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionTool.FieldToModify">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionToolDecoration.DecorationTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionToolState.OriginalData">
+            <summary>
+            The IDrawObjectData that was present when the IToolState was initiated.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionToolState.HitGraphics">
+            <summary>
+            Flag indicating that the last mouse event hit the graphics.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DataFieldBasedTools.DrawObjectOffsetPositionToolState.HasChanged">
+            <summary>
+            Get or set if object is changed by tool.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveToolState">
+            <summary>
+            Tool state for the PointMove tool
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveToolState.OriginalPosition">
+            <summary>
+            Store mouse start position for vertex move operations.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.PointMove.PointMoveToolState.HasChanged">
+            <summary>
+            Get or set if object is changed by tool.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthCommand.#ctor(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea,TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthToolState,TPG.DrawObjects.Internals.Contracts.Module.DrawObjectState.IDrawObjectStore)">
+            <summary>
+            Constructs a CorridorAreaWidthTool command with values from the CorridorAreaWidthToolState
+            </summary>
+            <param name="drawObjectData">Draw object data containing corridor area.</param>
+            <param name="corridorArea">Corridor Area the tool is working on.</param>
+            <param name="corridorAreaWidthToolState">The state of the corridor area width tool</param>
+            <param name="drawObjectStore">Draw object store.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthCommand.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthCommand.Undo">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthToolDecoration.#ctor(TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager)">
+            <summary>
+            Constructs the CorridorAreaToolGdiDecoration with a style manager.
+            </summary>
+            <param name="styleManager">The style manager</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthToolDecoration.Draw(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthToolDecoration.HitTest(System.Windows.Point,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthToolDecoration.DecorationTypeId">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.CorridorAreaWidth.CorridorAreaWidthToolState.HasChanged">
+            <summary>
+            Get or set if object is changed by tool.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.InitiateWholeObjectManipulation(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.HandleExternalEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.EndWholeObjectManipulation(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.HandleExternalViewportChangedEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveTool.DrawBoundingBox">
+            <summary>
+            Check if bounding box should be drawn. Default is true.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Tools.WholeObjectToolState">
+            <summary>
+            This class holds state information specific to WholeObjectTools
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.WholeObjectToolState.LatestTransformData">
+            <summary>
+            Represents the data needed to perform the last transformation done on this object.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.WholeObjectToolState.OriginalData">
+            <summary>
+            The IDrawObjectData that was present when the IToolState was initiated.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.WholeObjectToolState.HasChanged">
+            <summary>
+            Get or set if object is changed by tool.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectMove.DrawObjectMoveToolState.HitGraphics">
+            <summary>
+            Flag indicating that the last mouse event hit the graphics.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.Commands.DrawObjectDataGenericUndoableCommand.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.Commands.DrawObjectDataGenericUndoableCommand.Undo">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.Commands.DrawObjectDataGenericUndoableCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.Commands.DrawObjectDataGenericUndoableCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.Commands.DrawObjectDataGenericUndoableCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateToolState.SetRotateCenter(TPG.GeoFramework.Contracts.IViewport,System.Windows.Point)">
+            <summary>
+            Set rotation center.
+            </summary>
+            This method will store rotation center in both view and Geographical coordinates.
+            When using the rotation center later, you should use the geographical position,
+            since the view may have changed in the mean time.
+            <param name="viewport">Current view</param>
+            <param name="point">Point in view coordinates.</param>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateToolState.MouseStart">
+            <summary>
+            Store mouse start position for move operations.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateToolState.MouseStartPos">
+            <summary>
+            Store mouse start geo position for rotate operations.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateToolState.HitGraphics">
+            <summary>
+            Flag indicating that the last mouse event hit the graphics.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateToolState.IsRotateHandleSelected">
+            <summary>
+            Flag indicating that the rotate handle is selected.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateToolState.DrawRotationGhost">
+            <summary>
+            Get or set if rotation ghost should be drawn.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.InitiateWholeObjectManipulation(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.HandleExternalEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.EndWholeObjectManipulation(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.HandleExternalViewportChangedEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectRotate.DrawObjectRotateTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleToolState.MouseStart">
+            <summary>
+            Store mouse start position for move operations.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleToolState.MouseStartPos">
+            <summary>
+            Store mouse start position pos for move operations.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleToolState.HitGraphics">
+            <summary>
+            Flag indicating that the last mouse event hit the graphics.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleToolState.HitToolHandleId">
+            <summary>
+            Index of the tool handle that was hit.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleToolState.ScalingToolHandleId">
+            <summary>
+            Index of the tool handle that is currently tracking.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleToolState.ScaleX">
+            <summary>
+            Current scale factor in x direction
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleToolState.ScaleY">
+            <summary>
+            Current scale factor in y direction
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.InitiateWholeObjectManipulation(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.HandleExternalEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.EndWholeObjectManipulation(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.HandleExternalViewportChangedEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.DrawObjectScale.DrawObjectScaleTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseCentrePointMove.EllipseCentrePointMoveCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.EllipseTools.EllipseConjugatePointsMove.EllipseConjugatePointsMoveTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveTool.LocalPrimitiveId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveTool.IsPolyAreaTool">
+            <summary>
+            Get if this is a polyarea tool.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveTool.IsSmoothTool">
+            <summary>
+            Get if this is a smooth tool.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveTool.DrawConnectingLines">
+            <summary>
+            Get if connecting lines should be drawn.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveToolState">
+            <summary>
+            Tool state for the LineVertexMove tool
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveToolState.ClearAllSelectedVertices">
+            <summary>
+            Clear vertex selection sets from all primitives.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveToolState.IsAnyVertexSelected">
+            <summary>
+            Checks if any vertex is selected in all the primitives.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveToolState.HitSelectedVertex">
+            <summary>
+            Check if the last hit test intersects the currently set of selected vertices.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveToolState.MouseStart">
+            <summary>
+            Store mouse start position for vertex move operations.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.LineVertexMove.LineVertexMoveToolState.MouseStartPos">
+            <summary>
+            Store mouse start geo position for vertex move operations.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Serializers.DrawObjectToolHandlerXmlParser">
+            <summary>
+            Interface for parsing Tool handlers from XML.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.DrawObjectToolHandlerXmlParser.Parse(System.Xml.Linq.XElement)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Serializers.DrawObjectToolHandlerXmlSerializer">
+            <summary>
+            Serialization of the list of Tools for a DrawObject.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.DrawObjectToolHandlerXmlSerializer.#ctor(TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Internals.Contracts.ToolHandling.Serializers.IToolXmlSerializerProvider)">
+            <summary>
+            Default constructor with dependencies.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.DrawObjectToolHandlerXmlSerializer.SerializeToString(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectToolHandler)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.DrawObjectToolHandlerXmlSerializer.SerializeToXElement(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectToolHandler)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolBaseXmlParser">
+            <summary>
+            Parser for common base properties for PrimitiveRenderers.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolBaseXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool)">
+            <inheritdoc />
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolBaseXmlSerializer">
+            <summary>
+            XML Serializer for common base properties.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolBaseXmlSerializer.CreateBaseElement(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool)">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolBaseXmlSerializer.CreateBaseElement(TPG.DrawObjects.Internals.Contracts.ToolHandling.IDrawObjectTool,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolXmlSerializerProvider">
+            <summary>
+            XML Serializer provider for Tools.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolXmlSerializerProvider.#ctor(TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Internals.Contracts.ToolHandling.Serializers.IToolBaseXmlSerializer)">
+            <summary>
+            Default constructor with dependencies.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolXmlSerializerProvider.AddSerializer(System.String,TPG.DrawObjects.Internals.Contracts.ToolHandling.Serializers.IToolXmlSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolXmlSerializerProvider.GetSerializer(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Serializers.ToolXmlSerializerProvider.SerializerCount">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.ShouldDrawGeoDecorations(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.DrawDecorations(TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.OnInputEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.HitTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.MouseOverTest(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.InitiateWholeObjectManipulation(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.HandleExternalEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ModuleInputEventArgs,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.EndWholeObjectManipulation(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ICompositeCommand,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectToolState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.GetDrawObjectRenderer(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Views.IViewRender)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.HandleViewportChanged(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.HandleExternalViewportChangedEvent(TPG.DrawObjects.Internals.Contracts.Module.EventManager.ViewportChangedEventArgs,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewState,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.ToolTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.InstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.Parameters">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.Decoration">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.RangeRingsScale.RangeRingsScaleTool.IsWholeObjectTool">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.ToolHandling.Tools.ToolParameterIds">
+            <summary>
+            Class holding TagNames that can be defined in the Parameter block of a Tool.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.WholeObjectTransformData.TransformVector">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.WholeObjectTransformData.Rotation">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.WholeObjectTransformData.ScaleX">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.ToolHandling.Tools.WholeObjectTransformData.ScaleY">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

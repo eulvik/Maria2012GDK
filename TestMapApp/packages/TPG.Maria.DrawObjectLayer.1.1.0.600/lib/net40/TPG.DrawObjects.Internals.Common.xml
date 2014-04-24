@@ -1,0 +1,1999 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.DrawObjects.Internals.Common</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.DrawObjects.Internals.Common.Box">
+            <summary>
+            Rectangular box represented by two points, minimum and maximum.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Box.#ctor">
+            <summary>
+            Constructs an empty box.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Box.Scale(System.Double)">
+            <summary>
+            Scale the box by the given factor
+            </summary>
+            <param name="s">Scale factor</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Box.ExtendBy(System.Windows.Point)">
+            <summary>
+            Extends the box by the point. Ie. the given point will be inside the 
+            box after a call to ExtendBy
+            </summary>
+            <param name="point">The point to extend the box by.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Box.ExtendBy(System.Windows.Point[])">
+            <summary>
+            Extends the box by each point in the list. Ie. all given points will be inside the 
+            box after when this returns.
+            </summary>
+            <param name="points">The points to extend the box by.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Box.CalculateArea">
+            <summary>
+            Calculates the area of the box.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Box.ExtendBy(System.Windows.Point,System.Windows.Size)">
+            <summary>
+            Extends this box by a rectangle defined by the top left point and the size of the rectangle.
+            </summary>
+            <param name="upperLeftCorner">Upper left corner of the rectangle.</param>
+            <param name="size">The size of the rectangle.</param>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.Box.Width">
+            <summary>
+            Return width of the box
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.Box.Height">
+            <summary>
+            Return width of the box
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.Box.Max">
+            <summary>
+            The maximum point of the box.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.Box.Min">
+            <summary>
+            The minimum point of the box.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.Converters.StringToTypeParsers">
+            <summary>
+            Utility functions for parsing strings to types.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.StringToTypeParsers.ParseDashStyle(System.String)">
+            <summary>
+            Parses the string into a DashStyle object.
+            </summary>
+            <param name="dashStyleStr">DashStyle in the format from DashStyles or an array of double 
+            values.</param>
+            <returns>The DashStyle</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.StringToTypeParsers.ParseColor(System.String,System.Windows.Media.Color@)">
+            <summary>
+            Parses a string into a Color object.
+            </summary>
+            <param name="data">The string representing the color in the format "R,G,B,A"</param>
+            <param name="color">Parsed Color.</param>
+            <returns>True on success, false otherwise.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter">
+            <summary>
+             Converters between WPF and Forms style structs/objects
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.ToWpfSize(System.Drawing.SizeF)">
+            <summary>
+             Converts Forms Size (int-based) to Wpf Size (double-based)
+            </summary>
+            <param name="formsSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.ToFormsSize(System.Windows.Size)">
+            <summary>
+             Converts Wpf Size(double-based) to Forms Size(int-based)
+            </summary>
+            <param name="wpfSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.ToFormsPoint(System.Windows.Point)">
+            <summary>
+             Converts WPF Point(double-based) to Forms Point (int-based)
+            </summary>
+            <param name="wpfPoint">WPF-style Point(double-based)</param>
+            <returns>Forms-style point(int-based)</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.ToFormsPointFs(System.Windows.Point[])">
+            <summary>
+             Converts an array of WPF style points to an array of Forms-style PointF's
+            </summary>
+            <param name="wpfPoints">Array of WPF-style points(double-based)</param>
+            <returns>Array of PointF's(float-based)</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.ToWpfMouseButton(System.Windows.Forms.MouseButtons)">
+            <summary>
+             Converts between Forms-style MouseButton to WPF-style MouseButton
+            </summary>
+            <param name="formsMouseButton">Forms MouseButton</param>
+            <returns>WPF MouseButton</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.ToFormsColor(System.Windows.Media.Color)">
+            <summary>
+             Converts a WPF-style color to Forms-style color
+            </summary>
+            <param name="c">WPF Color</param>
+            <returns>Forms Color</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.ToWpfColor(System.Drawing.Color)">
+            <summary>
+             Converts a Forms-style color to WPF-style color
+            </summary>
+            <param name="c">Forms Color</param>
+            <returns>WPF Color</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.ToFormsDashStyle(System.Windows.Media.DashStyle,System.Drawing.Pen)">
+            <summary>
+             Converts from WPF style DashStyle to Forms
+            </summary>
+            <param name="dashStyle">WPF DashStyle</param>
+            <param name="pen">The pen the dash style applies to.</param>
+            <returns>Forms DashStyle</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.ParseWpfDashStyle(System.String)">
+            <summary>
+             Parse a string representing a WPF dash style.
+            </summary>
+             Valid input values are:
+             <ul>
+             <li>Solid</li>
+             <li>Dot</li>
+             <li>Dash</li>
+             <li>DashDot</li>
+             <li>DashDotDot</li>
+             </ul>
+            <param name="dashStyle">string representing a dash style.</param>
+            <returns>The corresponding WPF DashStyle object.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.ToFormsPixelFormat(System.Windows.Media.PixelFormat)">
+            <summary>
+            Convert WPF pixel format to GDI+ bitmap pixel format.
+            </summary>
+            Not all WPF pixel formats are supported. Currently we support the following conversions:
+            <ul>
+            <li>Pbgra32 to Format32bppPArgb</li>
+            <li>Bgra32 to Format32bppArgb</li>
+            <li>Bgr24 to Format24bppRgb</li>
+            <li>Bgr555 to Format16bppRgb555</li>
+            <li>Bgr565 to Format16bppRgb565</li>
+            <li>Gray16 to Format16bppGrayScale</li>
+            </ul>
+            Any other pixel format will throw an ArgumentException.
+            <param name="wpfFormat">WPF Pixel format specification</param>
+            <returns>Corresponding Forms pixel format.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.ToFormsBitmap(System.Windows.Media.Imaging.BitmapSource)">
+            <summary>
+            Convert a WPF bitmap to a GDI+ bitmap
+            </summary>
+            Please note that not all pixel formats can be converted directly. See ToFormsPixelFormat for a list of 
+            supported formats.
+            <param name="wpfBbitmap">The WPF bitmap to convert</param>
+            <returns>A GDI+ bitmap. Should be disposed after use.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.Converters.WpfFormsConverter.GetBrushFromFillStyle(TPG.DrawObjects.Internals.Contracts.Views.FillStyle,System.Windows.Media.Color,System.Nullable{System.Windows.Media.Color})">
+            <summary>
+            Transforms a FillStyle value together with foreground and background colors
+            into a Gdi brush.
+            </summary>
+            <param name="fillStyle">Fill style to use.</param>
+            <param name="foregroundColor">Foreground color.</param>
+            <param name="backgroundColor">Background color.</param>
+            <returns>Brush with the given colors and fill style.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils">
+            <summary>
+            Utility methods for working with <see cref="P:TPG.DrawObjects.Contracts.Data.IDrawObjectData.Fields">Fields</see> data.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.GetOffsetBearingRange(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.String)">
+            <summary>
+            Gets the bearing range from draw object data field
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="fieldName">Name of field to fetch the bearing range from</param>
+            <returns>If successfull, a bearing range object</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.GetDefaultPosition(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.String)">
+            <summary>
+            Gets the default position from draw object data field
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="fieldName">Name of field to fetch the bearing range from</param>
+            <returns>If successfull, position retrieved from specified field or default position</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.ThrowArgumentException(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.String)">
+            <summary>
+            Exception thrown when draw object data field value is not formatted in bearing;range;lat;lon format
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="fieldName">Field name</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.UpdateOffsetDefaultPosition(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.GeoUnits.GeoPos,System.String)">
+            <summary>
+            Update the default position in a draw object data field
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="defaultPosition">Default position to update with</param>
+            <param name="fieldName">Name of field to update</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.StoreToTag(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.String,System.String[])">
+            <summary>
+            Stores data to a draw object data field
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="fieldName">Field name</param>
+            <param name="parts">String array containing all elements to be stored</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.GetStringArrayFromField(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.String)">
+            <summary>
+            Fetches an array of strings from the specified draw object data field. 
+            </summary>
+            <remarks>The value from the field is fectched  and the split using the _standardFieldSeparator.</remarks>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="fieldName">Field name</param>
+            <returns>String array with all parts.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.UpdateOffsetBearingRange(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.GeoUnits.GeoPos,TPG.GeoUnits.GeoPos,System.String)">
+            <summary>
+            Updates draw object data field containing bearing range value.
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="startPoint">Start point to calculate bearing range from</param>
+            <param name="endPoint">End point to calculate bearing range from</param>
+            <param name="fieldName">Field name to store the bearing range to.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.GetRectFromField(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.String)">
+            <summary>
+            Gets the rectangle from a draw object data field. Expects values to be found in the four first
+            places.
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="fieldName">Field name</param>
+            <returns>If successfull, the rectangle contained in the field</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.GetScaleFactor(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.String)">
+            <summary>
+            Gets the scale factor from a draw object data field. Expects the scale factor to be stored in the 5th place.
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="fieldName">Field name</param>
+            <returns>If successfull, scale factor contained in the field</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.UpdateRect(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Windows.Rect,System.String)">
+            <summary>
+            Update rectangle in draw object data field
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="rect">Updated rectangle</param>
+            <param name="fieldName">Field name</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.UpdateScaleFactor(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Double,System.String)">
+            <summary>
+            Update scale factor in draw object data field
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="scaleFactor">Updated scale factor</param>
+            <param name="fieldName">Field name</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.GetRotationAngle(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Attempts to retrieve rotation angle from draw object data field collection
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <returns>Rotation angle if available, otherwise double default</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.SetRotationAngle(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Double)">
+            <summary>
+            Sets rotation angle in draw object data field collection
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="newRotation">New rotation</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.GetName(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Attempts to retrieve name from draw object data field collection
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <returns>Name if available, otherwise empty string</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.SetName(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.String)">
+            <summary>
+            Sets name in draw object data field collection
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="newName">New name</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.GetVersion(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Attempts to retrieve version from draw object data field collection
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <returns>version if available, otherwise 0</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.SetVersion(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.UInt64)">
+            <summary>
+            Sets version in draw object data field collection
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="version">New version</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.GetDrawDepth(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Get the depth order value of the draw object. This value determines the drawing order of the objects. Low numbers are drawn on top of high numbers.
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.SetDrawDepth(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Int32)">
+            <summary>
+            Set the depth order value of the draw object. This value determines the drawing order of the objects. Low numbers are drawn on top of high numbers.
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="depth">Detpth value</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.DrawObjectDataFieldUtils.GetGeneric(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Get if draw object is generic.
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.IocHandle`1">
+            <summary>
+            Handle to access data from the IOC container with automatic lookup and release.
+            </summary>
+            <typeparam name="T">Type of data you want to access from IOC</typeparam>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.IocHandle`1.#ctor(`0)">
+            <summary>
+            Default constructor.
+            </summary>
+            Retrieves an instance of the given type from IOC.
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.IocHandle`1.Dispose">
+            <summary>
+            Disposes the Ioc handle
+            </summary>
+            <remarks>
+            This should also handle any IocProvider specific clean up.
+            </remarks>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.IocHandle`1.Service">
+            <summary>
+            The actual data instance from the IOC.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.IocInstaller">
+            <summary>
+             IOC installer for Common assembly
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.IocInstaller.Install(Castle.Windsor.IWindsorContainer,Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore)">
+            <summary>
+            Performs the installation of services in the Common assembly in the <see cref="T:Castle.Windsor.IWindsorContainer"/>.
+            </summary>
+            <param name="container">The container.</param>
+            <param name="store">The configuration store.</param>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.IocProvider">
+            <summary>
+             Abstraction for Ioc container
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.IocProvider.GetService``1">
+            <summary>
+            Return requested service from IocProvider
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.IocProvider.GetServiceHandle``1">
+            <summary>
+             Returns requested service as an IocHandle
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.IocProvider.ReleaseService(System.Object)">
+            <summary>
+             Releases a service instance
+            </summary>
+            <param name="serviceInstance">Service instance.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.IocProvider.RegisterServiceWithLifeTime(System.Type,System.Type,TPG.DrawObjects.Internals.Common.IocProvider.LifeStyleType)">
+            <summary>
+            Registers a service with implementation and lifestyle type in IocProvider
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.IocProvider.Install(Castle.MicroKernel.Registration.IWindsorInstaller)">
+            <summary>
+             Install a windsor installer into container
+            </summary>
+            <param name="windsorInstaller"></param>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.IocProvider.Instance">
+            <summary>
+            Returns instance of IocProvider
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.IocProvider.IsAllInstallersInstalled">
+            <summary>
+            Property for whether Ioc Installers have been run
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.IocProvider.LifeStyleType">
+            <summary>
+             Lifestyle when registering a service in IOC container
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Internals.Common.IocProvider.LifeStyleType.Transient">
+            <summary>
+             New instance is created every time the service is requested from container
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Internals.Common.IocProvider.LifeStyleType.Singleton">
+            <summary>
+             Instance is created first time the service is requested, same instance is returned every subsequent request
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.MathUtils.CorridorAreaMathUtils">
+            <summary>
+            Common math operations that can be performed on a CorridorArea primitive.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.CorridorAreaMathUtils.CalculateMidPointBetweenCenterAndBoundaryLineForLineSegment(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea,System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Calculates a mid-point between the center line and a boundary line of the corridor area.
+            </summary>
+            <param name="corridorArea">ICorridorArea isntance to work on.</param>
+            <param name="startPointSegment">Start point of line segment to work on.</param>
+            <param name="endPointSegment">End point of line segment to work on.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.CorridorAreaMathUtils.CalculateDisplacementVectorCenterLineToBoundary(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea,System.Windows.Point,System.Windows.Point,System.Double)">
+            <summary>
+            Calculates the point on the boundary from the given line segment represented by its two endpoints.
+            </summary>
+            <param name="corridorArea">The corridora area primitive</param>
+            <param name="startPointSegment">Start point of line segment</param>
+            <param name="endPointSegment">End point of line segment</param>
+            <param name="corridorAreaHalfWidth">Half of the width of the corridor area</param>
+            <returns>The point on the boundary.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.CorridorAreaMathUtils.GetDisplacementVectorInNormalDirection(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea,System.Windows.Vector)">
+            <summary>
+            Calculates displacement in the normal direction from the first line segment of the Corridor
+            Area center line.
+            </summary>
+            <param name="viewport">The view of the Corridor Area.</param>
+            <param name="corridorArea">The primitive itself.</param>
+            <param name="position">The position to measure distance to.</param>
+            <returns>The distance along the normal.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.CorridorAreaMathUtils.CalculateHalfWidthInPixels(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea)">
+            <summary>
+            Calculates the width of the given corridor area in pixels.
+            </summary>
+            <param name="view">View with pixels</param>
+            <param name="corridorArea">Corridor area to work on</param>
+            <returns>The width in pixels of the corridor area.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.CorridorAreaMathUtils.CalculateWidthInPixels(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea)">
+            <summary>
+            shouldn't this do the same thing as the method above just simpler..?
+            </summary>
+            <param name="view"></param>
+            <param name="corridorArea"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.CorridorAreaMathUtils.CreateNormalPoints(TPG.GeoUnits.GeoPos,TPG.GeoUnits.GeoPos,System.Double,TPG.GeoFramework.Contracts.IViewport,System.Windows.Point@,System.Windows.Point@)">
+            <summary>
+            creates two screen space normal points at the endPoint, given two geopoints and range (used for example to make arrow)
+            </summary>
+            <param name="startPoint"></param>
+            <param name="endPoint"></param>
+            <param name="range"></param>
+            <param name="view"></param>
+            <param name="p0"></param>
+            <param name="p1"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.CorridorAreaMathUtils.GetPointsOnBoundary(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea,System.Int32,System.Double,TPG.GeoUnits.GeoPos@,TPG.GeoUnits.GeoPos@)">
+            <summary>
+            Calculates a point on each boundary of the corridor area.
+            </summary>
+            <param name="corridorArea">The primitive</param>
+            <param name="segmentStartIndex">The index of the first point in the segment to operate on.</param>
+            <param name="segmentFraction">Fraction of length to find the point on eg. 0.5 gives boundary points on the middle of the segment.</param>
+            <param name="posNegativeRotation">Boundary point given by negative rotation from the direction of the given segment.</param>
+            <param name="posPositiveRotation">Boundary point given by positive rotation from the direction of the given segment.</param>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.MathUtils.EllipseMathUtils">
+            <summary>
+             Math utils for ellipsii
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.EllipseMathUtils.GetStandardEllipseAngle(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IEllipse)">
+            <summary>
+             Calculates ellipse angle based on vector to first conjugate 
+            </summary>
+            <param name="viewport">View to calculate angle for</param>
+            <param name="ellipse">Ellipse data</param>
+            <returns>Rotation in degrees</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.EllipseMathUtils.GetStandardEllipseAngle(System.Windows.Vector)">
+            <summary>
+             Calculates ellipse angle based on vector to first conjugate 
+            </summary>
+            <param name="firstConjugateVectorInView">View-specific vector from ellipse centre point to first conjugate diameter point</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.EllipseMathUtils.CalculateSecondConjugatePointFromFirstConjugatePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IEllipse)">
+            <summary>
+             Calculates second conjugate based on first, the vectors of the two points will have an 90 degree angle
+            </summary>
+            <param name="viewport">view whoose coordinate system the calculation is done in</param>
+            <param name="ellipse">ellipse primitive</param>
+            <returns>A second conjugate point with same radius as original but rotated -90 degrees from first conjugate diameter point radius.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.EllipseMathUtils.CalculateRotateToolHandlePoint(System.Windows.Point,System.Windows.Vector,System.Double)">
+            <summary>
+             Calculate tool handle position for rotate
+            </summary>
+            <param name="firstConjugatePoint">Ellipse first conjugate diameter point in screen coordinates.</param>
+            <param name="firstConjugateUnitVector">Vector from ellipse centre to first conjugate diameter point in screen coordinates.</param>
+            <param name="rotateToolHandleDistance">Distance from edge of ellipse to tool handle.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.EllipseMathUtils.CalculateRotateToolHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IEllipse,System.Double)">
+            <summary>
+             Calculate rotate tool handle position
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils">
+            <summary>
+            Math utils for Fan Areas
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetOrientationHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea,TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager,TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Finds point for orientation angle tool handle
+            </summary>
+            <param name="viewport">View.</param>
+            <param name="fanArea">Fan area.</param>
+            <param name="styleManager"> </param>
+            <param name="drawObjectData"> </param>
+            <returns>View position of tool handle.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetOrientationMaxRangeHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Gets a handle point along the orientation axis at the distance of MaximumRange from the fan area vertex point.
+            </summary>
+            <param name="viewport">View.</param>
+            <param name="fanArea">The fan area primitive</param>
+            <returns>Point</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetOrientationMinRangeHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Gets a handle point along the orientation axis at the distance of MinimumRange from the fan area vertex point.
+            </summary>
+            <param name="viewport">View.</param>
+            <param name="fanArea">The fan area primitive</param>
+            <returns>Point</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetNormalizedOrientationVector(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Calculates the normalized vector in the direction of the orientation.
+            </summary>
+            <param name="viewport">View.</param>
+            <param name="fanArea">The fan area primitive.</param>
+            <returns>The normalized vector.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetMinOrientationHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Finds point for orientation angle tool handle
+            </summary>
+            <param name="viewport">View.</param>
+            <param name="fanArea">Fan area.</param>
+            <returns>View position of tool handle.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetUpperSectorSizeHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Finds point for upper sector size tool handle
+            </summary>
+            <param name="viewport">Viewport</param>
+            <param name="fanArea">Fan area.</param>
+            <returns>View position of tool handle.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetUpperSectorRangeSizeHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Finds point for upper sector size tool handle
+            </summary>
+            <param name="viewport">Viewport</param>
+            <param name="fanArea">Fan area.</param>
+            <returns>View position of tool handle.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetLowerSectorSizeHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Finds point for lower sector size tool handle
+            </summary>
+            <param name="viewport">View.</param>
+            <param name="fanArea">Fan area.</param>
+            <returns>View position of tool handle.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetLowerSectorRangeSizeHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Finds point for lower sector size tool handle
+            </summary>
+            <param name="viewport">View.</param>
+            <param name="fanArea">Fan area.</param>
+            <returns>View position of tool handle.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetMinimumRangeHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Finds point for minium range point handle
+            </summary>
+            <param name="viewport">View.</param>
+            <param name="fanArea">Fan area.</param>
+            <returns>View position of tool handle.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetMaximumRangeHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Finds point for maximum range point handle
+            </summary>
+            <param name="viewport">View.</param>
+            <param name="fanArea">Fan area.</param>
+            <returns>View position of tool handle.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetCircleRadiusHandlePoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Calculates the circle radius handle point used in i.e. SEIZE object.
+            </summary>
+            <param name="viewport">The viewport.</param>
+            <param name="fanArea">The primitive.</param>
+            <returns>The handle point.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetRadiusDistance(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea)">
+            <summary>
+            Calculates the radius of circle used in i.e. SEIZE object in meters.
+            </summary>
+            <param name="fanArea">The primitive</param>
+            <returns>Radius in meters.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.GetCircleSegmentPoints(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea,TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.Range,System.Int32)">
+            <summary>
+            Calculates a set of points on the circle segment with the basis of a fan area.
+            </summary>
+            <param name="viewport">The current viewport.</param>
+            <param name="fanArea">The Fan Area primitive.</param>
+            <param name="range">The range to use for the circle placement.</param>
+            <param name="numSlices"></param>
+            <returns>The line points calculated.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.FanAreaMathUtils.MirrorPoints(System.Windows.Point[],TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.Range)">
+            <summary>
+            Mirrors the circle segment points around the line perpendicular to the orientation of the fan area located at the range point given.
+            </summary>
+            <param name="circleSegmentPoints">The points to mirror.</param>
+            <param name="fanArea">The primitive</param>
+            <param name="viewport">Viewport.</param>
+            <param name="range">The range to use as starting point for the mirror line.</param>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.MathUtils.OrbitAreaMathUtils">
+            <summary>
+            Utility functions for working with orbit areas.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.OrbitAreaMathUtils.CalculateWidthInPixels(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea)">
+            <summary>
+            Calculates the width in pixes of an orbit area.
+            </summary>
+            <param name="viewport">The viewport to use.</param>
+            <param name="orbitArea">The orbit area primitive.</param>
+            <returns>The width in pixels.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.OrbitAreaMathUtils.GetPoints(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea,System.Int32,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.OrbitAreaAlignmentCodes)">
+            <summary>
+            Calculates points on either sides of the line defining the orbit area.
+            </summary>
+            <param name="viewport">Viewport to use.</param>
+            <param name="orbitArea">The orbit area primitive.</param>
+            <param name="index">0 if beginning, 1 of ending of orbit area.</param>
+            <param name="alignmentCode">Alignment code of orbit area.</param>
+            <returns>The points.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.OrbitAreaMathUtils.GetGeoPoints(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea,System.Int32,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.OrbitAreaAlignmentCodes)">
+            <summary>
+            Calculates points on either sides of the line defining the orbit area in geo correct coordinates.
+            </summary>
+            <param name="orbitArea">The orbit area primitive.</param>
+            <param name="index">0 if beginning, 1 of ending of orbit area.</param>
+            <param name="alignmentCode">Alignment code of orbit area.</param>
+            <returns>The points.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.OrbitAreaMathUtils.GetCircleSegmentPoints(System.Int32,TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea,System.Int32)">
+            <summary>
+            Gets circle segment points for the end of an orbit area.
+            </summary>
+            <param name="index">0 if beginning, 1 of ending of orbit area.</param>
+            <param name="viewport">Viewport to use.</param>
+            <param name="orbitArea">The orbit area primitive.</param>
+            <param name="numSlices">Number of slices to use for the circle segments.</param>
+            <returns>The points in screen coordinates.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.MathUtils.PolygonAreaMathUtils">
+            <summary>
+            Math utilities for polygon areas.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.PolygonAreaMathUtils.CheckForOrientation(System.Windows.Point[])">
+            <summary>
+            Calculates the orientation of the polygon area.
+            </summary>
+            <param name="polygonAreaPoints">The points defining the polygon area.</param>
+            <returns>Clockwise.CW for clockwise and Clockwise.CCW counter clock wise orientation.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.PolygonAreaMathUtils.CalculateSignedArea(System.Windows.Point[])">
+            <summary>
+            Calculates the signed area of a polygon area.
+            </summary>
+            <param name="polygonAreaPoints">The points defining the polygon area.</param>
+            <returns>The signed area.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MathUtils.PolygonAreaMathUtils.CalculateCentroid(System.Windows.Point[])">
+            <summary>
+            Calculates the centroid of the polygon area
+            </summary>
+            <param name="points">The points that make up the polygon area</param>
+            <returns>The centroid</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.MathUtils.PolygonAreaMathUtils.Clockwise">
+            <summary>
+            Describes Clock Wise (CW) and counter clock wise (CCW) orientation.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.MethodUtils">
+            <summary>
+             Utility methods for working with methods
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MethodUtils.GetMethodName``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            </summary>
+            <param name="selector"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.MethodUtils.GetMethodName``1(System.Linq.Expressions.Expression{System.Action{``0}})">
+            <summary>
+            </summary>
+            <param name="selector"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.BModifierSymbolRenderer">
+            <summary>
+            Renders the B modifier symbol
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BModifierSymbolRenderer.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BModifierSymbolRenderer.MeasureSymbol(TPG.DrawObjects.Internals.Contracts.Views.IRenderer,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectRenderState)">
+            <summary>
+            Measures the symbol that will be drawn.
+            </summary>
+            <param name="renderer">Renderer to use.</param>
+            <param name="drawObjectData">Draw object data of the object that will have the B modifier drawn.</param>
+            <param name="viewRender">The view renderer to use.</param>
+            <param name="drawObjectRenderState">Render sate for draw object.</param>
+            <returns>The size of the symbol.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BModifierSymbolRenderer.DrawBModifierSymbol(TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.Windows.Media.Color,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectRenderState)">
+            <summary>
+            Draws the modifier itself.
+            </summary>
+            <param name="renderer">Renderer to use-</param>
+            <param name="foregroundColor">Color to draw in.</param>
+            <param name="centerPosition">Center position of the symbol.</param>
+            <param name="drawObjectData">Data for object to draw symbol for.</param>
+            <param name="viewRender">View renderer to use.</param>
+            <param name="drawObjectRenderState">Render sate for draw object.</param>
+            <returns>Size of the drawn symbol.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc">
+            <summary>
+            Represents a buffer segment that is an arc.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment">
+            <summary>
+            Base class for all buffer segment types.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment.#ctor(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Creates a segment with a start and end point.
+            </summary>
+            <param name="startPoint">Start point of segment.</param>
+            <param name="endPoint">End point of segment.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment.#ctor">
+            <summary>
+            Creates an empty segment.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment.SetStart(System.Windows.Point)">
+            <summary>
+            Sets the start point of the segment.
+            </summary>
+            <param name="start">The start point.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment.SetEnd(System.Windows.Point)">
+            <summary>
+            Sets the end point of the segment.
+            </summary>
+            <param name="end">The end point.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment.Intersects(TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment,System.Windows.Point@)">
+            <summary>
+            Checks for intersection between this segment and the given segment.
+            </summary>
+            <param name="segment">Segment to check for intersection against.</param>
+            <param name="intersectionPoint">The intersection point if found.</param>
+            <returns>True if segments intersect, false otherwise.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment.GetOutlinePoints">
+            <summary>
+            Gets the outline points in order to draw the segment.
+            </summary>
+            <returns>The points</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment.Draw(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <summary>
+            Draws the given segment.
+            </summary>
+            <param name="viewport">The current viewport.</param>
+            <param name="renderer">The renderer to use.</param>
+            <param name="color">The line color to use.</param>
+            <param name="lineThickness">The line thickness to use.</param>
+            <param name="dash">The dash style to use.</param>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment.StartPoint">
+            <summary>
+            Readonly property for start point.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment.EndPoint">
+            <summary>
+            Readonly property for end point.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.#ctor">
+            <summary>
+            Constructs empty arc.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.#ctor(System.Windows.Point,System.Double,System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Creates a new segment arc.
+            </summary>
+            <param name="center">Center point of the arc.</param>
+            <param name="d">The diameter of the arc.</param>
+            <param name="startPoint">Start point of the arc.</param>
+            <param name="endPoint">End point of the arc.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.CopyBufferArc(TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc)">
+            <summary>
+            Copies the give arc segment.
+            </summary>
+            <param name="other">The arc segment to copy from.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.LeftHalf">
+            <summary>
+            Gets the left half of the arc.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.RightHalf">
+            <summary>
+            Gets the right half of the arc.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.SetStart(System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.SetEnd(System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.Intersects(TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment,System.Windows.Point@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.GetOutlinePoints">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.Draw(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.D">
+            <summary>
+            The diameter of the arc.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.Sweep">
+            <summary>
+            The sweep angle of the arc.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc.Center">
+            <summary>
+            The center point of the arc.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine">
+            <summary>
+            Represents a segment in a buffer that is a line.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.#ctor(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Constructs a segment line with start and end point.
+            </summary>
+            <param name="startPoint">Start point of the segment line.</param>
+            <param name="endPoint">End point of the segment line.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.#ctor">
+            <summary>
+            Constructs empty segment line.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.GetParPoints(System.Double,System.Double,System.Int32)">
+            <summary>
+            Calculates the parameter points of the line.
+            </summary>
+            <param name="dStart">Diameter at start</param>
+            <param name="dEnd">Diameter at end</param>
+            <param name="side">Side of the line</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.SetStart(System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.SetEnd(System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.GetOutlinePoints">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.Draw(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.Intersects(TPG.DrawObjects.Internals.Common.RenderUtils.BufferSegment,System.Windows.Point@)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.Dnrm2">
+            <summary>
+            Returns the Dnrm2 variable.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.Left">
+            <summary>
+            Returns the left most coordinate.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.Right">
+            <summary>
+            Returns the right most coordinate.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.Bottom">
+            <summary>
+            Returns the bottom coordinate.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine.Top">
+            <summary>
+            Returns the top coordinate.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.BufferPolyLine">
+            <summary>
+            Represents a polyline that is the base for a buffer area.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferPolyLine.#ctor">
+            <summary>
+            Constructs an empty line.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferPolyLine.#ctor(System.Int32,TPG.GeoUnits.GeoPos[],TPG.GeoFramework.Contracts.IViewport,System.Double)">
+            <summary>
+            Constructs a new line.
+            </summary>
+            <param name="type"></param>
+            <param name="pGp">The points of the line.</param>
+            <param name="viewport">The current viewport.</param>
+            <param name="widthInMeters"></param>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferPolyLine.NumberOfPointsInLine">
+            <summary>
+            Returns the number of points in the line.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferPolyLine.Vertices">
+            <summary>
+            The points in the line.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.BufferPolyLine.Widths">
+            <summary>
+            The width in pixels in each point.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.BufferUtils">
+            <summary>
+            Utility funcitions for working with buffers.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferUtils.LineArc(TPG.DrawObjects.Internals.Common.RenderUtils.BufferLine,TPG.DrawObjects.Internals.Common.RenderUtils.BufferArc,System.Windows.Point@)">
+            <summary>
+            Intersection test for Line-Arc intersection.
+            </summary>
+            <param name="bufferLine">The buffer line.</param>
+            <param name="arcSegment">the buffer arc.</param>
+            <param name="intersectionPoint">Intersection point is returned in this.</param>
+            <returns>True if line and arc intersects.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferUtils.GetOutsideAngle(System.Windows.Point,System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Calculates the outside angle of the meeting line segments.
+            </summary>
+            <param name="start">Start of line segment.</param>
+            <param name="center">Joining point of line segments.</param>
+            <param name="end">End of line segments.</param>
+            <returns>The angle</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferUtils.ProjectToLine(System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Windows.Point@,System.Double@)">
+            <summary>
+            Projects to line.
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <param name="point"></param>
+            <param name="intersectionPoint"></param>
+            <param name="s"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.BufferUtils.IsEqual(System.Double,System.Double,System.Double)">
+            <summary>
+            Checks double values for equality with given eps.
+            </summary>
+            <param name="a">First double.</param>
+            <param name="b">Second double.</param>
+            <param name="eps">Epsilon to use.</param>
+            <returns>True if the same within given tolerance.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.MediaResourceCache">
+            <summary>
+            Caches media resources such as pens and brushes. 
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.MediaResourceCache.#ctor">
+            <summary>
+            Initializes a new instance of MediaResourceCache.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.MediaResourceCache.GetColorHashCode(System.Windows.Media.Color)">
+            <summary>
+            Create hash code for color.
+            </summary>
+            <param name="color">Color to create hash code for.</param>
+            <returns>HAsh code for color.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.MediaResourceCache.CreatePenHash(System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <summary>
+            Create pen hash.
+            </summary>
+            <param name="color">Pen color.</param>
+            <param name="thickness">Pen thickness.</param>
+            <param name="dashStyle">Pen dash style.</param>
+            <returns>Hash code for pen.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.MediaResourceCache.CreateBrushHash(System.Windows.Media.Color,System.Nullable{System.Windows.Media.Color},TPG.DrawObjects.Internals.Contracts.Views.FillStyle)">
+            <summary>
+            Create brush hash.
+            </summary>
+            <param name="color">Brush color.</param>
+            <param name="backgroundColor">Brush background color.</param>
+            <param name="fillStyle">Brush fill style.</param>
+            <returns>Hash code for brush.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.MediaResourceCache.GetBrush(System.Windows.Media.Color)">
+            <summary>
+            Get brush.
+            </summary>
+            <param name="color">Brush color.</param>
+            <returns>Brush with given color.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.MediaResourceCache.GetWpfBrush(System.Windows.Media.Color,System.Nullable{System.Windows.Media.Color},TPG.DrawObjects.Internals.Contracts.Views.FillStyle)">
+            <summary>
+            Get wpf brush.
+            </summary>
+            <param name="color">Brush color.</param>
+            <param name="backgroundColor">Brush background color.</param>
+            <param name="fillStyle">Brush fill style.</param>
+            <returns>Wpf brush with color, background color and fill style.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.MediaResourceCache.GetPen(System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <summary>
+            Get pen.
+            </summary>
+            <param name="color">Pen color.</param>
+            <param name="thickness">Pen thickness.</param>
+            <param name="dashStyle">Pen dash style.</param>
+            <returns>Pen with color, thickness and dash style.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.MediaResourceCache.CreateWpfBrush(System.Windows.Media.Color,System.Nullable{System.Windows.Media.Color},TPG.DrawObjects.Internals.Contracts.Views.FillStyle)">
+            <summary>
+            Create wpf brush.
+            </summary>
+            <param name="color">Brush color.</param>
+            <param name="backgroundColor">Brush background color.</param>
+            <param name="fillStyle">Brush fill style.</param>
+            <returns>Wpf brush with color, background color and fill style.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.MediaResourceCache.Instance">
+            <summary>
+            Get MediaResourceCache instance.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.MediaResourceCache.MaxCount">
+            <summary>
+            get or set max count for cache.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.CalculateEllipseToBezierControlPoints(System.Windows.Rect)">
+            Algoritm in this method is taken from http://www.codeguru.com/Cpp/G-M/gdi/article.php/c131
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.CalculateBoundaryPoints(System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Double)">
+            <summary>
+            Calculates a descrete amount of line segments that make out the boundary of the ellipse.
+            </summary>
+            <param name="center">The center point of the ellipse</param>
+            <param name="firstConjugatePoint">First conjugate point of the ellipse</param>
+            <param name="secondConjugatePoint">Second conjugate point of the ellipse</param>
+            <param name="pixelsBetweenPoints">Number of pixels between each point.</param>
+            <returns>The generated points.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.CalculateNumSegments(System.Double,System.Double,System.Double)">
+            <summary>
+            Calculates the number of evaluations that has to be performed in order to have a specified number of pixels between each points.
+            </summary>
+            <param name="pixelsBetweenPoints">The target number of pixels between each point.</param>
+            <param name="b">Radius 1 of the ellipse.</param>
+            <param name="a">Radius 2 of the ellipse.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.FindWestIndex(System.Windows.Point[])">
+            <summary>
+            Finds the index of the west-most point in points.
+            </summary>
+            <param name="points">The points to search in.</param>
+            <returns>The index into points of the west-most point.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.FindEastIndex(System.Windows.Point[])">
+            <summary>
+            Finds the index of the east-most point in points.
+            </summary>
+            <param name="points">The points to search in.</param>
+            <returns>The index into points of the east-most point.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.FindNorthIndex(System.Windows.Point[])">
+            <summary>
+            Finds the index of the north-most point in points.
+            </summary>
+            <param name="points">The points to search in.</param>
+            <returns>The index into points of the north-most point.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.FindSouthIndex(System.Windows.Point[])">
+            <summary>
+            Finds the index of the south-most point in points.
+            </summary>
+            <param name="points">The points to search in.</param>
+            <returns>The index into points of the south-most point.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.GetFirstConjugateRadius(TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IEllipse)">
+            <summary>
+            Calculates the radius of the ellipse at the first conjugate diameter point.
+            </summary>
+            <param name="ellipse">The ellipse to work on.</param>
+            <returns>Radius in meters.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.CalculateTextPositions(System.Windows.Point,System.Collections.Generic.List{TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.GeneralPositions},System.Windows.Point[],System.Windows.Size,System.Boolean)">
+            <summary>
+            Calculates position of text for a ellipse defined by points.
+            </summary>
+            <param name="center">Center point of the ellipse.</param>
+            <param name="textPos">The text positions to find.</param>
+            <param name="points">Points that define the ellipse.</param>
+            <param name="textSize">Size of the text to be rendererd.</param>
+            <param name="textOnBoundary">True if the text be placed on the boundary.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.AdjustForTextSize(System.Windows.Point,System.Windows.Size)">
+            <summary>
+            Adjusts the position with the text size.
+            </summary>
+            <param name="textPos">The text position to adjust.</param>
+            <param name="textSize">Size of the text to adjust for.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.GetConjugatePointsInAllDirections(System.Windows.Point,System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Calculates the conjugate points on positive and negative direction.
+            </summary>
+            <param name="center">Center point of the ellipse.</param>
+            <param name="firstConjugatePoint">First conjugate point of the ellipse.</param>
+            <param name="secondConjugatePoint">Second conjugate point of the ellipse.</param>
+            <returns>Conjugate points in all directions.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.EllipseRenderUtils.TextPositionProperties">
+            <summary>
+            Holds all information needed to place text.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.FanAreaRenderUtils.CalculateSegmentBeforeandAfterText(System.Double,System.Windows.Point[],System.Double,System.Int32@,System.Int32@)">
+            <summary>
+            Calculates the segment before and after a text leaving rad pixes of space between the segments.
+            </summary>
+            <param name="rad">The space to leave.</param>
+            <param name="circleSegmentPoints">The points that make out the complete circle segment.</param>
+            <param name="fraction">Decides where to leave the space. Should be between 0 and 1. 0 means the beginning of the segment, 1 the end.</param>
+            <param name="midBegin">The index before the space.</param>
+            <param name="midEnd">The index after the space.</param>
+            <returns>The index of the mid point of the space.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.FanAreaRenderUtils.CalculateTwoExtremePointsOnCircleSegment(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea,TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.Range,TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.Direction,System.Double,System.Windows.Point@,System.Windows.Point@)">
+            <summary>
+            Calculates two point on the beginning or end of the cirle segment that makes out the fan area.
+            </summary>
+            <param name="viewport">The current viewport.</param>
+            <param name="fanArea">The fan area primitive.</param>
+            <param name="range">The range to use for the circle segment.</param>
+            <param name="direction">Defines which extremes to calculate.</param>
+            <param name="degreeBetween">The degress between the two extreme points.</param>
+            <param name="last">The last point</param>
+            <param name="nextToLast">The next to last point.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.FanAreaRenderUtils.CalculateRangeInPixels(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea,TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.Range)">
+            <summary>
+            Calculates the range in pixels of a fan area.
+            </summary>
+            <param name="viewport">The current viewport.</param>
+            <param name="fanArea">The primitive to operate on.</param>
+            <param name="rangeType">Which range to calculate value for.</param>
+            <returns>The range in pixels.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.FanAreaRenderUtils.CalculateSectorStartPoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea,TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.Range)">
+            <summary>
+            Calculates the end point of the first sector line. The end point can either be defined by the min or max range.
+            </summary>
+            <param name="viewport">Current viewport</param>
+            <param name="fanArea">The fan area primitive.</param>
+            <param name="rangeType">The range to use.</param>
+            <returns>The end point.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.FanAreaRenderUtils.CalculateSectorEndPoint(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea,TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.Range)">
+            <summary>
+            Calculates the end point of the last sector line. The end point can either be defined by the min or max range.
+            </summary>
+            <param name="viewport">Current viewport</param>
+            <param name="fanArea">The fan area primitive.</param>
+            <param name="rangeType">The range to use.</param>
+            <returns>The end point.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.FormattedTextCache">
+            <summary>
+            Cache for formated text.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Internals.Common.RenderUtils.FormattedTextCache.MaxCount">
+            <summary>
+            Maximum cache size.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.FormattedTextCache.CreateHash(System.String,System.String,System.Single,System.Windows.Media.Color,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Create hash for formated text.
+            </summary>
+            <param name="text">Formated text value.</param>
+            <param name="fontName">Font name of text.</param>
+            <param name="fontSize">Font size of text.</param>
+            <param name="color">Font color.</param>
+            <param name="bold">Bold flag for font.</param>
+            <param name="italic">Italic flag for font.</param>
+            <param name="underline">Underline flag for font.</param>
+            <param name="strikethrough">Strikethrough flag for font.</param>
+            <returns>Hash code for formated text.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.FormattedTextCache.GetColorHashCode(System.Windows.Media.Color)">
+            <summary>
+            Create hash code for color.
+            </summary>
+            <param name="color">Color to create hash code for.</param>
+            <returns>HAsh code for color.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.FormattedTextCache.GetFormattedText(TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.String,System.String,System.Single,System.Windows.Media.Color,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Get formated text.
+            </summary>
+            <param name="renderer">Renderer that renders the formated text.</param>
+            <param name="text">Formated text value.</param>
+            <param name="fontName">Font name of text.</param>
+            <param name="fontSize">Font size of text.</param>
+            <param name="color">Font color.</param>
+            <param name="bold">Bold flag for font.</param>
+            <param name="italic">Italic flag for font.</param>
+            <param name="underline">Underline flag for font.</param>
+            <param name="strikethrough">Strikethrough flag for font.</param>
+            <returns>Formated text.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.FormattedTextCache.GetFormattedTextCache(TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectRenderState)">
+            <summary>
+            Get formated text cache for draw object render state.
+            </summary>
+            <param name="drawObjectRenderState">Render state for draw object.</param>
+            <returns>Formated text cache for draw object.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.FormattedTextCache.RoundFontSizeToNearestHalf(System.Single)">
+            <summary>
+            Round font size to nearest half. 
+            </summary>
+            <param name="fontSize">Font size to round.</param>
+            <returns>Rounde font size.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.GenericSymbolRenderer.MeasureSymbol(System.String,TPG.DrawObjects.Internals.Contracts.Views.IRenderer,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectRenderState)">
+            <summary>
+            Measure the size of the given symbol.
+            </summary>
+            <param name="symbolRendererId">Id of the symbol renderer to use.</param>
+            <param name="renderer">The renderer itself that is to be used.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewRender"></param>
+            <param name="drawObjectRenderState">Render sate for draw object.</param>
+            <returns>The size of the symbol.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.GenericSymbolRenderer.DrawSymbol(System.String,TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.Windows.Media.Color,System.Windows.Point,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectRenderState)">
+            <summary>
+            Draws the given symbol at the given location.
+            </summary>
+            <param name="symbolRendererId">Id of the symbol renderer to use.</param>
+            <param name="renderer">The renderer itself that is to be used.</param>
+            <param name="foregroundColor">Color to use.</param>
+            <param name="centerPosition">The center of the symbol.</param>
+            <param name="drawObjectData">Draw object data.</param>
+            <param name="viewRender"></param>
+            <param name="drawObjectRenderState">Render sate for draw object.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.GenericTextBlockRenderer.DrawAnchoredTextBlock(System.String,TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.Windows.Media.Color,System.Windows.Media.Color,System.String,System.Single,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectRenderState,System.Windows.Point,TPG.DrawObjects.Internals.Common.RenderUtils.GenericTextBlockRenderer.HorizontalAnchor,TPG.DrawObjects.Internals.Common.RenderUtils.GenericTextBlockRenderer.VerticalAnchor,TPG.DrawObjects.Internals.Common.RenderUtils.GenericTextBlockRenderer.TextAlignment,TPG.GeoUnits.IGeoUnitsSetting,TPG.DrawObjects.Internals.Common.Box,System.Double,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Draws the given text in a text block at the given position. The text can be formatted with 
+            line breaks (\n) in order to split text. The text is also parsed in order to replace
+            modifiers with data from the Fields of the draw object.
+            If a boundingBox is passed as argument, a decision will be made whether to draw the text or not.
+            The horizontal and vertical anchor parameters indicate where the given text position is in relation
+            to the text box. These parameters are important when rendering text that can be scaled automatically
+            due to bounding box constraints, since all scaling is relative to this point. If the text is part of 
+            a composite graphic object, make sure that the anchor point is placed in relation to the rest of the 
+            graphics, so that the figure will stay together when the text box is scaled down. 
+            </summary>
+            <param name="textToRender">The text itself.</param>
+            <param name="renderer">The rendering class.</param>
+            <param name="foregroundColor">Color to draw the text with.</param>
+            <param name="backgroundColor">Color to draw behind the text.</param>
+            <param name="fontName">Font to use.</param>
+            <param name="fontSize">Font size to use.</param>
+            <param name="drawObjectData">Draw object data related to this text block.</param>
+            <param name="drawObjectRenderState"></param>
+            <param name="point">Position to draw text block at.</param>
+            <param name="horizontalAnchor">Horizontal anchoring of the point position.</param>
+            <param name="verticalAnchor">Vertical anchoring of the point position.</param>
+            <param name="textAlignment">Defines how to align text.</param>
+            <param name="geoUnitsSetting">Units provider. Needed for text substitutions.</param>
+            <param name="boundingBox">Defines the area that is available to draw in for the text block.</param>
+            <param name="minFontSize">If the font size is below this value, the text will not be drawn.</param>
+            <param name="fixUpsideDown">If true, the renderer will rotate the text 180 degrees before rendering. If false, nothing is done.</param>
+            <param name="bold">Bold face.</param>
+            <param name="italic">Italic face.</param>
+            <param name="underline">Underline face.</param>
+            <param name="strikethrough">Strikethrough face.</param>
+            <returns>Size in pixel of the drawn text block</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.GenericTextBlockRenderer.DrawTextBlock(System.String,TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.Windows.Media.Color,System.Windows.Media.Color,System.String,System.Single,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectRenderState,System.Windows.Point,TPG.DrawObjects.Internals.Common.RenderUtils.GenericTextBlockRenderer.PointPosition,TPG.DrawObjects.Internals.Common.RenderUtils.GenericTextBlockRenderer.TextAlignment,TPG.GeoUnits.IGeoUnitsSetting,TPG.DrawObjects.Internals.Common.Box,TPG.DrawObjects.Internals.Common.RenderUtils.GenericTextBlockRenderer.PointPosition,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Draws the given text in a text block at the given position. The text can be formatted with 
+            line breaks (\n) in order to split text. The text is also parsed in order to replace
+            modifiers with data from the Fields of the draw object.
+            If a boundingBox is passed as argument, a decision will be made whether to draw the text or not.
+            This method is OBSOLETE. Use DrawAnchoredTextBox instead
+            </summary>
+            <param name="textToRender">The text itself.</param>
+            <param name="renderer">The rendering class.</param>
+            <param name="foregroundColor">Color to draw the text with.</param>
+            <param name="backgroundColor">Color to draw behind the text.</param>
+            <param name="fontName">Font to use.</param>
+            <param name="fontSize">Font size to use.</param>
+            <param name="drawObjectData">Draw object data related to this text block.</param>
+            <param name="drawObjectRenderState"></param>
+            <param name="point">Position to draw text block at.</param>
+            <param name="anchorPosition">Enum to define what position is given as the position parameter.</param>
+            <param name="textAlignment">Defines how to align text.</param>
+            <param name="geoUnitsSetting"></param>
+            <param name="boundingBox">Defines the area that is available to draw in for the text block.</param>
+            <param name="scalePosition">Enum to define which point to scale text block about. </param>
+            <param name="bold">Bold face.</param>
+            <param name="italic">Italic face.</param>
+            <param name="underline">Underline face.</param>
+            <param name="strikethrough">Strikethrough face.</param>
+            <returns>True if text block was draw, false otherwise.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.GenericTextBlockRenderer.HorizontalAnchor">
+            <summary>
+            Horizontal anchor positions.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.GenericTextBlockRenderer.VerticalAnchor">
+            <summary>
+            Vertical anchor positions.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.GenericTextBlockRenderer.TextAlignment">
+            <summary>
+            Horizontal alignment of text lines.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils">
+            <summary>
+            Line rendering utilities
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.EvaluateCurveSegment(System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Boolean,System.Int32)">
+            <summary>
+            Calculates the number of interpolated points bertween  p1 and p2 
+            indicated by the resolution paramter
+            </summary>
+            <param name="p0">Previous point used for tangent calculations.</param>
+            <param name="p1">First point in segment to interpolate.</param>
+            <param name="p2">Second point in segment to interpolate.</param>
+            <param name="p3">Next point used for tangent calculations.</param>
+            <param name="resolution">The number of line segments to generate between p1 and p2.</param>
+            <param name="smooth">Smooth or linear interpolation.</param>
+            <returns>List of interpolated points.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.Evaluate(System.Windows.Vector,System.Windows.Vector,System.Windows.Vector,System.Windows.Vector,System.Double,System.Boolean)">
+            <summary>
+            Calculate new points along the vector from p1 to p2, with either linear or smooth interpolation.
+            </summary>
+            For smooth evaluation we calculate the the Catmull-Rom spline between points p1 and p2 at paramter value t. 
+            Formula from http://steve.hollasch.net/cgindex/curves/catmull-rom.html
+            <param name="v0">Previous point used for tangent calculations.</param>
+            <param name="v1">First point in segment to interpolate.</param>
+            <param name="v2">Second point in segment to interpolate.</param>
+            <param name="v3">Next point used for tangent calculations.</param>
+            <param name="t">Paramter value</param>
+            <param name="smooth">Smooth evaluation or not. If false, simple linear interpolation is used.</param>
+            <returns>The evaluated position.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.EvaluateMidPoint(System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Boolean)">
+            <summary>
+            Calculates the mid point on the interpolated line between p1 and p2.
+            </summary>
+            <param name="p0">Previous point used for tangent calculations.</param>
+            <param name="p1">First point in segment to interpolate.</param>
+            <param name="p2">Second point in segment to interpolate.</param>
+            <param name="p3">Next point used for tangent calculations.</param>
+            <param name="smooth">Smooth or linear interpolation.</param>
+            <returns>The mid point.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.EvaluateAtT(System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Double,System.Boolean)">
+            <summary>
+            Calculates the interpolated line between p1 and p2 at the given parameter value t.
+            </summary>
+            <param name="p0">Previous point used for tangent calculations.</param>
+            <param name="p1">First point in segment to interpolate.</param>
+            <param name="p2">Second point in segment to interpolate.</param>
+            <param name="p3">Next point used for tangent calculations.</param>
+            <param name="t">The parameter to evaluate at.</param>
+            <param name="smooth">Smooth or linear interpolation.</param>
+            <returns>The point on the line.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.CalculatePerpendicularAngleBetween(System.Windows.Vector,System.Windows.Vector)">
+            <summary>
+            Calculates the vector perpendicular to v that is closest to being parallell to direction that 
+            points in the general direction of parameter direction and returns the 1.0 - dot product of this vector.
+            </summary>
+            <param name="direction">The vector describing the direction we want to use.</param>
+            <param name="v">The vector that we will calculate a perpendicular vector for that is to 
+              be used in calculating the dot product.</param>
+            <returns>1.0 - dot(perpendicular_v)</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.CalculateEvalPoints(System.Windows.Point[],System.Double,System.Boolean)">
+            <summary>
+            Evaluates the polygon area at points with uniform spacing trying to maintain 
+            pixelsBetweenEval between each evaluation.
+            </summary>
+            <param name="linePoints">The points that make up the polygon area.</param>
+            <param name="pixelsBetweenEval">The number of pixels between each evaluation.</param>
+            <param name="smooth">Indicates whether to smooth (curve) the lines</param>
+            <returns>Lists of evaluated points.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.DrawScaledTextAndLine(TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectRenderState,TPG.DrawObjects.Internals.Contracts.Views.IRenderer,TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Windows.Point,System.Windows.Point,System.String,System.Single,System.String,System.Windows.Media.Color,System.Single,System.Windows.Media.DashStyle,System.Windows.Media.Color,System.Single,System.Boolean)">
+            <summary>
+            renders a text on a line given by two points, and scales down the text size if to large to fit the line
+            </summary>
+            <param name="drawObjectRenderState">Render state for draw object.</param>
+            <param name="renderer"></param>
+            <param name="drawObjectData"></param>
+            <param name="p0"></param>
+            <param name="p1"></param>
+            <param name="text"></param>
+            <param name="fontEmSize"></param>
+            <param name="fontName"></param>
+            <param name="lineColor"></param>
+            <param name="lineWidth"></param>
+            <param name="dashStyle"></param>
+            <param name="textColor"></param>
+            <param name="rotationAngle"></param>
+            <param name="flip"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.DrawStringOnLine(TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.String,System.Windows.Point,System.Windows.Point,System.Windows.Vector,System.String,System.Single,System.Windows.Media.Color,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectRenderState,System.Single,System.Boolean,System.Double,System.Windows.Media.Color,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Draw a text string centered on a line through the given view coordinate points.
+            </summary>
+            <param name="renderer"></param>
+            <param name="str">Text string</param>
+            <param name="screenp0">First point of line.</param>
+            <param name="screenp1">Second point of line.</param>
+            <param name="offset">Offset in X,Y direction.</param>
+            <param name="fontName">Font name</param>
+            <param name="fontSize">Font size</param>
+            <param name="color">Color</param>
+            <param name="drawObjectRenderState">Render state for draw object.</param>
+            <param name="rotationAngle">optional if we want to rotate text (see Straight Renderer)</param>
+            <param name="flip">flip's text if up-side-down</param>
+            <param name="maxHeight"></param>
+            <param name="backgroundColor"> </param>
+            <param name="bold">Bold face.</param>
+            <param name="italic">Italic face.</param>
+            <param name="underline">Underline face.</param>
+            <param name="strikethrough">Strikethrought face.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.GetText(System.Collections.Generic.Dictionary{System.String,System.String},TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.GeoUnits.IGeoUnitsSetting)">
+            <summary>
+            Gets the text placed in Parameters. Text replacement is done 
+            to replace with modifiers.
+            </summary>
+            <param name="parameters">The parameters to look up.</param>
+            <param name="drawObjectData">The draw object data to operate on.</param>
+            <param name="geoUnitsSetting"></param>
+            <returns>The text</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.CalculateAngleToXAxis(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Calculates the angle between the line defined by p0 and p1 and the positive x-axis.
+            </summary>
+            <param name="p0">First point on the line.</param>
+            <param name="p1">Second point on the line.</param>
+            <returns>The angle in degrees.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.ShouldDrawNModifier(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Boolean)">
+            <summary>
+            Inspects whether the N modifier (ENY) should be drawn.
+            </summary>
+            <param name="drawObjectData">Draw object data to check.</param>
+            <param name="hasNModifier">Indicates if the draw object has an N modifier associated to it.</param>
+            <returns>True if N modifiers should be drawn, false otherwise.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.CalcWidthScale(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Lines.ILine,System.Double)">
+            <summary>
+            Calculates the scale factor of the line made of of points in line with regards to min.
+            While lines length is > than min 1.0 is returned, else the actual scale factor.
+            </summary>
+            <param name="viewport">Viewport to use to transform points to xy coordinates.</param>
+            <param name="line">The line</param>
+            <param name="min">Min</param>
+            <returns>The scale factor</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.CalcWidthScale(System.Windows.Point[],System.Double)">
+            <summary>
+            Calculates the scale factor of the line made of of points with regards to min.
+            While lines length is > than min 1.0 is returned, else the actual scale factor.
+            </summary>
+            <param name="points">Points that define the line</param>
+            <param name="min">Min</param>
+            <returns>The scale factor</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.CalcWidthScale(System.Windows.Point,System.Windows.Point,System.Double)">
+            <summary>
+            Calculates the scale factor of the line between p0 and p1 with regards to min.
+            While lines length is > than min 1.0 is returned, else the actual scale factor.
+            </summary>
+            <param name="p0">Start point</param>
+            <param name="p1">End point point</param>
+            <param name="min">Min</param>
+            <returns>The scale factor</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.CalcWidthScale(System.Windows.Vector,System.Double)">
+            <summary>
+            Calculates the scale factor of dir.Length with regards to min.
+            While len is > than min 1.0 is returned, else the actual scale factor.
+            </summary>
+            <param name="dir">The dir.Length to use.</param>
+            <param name="min">Min</param>
+            <returns>The scale factor</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.CalcWidthScale(System.Double,System.Double)">
+            <summary>
+            Calculates the scale factor of len with regards to min.
+            While len is > than min 1.0 is returned, else the actual scale factor.
+            </summary>
+            <param name="len">The len to use.</param>
+            <param name="min">Min</param>
+            <returns>The scale factor</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.DouglasPeuckerReduction(System.Collections.Generic.List{System.Windows.Point},System.Double)">
+            <summary>
+            Uses the Douglas Peucker algorithm to reduce the number of points.
+            </summary>
+            <param name="points">The points.</param>
+            <param name="tolerance">The tolerance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.DouglasPeuckerReduction(System.Collections.Generic.IList{System.Windows.Point},System.Int32,System.Int32,System.Double,System.Collections.Generic.List{System.Int32}@)">
+            <summary>
+            Douglases the peucker reduction.
+            </summary>
+            <param name="points">The points.</param>
+            <param name="firstPoint">The first point.</param>
+            <param name="lastPoint">The last point.</param>
+            <param name="tolerance">The tolerance.</param>
+            <param name="pointIndexsToKeep">The point index to keep.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.LineRendererUtils.PerpendicularDistance(System.Windows.Point,System.Windows.Point,System.Windows.Point)">
+            <summary>
+            The distance of a point from a line made from point1 and point2.
+            </summary>
+            <param name="point1">The PT1.</param>
+            <param name="point2">The PT2.</param>
+            <param name="point">The p.</param>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.PolyBuffer">
+            <summary>
+            Holds a buffer around a given set of points.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolyBuffer.#ctor">
+            <summary>
+            Constructs an empty buffer.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolyBuffer.CreateBuffer(TPG.DrawObjects.Internals.Common.RenderUtils.BufferPolyLine,System.Double,TPG.DrawObjects.Internals.Common.RenderUtils.PolyBuffer.PolyBufferType)">
+            <summary>
+            Creates a buffer with from the specified set of points of the specified type.
+            </summary>
+            <param name="polyLine">The points to create the buffer from.</param>
+            <param name="d">Diameter of the buffer</param>
+            <param name="polyBufferType">The type of the buffer.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolyBuffer.GetOutlinePoints">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolyBuffer.Draw(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <summary>
+            Draws entire poly buffer.
+            </summary>
+            <param name="viewport">The current viewport.</param>
+            <param name="renderer">The renderer to use.</param>
+            <param name="color">The line color to use.</param>
+            <param name="lineThickness">The line thickness to use.</param>
+            <param name="dash">The dash style to use.</param>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Common.RenderUtils.PolyBuffer.Segments">
+            <summary>
+            Gets all segments of this buffer.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.PolyBuffer.PolyBufferType">
+            <summary>
+            The supperted buffer types.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Internals.Common.RenderUtils.PolyBuffer.PolyBufferType.Polygon">
+            <summary>
+            Buffer around a polygon.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Internals.Common.RenderUtils.PolyBuffer.PolyBufferType.Polyline">
+            <summary>
+            Buffer around a polyline.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Internals.Common.RenderUtils.PolyBuffer.PolyBufferType.Point">
+            <summary>
+            Buffer around a point.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils">
+            <summary>
+            Utilities for use when rendering a polygon area.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.FindDirectionalSegments(System.Windows.Point[],System.Collections.Generic.Dictionary{TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.GeneralPositions,System.Int32})">
+            <summary>
+            Finds the segment that faces north, south, east and west respectively.
+            </summary>
+            <param name="points">Points that represents the polygon area.</param>
+            <param name="textPositions">The Dictionary that maps segment to direction.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.FindDirectionalSegmentsWithNModifier(System.Windows.Point[],System.Collections.Generic.Dictionary{TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.GeneralPositions,System.Int32},System.Int32@,System.Int32@)">
+            <summary>
+            Finds the segment that faces north, south, east and west respectively. Takes into account
+            the N modifier that is placed East and West as default.
+            </summary>
+            <param name="points">Points that represents the polygon area.</param>
+            <param name="textPositions">The Dictionary that maps segment to direction.</param>
+            <param name="eastSegmentIndex">The index of the east segment.</param>
+            <param name="westSegmentIndex">The index of the west segment.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.CalculateHorizontallyCenteredPoint(System.Windows.Point[])">
+            <summary>
+            Calculates the mid point in the horizontal direction. The result will not be placed
+            at any specific plane in the Y direction.
+            </summary>
+            <param name="points">The points definining the polygon area.</param>
+            <returns>A point centered horizontally in the polygon area.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.FindHighestPoint(System.Windows.Point[])">
+            <summary>
+            Finds the highest point measured in screen coordinates of the polygon area 
+            defined by points.
+            </summary>
+            <param name="points">The points that defines the polygon area.</param>
+            <returns>The highest point.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.CalculateWidth(System.Windows.Point[])">
+            <summary>
+            Calculates the width in pixels of the polygon area defined by points.
+            </summary>
+            <param name="points">Point that defines the polygon area.</param>
+            <returns>Width in pixels of the polygon area.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.FindIntersectionVec(System.Windows.Point,System.Double,System.Windows.Vector,System.Windows.Point[])">
+            <summary>
+            Calculates where the line defined by its starting point centroid and a directional vector intersects the
+            line that constitutes the polygon area's boundary.
+            </summary>
+            <param name="centroid">Centroid of the polygon area.</param>
+            <param name="maxRadius">The maximum radius of the polygon area.</param>
+            <param name="lineDirection">The direction of the line.</param>
+            <param name="linePoints">The points that make up the polygon area.</param>
+            <returns>The vector from the centroid to the intersection point.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.CalculateMaxRadius(System.Nullable{System.Windows.Point},System.Windows.Point[])">
+            <summary>
+            Calculates the largest radius of the polygon area as measured from its centroid
+            to a line segment.
+            </summary>
+            <param name="centroid">The centroid of the polygon area.</param>
+            <param name="linePoints">The points that make up the polygon area.</param>
+            <returns>The largest radius of the polygon area.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.CalculateMinRadius(System.Nullable{System.Windows.Point},System.Windows.Point[])">
+            <summary>
+            Calculates the smalles radius of the polygon area as measured from its centroid
+            to a line segment.
+            </summary>
+            <param name="centroid">The centroid of the polygon area.</param>
+            <param name="linePoints">The points that make up the polygon area.</param>
+            <returns>The smallest radius of the polygon area.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.CalculateEvalPoints(System.Windows.Point[],System.Double,System.Boolean,System.Collections.Generic.Dictionary{TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.GeneralPositions,System.Int32},System.Collections.Generic.Dictionary{TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.GeneralPositions,System.Int32},System.Double)">
+            <summary>
+            Evaluates the polygon area at points with uniform spacing trying to maintain 
+            pixelsBetweenEval between each evaluation.
+            </summary>
+            <param name="linePoints">The points that make up the polygon area.</param>
+            <param name="pixelsBetweenEval">The number of pixels between each evaluation.</param>
+            <param name="smooth">True if spline based rendering should be used, false if straight lines are used.</param>
+            <param name="textIndices">Writes which evaluated point is placed where text should go.</param>
+            <param name="textPositions">The text positions that will be used.</param>
+            <param name="textRadius">Space needed for text.</param>
+            <returns>Lists of evaluated points.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.CalculateIndices(System.Int32,System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Calculates the three extra indices needed in order to evaluate.
+            </summary>
+            <param name="currentIndex">The start point of the line segment to evaluate.</param>
+            <param name="numPnts">Number of points that makes up the polygon area.</param>
+            <param name="next">The second point in the line segment to evaluate.</param>
+            <param name="nextNext">The first point after the line segment to evaluate.</param>
+            <returns>The previous point to the first point in the line segment to evaluate.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.CalcSubSegment(System.Windows.Point,System.Collections.Generic.List{System.Windows.Point},System.Double)">
+            <summary>
+            Calculates a sub segment.
+            </summary>
+            <param name="midPoint">Mid point</param>
+            <param name="drawPoints">The draw points that represent the polygon area.</param>
+            <param name="textRadius">Radius of the text to make place for.</param>
+            <returns>The points representing the sub segment.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.ShouldDrawText(System.Int32,System.Collections.Generic.Dictionary{TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.GeneralPositions,System.Int32})">
+            <summary>
+            Checks if text should be drawn on the current line segment.
+            </summary>
+            <param name="segmentIndex">Index of the current line segment.</param>
+            <param name="textPositions">The text positions that are to be drawn.</param>
+            <returns>True if text should be drawn on this line segment.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.ShouldDrawText(System.Int32,System.Collections.Generic.Dictionary{TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.GeneralPositions,System.Int32},TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.GeneralPositions@)">
+            <summary>
+            Checks if text should be drawn on the current line segment. Also return which direction was found.
+            </summary>
+            <param name="segmentIndex">Index of the current line segment.</param>
+            <param name="textPositions">The text positions that are to be drawn.</param>
+            <param name="boundaryGphxPosFound">The direction, ie. East, West, North or South that was found.</param>
+            <returns>True if text should be drawn on this line segment.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.ShouldSkipPoint(System.Int32,System.Collections.Generic.Dictionary{TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.GeneralPositions,System.Int32},TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.GeneralPositions@)">
+            <summary>
+            Checks if the current index should be skipped due to text being placed there.
+            We skip 2 position before and after a text's position.
+            </summary>
+            <param name="currentIndex">The index to check</param>
+            <param name="textIndices">The list of indices where text is placed.</param>
+            <param name="directionSkipped">The direction that was skipped, if any</param>
+            <returns>True if point should be skipped, false otherwise.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.PolygonAreaRenderUtils.CalculateTextPosition(System.Windows.Point[],TPG.DrawObjects.Internals.Contracts.Rendering.PartRendererParameterTypes.TextBlockPosition)">
+            <summary>
+            Calculates the text position to use taking into account the textPosition variable.
+            </summary>
+            <param name="linePoints">The points of the polygon area.</param>
+            <param name="textPosition">The text position to calculate position for.</param>
+            <returns>The text position to use.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.StringModifierTagParser.GetModifierFromName(System.String)">
+            <summary>
+            Get modifier from draw object field name.
+            </summary>
+            <param name="name">Draw object field name.</param>
+            <returns>Modifier.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.StringModifierTagParser.PerformModifierTagReplacement(System.String,TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.GeoUnits.IGeoUnitsSetting)">
+            <summary>
+            Performs text subsitution of modifier text with the content in <see cref="P:TPG.DrawObjects.Contracts.Data.IDrawObjectData.Fields">IDrawObjectData.Fields</see>.
+            </summary>
+            <param name="originalString"></param>
+            <param name="drawObjectData"></param>
+            <param name="geoUnitsSetting"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.SymbolRendererUtils">
+            <summary>
+            Utility methods when rendering symbols.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.SymbolRendererUtils.GetOffsetLocationDisplacement(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Get displacment for offset location indicator modifier.
+            </summary>
+            <param name="drawObjectData">Draw object data.</param>
+            <returns>Displacement vector.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.SymbolRendererUtils.SetOffsetLocationDisplacement(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Windows.Vector)">
+            <summary>
+            Set the displacement for offset location indicator modifier.
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+            <param name="offset">Offset in pixel coordinates.</param>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.RenderUtils.TextRenderUtils">
+            <summary>
+            todo: create generic utils for text scaling
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Internals.Common.RenderUtils.TextRenderUtils.MinFontSize">
+            <summary>
+             Minimum allowable font size.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.RenderUtils.TextRenderUtils.ScaleLineText(TPG.DrawObjects.Internals.Contracts.Views.IRenderer,System.String,System.Windows.Point,System.Windows.Point,System.Single,System.String,System.Single@,System.Windows.Size@,System.Single@,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectRenderState,System.Single)">
+            <summary>
+            scale text inside a line, returns scale ration, font size in pxl and em size
+            </summary>
+            <param name="renderer"></param>
+            <param name="text"></param>
+            <param name="p0"></param>
+            <param name="p1"></param>
+            <param name="fontEmSize"></param>
+            <param name="fontName"></param>
+            <param name="scaleFactor"></param>
+            <param name="newFontPxSize"></param>
+            <param name="newFontEmSize"></param>
+            <param name="drawObjectRenderState">Render state for draw object.</param>
+            <param name="sizeFactor"></param>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.ViewportUtils">
+            <summary>
+             Wrapper methods for the Managed Viewport class.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.ViewportUtils.LatLonToXY(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint)">
+            <summary>
+            Converts a geographical position to view port coordinates
+            </summary>
+            <param name="viewport">Viewport</param>
+            <param name="geoPoint">Geographical position</param>
+            <returns>Viewport position</returns>
+            <exception cref="T:System.ArgumentException">Thrown if geographical position is invalid for current projection.</exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.ViewportUtils.LatLonToXY(TPG.GeoFramework.Contracts.IViewport,TPG.GeoUnits.GeoPos)">
+            <summary>
+            Converts a geographical position to view port coordinates
+            </summary>
+            <param name="viewport">Viewport</param>
+            <param name="latlon">Geographical position</param>
+            <returns>Viewport position</returns>
+            <exception cref="T:System.ArgumentException">Thrown if geographical position is invalid for current projection.</exception>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.ViewportUtils.XYToLatLon(TPG.GeoFramework.Contracts.IViewport,System.Windows.Point)">
+            <summary>
+            Converts a view port position to geographical coordinates
+            </summary>
+            <param name="viewport">Viewport</param>
+            <param name="xy">Viewport position</param>
+            <returns>Geographical position</returns>
+            <exception cref="T:System.ArgumentException">Thrown if view port position is invalid for current projection.</exception>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Common.XmlUtils">
+            <summary>
+            Misc utility methods related to XML parsing and serializing.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.XmlUtils.CreateXmlText(System.Xml.Linq.XElement,System.Boolean)">
+            <summary>
+            Create an XML string from the given XElement.
+            </summary>
+            <param name="element">Root element for the XML output.</param>
+            <param name="indent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Common.XmlUtils.CreateXmlText(System.Xml.Linq.XDocument,System.Boolean)">
+            <summary>
+             Create an XML string from the given XDocument.
+            </summary>
+            <param name="xDocument"></param>
+            <param name="indent"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

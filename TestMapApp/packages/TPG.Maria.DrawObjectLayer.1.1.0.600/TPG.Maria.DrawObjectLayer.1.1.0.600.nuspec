@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>TPG.Maria.DrawObjectLayer</id>
+    <version>1.1.0.600</version>
+    <title>TPG.Maria.DrawObjectLayer</title>
+    <authors>Teleplan Globe AS</authors>
+    <owners>Teleplan Globe AS</owners>
+    <licenseUrl>http://support.teleplanglobe.com/Teleplan_Globe_software_License_Agreement_Release.pdf</licenseUrl>
+    <projectUrl>http://www.teleplanglobe.com/products/maria</projectUrl>
+    <iconUrl>http://support.teleplanglobe.com/MARIA.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Maria Draw Object Layer adds a layer for displaying and creating objects in combination with the map. This layer add support for Mil Std 2525C</description>
+    <releaseNotes>First Release</releaseNotes>
+    <tags>GIS Tactical Map</tags>
+    <dependencies>
+      <dependency id="TPG.Maria.MariaUserControl" version="1.1.0.0" />
+      <dependency id="TPG.GeoFramework.Symbols.Contracts" version="1.1.0.0" />
+      <dependency id="TPG.GeoFramework.Style.Core.Contracts" version="1.1.0.0" />
+    </dependencies>
+    <references>
+      <reference file="TPG.Maria.DrawObjectContracts.dll" />
+      <reference file="TPG.Maria.DrawObjectLayer.dll" />
+      <reference file="TPG.DrawObjects.Contracts.dll" />
+      <reference file="TPG.GeoFramework.Contracts.dll" />
+      <reference file="TPG.GeoFramework.StyleCore.dll" />
+      <reference file="TPG.DrawObjects.Contracts.Data.dll" />
+      <reference file="TPG.DrawObjects.Data.dll" />
+      <reference file="TPG.DrawObjects.Data.Filters.dll" />
+      <reference file="TPG.GeoFramework.DrawObjectLayer.Contracts.dll" />
+    </references>
+  </metadata>
+</package>

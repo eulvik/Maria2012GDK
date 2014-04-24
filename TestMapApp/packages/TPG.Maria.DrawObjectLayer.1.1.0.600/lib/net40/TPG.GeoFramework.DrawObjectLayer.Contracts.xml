@@ -1,0 +1,495 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.DrawObjectLayer.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.GeoFramework.DrawObjectLayer.Contracts.SelectionAction">
+            <summary>
+            Selection action definition.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.DrawObjectLayer.Contracts.SelectionAction.Select">
+            <summary>
+            Selection action.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.DrawObjectLayer.Contracts.SelectionAction.Deselect">
+            <summary>
+            Deselection action.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.DrawObjectLayer.Contracts.BeforeDrawObjectSelectionEventArgs">
+            <summary>
+            Arguemnt for event raised before draw object selection or deselection occurs.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.BeforeDrawObjectSelectionEventArgs.#ctor(System.Collections.Generic.List{System.String},TPG.GeoFramework.DrawObjectLayer.Contracts.SelectionAction)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="drawObjectIds">List of draw object ids to be selected or deselected.</param>
+            <param name="action">The selection action.</param>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.BeforeDrawObjectSelectionEventArgs.Action">
+            <summary>
+            Get selection action.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.BeforeDrawObjectSelectionEventArgs.SelectedDrawObjects">
+            <summary>
+            Get list of draw object ids to be selected.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.BeforeDrawObjectSelectionEventArgs.DeselectedDrawObjects">
+            <summary>
+            Get list of draw object ids to be de selected.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.BeforeDrawObjectSelectionEventArgs.Deny">
+            <summary>
+            Get or set if selection or deselection should be denied.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectInstanceIdProvider.CreateInstanceId">
+            <summary>
+            Create new instance id.
+            </summary>
+            <returns>Instance id.</returns>
+        </member>
+        <member name="T:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel">
+            <summary>
+            Draw object layer view model
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.EditPoints(System.String)">
+            <summary>
+            Sets edit mode for tool operations
+            </summary>
+            <param name="instanceId">Instance id of draw object to set edit points for.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.EndEditPoints">
+            <summary>
+            Ends edit mode for tool operations.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.Get(System.String)">
+            <summary>
+            Retrieves a draw object from layer
+            </summary>
+            <param name="instanceId">Instance id of draw object to retrieve</param>
+            <returns>Copy of draw object</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.GetDrawObjectRuntimeData(System.String)">
+            <summary>
+            Get runtime data object from layer
+            </summary>
+            <param name="instanceId">Instance id of draw object to retrieve</param>
+            <returns>Runtime data object</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.GetSorted(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition,System.Collections.Generic.IList{TPG.GeoFramework.Style.Core.Contracts.Sorting.SortInfoItem},System.Int32,System.Int32)">
+            <summary>
+            Get draw objects sorted by specified field(s).
+            </summary>
+            <param name="query">Query for selecting sorted draw objects. Selected draw objects can be offset from start of
+            sort order. THe specified number of draw objects can be lower than the total count.</param>
+            <param name="sortItems">List of sort items containing sorting info.</param>
+            <param name="offset">Offset into the set of draw objects to be returned.</param>
+            <param name="maxCount">Maximum count of draw objects to be returned.</param>
+            <returns>Sorted draw objects and supporting information.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.Update(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Updates (or creates if the object is not already present) a draw object in layer
+            </summary>
+            <param name="drawObjectData">Draw object data</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.Update(System.Collections.Generic.IEnumerable{TPG.DrawObjects.Contracts.Data.IDrawObjectData})">
+            <summary>
+            Updates (or creates if the object is not already present) a collection of draw object in layer
+            </summary>
+            <param name="drawObjectData">Collection of draw object data items</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.Delete(System.String)">
+            <summary>
+            Removes a draw object already present in layer
+            </summary>
+            <param name="instanceId">Instance id of draw to be removed.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DeleteAll">
+            <summary>
+            Removes all draw objects already present in layer.
+            If draw object is present in multiple layers it is only removed from current layer.
+            If draw object is present in current layer only it is removed from store as well.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.CanDeleteSelectedPrimitives">
+            <summary>
+            Check if selected draw object primitives can be deleted.
+            </summary>
+            <returns>True if selected draw object primitives can be deleted, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DeleteSelectedPrimitives">
+            <summary>
+            Delete selected draw object primitives.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.CanCancelCurrentOperation">
+            <summary>
+            Checks if there are any operations that can be cancelled.
+            </summary>
+            <returns>True if an operation can be cancelled. False otherwise.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.CancelCurrentOperation">
+            <summary>
+            Cancels the current operation.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.IsSelected(System.String)">
+            <summary>
+            Returns whether a draw object in layer is selected
+            </summary>
+            <param name="instanceId">Instance id of draw object</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.Select(System.String,System.Boolean)">
+            <summary>
+            Selects a draw object in layer
+            </summary>
+            <param name="instanceId">Instance id of draw object</param>
+            <param name="deselect">If set to "true" deselects all selected draw objects. </param>
+            <remarks>This will not de-select other selected draw objects</remarks>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.Select(System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Selects a draw objects in layer
+            </summary>
+            <param name="instanceIds">Instance ids of draw objects</param>
+            <param name="deselect">If set to "true" deselects all selected draw objects.</param>
+            <remarks>This will not de-select other selected draw objects</remarks>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DeSelect(System.String)">
+            <summary>
+            De-selects a draw object in layer
+            </summary>
+            <param name="instanceId">Instance id of draw object</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DeSelect(System.Collections.Generic.List{System.String})">
+            <summary>
+            De-selects a draw objects in layer
+            </summary>
+            <param name="instanceIds">Instance ids of draw objects</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DeSelectAll">
+            <summary>
+            De-selects all draw object in layer
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.SetDirty(System.Boolean,System.Boolean)">
+            <summary>
+            If draw layer is dirty, it will be redrawn on the next Update().
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.HasDrawObjectChanged(System.String)">
+            <summary>
+            Checks if the draw object with given instance id has been changed.
+            </summary>
+            <param name="drawObjectInstanceId">Instance id of draw object to check.</param>
+            <returns>True if changed, false otherwise.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.HasDrawObjectChangedSince(System.String,System.DateTime)">
+            <summary>
+            Checks if the draw object with given instance id has been changed after the given timestamp.
+            </summary>
+            <param name="drawObjectInstanceId">Instance id of draw object to check.</param>
+            <param name="since">The timestamp to check against.</param>
+            <returns>True if changed, false otherwise.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.ClearChangedState(System.String)">
+            <summary>
+            Clears the changed flag if the draw object with given instance id.
+            </summary>
+            <param name="drawObjectInstanceId">The instance id of the draw object to clear changed stateus for.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.Copy">
+            <summary>
+            Copy selected draw object to clipboard.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.CanCopy">
+            <summary>
+            Check if copy to clipboard can be executed.
+            </summary>
+            <returns>true if copy to be executed, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.Cut">
+            <summary>
+            Cut selected draw object to clipboard.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.CanCut">
+            <summary>
+            Check if cut to clipboard can be executed.
+            </summary>
+            <returns>true if cut can be executed, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.Paste(System.Boolean)">
+            <summary>
+            Paste draw object from clipboard.
+            </summary>
+            <param name="centerObjects">True if objects are to be centered.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.CanPaste">
+            <summary>
+            Check if paste from clipboard can be executed.
+            </summary>
+            <returns>true if paste can be executed, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.RemoveDrawObjectFromUndoRedoStack(System.String)">
+            <summary>
+            Removes all undo steps where the given instance id is affected.
+            </summary>
+            <param name="instanceId">Instance id of draw object.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.ClearUndoRedoStack">
+            <summary>
+            Clears all available steps from the undoredo stack.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.SetUndoRedoStack(TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack)">
+            <summary>
+            Sets a new undo redo stack to use.
+            </summary>
+            <param name="undoRedoStack">The undo redo stack.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.CanDeleteSelectedDrawObjects">
+            <summary>
+            Check if selected draw objects can be deleted.
+            </summary>
+            <returns>true of we have selected objects, false otherwise.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.Delete(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Delete draw objects.
+            </summary>
+            <param name="instanceIds">Instance ids of draw objects to delete.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.CanDeleteSelected">
+            <summary>
+            Check if we can delete selected draw objects or primitives
+            </summary>
+            <returns>true if draw objects are selected, or if we are in edit mode and we have selected primitives.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DeleteSelected">
+            <summary>
+            Delete selected draw objects or selected draw object primitives if we are in edit mode.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.EnsureWithinMapView(System.String[])">
+            <summary>
+            Zoom and center viewport to draw objects.
+            </summary>
+            <param name="instanceIds">Instance ids of draw objects to zoom and center viewport to.</param>
+            <returns>True on success, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.ActivateCreationWorkflow(System.Guid)">
+            <summary>
+            Activates a draw object creation workflow.
+            </summary>
+            <param name="drawObjectTypeId">Draw object type id.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DeactivateCreationWorkflow">
+            <summary>
+            Deactivates the active creation workflow.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.HasActiveCreationWorkflow(System.Guid)">
+            <summary>
+            Check active status of creation workflow.
+            </summary>
+            <param name="drawObjectTypeId">Draw object type id of creation workflow.</param>
+            <returns>True if a workflow is active, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.SetDrawObjectStyle(System.String)">
+            <summary>
+            Replaces the current style with the one given.
+            </summary>
+            <param name="styleXmlRep">XML representation of the new style to use.</param>
+            <returns>True on success, false otherwise.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.SetDrawObjectDefaultValueStyle(System.String)">
+            <summary>
+            Replaces the current default value style with the one given.
+            </summary>
+            <param name="styleXmlRep">XML representation of the new style to use.</param>
+            <returns>True on success, false otherwise.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.GetClickedDrawObjects(System.Windows.Point)">
+            <summary>
+            Get draw objects instnce ids at clicked position.
+            </summary>
+            <param name="point">Clicked position.</param>
+            <returns>List of instance ids.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.GetVisibleObjectCount">
+            <summary>
+            Get visible draw object count.
+            </summary>
+            <returns>Visible draw object count.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.GetVisibleObjectIds">
+            <summary>
+            Get visible draw object ids.
+            </summary>
+            <returns>Ids if visible draw objects.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.GetEnvelopeForDrawObjects(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition)">
+            <summary>
+            Retrieves a position list for draw objects restricted by a query.
+            </summary>
+            <param name="query">Draw object query.</param>
+            <returns>Envelope for draw objects.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.SetSymbolProvider(System.String,TPG.GeoFramework.Symbols.Contracts.Providers.IRasterSymbolProvider)">
+            <summary>
+            Assign a raster symbol provider to the given symbol type.
+            </summary>
+            <param name="type">Type of raster symbol to handle</param>
+            <param name="symbolProvider">Provider for returning symbols of this type.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.ClearSymbolCache">
+            <summary>
+            Clear all symbols from the symbol caches.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.RefreshStyle">
+            <summary>
+            Refresh draw object style.
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.SelectionControlMouseClick">
+            <summary>
+            Selection control mouse click event.
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.BeforeDrawObjectSelection">
+            <summary>
+            Event raised before draw object selection occurs.
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.ActiveCreationWorkflowCompleted">
+            <summary>
+            Notifies creation workflow completion.
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.LayerChanged">
+            <summary>
+            Notifies of changes to draw objects in layer
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.LayerSelectionChanged">
+            <summary>
+            Notifies of changes to selection state for draw objects in layer
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.InternalLayerId">
+            <summary>
+            Internal layer id, used to differentiate between layers
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DrawObjectIds">
+            <summary>
+            Instance id of all draw objects in layer
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.ReadOnlyFilter">
+            <summary>
+            Filter specifying draw objects that should be read-only
+            </summary>
+            <remarks>
+            This property applies to the whole GeoControl, not per DrawObjectLayerViewModel
+            </remarks>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DisplayFilter">
+            <summary>
+            Get displayfilter.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.EditPointsInstanceId">
+            <summary>
+            Instance id of draw object in edit points mode. Null if no draw object is beeing edited.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.SelectedDrawObjectIds">
+            <summary>
+            Get a list of the currently selected draw object ids.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.RenderTarget">
+            <summary>
+            The target WPF control for all drawing operations
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.ViewSymbolScale">
+            <summary>
+            Get or set symbol scale (1.0 is normal size)
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DefaultValueStyleSet">
+            <summary>
+            Get or set default value style.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DisabledFilter">
+            <summary>
+            Filter to evaluate to find disabled draw objects.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.HitTestRadius">
+            <summary>
+            Extra buffer (in pixels) around tool handles and other graphics for hit testing.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.SuppressDrawObjectMove">
+            <summary>
+            Get or set if draw objects can be moved.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.IsMultiSelectionEnabled">
+            <summary>
+            Get or set if draw object multi selection is enabled.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.IsAspectRatioActionEnabled">
+            <summary>
+            Get or set if draw object aspect ratio action is enabled.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.IsSymmetricActionEnabled">
+            <summary>
+            Get or set if draw object symmetric action is enabled.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.ActiveDrawObjectServiceStoreId">
+            <summary>
+            Get or set draw object store id to store draw objects in.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.DrawObjectServiceStores">
+            <summary>
+            Get client service draw object stores.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.IsAutoRefreshEnabled">
+            <summary>
+            Get or set if rendering is automatically refreshed at given intervals. 
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel.AutoRefreshInterval">
+            <summary>
+            Get or set the interval in milliseconds at which rendering is automatically refreshed.
+            </summary>
+            <remarks>To enable automatically refresh AutoRefreshEnabled must be set to true.</remarks>
+        </member>
+    </members>
+</doc>

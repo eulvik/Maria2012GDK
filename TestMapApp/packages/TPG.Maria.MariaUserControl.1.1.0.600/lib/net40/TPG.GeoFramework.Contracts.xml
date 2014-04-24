@@ -1,0 +1,847 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.GeoFramework.Contracts.Geo.Layer.ClipMargins">
+            <summary>
+            GeoLayer clipping margins
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.ClipMargins.ClipLeftMargin">
+            <summary>
+            Gets or sets the left clipping margin.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.ClipMargins.ClipTopMargin">
+            <summary>
+            Gets or sets the top clipping margin.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.ClipMargins.ClipRightMargin">
+            <summary>
+            Gets or sets the right clipping margin.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.ClipMargins.ClipBottomMargin">
+            <summary>
+            Gets or sets the bottom clipping margin.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.EventManager.GeoInputEventActions">
+            <summary>
+             Module input event action flags.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Contracts.EventManager.GeoInputEventActions.Undefined">
+            <summary>
+            No action is set.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Contracts.EventManager.GeoInputEventActions.MultiSelection">
+            <summary>
+            Multi selection.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Contracts.EventManager.GeoInputEventActions.AspectRatio">
+            <summary>
+            Aspect ratio.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Contracts.EventManager.GeoInputEventActions.Symmetric">
+            <summary>
+            Symmetric.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.EventManager.GeoInputModifiers">
+            <summary>
+            Holds the state of various modifiers from mouse and keyboard, used in Geo Event handling.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.EventManager.IGeoEventManager">
+            <summary>
+             Event manager for Geo Framework
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.EventManager.IGeoEventManager.HandleInputEvent(System.Object,TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <summary>
+             Handle an input event from the geo control
+            </summary>
+            <param name="sender"></param>
+            <param name="inputEventArgs"></param>
+        </member>
+        <member name="E:TPG.GeoFramework.Contracts.EventManager.IGeoEventManager.GeoInputEvent">
+            <summary>
+            Handler for geo events that can be subscribed by user code. This handler should be
+            called after the event has been processed by the HandleInputEvent method.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.EventManager.KeyGeoInputEventArgs">
+            <summary>
+             Event args for key event
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs">
+            <summary>
+             Module input event args
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs.#ctor(TPG.GeoFramework.Contracts.EventManager.GeoInputEventType,TPG.GeoFramework.Contracts.EventManager.GeoInputModifiers,TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel,System.Nullable{System.Windows.Point})">
+            <summary>
+             Constructor for mouse-move type events
+            </summary>
+            <param name="eventType"></param>
+            <param name="modifiers"></param>
+            <param name="viewModel"></param>
+            <param name="mousePosition"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs.#ctor(TPG.GeoFramework.Contracts.EventManager.GeoInputEventType,TPG.GeoFramework.Contracts.EventManager.GeoInputModifiers,TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel)">
+            <summary>
+             Constructor
+            </summary>
+            <param name="eventType"></param>
+            <param name="modifiers"></param>
+            <param name="viewModel"></param>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs.Modifiers">
+            <summary>
+            Return current state of various input modifiers.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs.EventType">
+            <summary>
+            Type of input event.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs.MousePosition">
+            <summary>
+             Mouse position in view coordinates
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs.ViewModel">
+            <summary>
+             The view model the event originated from.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs.Handled">
+            <summary>
+            Indicate if this event has been handled already.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs.GeoInputEventActions">
+            <summary>
+            Get or set geo input event actions.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.EventManager.KeyGeoInputEventArgs.#ctor(TPG.GeoFramework.Contracts.EventManager.GeoInputModifiers,TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel,System.Windows.Input.Key,System.Windows.Input.KeyStates)">
+            <summary>
+             Constructor for keyboard-type events
+            </summary>
+            <param name="modifiers"></param>
+            <param name="viewModel"></param>
+            <param name="key"></param>
+            <param name="keyStates"></param>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.KeyGeoInputEventArgs.Key">
+            <summary>
+             Keyboard key pressed for key events
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.KeyGeoInputEventArgs.KeyStates">
+            <summary>
+             Key states for event
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.EventManager.GeoInputEventType">
+            <summary>
+             Geo Framework input event types
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Contracts.EventManager.GeoInputEventType.Undefined">
+            <summary>
+             Undefined input event
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Contracts.EventManager.GeoInputEventType.MouseButton">
+            <summary>
+             Mouse button event
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Contracts.EventManager.GeoInputEventType.MouseMove">
+            <summary>
+             Mouse move event
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Contracts.EventManager.GeoInputEventType.MouseWheel">
+            <summary>
+             Mouse wheel event
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Contracts.EventManager.GeoInputEventType.MouseClick">
+            <summary>
+             Mouse click event
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Contracts.EventManager.GeoInputEventType.Key">
+            <summary>
+             Keyboard event
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.EventManager.MouseButtonInputEventArgs">
+            <summary>
+             Represents a button state change.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.EventManager.MouseInputEventArgs">
+            <summary>
+             Mouse move input event arguments
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.EventManager.MouseInputEventArgs.#ctor(System.Windows.Input.MouseEventArgs,TPG.GeoFramework.Contracts.EventManager.GeoInputModifiers,TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel,System.Nullable{System.Windows.Point})">
+            <summary>
+             Constructor
+            </summary>
+             <remarks>
+             This constructor is typically used when creating event args for mouse move events.
+             </remarks>
+            <param name="mouseEventArgs">The original mouse event.</param>
+            <param name="viewModel">Viewmodel the event applies to.</param>
+            <param name="mousePosition">Mouse position in view XY-coordinates.</param>
+            <param name="modifiers">Modifiers</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.EventManager.MouseInputEventArgs.GetPosition(System.Windows.IInputElement)">
+            <summary>
+            Returns the position of the mouse pointer relative to the specific element.
+            </summary>
+            <param name="relativeTo">The element to use as the frame of reference for calculating the position of the mouse pointer.</param>
+            <returns>The x- and y-coordinates of the mouse pointer position relative to the specified object.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.EventManager.MouseButtonInputEventArgs.#ctor(System.Windows.Input.MouseButtonEventArgs,TPG.GeoFramework.Contracts.EventManager.GeoInputModifiers,TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel,System.Nullable{System.Windows.Point},System.Windows.Input.MouseButton,System.Windows.Input.MouseButtonState,System.Int32)">
+            <summary>
+             Constructor for mouse-omve type events
+            </summary>
+            <param name="mouseButtonEventArgs"></param>/// 
+            <param name="viewModel"></param>
+            <param name="modifiers"></param>
+            <param name="mousebutton"></param>
+            <param name="mouseButtonState"></param>
+            <param name="mousePosition"></param>
+            <param name="clickCount"></param>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.MouseButtonInputEventArgs.ClickCount">
+            <summary>
+             Get click count.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.MouseButtonInputEventArgs.MouseButton">
+            <summary>
+             Which mouse button this applies to
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.MouseButtonInputEventArgs.MouseButtonState">
+            <summary>
+             State of mouse button
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.EventManager.MouseWheelInputEventArgs">
+            <summary>
+             Mouse wheel event args
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.EventManager.MouseWheelInputEventArgs.#ctor(System.Windows.Input.MouseWheelEventArgs,TPG.GeoFramework.Contracts.EventManager.GeoInputModifiers,TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel,System.Int32,System.Nullable{System.Windows.Point})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="mouseWheelEventArgs"></param>
+            <param name="modifiers"></param>
+            <param name="viewModel"></param>
+            <param name="delta"></param>
+            <param name="mousePosition"></param>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.EventManager.MouseWheelInputEventArgs.Delta">
+            <summary>
+             Mouse wheel delta
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Context.IGeoContextBase.ZoomTo(System.Collections.Generic.List{TPG.GeoUnits.GeoPos},System.Int32)">
+            <summary>
+            Zoom to a list of positions.
+            </summary>
+            <param name="positions">List of positions.</param>
+            <param name="margin">Pixel margin.</param>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.Geo.Layer.IExportableLayer">
+            <summary>
+            Interface to be implemented by layers that want to provide export functionality.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.HandleInputEvent(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <summary>
+            Called to forward events to the layer.
+            </summary>
+            <param name="inputEventArgs"></param>
+            <remarks>
+            If the layer handles the event, it must set the <c>Handled</c> property to true.
+            </remarks>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.Generate">
+            <summary>
+            Requests that the layer generates it's view.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.Update">
+            <summary>
+            Event called at regular intervals to update contents of the layer.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.SetDirty(System.Boolean)">
+            <summary>
+            Sets a boolean value indicating the need for an update of the contents of a layer.
+            </summary>
+            <param name="isDirty"></param>
+        </member>
+        <member name="E:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.VisibleChanged">
+            <summary>
+            Visibility changed.
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.LayerChanged">
+            <summary>
+            Layer changed.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.Name">
+            <summary>
+            A name representing the type of layer.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.Visible">
+            <summary>
+            Gets or sets the visibility of the layer.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.GeoContext">
+            <summary>
+            Gets or sets the <c>GeoContext</c> related to the layer.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.GeoLayerViewFactory">
+            <summary>
+            Gets a factory responsible for creating a <c>IGeoLayerViewFactory</c> view.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.GeoLayerView">
+            <summary>
+            Gets or sets the view associated with this view model.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.GeoNavigator">
+            <summary>
+            Gets or sets the <c>GeoNavigator</c> related to the GeoControl.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.GeoControlViewModel">
+            <summary>
+            Get or set geo control view model.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.ClipMargins">
+            <summary>
+            Enables or disables clipping of the contents of the view, based on the specifed clip margins.
+            </summary>
+            <remarks>
+            Set the clip margins, e.g. using ClipLeftMargin, to specify a clip rectangle.
+            </remarks>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerViewModel.Tooltip">
+            <summary>
+            Get or set tooltip UI element.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Layer.IExportableLayer.PreExport">
+            <summary>
+            Called before actual export is performed. The layer must ensure that state that
+            changes the appearance of the layer is not altered.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Layer.IExportableLayer.Export(System.Windows.Controls.Canvas,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext)">
+            <summary>
+            The actual export function. Implementing classes should draw their content using the provided
+            canvas and geo context.
+            </summary>
+            <param name="canvas">The canvas to draw into.</param>
+            <param name="geoContext">The geo context relevant for this export.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Layer.IExportableLayer.PostExport">
+            <summary>
+            Called after export is performed. After this no more export
+            functions will be called and the layer should go back to normal
+            operation.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.IFormatedGlyph">
+            <summary>
+            Interface for glyph formated text.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.IFormatedGlyph.GetGlyphRun(System.Windows.Point)">
+            <summary>
+            Create GlyphRun positioned at a given point.
+            </summary>
+            <param name="position">Position for GlyphRun.</param>
+            <returns>Positioned GlyphRun.</returns>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IFormatedGlyph.Size">
+            <summary>
+            Get formated glyph size.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IFormatedGlyph.UnderlineThickness">
+            <summary>
+            Get formated glyph underline thickness.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IFormatedGlyph.StrikethroughThickness">
+            <summary>
+            Get formated glyph strikethrough thickness.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IItemContext.ItemStates">
+            <summary>
+            ItemStates represents item states not represented by the actual items
+            Examples:
+            selected, modified, hidden, disabled
+            Key: [state id] Value: [set of object ids]
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IItemContext.GlobalStates">
+            <summary>
+            ItemStates represents global states applicable to all items
+            Examples:
+            declutter, dynamic symbol scaling
+            Key: [state id]
+            </summary>       
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStackFactory.New">
+            <summary>
+            Creates a new instance of the IUndoRedoStack implementation.
+            </summary>
+            <returns>The IUndoredoStack implementation.</returns>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.Presentation.IUndoableCommand">
+            <summary>
+            Interface for undoable commands.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Presentation.IUndoableCommand.Execute">
+            <summary>
+            Execute the action this commmand represents.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Presentation.IUndoableCommand.Undo">
+            <summary>
+            Undo the action done by this command.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Presentation.IUndoableCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <summary>
+            Removes parts of a command that affects the given object.
+            </summary>
+            <param name="instance"> </param>
+            <returns>True if no more objects can be affected with this command.</returns>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Presentation.IUndoableCommand.Description">
+            <summary>
+            The description of the command.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack">
+            <summary>
+            Defines interface form common undo redo stack.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack.AddUndoCommand(TPG.GeoFramework.Contracts.Presentation.IUndoableCommand)">
+            <summary>
+            Adds an IUndoableCommand to the undo stack.
+            </summary>
+            <param name="undoableCommand"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack.Undo(System.Int32)">
+            <summary>
+            Performs steps number of ondoes.
+            </summary>
+            <param name="steps">The number of undoes to perform.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack.Redo(System.Int32)">
+            <summary>
+            Performs steps number of redoes.
+            </summary>
+            <param name="steps">The number of redoes to perform.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack.RemoveUndoCommand(System.Func{TPG.GeoFramework.Contracts.Presentation.IUndoableCommand,System.Object,System.Boolean},System.Object)">
+            <summary>
+            Returns all instances where the compareFunction returns true. This function will also clear
+            the redo stack.
+            </summary>
+            <param name="compareFunction">The function that decides whether to remove a command.</param>
+            <param name="compareAgainst">The value to compare IUndoableCommands against.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack.ClearUndoRedoStack">
+            <summary>
+            Clears all commands from the undo-redo stack.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack.RemoveUndoRedoStepsAffectingObject(System.Object)">
+            <summary>
+            Removes the commands that affect the given object.
+            </summary>
+            <param name="instance">Commands affecting this object will be removed.</param>
+        </member>
+        <member name="E:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack.StackChanged">
+            <summary>
+            Event for handling changes in undo/redo stack.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack.AvailableUndoSteps">
+            <summary>
+            List of description of all available undo steps.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack.AvailableRedoSteps">
+            <summary>
+            List of description of all available redo steps.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack.MaxUndoSteps">
+            <summary>
+            Property indicating the max size of the undo stack, where size is the number of steps.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Context.IGeoContextLink.Enabled">
+            <summary>
+            Enables or disables the link between two <c>GeoContext</c>.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Context.IGeoContextLink.CenterScaleFactor">
+            <summary>
+            Gets or sets the scale factor between the parent and child in a link.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.UpdateEndHistoryPoint(TPG.GeoUnits.GeoPos,System.Double)">
+            <summary>
+            Update history point where pan/zoom ends up.
+            </summary>
+            <param name="centerPosition">Center pos.</param>
+            <param name="centerScale">Center scale.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.SizeChanged(System.Int32,System.Int32)">
+            <summary>
+            Notifies the view model that the view's size has changed.
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.CreateHistoryPoint">
+            <summary>
+            Creates a history point for the current position and scale.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.CreateHistoryPoint(TPG.GeoUnits.GeoPos,System.Double)">
+            <summary>
+            Creates a history point for the specified position and scale.
+            </summary>
+            <param name="centerPosition"></param>
+            <param name="centerScale"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.GotoPreviousHistoryPoint">
+            <summary>
+            Zooms the viewport to the lastest history point, and removes the history point from the history point stack.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.GotoNextHistoryPoint">
+            <summary>
+            Zooms the viewport to the next history point in the history point list.
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.HasPreviousHistoryPointsChanged">
+            <summary>
+            Previous history points have changed.
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.HasSubsequentHistoryPointsChanged">
+            <summary>
+            Subsequent history points have changed.
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.GeoControlViewChanged">
+            <summary>
+            Geo control view changed.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.GeoContext">
+            <summary>
+            The <c>GeoContext</c> related to the GeoControl.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.InteractionLayer">
+            <summary>
+            Get or set Interaction layer.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.GeoControlView">
+            <summary>
+            The GeoControl WPF view.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.MaxGeoHistoryPointCount">
+            <summary>
+            Get or set maximum number of geo history points in undo redo stack.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.HasPreviousHistoryPoints">
+            <summary>
+            Gets a boolean value indication whether any previous history points are available.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.HasSubsequentHistoryPoints">
+            <summary>
+            Gets a boolean value indication whether any subsequent history points are available.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel.UndoRedoStack">
+            <summary>
+            Undo redo stack for an application
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlView">
+            <summary>
+            Responsible for descriping commands from the Geo Control view model to the view(GeoControl)
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlView.AddTopLevelControl(System.Windows.UIElement)">
+            <summary>
+            Adds a control on top of the geo layers in the visual order.
+            </summary>
+            <param name="control">Control to add.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Control.IGeoControlView.RemoveTopLevelControl(System.Windows.UIElement)">
+            <summary>
+            Removes a top level control.
+            </summary>
+            <param name="control">Control to remove.</param>
+            <returns>True if control was successfully removed, otherwise false.</returns>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerView.ClipToBounds">
+            <summary>
+            Gets or sets a value indicating whether to clip the content of this element 
+            (or content coming from the child elements of this element) to fit into the 
+            size of the containing element.
+            </summary>
+            <returns>
+            true if the content should be clipped; otherwise, false. The default value is false.
+            </returns>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Layer.IGeoLayerView.Clip">
+            <summary>
+            Gets or sets the geometry used to define the outline of the contents of an element.
+            </summary>
+            <returns>The geometry to be used for clipping area sizing. The default is a null System.Windows.Media.Geometry.</returns>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Context.IGeoContext.MaxAllowedScale">
+            <summary>
+            Max allowed scale of the viewport, measured at equator.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.IProjector.LatLonToXY(TPG.GeoUnits.GeoPos,System.Windows.Point@)">
+            <summary>
+             Convert from geographical lat/lon coordinate to pixel coordinates.
+            </summary>
+            <param name="latlon">Latitude/longitude in WGS84</param>
+            <param name="xy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.IProjector.LatLonToXY(TPG.GeoUnits.GeoPos[],System.Windows.Point[]@)">
+            <summary>
+            Convert multiple points from geographical lat/lon coordinates to pixel coordinates.
+            </summary>
+            <param name="latlon">Array of Latitude/longitudes in WGS84</param>
+            <param name="xy">Array of pixel coordinates</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.IProjector.XYToLatLon(System.Windows.Point,TPG.GeoUnits.GeoPos@)">
+            <summary>
+            Convert from pixel coordinate to geographical lat/lon.
+            </summary>
+            <param name="xy"></param>
+            <param name="latlon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.IProjector.XYToLatLon(System.Windows.Point[],TPG.GeoUnits.GeoPos[]@)">
+            <summary>
+            Convert multiple points from pixel coordinates to geographical lat/lon.
+            </summary>
+            <param name="xy"></param>
+            <param name="latlon"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IProjector.ProjectionString">
+            <summary>
+            Get projection ID for the current projection.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Tool.IGeoTool.Hide">
+            <summary>
+            Hides the tool.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Tool.IGeoTool.HandleInputEvent(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <summary>
+            Passes an input event to the tool.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Tool.IGeoTool.Refresh">
+            <summary>
+            Refreshes the tool.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Tool.IGeoTool.ToolName">
+            <summary>
+            Get tool name.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Tool.IGeoTool.Active">
+            <summary>
+            Get or set if tool is active.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Tool.IGeoToolManager.ActivateTool(TPG.GeoFramework.Contracts.Geo.Tool.IGeoTool)">
+            <summary>
+            Activates a new tool.
+            </summary>
+            <param name="tool"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.Geo.Tool.IGeoToolManager.HandleInputEvent(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <summary>
+            Called when a input event should be handled by the tool model.
+            </summary>
+            <param name="inputEventArgs"></param>
+        </member>
+        <member name="E:TPG.GeoFramework.Contracts.Geo.Tool.IGeoToolManager.CurrentToolChanged">
+            <summary>
+            Sends notification when the current tool changes.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Tool.IGeoToolManager.GeoControlViewModel">
+            <summary>
+            Gets the GeoControl view model associated with the tool manager.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.Geo.Tool.IGeoToolManager.CurrentTool">
+            <summary>
+            Gets the current tool.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.IRasterProjector">
+            <summary>
+            Georeference for raster images. This class is used to convert between pixel coordinates and 
+            some projected coordinate system. This class also implements the IProjector interface
+            convering between pixel XY and Geographical latitude/longitude.
+            <note>Pixel coordinates have positive Y-direction downwards.</note>
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.IRasterProjector.GetCorners">
+            <summary>
+            Returns an array of geographic positions of raster corners, 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.IRasterProjector.GetNorthVector(TPG.GeoUnits.GeoPos)">
+            <summary>
+            Returns a vector in pixel coordinates pointing north at geopos, with a length of 1m
+            </summary>
+            <param name="pos">Geographic position </param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.IRasterProjector.GetEastVector(TPG.GeoUnits.GeoPos)">
+            <summary>
+            Returns a vector in pixel coordinates pointing east at geopos, with a length of 1m
+            </summary>
+            <param name="pos">Geographic position</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:TPG.GeoFramework.Contracts.IRasterProjector.GetPixelSize(TPG.GeoUnits.GeoPos)" -->
+        <member name="M:TPG.GeoFramework.Contracts.IRasterProjector.Contains(TPG.GeoUnits.GeoPos)">
+            <summary>
+            Returns true if pos is inside rectangle (0,0,Width,Height)
+            </summary>
+            <param name="pos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.IRasterProjector.Intersects(TPG.GeoFramework.Contracts.IRasterProjector)">
+            <summary>
+            Check if this raster projector intersects another raster projector.
+            </summary>
+            <param name="rp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Contracts.IRasterProjector.GetRefinedBoundary(System.Int32)">
+            <summary>
+            Calculate a set of geographical points along the border of the raster projector.
+            This set will include the corners, as well as a number of points along each
+            edge, corresponding to the subdivisions parameter. If subdivisions is 1,
+            only the corners are returned.
+            </summary>
+            <param name="subdivisions">Should be > 1. Number of subdivisions along each edge.</param>
+            <returns>A set of geographical points evenly spaced along the rasterprojector boundary.</returns>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IRasterProjector.Width">
+            <summary>
+            Width of the raster area in pixels
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IRasterProjector.Height">
+            <summary>
+            Height of the raster area in pixels
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IRasterProjector.Center">
+            <summary>
+            Geographic center, position of pixelpos at Width/2, Height/2.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IRasterProjector.CenterPoint">
+            <summary>
+            Pixel coordinate of center = (Width/2, Height/2)
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IRasterProjector.ProjToImage">
+            <summary>
+            Transformation matrix for converting from projected coordinates to pixel coordinates.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IRasterProjector.ImageToProj">
+            <summary>
+            Transformation matrix for converting from pixel coordinates to projected coordinates.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IRasterProjector.GeoProjector">
+            <summary>
+            Projector between geographical and projected coordinates. The complete raster projection is this
+            projector combined with the raster projection matrix.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Contracts.IViewport.Rotation">
+            <summary>
+            Get viewport rotation.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Contracts.PreSerializableAttribute">
+            <summary>
+            Attribute used for tagging DataContracts that should be pre-serialized.
+            </summary>
+        </member>
+    </members>
+</doc>

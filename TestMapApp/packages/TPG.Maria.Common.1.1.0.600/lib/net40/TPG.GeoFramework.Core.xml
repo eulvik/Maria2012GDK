@@ -1,0 +1,635 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.Core</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.GeoFramework.Core.VisualHost">
+            <summary>
+            Host for displaying visuals.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.VisualHost.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.VisualHost.Clear">
+            <summary>
+            Clears child visuals.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.VisualHost.AddVisual(System.Windows.Media.DrawingVisual)">
+            <summary>
+            Add visual child.
+            </summary>
+            <param name="drawingVisual">Visual to be added.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.VisualHost.GetVisualChild(System.Int32)">
+            <summary>
+            Get visual child from index.
+            </summary>
+            <param name="index">Index of visual.</param>
+            <returns>Visual at index.</returns>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.VisualHost.Children">
+            <summary>
+            Get visual children.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.VisualHost.VisualChildrenCount">
+            <summary>
+            Get visual children count.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.DataBindingUtils">
+            <summary>
+             Contains utility methods to simplify databinding
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.DataBindingUtils.NotifyPropertyChanged``1(System.Linq.Expressions.Expression{System.Func{``0}},System.ComponentModel.INotifyPropertyChanged,System.ComponentModel.PropertyChangedEventHandler)">
+            <summary>
+             Implementes refactoring-safe NotifyPropertyChanged calls using Lambda's
+            </summary>
+            <param name="property">Lambda specifying property being updated.</param>
+            <param name="sender">Entity whose property is being updated.</param>
+            <param name="methodHandler">Notification delegate in entity being updated.</param>
+            <typeparam name="TProperty">Property type parameter(can usually be inferred from property parameter).</typeparam>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.DataContractsPreSerializer">
+            <summary>
+            Utility class for pre-serializing DataContracts.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.DataContractsPreSerializer.PreserializeLoadedDataContractsAsync">
+            <summary>
+            Preserializes all DataContracts that has the Presierializable defined in loaded assemblies.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.FormatedGlyph">
+            <summary>
+            Represents glyph formated text .
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.FormatedGlyph.#ctor(System.String,System.String,System.Single,System.Windows.FontWeight,System.Windows.FontStyle)">
+            <summary>
+            Creates a new instance of WpfFormattedText.
+            </summary>
+            <param name="text">Text string.</param>
+            <param name="fontName">Font name of text.</param>
+            <param name="fontSize">Font size of text.</param>
+            <param name="fontWeight">Font weight for text.</param>
+            <param name="fontStyle">Font style for text.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.FormatedGlyph.Initialize(System.String,System.Double,System.String,System.Windows.FontWeight,System.Windows.FontStyle)">
+            <summary>
+            Initialize glyph typeface and GlyphRun parameters.
+            </summary>
+            <param name="text">Text.</param>
+            <param name="fontSize">Font size.</param>
+            <param name="fontName">Font name.</param>
+            <param name="fontWeight">Bold typeface.</param>
+            <param name="fontStyle">Italic typeface.</param>
+            <returns>GlyphRunInfo object.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.FormatedGlyph.GetGlyphRun(System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.FormatedGlyph.Size">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.FormatedGlyph.UnderlineThickness">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.FormatedGlyph.StrikethroughThickness">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.GeoEventManager">
+            <summary>
+            Event manager for Geo Framework.
+            </summary>
+            <remarks>
+            The <c>GeoEventManager</c> handles events, typically input events, from one 
+            GeoControlView and routes these events to the appropriate tool or toolmanager. 
+            </remarks>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoEventManager.HandleMouseInputEvent(TPG.GeoFramework.Contracts.EventManager.MouseInputEventArgs)">
+            <summary>
+            Handles mouse events that are not buttons or scroll wheel, typically mouse move.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoNavigator.ZoomTo(System.Collections.Generic.List{TPG.GeoUnits.GeoPos},System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoContext.ZoomTo(System.Collections.Generic.List{TPG.GeoUnits.GeoPos},System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.GeoContextLink">
+            <summary>
+            A <c>GeoContextLink</c> defines the relationship between multiple GeoContexts and how changes in one causes changes in the others.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.GeoContextLink.CenterScaleFactor">
+            <summary>
+            Gets or sets the scale factor between the parent and child in a link.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.ViewModelBase">
+            <summary>
+            Base class for all ViewModel classes in the application.
+            It has a DisplayName property.  This class is abstract.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.ViewModelBase.Dispose">
+            <summary>
+            Invoked when this object is being removed from the application
+            and will be subject to garbage collection.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.ViewModelBase.OnDispose(System.Boolean)">
+            <summary>
+            Child classes can override this method to perform 
+            clean-up logic, such as removing event handlers.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.ViewModelBase.NotifyPropertyChanged``1(System.Linq.Expressions.Expression{System.Func{``0}},System.ComponentModel.INotifyPropertyChanged)">
+            <remarks>
+            Type-safe PropertyChanged notification
+            </remarks>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.ViewModelBase.NotifyPropertyChanged(System.String)">
+            <remarks>
+            Old-school string-based PropertyChanged notification
+            </remarks>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.ViewModelBase.DisplayName">
+            <summary>
+            Returns the user-friendly name of this object.
+            Child classes can set this property to a new value,
+            or override it to determine the value on-demand.
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.Core.ViewModelBase.PropertyChanged">
+            <summary>
+            Raised when a property on this object has a new value.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoControlViewModel.CreateHistoryPoint">
+            <summary>
+            Creates a history point for the current position and scale.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoControlViewModel.CreateHistoryPoint(TPG.GeoUnits.GeoPos,System.Double)">
+            <summary>
+            Creates a history point for the specified position and scale.
+            </summary>
+            <param name="centerPosition"></param>
+            <param name="centerScale"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoControlViewModel.GotoPreviousHistoryPoint">
+            <summary>
+            Zooms the viewport to the lastest history point, and removes the history point from the history point stack.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoControlViewModel.PushHistoryPoint(TPG.GeoFramework.Core.GeoHistoryPoint,System.Collections.Generic.List{TPG.GeoFramework.Core.GeoHistoryPoint})">
+            <summary>
+            Push history point onto history stack.
+            </summary>
+            <param name="hp">History point to push onto stack.</param>
+            <param name="stack">History stack.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoControlViewModel.PopHistoryPoint(System.Collections.Generic.List{TPG.GeoFramework.Core.GeoHistoryPoint})">
+            <summary>
+            Pop history point from history stack.
+            </summary>
+            <param name="stack">History stack.</param>
+            <returns>History point at the top of the list or null if list is empty.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoControlViewModel.SizeChanged(System.Int32,System.Int32)">
+            <summary>
+            Notifies the view model that the <c>GeoControl</c> has changed size.
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoControlViewModel.GenerateLayers">
+            <summary>
+            Sets all visible geo layers as dirty to force a regeneration at the next update.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoControlViewModel.UpdateTimerTick(System.Object,System.EventArgs)">
+            <summary>
+            Forces an update on all visible and dirty geo layers.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:TPG.GeoFramework.Core.GeoControlViewModel.HasPreviousHistoryPointsChanged">
+            <inheritdoc />
+        </member>
+        <member name="E:TPG.GeoFramework.Core.GeoControlViewModel.HasSubsequentHistoryPointsChanged">
+            <inheritdoc />
+        </member>
+        <member name="E:TPG.GeoFramework.Core.GeoControlViewModel.GeoControlViewChanged">
+            <inheritdoc />
+        </member>
+        <member name="P:TPG.GeoFramework.Core.GeoControlViewModel.MaxGeoHistoryPointCount">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoLayerViewModel.UpdateClipping">
+            <summary>
+            Updates the view's clipping settings.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoLayerViewModel.GetClippingRect(TPG.GeoFramework.Contracts.Geo.Layer.ClipMargins,System.Windows.Int32Rect)">
+            <summary>
+            Calculates a new clipping rect based on margins and device rect.
+            </summary>
+            <param name="clipMargins"></param>
+            <param name="deviceRect"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.GeoLayerViewModel.OnDispose(System.Boolean)">
+            <summary>
+            Make sure that all layers disconnect their shared GeoContexts
+            </summary>
+            <param name="disposing">True if actual disposal.</param>
+        </member>
+        <member name="E:TPG.GeoFramework.Core.GeoLayerViewModel.VisibleChanged">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.Core.GeoLayerViewModel.LayerChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.GeoLayerViewModel.Tooltip">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.GeoLayerViewModel.ClipMargins">
+            <summary>
+            Enables or disables clipping of the contents of the view, based on the specifed clip margins.
+            </summary>
+            <remarks>
+            Set the clip margins, e.g. ClipLeftMargin, to specify a clip rectangle.
+            </remarks>
+        </member>
+        <member name="E:TPG.GeoFramework.Core.GeoToolManager.CurrentToolChanged">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.PropertyUtils">
+            <summary>
+             Utils for class properties
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.PropertyUtils.ExtractPropertyName``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+             Returns name of a property from a lamba
+            </summary>
+            <param name="property"></param>
+            <typeparam name="TProperty"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.Tools.DistanceInfo">
+            <summary>
+            Interaction logic for DistanceInfo.xaml
+            </summary>
+            <summary>
+            DistanceInfo
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceInfo.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.Tools.DistanceTool">
+            <summary>
+            The <c>DistanceTool</c> is responsible for displaying distances between two or more positions.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Core.Tools.DistanceTool.HighlightColorProperty">
+            <summary>
+            Highlight color.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Core.Tools.DistanceTool.TotalDistanceForegroundColorProperty">
+            <summary>
+            Total distance foreground color.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Core.Tools.DistanceTool.TotalDistanceBackgroundColorProperty">
+            <summary>
+            Total distance background color.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Core.Tools.DistanceTool.EndPointColorProperty">
+            <summary>
+            End point color.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Core.Tools.DistanceTool.MidPointColorProperty">
+            <summary>
+            Mid point color.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceTool.PointColorChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle point color changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:TPG.GeoFramework.Core.Tools.DistanceTool.OutlineColorProperty">
+            <summary>
+            Outline color.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.Core.Tools.DistanceTool.GuidlineColorProperty">
+            <summary>
+            Guidline color.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceTool.GuidlineColorChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle guidline color changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:TPG.GeoFramework.Core.Tools.DistanceTool.BackgroundColorProperty">
+            <summary>
+            Background color.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceTool.ColorChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle color changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:TPG.GeoFramework.Core.Tools.DistanceTool.ForegroundColorProperty">
+            <summary>
+            foreground color.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceTool.ForegroundColorChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle foreground color changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceTool.GeoContextOnGenerationChanged(System.Object,System.EventArgs)">
+            <summary>
+            Refresh tool.
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceTool.CanUndo">
+            <summary>
+            Check if undo operation can be executed.
+            </summary>
+            <returns>True if undo is possible, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceTool.Undo">
+            <summary>
+            Undo last operation.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceTool.CanRedo">
+            <summary>
+            Check if redo operation can be executed.
+            </summary>
+            <returns>True if redo is possible, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceTool.Redo">
+            <summary>
+            Redo last operation.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceTool.RefreshStateAfterUndoRedo">
+            <summary>
+            Refresh state after undo/redo.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.HighlightColor">
+            <summary>
+            Get or set highlight color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.TotalDistanceForegroundColor">
+            <summary>
+            Get or set total distance foreground color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.TotalDistanceBackgroundColor">
+            <summary>
+            Get or set total distance background color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.EndPointColor">
+            <summary>
+            Get or set end point color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.MidPointColor">
+            <summary>
+            Get or set mid point color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.OutlineColor">
+            <summary>
+            Get or set outline color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.GuidlineColor">
+            <summary>
+            Get or set guidline color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.BackgroundColor">
+            <summary>
+            Get or set background color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.ForegroundColor">
+            <summary>
+            Get or set foreground color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.IsActive">
+            <summary>
+            Get or set if tool is activated (this is not Active as in the tool is selected).
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.ToolName">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.Positions">
+            <summary>
+            Returns a list of all the positions defined by the distance tool legs
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.TotalDistanceString">
+            <summary>
+            Returns a string describing the total distance measured (all legs included)
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.DistanceTool.OverlayDistanceInfo">
+            <summary>
+            Toggle drawing total distance string onScreen
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.Tools.DistanceToolLeg">
+            <summary>
+            Interaction logic for DistanceToolLeg.xaml
+            </summary>
+            <summary>
+            DistanceToolLeg
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.DistanceToolLeg.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.Tools.PanTool">
+            <summary>
+            The <c>PanTool</c> is responsible for interacting with the user to change the center position.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.PanTool.Hide">
+            <summary>
+            Hides the tool.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.PanTool.HandleInputEvent(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <summary>
+            Passes an input event to the tool.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.PanTool.Refresh">
+            <summary>
+            Refreshes the tool.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.PanTool.HandlePanButtonDown(TPG.GeoFramework.Contracts.EventManager.MouseButtonInputEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.PanTool.ToolName">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.Tools.ScaleWheelTool">
+            <summary>
+            The <c>ScaleWheelTool</c> is responsible for interacting with the user, through the Mouse Wheel, to change the center scale.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.ScaleWheelTool.#ctor(System.Double)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="historyPointDelay">Delay in milliseconds before history point is created.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.ScaleWheelTool.Hide">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.ScaleWheelTool.HandleInputEvent(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.ScaleWheelTool.Refresh">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.ScaleWheelTool.TimerOnTick(System.Object,System.EventArgs)">
+            <summary>
+            Create history point.
+            </summary>
+            <param name="sender"></param>
+            <param name="eventArgs"></param>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.ScaleWheelTool.HistoryPointDelay">
+            <summary>
+            Get or set delay in milliseconds before history point is created.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.ScaleWheelTool.ToolName">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.ScaleWheelTool.Active">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.Tools.SelectionTool">
+            <summary>
+            The <c>SelectionTool</c> is responsible for handling interacting between the user and the the different visible layers.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.SelectionTool.ToolName">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.Tools.ZoomTool">
+            <summary>
+            Interaction logic for ZoomTool.xaml
+            </summary>
+            <summary>
+            ZoomTool
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.Tools.ZoomTool.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.Tools.ZoomTool.ToolName">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.UndoRedoStack">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.UndoRedoStack.AddUndoCommand(TPG.GeoFramework.Contracts.Presentation.IUndoableCommand)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.UndoRedoStack.Undo(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.UndoRedoStack.Redo(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.UndoRedoStack.RemoveUndoCommand(System.Func{TPG.GeoFramework.Contracts.Presentation.IUndoableCommand,System.Object,System.Boolean},System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.UndoRedoStack.ClearUndoRedoStack">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.UndoRedoStack.RemoveUndoRedoStepsAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.Core.UndoRedoStack.StackChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.UndoRedoStack.AvailableUndoSteps">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.UndoRedoStack.AvailableRedoSteps">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Core.UndoRedoStack.MaxUndoSteps">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Core.UndoRedoStackFactory">
+            <summary>
+            Factory for IUndoRedoStack implementations.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Core.UndoRedoStackFactory.New">
+            <summary>
+            Creates a new instance of the IUndoRedoStack implementation.
+            </summary>
+            <returns>The IUndoredoStack implementation.</returns>
+        </member>
+    </members>
+</doc>

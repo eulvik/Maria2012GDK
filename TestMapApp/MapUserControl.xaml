@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="TestMapApp.MapUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mariaUserControl="clr-namespace:TPG.Maria.MariaUserControl;assembly=TPG.Maria.MariaUserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" 
+             Loaded="MapUserControl_OnLoaded" 
+             Unloaded="MapUserControl_OnUnloaded" 
+             AllowDrop="True" Drop="MapUserControl_OnDrop">
+    
+    <UserControl.InputBindings>
+
+        <MouseBinding Command="{Binding DrawObjectViewModel.DrawObjectLayer.EditPointsCommand}" 
+                      Gesture="LeftDoubleClick"/>
+        <KeyBinding Command="{Binding DrawObjectViewModel.DrawObjectLayer.EditPointsCommand}" 
+                    Gesture="F2"/>
+        <KeyBinding Command="{Binding DrawObjectViewModel.DrawObjectLayer.DeleteDrawObjectCommand}"
+                    Gesture="Delete"/>
+        <KeyBinding Command="{Binding DrawObjectViewModel.DrawObjectLayer.CopyCommand}" 
+                    Gesture="Ctrl+C" />
+        <KeyBinding Command="{Binding DrawObjectViewModel.DrawObjectLayer.CutCommand}" 
+                    Gesture="Ctrl+X" />
+        <KeyBinding Command="{Binding DrawObjectViewModel.DrawObjectLayer.PasteCommand}" 
+                    Gesture="Ctrl+V" />
+        <KeyBinding Command="{Binding UndoCommand, ElementName=MariaCtrl}" Gesture="Ctrl+Z" />
+        <KeyBinding Command="{Binding RedoCommand, ElementName=MariaCtrl}" Gesture="Ctrl+Y" />
+    </UserControl.InputBindings>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80*"/>
+            <!--<ColumnDefinition Width="20*"/>-->
+        </Grid.ColumnDefinitions>
+        <mariaUserControl:MariaUserControl 
+            Name="MariaCtrl" 
+            IsPanNavigationVisible="True" 
+            IsScaleBarVisible="True" 
+            IsRulerVisible="True"
+            Layers="{Binding Layers}"
+            CenterPosition="{Binding MapViewModel.CenterPosition}"
+            CenterScale="{Binding MapViewModel.Scale}"
+            Tools="{Binding Tools, Mode=OneWayToSource}"
+            ActiveTool="{Binding ActiveTool}"
+            Grid.Column="0"
+            MinWidth="300"
+            MinHeight="300" IsProgressIndicatorVisible="{Binding ShowProgress}"/>
+        
+        <ListView Width="65" HorizontalAlignment="Right" VerticalAlignment="Top" ItemsSource="{Binding DrawObjectViewModel.DrawObjectLayer.GenericCreationWorkflows}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button Width="45" Height="45" 
+                            Command="{Binding DataContext.DrawObjectViewModel.CreationWorkflowActivatedCommand, 
+                        RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                            CommandParameter="{Binding}" ToolTip="{Binding Name}">
+                        <Button.Content>
+                            <Image Source="{Binding Image}"/>
+                        </Button.Content>
+                    </Button>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <ListView ItemsSource="{Binding DrawObjectViewModel.DrawObjectsQueried}"/>
+            <Button Command="{Binding DrawObjectViewModel.PerformQueryCommand}" Content="Query"></Button>
+            <ComboBox ItemsSource="{Binding MapViewModel.ActiveMapNames}" SelectedItem="{Binding MapViewModel.ActiveMapName}"></ComboBox>
+        </StackPanel>
+        <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <ToggleButton Content="Zoom Tool" ToolTip="Zoom Tool" Height="30" Name="ZoomTool" IsChecked="{Binding IsZoomToolActive}" />
+            <ToggleButton Content="Distance Tool" ToolTip="Distance Tool" Height="30" Name="DistanceTool" IsChecked="{Binding IsDistanceToolActive}"/>
+            <ToggleButton Content="Map Feature Query Tool" ToolTip="Map Feature Query Tool" Height="30" Name="MapFeatureQueryTool" IsChecked="{Binding IsMapFeatureQueryToolActive}"/>
+        </StackPanel>-->
+        <!--<StackPanel Orientation="Vertical" Grid.Column="1">
+            <TextBox Text="{Binding DrawObjectViewModel.StyleXml}"/>
+            <Button Content="Apply" Command="{Binding DrawObjectViewModel.ApplyNewStyleCommand}"/>
+            
+        </StackPanel>-->
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="DashStyle" Click="ButtonBase_OnClick"></Button>
+    </Grid>
+    
+</UserControl>

@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.Maria.MapContracts</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.Maria.MapContracts.IMariaExtendedMapLayer">
+            <summary>
+            Extended map layer interface in Maria.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.MapContracts.IMariaExtendedMapLayer.ApplyFeatureQueryConditions(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition)">
+            <summary>
+            Apply feature query condition.
+            </summary>
+            <param name="fqc">Feature query condition.</param>
+        </member>
+        <member name="M:TPG.Maria.MapContracts.IMariaExtendedMapLayer.ForceRegenerate">
+            <summary>
+            Force map regeneration.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.MapFeatureInfo">
+            <summary>
+            Get map feature info.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.MapFeatureQuerySettings">
+            <summary>
+            Get map feature info query settings
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.Elevation">
+            <summary>
+            Get elevation data.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.MapBackground">
+            <summary>
+            Get or set map background.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.MapRenderSimple">
+            <summary>
+            Get or set simple map rendering.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.AllowedRasterCompressionValues">
+            <summary>
+            Get allowed raster compression values.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.RasterCompression">
+            <summary>
+            Get raster compression.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.DrawVectorGeometries">
+            <summary>
+            Get or set if vector geometries should be drawn.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.ShowVectorCoverage">
+            <summary>
+            Get or set if vector coverage should be shown.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.FetchVectorLabels">
+            <summary>
+            Get or set if vector labels should be retrieved.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.VectorGroups">
+            <summary>
+            Get vector groups.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.MaxTileCacheSize">
+            <summary>
+            Get or set maximum amount of memory to use for the tile caches. (In Mb)
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.ActualRenderMode">
+            <summary>
+            The ActualRenderMode that is actually in use.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.RequestedRenderMode">
+            <summary>
+            Requests render mode to use.
+            If the graphics capabilities of the underlying platform supports it, the given render mode will be used.
+            
+            NOTE: The user should be careful with using the set method as changing render modes might have undesired effects.
+            </summary>
+            <value>The requeste render mode.</value>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaExtendedMapLayer.PixelScale">
+            <summary>
+            Map resolution parameter 1.0 guarantees that the pixels are at least 
+            the same resolution as the viewport resolution. 
+            2.0  allows the pixels to be up to 2x as big as the viewport resolution.
+            </summary>
+        </member>
+        <member name="T:TPG.Maria.MapContracts.IMariaLabelsLayer">
+            <summary>
+            Labels layer interface in Maria.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaLabelsLayer.Opacity">
+            <summary>
+            The opacity of the labels layer.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaLabelsLayer.HasLabels">
+            <summary>
+            Property indicating if any of the current layers
+            can provide labels.
+            </summary>
+        </member>
+        <member name="T:TPG.Maria.MapContracts.IMariaMapLayer">
+            <summary>
+            Map layer interface in Maria.
+            </summary>
+        </member>
+        <member name="E:TPG.Maria.MapContracts.IMariaMapLayer.ServiceConnected">
+            <summary>
+            Event raised when the connection to the service is established.
+            </summary>
+        </member>
+        <member name="E:TPG.Maria.MapContracts.IMariaMapLayer.MapOpacityChanged">
+            <summary>
+            Map opacity has changed.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.ExtendedMapLayer">
+            <summary>
+            Get extended map layer features.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.TileCacheManager">
+            <summary>
+            Get tile cache manager.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.MapOpacity">
+            <summary>
+            Get or set map opacity.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.CategorizedMapDataLayers">
+            <summary>
+            Get categorized map data layers.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.MapDataLayers">
+            <summary>
+            Get all map data layers.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.Bookmarks">
+            <summary>
+            Get or set bookmarks.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.ActiveBookmark">
+            <summary>
+            Get or set active bookmark.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.ActiveMapNames">
+            <summary>
+            Get active map names.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.ActiveMapName">
+            <summary>
+            Get or set active map name.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.EleveationProfilePositions">
+            <summary>
+            Get or set the positions that represents the route along whitch the profile is calculated.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.MapCatalogServiceClient">
+            <summary>
+            Get map catalog manager.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.MapResources">
+            <summary>
+            Get map resources.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.MapServiceManager">
+            <summary>
+            Get map service manager.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.NavigateBackwardCommand">
+            <summary>
+            Get navigate backward command.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.MapContracts.IMariaMapLayer.NavigateForwardCommand">
+            <summary>
+            Get navigate forkward command.
+            </summary>
+        </member>
+    </members>
+</doc>

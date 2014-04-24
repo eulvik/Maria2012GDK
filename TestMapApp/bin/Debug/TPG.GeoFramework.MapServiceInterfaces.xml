@@ -1,0 +1,700 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.MapServiceInterfaces</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.MapServiceType">
+            <summary>
+            Map service types
+            Some map service types may serve multiple map content types (f.ex. CacheService)
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapServiceType.Undefined">
+            <summary>
+            Undefined service type 
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapServiceType.VectorService">
+            <summary>
+            Map service type producing rasterized vectordata, styled labeldata and feature queries
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapServiceType.RasterService">
+            <summary>
+            Map service type producing rasterdata based on standarized raster formats
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapServiceType.CacheService">
+            <summary>
+            Map service type combining data from multiple map services 
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapServiceType.WmsService">
+            <summary>
+            Web map service
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapServiceType.PropagationService">
+            <summary>
+            Propagation service for caculating radio/radar coverage
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.MapServiceHostCategory">
+            <summary>
+            Map service host categories
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapServiceHostCategory.DontCare">
+            <summary>
+            Dont care
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapServiceHostCategory.Local">
+            <summary>
+            Use service running on local machine
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapServiceHostCategory.Remote">
+            <summary>
+            Use service running on remote machine
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapServiceHostCategory.PreferLocal">
+            <summary>
+            Perfer service running on local machine
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapServiceHostCategory.PreferRemote">
+            <summary>
+            Prefer service running on remote machine
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.MapContentType">
+            <summary>
+            Map content types
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapContentType.Undefined">
+            <summary>
+            Undefined map content
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapContentType.VectorMap">
+            <summary>
+            Contains vector map data
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapContentType.RasterMap">
+            <summary>
+             Contains raster map data
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapContentType.RasterPhoto">
+            <summary>
+            Contains raster imagery, such as arial/satellite images or raster maps
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapContentType.CompositeMap">
+            <summary>
+            Composite map content. 
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapContentType.Propagation">
+            <summary>
+            Contains propagation data for caculating radio/radar coverage
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapContentType.Elevation">
+            <summary>
+            Contains elevation data stored as regular rasters of elevation values
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapContentType.ElevationNormals">
+            <summary>
+            Contains terrain surface normal vectors, encoded as RGB=XYZ
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapContentType.Bathymetry">
+            <summary>
+            Contains bathymetry data
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapContentType.WmsMap">
+            <summary>
+            Contains map data collected from a Web Map Service (WMS)
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.TemplateLayerType">
+            <summary>
+            Map template layer type
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.TemplateLayerType.MapLayer">
+            <summary>
+            Layer contains map data
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.TemplateLayerType.ModLayer">
+            <summary>
+            Modification layer applying effects to previous template layers (f.ex. elevation shading)
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.TemplateLayerType.Placeholder">
+            <summary>
+            Used as placeholder for custom template layers
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.TemplateLayerType.PropagationLayer">
+            <summary>
+            Layer for presenting propagation data
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.TemplateLayerType.WmsLayer">
+            <summary>
+             Layer for presenting web maps data
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.TemplateLayerType.OverlayLayer">
+            <summary>
+            Layer for presenting various overlays
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.MapFeatureType">
+            <summary>
+            Map feature types
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapFeatureType.Unknown">
+            <summary>
+            Unknown feature type
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapFeatureType.Point">
+            <summary>
+            Point feature type
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapFeatureType.LineString">
+            <summary>
+            Line feature type
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapServiceInterfaces.MapFeatureType.Polygon">
+            <summary>
+            Polygon feature type
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.ServiceKey">
+            <summary>
+            Key used for identifying a service session
+            Session is the same for multiple clients if the service is a singleton. A new service key is generated if service is restarted.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceKey.SessionId">
+            <summary>
+            Unique guid identifying a service session
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.MapResolutionArea">
+            <summary>
+            Properties for map resolution area
+            Map resolution areas are used to identify parts of a map constrained by map scale ranges and geographic areas
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapResolutionArea.Resolution">
+            <summary>
+            Maximum resolution for the area in meters/pixel.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapResolutionArea.Latitude">
+            <summary>
+            Resolution area center latitude, in degrees
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapResolutionArea.Longitude">
+            <summary>
+            Resolution area center longitude, in degrees
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapResolutionArea.Width">
+            <summary>
+            Resolution area width (delta longitude)
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapResolutionArea.Height">
+            <summary>
+            Resolution area height (delta latitude)
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapResolutionArea.MinScale">
+            <summary>
+            Minimum applicable map scale for this area
+            Inverse scales, ex. 1:10000 is represented as 10000
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapResolutionArea.MaxScale">
+            <summary>
+            Maximum applicable map scale for this area
+            Inverse scales, ex. 1:10000 is represented as 10000
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.Bookmark">
+            <summary>
+            Bookmarks entry 
+            Bookmarks are defined for a single mapsignature/mappackage
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.Bookmark.#ctor">
+            <summary>
+            Bookmark entry constructor used for setting default values 
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.Bookmark.Name">
+            <summary>
+            Bookmark descriptive name
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.Bookmark.Pos">
+            <summary>
+            Position of bookmark entry
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.Bookmark.Scale">
+            <summary>
+             Approximate scale of bookmark entry
+            Inverse scales, ex. 1:10000 is represented as 10000
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.Bookmark.MapSig">
+            <summary>
+            Valid map signature for bookmark entry
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.Bookmark.Desc">
+            <summary>
+            String describing bookmark entry
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.FeatureGroup">
+            <summary>
+            Logical map feature group
+            Map feature groups are used for organizing map data in hierarchical groups representing similar features.
+            Children are specialized types, eg. "Road" is general, "Road/Motorway" is specialized.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.FeatureGroup.ChildGroups">
+            <summary>
+            Optional child groups
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.FeatureGroup.Name">
+            <summary>
+            Feature group name
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.FeatureGroup.FeatureType">
+            <summary>
+            Feature group geo type
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.FeatureGroups">
+            <summary>
+            Logical map feature groups contained in a single multidataset
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.FeatureGroups.MinScale">
+            <summary>
+            Multidataset minimum scale
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.FeatureGroups.MaxScale">
+            <summary>
+            Multidataset maximum scale
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.FeatureGroups.ChildGroups">
+            <summary>
+            List of available feature groups in multidataset
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.MapEntry">
+            <summary>
+            MapEntry describes an actual map available from a service. Each service typically has multiple map entries.
+            Cache services must register all maps available from cached services
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapEntry.MapSignature">
+            <summary>
+            Unique map signature. Service managers/admins are responsible for ensuring that this
+            signature is the same for all services serving the same map
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapEntry.MapServiceType">
+            <summary>
+            Note that all map signatures served by a cache services should
+            be MapServiceType.CacheService. Use "MapType" to set actual map type
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapEntry.MapType">
+            <summary>
+            Map content type.
+            This describes the actual map type contained in this dataset.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapEntry.CurrentRevision">
+            <summary>
+            Revision system may be expanded
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapEntry.ResolutionAreas">
+            <summary>
+            List of valid resolution areas in this dataset
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapEntry.TileCacheSpec">
+            <summary>
+            Supported tilings for this dataset. If empty, any 
+            tiling is assumed to be OK.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapEntry.FeatureGroups">
+            <summary>
+            Supported feature groups in this dataset
+            </summary>
+            <returns>Feature group hierarchy</returns>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.ServiceEntry">
+            <summary>
+            One service entry per service
+            May be expanded in the future to support new service types
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceEntry.SessionId">
+            <summary>
+            Each service is responsible for generating a Guid for the current session
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceEntry.DefaultServiceType">
+            <summary>
+            Default map service type, can be overridden by individual MapEntries,  
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceEntry.MapEntries">
+            <summary>
+            Description of maps provided by the service
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceEntry.ServiceTimeout">
+            <summary>
+            Time in seconds from time of registering this ServiceEntry until service is flagged as expired
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceEntry.ServiceRuntimeInfo">
+            <summary>
+            Service info relevant to service selection and service monitoring
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceEntry.ServiceUri">
+            <summary>
+            Prioritized list of service Uris. When connecting, later entries should be used if earlier entries fail.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.ServiceDatasourceInfo">
+            <summary>
+            Map service datasource information
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.ServiceDatasourceInfo.#ctor">
+            <summary>
+            Constructor with default values for service datasource information.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceDatasourceInfo.MapSignature">
+            <summary>
+            Unique map signature. Service managers/admins are responsible for ensuring that this
+            signature is the same for all services serving the same map
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceDatasourceInfo.WantedMapContentType">
+            <summary>
+            Requested map content type. 
+            This describes preferred map type .
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceDatasourceInfo.WantedMapServiceHostCategory">
+            <summary>
+            Requested map host category
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceDatasourceInfo.WantedServiceTypes">
+            <summary>
+            Requested service type
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceDatasourceInfo.WantedTileCacheSpec">
+            <summary>
+            Requested tile cache specification
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.MapTemplateLayer">
+            <summary>
+            Map template layer properties
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.MapTemplateLayer.#ctor">
+            <summary>
+            Map template layer constructor
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapTemplateLayer.LayerType">
+            <summary>
+            Map template layer type
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapTemplateLayer.DatasourceInfo">
+            <summary>
+            Service datasource information
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapTemplateLayer.Category">
+            <summary>
+            Template layer category
+            F.x. used by elevation layers 
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapTemplateLayer.Description">
+            <summary>
+            Template layer descriptive string
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapTemplateLayer.GroupFilter">
+            <summary>
+            Template layer group filter
+            Used for filtering in or out feature groups in layer. Each entry contains a group name. 
+            Child groups can be specified by using separator "/". "-" can be used to exclude groups.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapTemplateLayer.Properties">
+            <summary>
+            Template layer properties
+            F.x. used to indicate if map labels should be visible
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapTemplateLayer.MinScale">
+            <summary>
+            Template layer minimum scale value
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.MapTemplateLayer.MaxScale">
+            <summary>
+            Template layer maximum scale value
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.ResolvedServiceConnection">
+            <summary>
+            Description of a resolved map service connection
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ResolvedServiceConnection.SourceQuery">
+            <summary>
+            Template used for resolution
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ResolvedServiceConnection.ServiceEntry">
+            <summary>
+            Actual resolved service
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ResolvedServiceConnection.MapEntry">
+            <summary>
+            Actual resolved map entry
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.ServiceRuntimeInfo">
+            <summary>
+            Services are responsible for reporting status at intervals liss than set in 
+            ServiceEntry.ServiceTimeout
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.ServiceRuntimeInfo.#ctor">
+            <summary>
+            Service runtime info constructor
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceRuntimeInfo.LastAliveUTC">
+            <summary>
+            Set by catalog service, ignored if set by client services
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceRuntimeInfo.ServiceLoad">
+            <summary>
+            Value between 0 and 1 where 0 means no load and 1 full load
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceRuntimeInfo.SuccessfulRequests">
+            <summary>
+            Successful requests since last report. Set to -1 if not provided
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceRuntimeInfo.FailedRequests">
+            <summary>
+            Failed requests since last report. Set to -1 if not provided
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceRuntimeInfo.ServiceCallCount">
+            <summary>
+            Service call count since last report
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceRuntimeInfo.TimeLastReportUTC">
+            <summary>
+            Set by catalog service, ignored if set by client services
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceRuntimeInfo.ErrorLog">
+            <summary>
+            Optional error messages since last report
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase">
+            <summary>
+            Base interface for map catalog services
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.GetCompositeMapTemplates">
+            <summary>
+            Get list of available map templates
+            </summary>
+            <returns>List of template xmls</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.GetCompositeMapTemplateIds">
+            <summary>
+            Get list of available map template ids
+            </summary>
+            <returns>List of template id strings</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.GetCompositeMapTemplate(System.String)">
+            <summary>
+            Get map template from id
+            </summary>
+            <param name="id">Template id</param>
+            <returns>Map template xml</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.ResolveCompositeMapTemplate(System.String)">
+            <summary>
+            Resolve map template xml
+            </summary>
+            <param name="templateXml">Map template xml string</param>
+            <returns>Resolved map definition xml, null on failure</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.ResolveServiceConnections(System.String)">
+            <summary>
+            Resolve service connections from template
+            </summary>
+            <param name="templateXml">Template xml string</param>
+            <returns>List of resolved service connections, empty list if no connections are available</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.ExtractTemplateLayers(System.String)">
+            <summary>
+            Extract map template layers from template xml
+            </summary>
+            <param name="templateXml">Template xml string</param>
+            <returns>List of map template layers, empty list if no layers are found</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.RegisterService(TPG.GeoFramework.MapServiceInterfaces.ServiceEntry)">
+            <summary>
+            Register service 
+            </summary>
+            <param name="serviceEntry">Service entry</param>
+            <returns>Service key</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.UnregisterService(TPG.GeoFramework.MapServiceInterfaces.ServiceKey)">
+            <summary>
+            Unregister service
+            </summary>
+            <param name="key">Service key</param>
+            <returns>True if service is successfully unregistered from cataloge service, false if failed to unregister</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.StillAlive(TPG.GeoFramework.MapServiceInterfaces.ServiceKey,TPG.GeoFramework.MapServiceInterfaces.ServiceRuntimeInfo)">
+            <summary>
+            Report that service is alive
+            </summary>
+            <param name="key">Service key</param>
+            <param name="sri">Service runtime information</param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.ForceUpdateServiceStatus(System.DateTime)">
+            <summary>
+            Force check on all services to identify dead connections
+            </summary>
+            <param name="utcNow">Current date and time in UTC</param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.AddBookmarks(System.Collections.Generic.List{TPG.GeoFramework.MapServiceInterfaces.Bookmark})">
+            <summary>
+            Add bookmark entries from a service
+            </summary>
+            <param name="bookmarks">List of bookmark entries. </param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.GetCatalogServiceRuntimeInfo">
+            <summary>
+            Get catalog service runtime information.
+            </summary>
+            <returns>Service runtime information</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.GetServiceEntry(TPG.GeoFramework.MapServiceInterfaces.ServiceKey)">
+            <summary>
+            Get service entry for given key.
+            </summary>
+            <param name="key">Service key</param>
+            <returns>Service entry for given key or null if not found</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogServiceBase.GetFeatureGroups(System.String)">
+            <summary>
+            Get feature groups information for requested mapsignature.
+            </summary>
+            <param name="mapSignature">Map signature string</param>
+            <returns>List of feature groups or empty list if not found. 
+            If mapsignature points to a mappackage with multiple multidatasets, featuregroups in each multidataset are merged.
+            </returns>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.IMapCatalogService">
+            <summary>
+            Interface for map catalog service
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMariaCacheService.ReloadServices">
+            <summary>
+            Reloads services from config file.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMariaCacheService.ClearAllCaches">
+            <summary>
+            Clear all caches.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMariaCacheService.ClearCache(System.String)">
+            <summary>
+            Deletes all entries for the given map signature.
+            </summary>
+            <param name="mapSignature">Map signature to delete Channeentries for.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMariaCacheService.GetCaches(System.String)">
+            <summary>
+            Returns list of cacheSignatures for given mapSignature
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMariaCacheService.GetCacheInfo(System.String)">
+            <summary>
+            Returns information on the cache status.
+            </summary>
+            <returns>String representation with cache information.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapServiceInterfaces.IMariaCacheService.GetCompleteCacheInfo">
+            <summary>
+            Returns complete printable information on all caches.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

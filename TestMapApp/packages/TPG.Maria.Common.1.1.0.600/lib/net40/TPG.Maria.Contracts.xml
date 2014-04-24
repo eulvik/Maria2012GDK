@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.Maria.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.Maria.Contracts.IMariaService">
+            <summary>
+            Service interface in Maria.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.Contracts.IMariaService.Name">
+            <summary>
+            Get service name.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.Contracts.IMariaService.SessionId">
+            <summary>
+            Get session id.
+            </summary>
+            <remarks>The session id is automatically updated when a connection is established.</remarks>
+        </member>
+        <member name="P:TPG.Maria.Contracts.IMariaService.Uri">
+            <summary>
+            Get service uri.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.Contracts.IMariaService.BindingType">
+            <summary>
+            Get service binding type.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.Contracts.IMariaService.WaitForConnection">
+            <summary>
+            Get or set if service should wait for connection to be establisehed before returning.
+            </summary>
+        </member>
+        <member name="T:TPG.Maria.Contracts.IMariaLayer">
+            <summary>
+            Layer interface in Maria.
+            </summary>
+        </member>
+        <member name="E:TPG.Maria.Contracts.IMariaLayer.LayerInitialized">
+            <summary>
+            Layer initialized event.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.Contracts.IMariaLayer.Visible">
+            <summary>
+            Get or set if layer is visible.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.Contracts.IMariaLayer.Name">
+            <summary>
+            Get layer name.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.Contracts.IMariaLayer.IsInitialized">
+            <summary>
+            Get if layer is initialized.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.Contracts.IMariaLayer.ClipMargins">
+            <summary>
+            Get or set clipping of the contents of the view.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.Contracts.IMariaLayer.GeoContext">
+            <summary>
+            Get Geo context.
+            </summary>
+        </member>
+        <member name="T:TPG.Maria.Contracts.MariaServiceConnectedEventHandler">
+            <summary>
+            Service connected event handler.
+            </summary>
+            <param name="sender">Service client.</param>
+            <param name="args">Event data.</param>
+        </member>
+        <member name="T:TPG.Maria.Contracts.MariaServiceEventArgs">
+            <summary>
+            Provides data for Maria service events.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.Contracts.MariaServiceEventArgs.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the MariaServiceEventArgs class.
+            </summary>
+            <param name="serviceName">Name of the service the event is associated with.</param>
+            <param name="sessionId">Session id of the service the event is associated with.</param>
+        </member>
+        <member name="P:TPG.Maria.Contracts.MariaServiceEventArgs.ServiceName">
+            <summary>
+            Get service name.
+            </summary>       
+        </member>
+        <member name="P:TPG.Maria.Contracts.MariaServiceEventArgs.SessionId">
+            <summary>
+            Get service session id.
+            </summary>
+        </member>
+    </members>
+</doc>

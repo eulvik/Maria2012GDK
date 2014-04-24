@@ -1,0 +1,1179 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.DrawObjects.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.DrawObjects.Contracts.ComponentStarter.IDrawObjectModuleStarter">
+            <summary>
+            Methods for starting draw object module
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.ComponentStarter.IDrawObjectModuleStarter.InitializeModule">
+            <summary>
+            Initializes DrawObjects Module
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangeAction">
+            <summary>
+            Type of change in draw object store
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangeAction.Undefined">
+            <summary>
+            Not set
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangeAction.Create">
+            <summary>
+            One or more new draw objects have been added to store
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangeAction.Update">
+            <summary>
+            One or more draw objects have been updated
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangeAction.Delete">
+            <summary>
+            One or more draw objects has been deleted
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangeAction.Reset">
+            <summary>
+            Store has been reset
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangedEventArgs">
+            <summary>
+            Contains arguments for events.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangedEventArgs.#ctor(TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangeAction)">
+            <summary>
+            Constructor for Reset event
+            </summary>
+            <param name="dataStoreChangeAction">Change action</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangedEventArgs.#ctor(TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangeAction,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="dataStoreChangeAction">Change action</param>
+            <param name="affectedDrawObjectInstanceIds">Instance ids of updated draw objects</param>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangedEventArgs.AffectedDrawObjects">
+            <summary>
+            Instance ids of affected draw objects
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.DrawObjectState.DataStoreChangedEventArgs.DataStoreChangedAction">
+            <summary>
+            Change action
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.DrawObjectState.DrawObjectSelectionChangeAction">
+            <summary>
+            Type of change in draw object selection state
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.DrawObjectState.DrawObjectSelectionChangeAction.Undefined">
+            <summary>
+            Not set
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.DrawObjectState.DrawObjectSelectionChangeAction.Select">
+            <summary>
+            One or more draw objects have been selected
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.DrawObjectState.DrawObjectSelectionChangeAction.DeSelect">
+            <summary>
+            One or more draw objects have been de-selected
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.DrawObjectState.DrawObjectSelectionChangedEventArgs.#ctor(TPG.DrawObjects.Contracts.DrawObjectState.DrawObjectSelectionChangeAction,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="selectionChangeAction">Selection change action</param>
+            <param name="affectedDrawObjectInstanceIds">Instance ids of draw objects affected</param>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.DrawObjectState.DrawObjectSelectionChangedEventArgs.AffectedDrawObjects">
+            <summary>
+            Instance ids of affected draw objects
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.DrawObjectState.DrawObjectSelectionChangedEventArgs.DrawObjectSelectionChangeAction">
+            <summary>
+            Change action
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Filters.IConditionDrawObjectAcessor">
+            <summary>
+            Acessor for draw objects.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IConditionDrawObjectAcessor.DrawObjectData">
+            <summary>
+            The draw object data.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IConditionDrawObjectAcessor.DrawObjectRuntimeData">
+            <summary>
+            Runtime data for a draw object.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext">
+            <summary>
+            Style item context for draw objects.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.UpdateFromDrawObjectData(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Updates the default values from a draw object data instance.
+            </summary>
+            <param name="drawObjectData"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.SetDefaults">
+            <summary>
+            Sets default values for all properties.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.ShowBuffer">
+            <summary>
+            Get or set if buffer is shown.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.Fill">
+            <summary>
+            Get or set if object is filled.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.Generic">
+            <summary>
+            Get or set if object is generic.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.GenericType">
+            <summary>
+            Get or set generic type.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.ShowLinePointText">
+            <summary>
+            Get or set if line point text should be shown.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.LineColor">
+            <summary>
+            Color used for all foreground drawing.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.LineDashStyle">
+            <summary>
+            Dash style to use for foreground lines.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.LineWidth">
+            <summary>
+            Line width used for foreground lines.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.DrawOutline">
+            <summary>
+            Flag indicating if the outline of an object should be drawn.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.FillStyle">
+            <summary>
+            Style used for filling objects.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.FillForegroundColor">
+            <summary>
+            Color used for filling objects.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.FillBackgroundColor">
+            <summary>
+            Background color used for filling .
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.BufferLineColor">
+            <summary>
+            Color used for buffer lines.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.BufferLineDashStyle">
+            <summary>
+            Dash style to use for buffer lines.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.BufferLineWidth">
+            <summary>
+            Line width used for buffer lines.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.Smooth">
+            <summary>
+            Flag indicating if lines should be drawn straight or smooth.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.BeginLineEndingFigure">
+            <summary>
+            Figure to use at beginning of line.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.EndLineEndingFigure">
+            <summary>
+            Figure to use at ending of a line.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.DefaultFontName">
+            <summary>
+            Default font name.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.DefaultFontSize">
+            <summary>
+            The default size for fonts.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.BoldFont">
+            <summary>
+            Get or set bold font.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.ItalicFont">
+            <summary>
+            Get or set italic font.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.UnderlineFont">
+            <summary>
+            Get or set underline font.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.StrikethroughFont">
+            <summary>
+            Get or set strikethrough font.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.DefaultFontBackgroundColor">
+            <summary>
+            The default background color for fonts.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.DefaultFontForegroundColor">
+            <summary>
+            The default foreground color for fonts.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.DrawSymbolTextLabel">
+            <summary>
+            True if symbol text labels should be drawn.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.ViewFontScale">
+            <summary>
+            Scaling of default font based on view size.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.AlphaFactor">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.ViewSymbolScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.SimplifiedRenderingCutoffSize">
+            <summary>
+            Size to cutoff rendering.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.DrawLabel">
+            <summary>
+            Inidicates whether label should be drawn.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContext.GenericLabel">
+            <summary>
+            Get or set if label is generic.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContextFactory">
+            <summary>
+            Factory for constructing draw obhect item contexts.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Filters.IDrawObjectItemContextFactory.New">
+            <summary>
+            Constructs a new IDrawObjectItemContext implementation.
+            </summary>
+            <returns>Instance of IDrawObjectItemContext</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Filters.IDrawObjectQueryManager">
+            <summary>
+            Manages draw object queries
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Filters.IDrawObjectQueryManager.Filter(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition,System.Collections.Generic.IEnumerable{TPG.DrawObjects.Contracts.Data.IDrawObjectData})">
+            <summary>
+            Applies a filter to a set of draw objects
+            </summary>
+            <param name="filter">Draw object filter</param>
+            <param name="candidateDrawObjects">Set of draw objects to apply filter to</param>
+            <returns>Set of draw objects that satisfy filter</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Filters.IDrawObjectQueryManager.FilterByGeoCondition(TPG.DrawObjects.Contracts.Filters.IDrawObjectGeoCondition,System.Collections.Generic.IList{TPG.DrawObjects.Contracts.Data.IDrawObjectData})">
+            <summary>
+            Applies a geo filter to a set of draw objects
+            </summary>
+            <param name="filter">Draw object geo filter</param>
+            <param name="candidateDrawObjects">Set of draw objects to apply filter to</param>
+            <returns>Set of draw objects that satisfy filter</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Filters.IDrawObjectQueryManager.IsSatisfied(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition,TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Applies a filter to a set of draw objects
+            </summary>
+            <param name="filter">Draw object filter</param>
+            <param name="candidateDrawObject">Draw object to apply filter to</param>
+            <returns>Set of draw objects that satisfy filter</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Filters.IDrawObjectQueryManager.IsSatisfied(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition,System.String)">
+            <summary>
+            Applies a filter to a set of draw objects
+            </summary>
+            <param name="filter">Draw object filter</param>
+            <param name="candidateDrawObjectInstanceId">Instance id  of draw object to apply filter to</param>
+            <returns>Set of draw objects that satisfy filter</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.GenericObjects.ActiveWorkflowCompletedEventArgs">
+            <summary>
+            Active creation workflow completed event arguments.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.GenericObjects.ActiveWorkflowCompletedEventArgs.#ctor(System.Guid,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="drawObjectTypeId">Draw object type id.</param>
+            <param name="drawObjectLayerId">Draw object layer id.</param>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.GenericObjects.ActiveWorkflowCompletedEventArgs.DrawObjectTypeId">
+            <summary>
+            Get draw object type id of completed creation workflow.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.GenericObjects.ActiveWorkflowCompletedEventArgs.DrawObjectLayerId">
+            <summary>
+            Get draw object layer id of completed creation workflow.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes">
+            <summary>
+            Generic object type ids
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.Text">
+            <summary>
+            Text type. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.TextBox">
+            <summary>
+            Text box type. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.Triangle">
+            <summary>
+            Triangle type. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.Rectangle">
+            <summary>
+            Rectangle type. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.Area">
+            <summary>
+            Area type. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.Orbit">
+            <summary>
+            Orbit type. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.Scribble">
+            <summary>
+            Scribble type. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.Line">
+            <summary>
+            Line type. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.FanArea">
+            <summary>
+            FanArea type. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.Ellipse">
+            <summary>
+            Ellipse type. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.Lane">
+            <summary>
+            Lane type. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypes.RangeRings">
+            <summary>
+            Range rings type. 
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds">
+            <summary>
+            Generic object type ids
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.Scribble">
+            <summary>
+            Scribble type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.Area">
+            <summary>
+            Poly area type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.Rectangle">
+            <summary>
+            Rectangle type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.Triangle">
+            <summary>
+            Triangle type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.Line">
+            <summary>
+            Polyline type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.Ellipse">
+            <summary>
+            Ellipse type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.Text">
+            <summary>
+            Text type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.TextBox">
+            <summary>
+            Text box type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.FanArea">
+            <summary>
+            Fan area type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.RangeRings">
+            <summary>
+            Range rings type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.Orbit">
+            <summary>
+            Orbit type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.VolumeOrbit">
+            <summary>
+            Volume Orbit type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.Lane">
+            <summary>
+            Lane type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.VolumeLane">
+            <summary>
+            Volume Lane type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.Symbol">
+            <summary>
+            Lane type id. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.GenericObjects.GenericObjectTypeIds.CrossHairs">
+            <summary>
+            Cross hairs id.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Resource1">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Resource1.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Resource1.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Resource1.DrawObjectDefaultValueStyle">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+            &lt;styleset name=&quot;Default&quot;&gt;
+              &lt;stylecategory name=&quot;DrawObjects&quot;&gt;
+                &lt;style&gt;
+                  &lt;compositeitem name=&quot;Line&quot;&gt;
+                    &lt;valueitem name=&quot;Width&quot; value=&quot;[LineWidth]&quot; /&gt;
+                    &lt;valueitem name=&quot;Color&quot; value=&quot;[LineColor]&quot;/&gt;
+                  &lt;/compositeitem&gt;
+                &lt;/style&gt;    
+              &lt;/stylecategory&gt;
+            &lt;/styleset&gt;.
+             </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Resource1.DrawObjectStyle">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+            &lt;styleset name=&quot;Default&quot;&gt;
+              &lt;stylecategory name=&quot;DrawObjects&quot;&gt;
+                &lt;style&gt;
+                  &lt;valueitem name=&quot;ColorScheme&quot; value=&quot;Medium&quot;/&gt;
+                  
+                  &lt;compositeitem name=&quot;Line&quot;&gt;
+                    &lt;valueitem name=&quot;Width&quot; value=&quot;[LineWidth]&quot; /&gt;
+                    &lt;valueitem name=&quot;Color&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFactor]&quot; /&gt;
+                    &lt;valueitem name=&quot;ColorLight&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFactor]&quot; /&gt;
+                    &lt;valueitem name=&quot;ColorMedium&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFacto [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IDataFields.DrawDepth">
+            <summary>
+            Set rendering depth. Low numbers are drawn on top of high numbers.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IDataFields.RotationAngle">
+            <summary>
+            Initial rotation angle. (In degrees)
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IDataFields.Smooth">
+            <summary>
+            Smooth line geometry by using splines instead of straight line segments.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IDataFields.Version">
+            <summary>
+            Get or set version.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields">
+            <summary>
+            General drawing parameters for non-tactical graphics
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.LineColor">
+            <summary>
+            Foreground color for outlines and other non-filled geometry.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.LineDashStyle">
+            <summary>
+            Dash style for outlines and other line geometry.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.LineDashStyleOffset">
+            <summary>
+            Dash style offset for outlines and other line geometry.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.LineWidth">
+            <summary>
+            Line width for outlines and other line geometry.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.DrawOutline">
+            <summary>
+            Enable/disable rendering of outline.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.Fill">
+            <summary>
+            Enable/disable filling of polygonal geometry.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.FillForegroundColor">
+            <summary>
+            Foreground color for filled polygon geometry.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.FillBackgroundColor">
+            <summary>
+            Background color for filled polygon geometry. Only relevant for non-solid fill patterns, for example BackwardDiagonal etc.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.FillStyle">
+            <summary>
+            Fill style for filled polygon geometry.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.ShowBuffer">
+            <summary>
+            Enable disable/rendering of buffer zone around the geometry.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.BufferLineColor">
+            <summary>
+            Color for buffer zone outline.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.BufferLineDashStyle">
+            <summary>
+            Dash style for buffer zone outline.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.BufferLineDashStyleOffset">
+            <summary>
+            Dash style offsetfor buffer zone outline.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.BufferLineWidth">
+            <summary>
+            Line width for buffer zone outline.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.BufferWidth">
+            <summary>
+            Width of buffer zone area.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.Text">
+            <summary>
+            Text for generic text symbols.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.WrapLines">
+            <summary>
+            True if lines should be wrapped in renderers that support it.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.FontName">
+            <summary>
+            Font name for generic text symbols
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.FontSize">
+            <summary>
+            Font size for generic text symbols.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.FontForegroundColor">
+            <summary>
+            Font forground color.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.Bold">
+            <summary>
+            Get or set bold font style.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.Italic">
+            <summary>
+            Get or set italic font style.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.Underline">
+            <summary>
+            Get or set underline font style.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.Strikethrough">
+            <summary>
+            Get or set strikethrough font style.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.FontBackgroundColor">
+            <summary>
+            Font background color.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.NumberOfRadials">
+            <summary>
+            Number of radials for range rings.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.BeginLineEndingFigure">
+            <summary>
+            Figure to use at beginning of line.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.EndLineEndingFigure">
+            <summary>
+            Figure to use at end of line.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.ShowLinePointText">
+            <summary>
+            Get or set if line point text should be shown.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.SymbolType">
+            <summary>
+            Symbol type for generic point graphic symbols.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.SymbolCode">
+            <summary>
+            Symbol code for generic point graphic symbols.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.OrbitAreaDirection">
+            <summary>
+            Direction of orbit area objects (Left/Right)
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IGenericDataFields.OrbitAreaFigureType">
+            <summary>
+            Figure type of orbit area objects (RaceTrack/FigureEight)
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISortedSimpleDrawObjectInfo">
+            <summary>
+            Interface for result of sorted draw object query.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISortedSimpleDrawObjectInfo.SortedDrawObjects">
+            <summary>
+            Sorted draw objects in order
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISortedSimpleDrawObjectInfo.TotalDrawObjectCount">
+            <summary>
+            Count of all draw objects matching query. When sorting, offset and count settings can cause the count of SortedDrawObjects to be less than TotalDrawObjectCount
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISortedSimpleDrawObjectInfo.Query">
+            <summary>
+            Source query
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.MinefieldContent">
+            <summary>
+            Only used of symbol is of type Minefield
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.MinefieldPattern">
+            <summary>
+            Only used of symbol is of type Minefield
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.MinefieldOpacity">
+            <summary>
+            Get or set the opacity of the Minefield mines.
+            Only used if symbol is of type Minefield.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.SymbolIndicator">
+            <summary>
+            APP6-string indicating which symbol to render for tactical graphics that have point symbols associated with them.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.Echelon">
+            <summary>
+            Echelon indicator (Battallion, Regiment etc.)
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.AdditionalInformation">
+            <summary>
+            A text modifier for units, equipment, and installations; content is implementation specific. 
+            Corresponds to the "H" modifiers in 2525C
+            Currently we support two such modifiers.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.UniqueDesignation">
+            <summary>
+            A text modifier for units, equipment, and installations that uniquely identifies a particular symbol or track number. 
+            Corresponds to the "T" modifier in 2525C
+            Currently we support two such modifiers.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.DateTimeGroup">
+            <summary>
+            A text modifier for units, equipment, and installations that displays DTG format: DDHHMMSSZMONYYYY or “O/O” for on order.
+            Corresponds to the "W" modifiers in 2525C
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.TacticalStatus">
+            <summary>
+             Tactical status.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.OffsetLocationDisplacement">
+            <summary>
+            A graphic modifier for points and CBRN events used when placing an object away from its actual location. 
+            The offset is given in pixel coordinates.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.Quantity">
+            <summary>
+            A text modifier in a nuclear symbol that identifies the detonation in kilotons; yield (can be displayed in decimals).
+            Corresponds to the "C" modifier in 2525C
+             </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.NuclearWeaponType">
+            <summary>
+            A text modifier that indicates nuclear weapon type.
+            Corresponds to the "V" modifier in 2525C
+             </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.DirectionOfMovement">
+            <summary>
+            A graphic modifier for CBRN events that identifies the direction of movement.
+            Corresponds to the "Q" modifier in 2525C.
+            Given as a bearing in degrees.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.AltitudeDepth">
+            <summary>
+            The altitude/depth modifier. Corresponds to the "X" modifier in 2525C
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.Distance">
+            <summary>
+            The distance modifier. Corresponds to "AM" modifer in 2525C.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ITacticalDataFields.Azimuth">
+            <summary>
+            The azimuth modifier. Corresponds to the "AN" modifier in 2525C.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IVerticalDistanceData">
+            <summary>
+            Stores data about vertical distance.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IVerticalDistanceData.UnitType">
+            <summary>
+            The unit of the vertical distance.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.IVerticalDistanceData.Dimension">
+            <summary>
+            The dimension of the vertical distance.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISimpleDrawObject.GetArea">
+            <summary>
+            Get the area of the simple draw object.
+            </summary>
+            <returns>Area in square meters.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISimpleDrawObject.GetLength">
+            <summary>
+            Get the length/circumference of the simple draw object.
+            </summary>
+            <returns>Length/Circumference in meters.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISimpleDrawObject.DataFields">
+            <summary>
+            Common draw object data fields, such as Name and Draw depth. 
+            These fields are always set, regardless of whether or not the object is tactical or generic.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISimpleDrawObject.GenericDataFields">
+            <summary>
+            Generic data fields. Data fields related to generic draw objects. These will only be non-zero if we have a
+            generic draw object. 
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISimpleDrawObject.TacticalDataFields">
+            <summary>
+            Tactical data fields. Data fields related to tactical draw objects. These will only be non-zero if we have a
+            tactical draw object. 
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISimpleDrawObject.Points">
+            <summary>
+            Geometry points. These points make up the geometric data of the draw object and may have different uses based on 
+            what the derived object type is. For an IPolygonArea this will be the boundary of the object. For an ICorridorArea
+            these points will be the center line.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IRangeRings">
+            <summary>
+            The range rings object is made up of a center point and equidistant circles.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IRangeRings.VertexPoint">
+            <summary>
+            Central point of the range rings object.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IRangeRings.RangeBetweenRings">
+            <summary>
+            The range between rings in the range rings object.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IRangeRings.MaximumRange">
+            <summary>
+            The maximum range of the range rings object.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IRangeRings.NumberOfRadials">
+            <summary>
+            Number of radials to display in range rings object.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.ISurfaceVolume">
+            <summary>
+             A GEOMETRIC-VOLUME that has its horizontal boundaries defined by a specific SURFACE.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.ISurfaceVolume.LowerVerticalDistance">
+            <summary>
+             Lower vertical distance
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.ISurfaceVolume.UpperVerticalDistance">
+            <summary>
+             Upper vertical distance
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IOrbitArea">
+            <summary>
+            A rectangular area closed by two half-circles. The orbit is determined by an axis defined by two points, 
+            a width perpendicular to the axis, and an enum describing how the orbit relates to the axis line. 
+            If it is a Centre orbit, the orbit has its axis along the center of the rectangular area. If it is a Left orbit, the orbit 
+            is located to the left of the axis line with the axis itself as the right leg of the orbit. Conversely if it 
+            is a Right orbit, the orbit is placed to the right of the axis line with the axis line as the left leg.
+            Left and right of the axis is defined by the direction of the axis which is from FirstPoint to SecondPoint.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IOrbitArea.FirstPoint">
+            <summary>
+            Start point of the axis.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IOrbitArea.SecondPoint">
+            <summary>
+             End point of the axis.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IOrbitArea.Width">
+            <summary>
+            Width of the orbit, perpendicular to the axis.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IOrbitArea.OrbitAreaAligmentCode">
+            <summary>
+            Determines placement of the orbit relative to the axis. 
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.PreviewImages.IPreviewManagerProvider.GetPreviewManager(TPG.GeoUnits.IGeoUnitsSetting,TPG.GeoFramework.Symbols.Contracts.Providers.ISymbolProvidersFactory)">
+            <summary>
+            Gets the preview manager.
+            </summary>
+            <param name="geoUnitsSetting">Geo unit settings to use for this preview manager.</param>
+            <param name="symbolProvider">Symbol provider</param>
+            <returns>The preview manager.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Types.GeoPoint">
+            <summary>
+            Simple geographical point.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IVolCorridorArea">
+            <summary>
+            An volume centered horizontally around a line with two or more points, 
+            defined by its width equally distibuted on each side of the center line.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.ICorridorArea">
+            <summary>
+            An area centered around a line with two or more points, 
+            defined by its width equally distibuted on each side of the center line.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.ICorridorArea.Width">
+            <summary>
+            Width of the corridor side to side, equally distributed with respect to the centre line.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IEllipse">
+            <summary>
+            Ellipse-shaped surface with arbitrary rotation.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IEllipse.CentrePoint">
+            <summary>
+            Geometric centre of the ellipse.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IEllipse.FirstConjugateDiameterPoint">
+            <summary>
+            Point defining the first axis of the ellipse as the line from the center to this point.
+            </summary>
+            <remarks>
+            The diameter points must be placed so that the lines from the centre point to each of the diameter points are
+            perpendicular to each other.
+            </remarks>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IEllipse.SecondConjugateDiameterPoint">
+            <summary>
+            Point defining the second axis of the ellipse as the line from the center to this point.
+            </summary>
+            <remarks>
+            The diameter points must be placed so that the lines from the centre point to each of the diameter points are
+            perpendicular to each other.
+            </remarks>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IFanArea">
+            <summary>
+            A fan area is a surface in the form of a truncated ring sector. It is defined by a centre point, a sector angle, innner and outer radii.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IFanArea.MinimumRange">
+            <summary>
+            Distance from the center point to the inner ring sector.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IFanArea.MaximumRange">
+            <summary>
+            Distance from the center point to the outer ring sector.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IFanArea.OrientationAngle">
+            <summary>
+            Rotational angle in degrees clockwise between the line of true north and the left side of the sector.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IFanArea.SectorSizeAngle">
+            <summary>
+            Rotational angle in degrees clockwise between the left and right sides of the sector (opening angle).
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IFanArea.VertexPoint">
+            <summary>
+            Central point of the sector.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IVolEllipse">
+            <summary>
+            Ellipse-shaped volume surface with arbitrary rotation.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IVolFanArea">
+            <summary>
+            A volume fan area is a volume with a surface in the form of a truncated ring sector. It is defined by a centre point, a sector angle, innner and outer radii.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives.IVolPolyarea">
+            <summary>
+            A volume with a polygonal base surface.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Types.OrbitAreaDirection">
+            <summary>
+             Enum describing the different direction of orbit that is valid.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Types.OrbitAreaFigureType">
+            <summary>
+             Enum describing the different figures to draw a orbit area as.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.PreviewImages.IPreviewManager">
+            <summary>
+            Generate and cache preview images of draw objects.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.PreviewImages.IPreviewManager.Get(System.Guid,System.Windows.Size,System.String,System.String)">
+            <summary>
+            Get a preview image for the given DrawObject type ID
+            </summary>
+            This method will render a preview image into a WPF ImageSource which can be bound
+            to a WPF controller. The manager should cache the results, so that if a preview
+            for a given draw object type, size and projection has been generated earlier,
+            the cached version should be returned.
+            <param name="typeId">TypeID for the wanted object.</param>
+            <param name="size">Image size to generate.</param>
+            <param name="standardIdentity">The standardIdentity code for the previewed object.</param>
+            <param name="projection">Viewport projection to draw in.</param>
+            <returns>A PreviewImage with a BitmapSource which can be bound to a WPF control.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.PreviewImages.IPreviewManager.Get(System.String,System.Windows.Size,System.String,System.String)">
+            <summary>
+            Get a preview image for the given DrawObject type ID
+            </summary>
+            Same as above, only uses the 2525C hierarchy code to specify the draw object type.
+            <param name="hierarchyCode">2525C hierarchy code for the wanted object.</param>
+            <param name="size">Image size to generate.</param>
+            <param name="standardIdentity">The standardIdentity code for the previewed object.</param>
+            <param name="projection">Viewport projection to draw in.</param>
+            <returns>A PreviewImage with a BitmapSource which can be bound to a WPF control.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.PreviewImages.IPreviewManager.GenerateImages(System.Windows.Size,System.String,System.String)">
+            <summary>
+            Pre-generate preview images for all data types in the store.
+            </summary>
+            <param name="size">Image size to generate.</param>
+            <param name="standardIdentity">The standardIdentity code for the previewed object.</param>
+            <param name="projection">Viewport projection to draw in.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.PreviewImages.IPreviewManager.SetDrawObjectStyle(System.String)">
+            <summary>
+            Sets the style to use for the preview manager.
+            </summary>
+            <param name="styleSetXmlRep">Xml representation of the style.</param>
+            <returns>True on success, false otherwise.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.PreviewImages.IPreviewManager.SetDrawObjectDefaultValueStyle(System.String)">
+            <summary>
+            Sets the default value style to use for the preview manager.
+            </summary>
+            <param name="styleSetXmlRep">Xml representation of the style.</param>
+            <returns>True on success, false otherwise.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.PreviewImages.IPreviewManager.Clear">
+            <summary>
+            Clear cache.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.PreviewImages.IPreviewManager.StyleSet">
+            <summary>
+            Style set used for preview rendering.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.PreviewImages.IPreviewManager.DafaultValueStyleSet">
+            <summary>
+            Get or set default value style set.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.PreviewImages.IPreviewManager.GetUnitsSetting">
+            <summary>
+            Settings for all geo units.
+            </summary>
+        </member>
+    </members>
+</doc>

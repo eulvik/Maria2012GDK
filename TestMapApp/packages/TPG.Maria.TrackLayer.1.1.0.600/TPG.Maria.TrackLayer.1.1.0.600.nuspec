@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>TPG.Maria.TrackLayer</id>
+    <version>1.1.0.600</version>
+    <title>TPG.Maria.TrackLayer</title>
+    <authors>Teleplan Globe AS</authors>
+    <owners>Teleplan Globe AS</owners>
+    <licenseUrl>http://support.teleplanglobe.com/Teleplan_Globe_software_License_Agreement_Release.pdf</licenseUrl>
+    <projectUrl>http://www.teleplanglobe.com/products/maria</projectUrl>
+    <iconUrl>http://support.teleplanglobe.com/MARIA.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Maria Track Layer requires a Track service providing tracks. This package does not contain the service, it has to be downloaded and installed separately. The layer supports Mil Std 2525C, NTDS and custom symbology.</description>
+    <releaseNotes>First Release</releaseNotes>
+    <tags>GIS Tactical Map</tags>
+    <dependencies>
+      <dependency id="TPG.Maria.Common" version="1.1.0.0" />
+      <dependency id="TPG.Maria.MariaUserControl" version="1.1.0.0" />
+      <dependency id="TPG.GeoFramework.Symbols.Contracts" version="1.1.0.0" />
+      <dependency id="TPG.GeoFramework.Style.Core.Contracts" version="1.1.0.0" />
+      <dependency id="protobuf-net" version="[2.0.0.621]" />
+    </dependencies>
+    <references>
+      <reference file="TPG.Maria.TrackContracts.dll" />
+      <reference file="TPG.Maria.TrackLayer.dll" />
+      <reference file="TPG.GeoFramework.TrackLayer.Contracts.dll" />
+      <reference file="TPG.GeoFramework.TrackCore.dll" />
+      <reference file="TPG.GeoFramework.TrackCore.Contracts.dll" />
+      <reference file="TPG.GeoFramework.TrackServiceClient.dll" />
+      <reference file="TPG.GeoFramework.Track.Proto.dll" />
+      <reference file="TPG.GeoFramework.TrackLayer.dll" />
+    </references>
+  </metadata>
+</package>

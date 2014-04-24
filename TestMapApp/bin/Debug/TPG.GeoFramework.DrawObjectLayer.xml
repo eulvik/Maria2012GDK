@@ -1,0 +1,399 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.DrawObjectLayer</name>
+    </assembly>
+    <members>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Commands.DeleteCommand.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Commands.DeleteCommand.Undo">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Commands.DeleteCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Commands.DeleteCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Commands.DeleteCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.Commands.UpdateCommand.RemoveUndoableCommandAffectingObject(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Commands.UpdateCommand.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Commands.UpdateCommand.AffectedInstanceIds">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.DrawObjectLayer.DrawObjectItemFieldProvider">
+            <summary>
+            Provides fields from style for items.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectItemFieldProvider.#ctor(TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel,TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleProvider,TPG.DrawObjects.Internals.Contracts.Views.IViewRender)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="drawObjectLayerViewModel">Draw object layer view model instance.</param>
+            <param name="drawObjectStyleProvider">Draw objec tstyle provider instance.</param>
+            <param name="viewRender">View renderer instance.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectItemFieldProvider.GetFieldValue(TPG.GeoFramework.Contracts.ItemId,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectItemFieldProvider.GetStyleFromCategory(TPG.GeoFramework.Contracts.ItemId,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.#ctor(TPG.GeoUnits.IGeoUnitsSetting,TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectInstanceIdProvider,TPG.GeoFramework.Symbols.Contracts.Providers.ISymbolProvidersFactory,TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack,TPG.DrawObjects.Internals.Contracts.ServiceResources.IDrawObjectServiceSynchronizer)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.SetUndoRedoStack(TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.EditPoints(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.EndEditPoints">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.Contains(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.Get(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.GetDrawObjectRuntimeData(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.GetSorted(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition,System.Collections.Generic.IList{TPG.GeoFramework.Style.Core.Contracts.Sorting.SortInfoItem},System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.Update(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.Delete(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DeleteAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.CanDeleteSelectedDrawObjects">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.Delete(System.Collections.Generic.IEnumerable{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.CanDeleteSelected">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DeleteSelected">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.CanDeleteSelectedPrimitives">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DeleteSelectedPrimitives">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.CanCancelCurrentOperation">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.CancelCurrentOperation">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.SetDirty(System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.HasDrawObjectChanged(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.HasDrawObjectChangedSince(System.String,System.DateTime)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.ClearChangedState(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.IsSelected(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.Select(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.Select(System.Collections.Generic.List{System.String},System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DeSelect(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DeSelect(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DeSelectAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.HandleInputEvent(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.RemoveDrawObjectFromUndoRedoStack(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.ClearUndoRedoStack">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.Copy">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.Cut">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.SerializeDrawObject(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Create draw object data xml.
+            </summary>
+            <param name="drawObjectData">Draw object data to serialize.</param>
+            <returns>Serialize draw object data.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.Paste(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.GetBoundingRectOfDrawObject(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Get bounding box of draw object.
+            </summary>
+            <param name="drawObjectData">Draw object data.</param>
+            <returns>Bounding box.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.CanCopy">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.CanCut">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.CanPaste">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.EnsureWithinMapView(System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.ActivateCreationWorkflow(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DeactivateCreationWorkflow">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.HasActiveCreationWorkflow(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.SetDrawObjectStyle(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.SetDrawObjectDefaultValueStyle(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.GetClickedDrawObjects(System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.GetVisibleObjectCount">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.GetVisibleObjectIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.GetEnvelopeForDrawObjects(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.RefreshStyle">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.PreExport">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.Export(System.Windows.Controls.Canvas,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.PostExport">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.BeforeDrawObjectSelection">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.SelectionControlMouseClick">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DisplayName">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.HitTestRadius">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.EditPointsInstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.InternalLayerId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DrawObjectIds">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.SelectedDrawObjectIds">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.ViewSymbolScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DefaultValueStyleSet">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DisabledFilter">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.SuppressDrawObjectMove">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.IsMultiSelectionEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.IsAspectRatioActionEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.IsSymmetricActionEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.ActiveDrawObjectServiceStoreId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.DrawObjectServiceStores">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.IsAutoRefreshEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.AutoRefreshInterval">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectLayerViewModel.InteractionHandlers">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler">
+            <summary>
+            Handles draw objec tselection.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.#ctor(TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel,TPG.DrawObjects.Internals.Contracts.Views.IViewRender,TPG.GeoFramework.Interaction.Contracts.Tooltip.IItemFieldProvider)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="drawObjectLayerViewModel">Draw object layer view model instance.</param>
+            <param name="viewRender">View renderer instance.</param>
+            <param name="itemFieldProvider">Provider for item fields.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.HandleSelectionControlMouseClick(TPG.GeoFramework.Interaction.Contracts.Selection.SelectionControlMouseEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.HandleSelectionControlStateEvent(TPG.GeoFramework.Interaction.Contracts.Selection.SelectionControlStateEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.HandleInteractionInputEvent(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.GetFieldValue(TPG.GeoFramework.Contracts.ItemId,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.GetSelectedState(TPG.GeoFramework.Contracts.ItemId)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.GetStyleFromCategory(TPG.GeoFramework.Contracts.ItemId,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.HandleSelection(System.Collections.Generic.List{TPG.GeoFramework.Contracts.ItemId})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.HandleSelectionControlClosed">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.GetSymbol(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Get bitmap source for draw object symbol.
+            </summary>
+            <param name="drawObjectData">Draw object data fo symbol.</param>
+            <returns>Symbol bitmap source.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.GetDrawObjectPreview(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Get bitmap source for non symbol draw objects.
+            </summary>
+            <param name="drawObjectData">Draw object data.</param>
+            <returns>Bitmap source for non symbol draw object.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.IsDisabled(System.String)">
+            <summary>
+            Check if draw object is disabled.
+            </summary>
+            <param name="id">Draw object id.</param>
+            <returns>True if disabled, otherwise false.</returns>
+        </member>
+        <member name="E:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.SelectionControlMouseClick">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.Items">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.GetClickedItemsFromSelectionControl">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.DrawObjectSelectionHandler.IsSelectionControlActive">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.DrawObjectLayer.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Properties.Resources.DrawObjectDefaultValueStyle">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+            &lt;styleset name=&quot;Default&quot;&gt;
+              &lt;stylecategory name=&quot;DrawObjects&quot;&gt;
+                &lt;style&gt;
+                  &lt;valueitem name=&quot;ColorScheme&quot; value=&quot;Medium&quot;/&gt;
+                  
+                  &lt;compositeitem name=&quot;Line&quot;&gt;
+                    &lt;valueitem name=&quot;Width&quot; value=&quot;[LineWidth]&quot; /&gt;
+                    &lt;valueitem name=&quot;Color&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFactor]&quot; /&gt;
+                    &lt;valueitem name=&quot;ColorLight&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFactor]&quot; /&gt;
+                    &lt;valueitem name=&quot;ColorMedium&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFacto [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.DrawObjectLayer.Properties.Resources.DrawObjectStyle">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+            &lt;styleset name=&quot;Default&quot;&gt;
+              &lt;stylecategory name=&quot;DrawObjects&quot;&gt;
+                &lt;style&gt;
+                  &lt;valueitem name=&quot;ColorScheme&quot; value=&quot;Medium&quot;/&gt;
+                  
+                  &lt;compositeitem name=&quot;Line&quot;&gt;
+                    &lt;valueitem name=&quot;Width&quot; value=&quot;[LineWidth]&quot; /&gt;
+                    &lt;valueitem name=&quot;Color&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFactor]&quot; /&gt;
+                    &lt;valueitem name=&quot;ColorLight&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFactor]&quot; /&gt;
+                    &lt;valueitem name=&quot;ColorMedium&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFacto [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+    </members>
+</doc>

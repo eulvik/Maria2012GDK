@@ -1,0 +1,556 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.ServiceModel</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.ServiceModel.BaseServiceExceptionHandler">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.ServiceModel.IServiceClientExceptionHandler">
+            <summary>
+            Used for handling all exceptions from calls to service
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.IServiceClientExceptionHandler.HandleException(System.Exception)">
+            <summary>
+            Called if exeption is thrown as part of service call.
+            Derived handlers can handle exceptions in one of several manners:
+            - Log exception
+            - Rethrow selected exceptions
+            </summary>
+            <param name="ex">Base exception</param>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceExceptionHandler.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceExceptionHandler.HandleException(System.Exception)">
+            <summary>
+            Handle service exception
+            </summary>
+            <param name="ex">Exception to handle</param>
+        </member>
+        <member name="P:TPG.ServiceModel.BaseServiceExceptionHandler.LogEnabled">
+            <summary>
+            Turn logging on or off
+            </summary>
+        </member>
+        <member name="P:TPG.ServiceModel.BaseServiceExceptionHandler.NoRethrow">
+            <summary>
+            If set, no exceptions are rethrown 
+            </summary>
+        </member>
+        <member name="P:TPG.ServiceModel.BaseServiceExceptionHandler.SuppressRethrow">
+            <summary>
+            Register types in "SuppressRethrow" to suppress rethrowing
+            </summary>
+        </member>
+        <member name="T:TPG.ServiceModel.BaseServiceProxy`1">
+            <summary>
+            Service client proxy base, handeling communication channel creation.
+            </summary>
+            <typeparam name="TServiceClient"></typeparam>
+        </member>
+        <member name="T:TPG.ServiceModel.IBaseServiceProxy">
+            <summary>
+            Interface for basic proxy logic.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.IBaseServiceProxy.Connect">
+            <summary>
+            Connects to a specific service by using the provided binding and endpoint.
+            Returns immediately and tries to connect in the background.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.IBaseServiceProxy.Connect(System.Int32)">
+            <summary>
+            Connects to a specific service by using the provided binding and endpoint.
+            Tries to connect for up to "msTimeout" milliseconds, returns true if successful.
+            </summary>
+            <param name="msTimeout">Approximate milliseconds to try connecting.</param>
+        </member>
+        <member name="M:TPG.ServiceModel.IBaseServiceProxy.ConnectAndWait">
+            <summary>
+            Connects to a specific service by using the provided binding and endpoint.    
+            Tries to connect to the service without returning before a connection is esatablished.
+            </summary>
+            <exception cref="T:System.TimeoutException">Thrown if the endpoint does not respond.</exception>
+            <exception cref="T:System.ServiceModel.CommunicationException">Thrown if the endpoint could not be reached.</exception>
+        </member>
+        <member name="E:TPG.ServiceModel.IBaseServiceProxy.ErrorOccured">
+            <summary>
+            Event raised when an error occures
+            </summary>
+        </member>
+        <member name="E:TPG.ServiceModel.IBaseServiceProxy.ServiceConnected">
+            <summary>
+            Event raised when the connection to the service is established.
+            </summary>
+        </member>
+        <member name="E:TPG.ServiceModel.IBaseServiceProxy.ServiceRestarted">
+            <summary>
+            Event raised when the service has restarted.
+            </summary>
+        </member>
+        <member name="P:TPG.ServiceModel.IBaseServiceProxy.Connected">
+            <summary>
+            Get if the client is connected.
+            </summary>
+        </member>
+        <member name="P:TPG.ServiceModel.IBaseServiceProxy.ServiceState">
+            <summary>
+            Get service state.
+            </summary>
+        </member>
+        <member name="P:TPG.ServiceModel.IBaseServiceProxy.ExceptionHandler">
+            <summary>
+            Exception handler for service client/proxy
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.#ctor(System.ServiceModel.Channels.Binding,System.ServiceModel.EndpointAddress)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="binding">Endpoint binding.</param>
+            <param name="endpoint">Endpoint address.</param>
+            <exception cref="T:System.NullReferenceException">Thrown if the binding or endpoint is null.</exception>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.Finalize">
+            <summary>
+            Destructor.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.Abort">
+            <summary>
+            Causes the service channel to transition immediately from its current state into the closing state.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.Connect">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.Connect(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.ConnectAndWait">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.OnChannelFaulted(System.Object,System.EventArgs)">
+            <summary>
+            Method invoked when the service channel is faulted.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.OnChannelClosing(System.Object,System.EventArgs)">
+            <summary>
+            Method invoked when the service channel is closing.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.OnChannelClosed(System.Object,System.EventArgs)">
+            <summary>
+            Method invoked when the service channel is closed.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.ConnectToService">
+            <summary>
+            Connect to service.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.BlockingConnectToService">
+            <summary>
+            Connect to service. Blocks until connection is established or throws exception.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.IsConnectionDataValid">
+            <summary>
+            Check connection data validity.
+            </summary>
+            <returns>True if valid otherwise false.</returns>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.ConnectToService(System.Object)">
+            <summary>
+            Connect to service (timer callback handler).
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.ConnectionValid">
+            <summary>
+            Tests the connection by making a call and returns false if the called failed.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.SubscribeToChannelEvents">
+            <summary>
+            Subscribe to channel events.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.UnsubscribeToChannelEvents">
+            <summary>
+            Unsubscribe from channel events.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.DoServiceCall``1(System.Func{``0},``0)">
+            <summary>
+            Function wrapper for performing service calls
+            </summary>
+            <typeparam name="RetT">Return type</typeparam>
+            <param name="f">Service call, on the form ()=>ServiceClient.MyFunc(MyParam)</param>
+            <param name="defaultRet">Default return value if call fails</param>
+            <returns>Return value from service, or defaultRet if exceptionless error</returns>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.DoServiceCall(System.Action)">
+            <summary>
+            Function wrapper for performing service calls
+            </summary>
+            <param name="a">Call to perform</param>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:TPG.ServiceModel.BaseServiceProxy`1.Dispose(System.Boolean)">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            If overridden, call base.Dispose(disposing) to make sure all base resources are freed.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="E:TPG.ServiceModel.BaseServiceProxy`1.ErrorOccured">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.ServiceModel.BaseServiceProxy`1.ServiceConnected">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.ServiceModel.BaseServiceProxy`1.ServiceRestarted">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.ServiceModel.BaseServiceProxy`1.State">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.ServiceModel.BaseServiceProxy`1.Connected">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.ServiceModel.BaseServiceProxy`1.ServiceState">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.ServiceModel.BindingFactory">
+            <summary>
+            Factory for creating endpoint binding.
+            </summary>
+        </member>
+        <member name="T:TPG.ServiceModel.IBindingFactory">
+            <summary>
+            Interface for factory for creating endpoint binding..
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.IBindingFactory.NewFromConfigurationFile(System.String)">
+            <summary>
+            Get binding from endpoint configuration name in configuration file.
+            </summary>
+            <param name="endpointConfigurationName">Endpoint configuration name.</param>
+            <returns>Endpoint binding.</returns>
+        </member>
+        <member name="M:TPG.ServiceModel.IBindingFactory.NewFromConfigurationFile(System.Type)">
+            <summary>
+            Get binding from endpoint configuration type in configuration file.
+            </summary>
+            <param name="endpointConfigurationType">Endpoint configuration type.</param>
+            <returns>Endpoint binding.</returns>
+        </member>
+        <member name="M:TPG.ServiceModel.IBindingFactory.New(TPG.ServiceModel.BindingType)">
+            <summary>
+            Get binding from binding type.
+            </summary>
+            <param name="bindingType">Binding type.</param>
+            <returns>Endpoint binding.</returns>
+        </member>
+        <member name="M:TPG.ServiceModel.BindingFactory.NewFromConfigurationFile(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.ServiceModel.BindingFactory.NewFromConfigurationFile(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.ServiceModel.BindingFactory.New(TPG.ServiceModel.BindingType)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.ServiceModel.BindingFactory.GetBindingsSection">
+            <summary>
+            Get bindings section from configuuration file.
+            </summary>
+            <returns>Bindings section.</returns>
+        </member>
+        <member name="M:TPG.ServiceModel.BindingFactory.GetChannelEndpointElementCollection">
+            <summary>
+            Get endpoint collection from configuration file.
+            </summary>
+            <returns>Endpoint collection.</returns>
+        </member>
+        <member name="M:TPG.ServiceModel.BindingFactory.GetBinding(System.String,System.ServiceModel.Configuration.BindingsSection)">
+            <summary>
+            Get binding from binding collection in configuration file.
+            </summary>
+            <param name="bindingName">Binding name.</param>
+            <param name="bindingsSection">Bindings section in configuration file.</param>
+            <returns>Binding.</returns>
+        </member>
+        <member name="P:TPG.ServiceModel.DataContracts.ErrorMessage.ExtensionData">
+            <summary>
+            Gets or sets the structure that contains extra data.
+            </summary>
+            <returns>
+            An <see cref="T:System.Runtime.Serialization.ExtensionDataObject"/> that contains data that is not recognized as belonging to the data contract.
+            </returns>
+        </member>
+        <member name="T:TPG.ServiceModel.DataContracts.ServiceState">
+            <summary>
+            Contains service state information.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.DataContracts.ServiceState.#ctor(System.String,System.String,System.Double,System.Boolean,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="serviceId">Service id.</param>
+            <param name="sessionId">Session id.</param>
+            <param name="serviceLoad">Service load.</param>
+            <param name="multiThreaded">Multi threaded flag.</param>
+            <param name="maxRequests">Max requests.</param>
+        </member>
+        <member name="P:TPG.ServiceModel.DataContracts.ServiceState.ServiceId">
+            <summary>
+            Get service id.
+            </summary>
+        </member>
+        <member name="P:TPG.ServiceModel.DataContracts.ServiceState.SessionId">
+            <summary>
+            Get session id. Guid, unique per session/restart of service.
+            </summary>
+        </member>
+        <member name="P:TPG.ServiceModel.DataContracts.ServiceState.ServiceLoad">
+            <summary>
+            Get service load [0.0 to 1.0].
+            </summary>
+        </member>
+        <member name="P:TPG.ServiceModel.DataContracts.ServiceState.MultiThreaded">
+            <summary>
+            Get if service is multi threaded.
+            </summary>
+        </member>
+        <member name="P:TPG.ServiceModel.DataContracts.ServiceState.MaxRequests">
+            <summary>
+            Get suggested maximum number of unfinished requests
+            </summary>
+        </member>
+        <member name="T:TPG.ServiceModel.EndpointAddressFactory">
+            <summary>
+            Factory for creating endpoint address.
+            </summary>
+        </member>
+        <member name="T:TPG.ServiceModel.IEndpointAddressFactory">
+            <summary>
+            Interface for creating endpoint address.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.IEndpointAddressFactory.NewFromConfigurationFile(System.Type)">
+            <summary>
+            Get endpoint address from endpoint configuration type in configuration file.
+            </summary>
+            <param name="endpointConfigurationType">Endpoint configuration type.</param>
+            <returns>Endpoint address.</returns>
+        </member>
+        <member name="M:TPG.ServiceModel.IEndpointAddressFactory.NewFromConfigurationFile(System.String)">
+            <summary>
+            Get endpoint address from endpoint configuration name in configuration file.
+            </summary>
+            <param name="endpointConfigurationName">Endpoint configuration name.</param>
+            <returns>Endpoint address.</returns>
+        </member>
+        <member name="M:TPG.ServiceModel.IEndpointAddressFactory.New(System.String)">
+            <summary>
+            Get endpoint address from URI.
+            </summary>
+            <param name="uri">URI address.</param>
+            <returns>Endpoint address.</returns>
+        </member>
+        <member name="M:TPG.ServiceModel.EndpointAddressFactory.NewFromConfigurationFile(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.ServiceModel.EndpointAddressFactory.NewFromConfigurationFile(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.ServiceModel.EndpointAddressFactory.GetChannelEndpointElementCollection">
+            <summary>
+            Get endpoint collection from configuration file.
+            </summary>
+            <returns>Endpoint collection.</returns>
+        </member>
+        <member name="T:TPG.ServiceModel.EventArgs.ServiceRestartedEventArgs">
+            <summary>
+            Event data for the service restarted event.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.EventArgs.ServiceRestartedEventArgs.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="sessionId">Service session id.</param>
+        </member>
+        <member name="P:TPG.ServiceModel.EventArgs.ServiceRestartedEventArgs.SessionId">
+            <summary>
+            Get connection status.
+            </summary>
+        </member>
+        <member name="T:TPG.ServiceModel.EventArgs.ErrorOccuredEventArgs">
+            <summary>
+            Event data for the error occured event. 
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.EventArgs.ErrorOccuredEventArgs.#ctor(TPG.ServiceModel.DataContracts.ErrorMessage)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="errorMessage">Error message.</param>
+        </member>
+        <member name="P:TPG.ServiceModel.EventArgs.ErrorOccuredEventArgs.Error">
+            <summary>
+            Get error message.
+            </summary>
+        </member>
+        <member name="T:TPG.ServiceModel.IBaseService">
+            <summary>
+            Basic interface needed by service.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.IBaseService.GetServiceState">
+            <summary>
+            Get state of service including session id.
+            </summary>
+            <returns>Service state.</returns>
+        </member>
+        <member name="T:TPG.ServiceModel.ErrorOccuredEventHandler">
+            <summary>
+            Error occcured event handler.
+            </summary>
+            <param name="sender">Service client.</param>
+            <param name="args">Event data.</param>
+        </member>
+        <member name="T:TPG.ServiceModel.ServiceConnectedEventHandler">
+            <summary>
+            Service connected event handler.
+            </summary>
+            <param name="sender">Service client.</param>
+            <param name="args">Event data.</param>
+        </member>
+        <member name="T:TPG.ServiceModel.ServiceRestartedEventHandler">
+            <summary>
+            Service restarted event handler.
+            </summary>
+            <param name="sender">Service client.</param>
+            <param name="args">Event data.</param>
+        </member>
+        <member name="M:TPG.ServiceModel.ServiceHost`1.EnableDiscovery">
+            <summary>
+            Enable discovery for the service.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.ServiceHost`1.EnableMetadataExchange(System.Boolean)">
+            <summary>
+            Enable metadata exchenge for the service.
+            </summary>
+            <param name="enableHttpGet"></param>
+        </member>
+        <member name="M:TPG.ServiceModel.ServiceHost`1.AddAllMexEndPoints">
+            <summary>
+            Adds metadata exchange encdpoint for all existing binding types.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.ServiceHost`1.SetIncludeExceptionDetailInFaults(System.Boolean)">
+            <summary>
+            Sets a value that specifies whether to include managed exception
+            information in the detail of SOAP faults returned to the client for debugging
+            purposes.
+            Set to true if the service should return managed exception information in the SOAP 
+            faults for client debugging purposes; otherwise, set to false. 
+            The default is false.
+            </summary>
+            <param name="include"></param>
+        </member>
+        <member name="P:TPG.ServiceModel.ServiceHost`1.Singleton">
+            <summary>
+            Gets the singleton instance of the service.
+            </summary>
+        </member>
+        <member name="P:TPG.ServiceModel.ServiceHost`1.HasMexEndpoint">
+            <summary>
+            Gets if the service has a metadata exchange endpoint.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapServiceInterfaces.ServiceRegistrationInfo">
+            <summary>
+            Service registration info, can be used to override
+            endpoint based registration
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapServiceInterfaces.ServiceRegistrationInfo.Uri">
+            <summary>
+            URI of service
+            </summary>
+        </member>
+        <member name="T:TPG.ServiceModel.ServiceStartupSuccess">
+            <summary>
+            The delegate for signalling service startup success.
+            </summary>
+            <param name="serviceHost">The service host that was created.</param>
+        </member>
+        <member name="T:TPG.ServiceModel.ServiceStartUpFailure">
+            <summary>
+            The delegate for signalling service startup failure.
+            </summary>
+        </member>
+        <member name="T:TPG.ServiceModel.ServiceStartupHelper">
+            <summary>
+            Helper class for startup of services that can connect to a range of ports.
+            </summary>
+        </member>
+        <member name="M:TPG.ServiceModel.ServiceStartupHelper.ConnectToServiceAsync(System.Object,System.String,System.Int32,System.Int32)">
+            <summary>
+            Asynchroneously creates a service host that connects to the address and port range specified.
+            </summary>
+            <param name="singleton">The class implementing the service.</param>
+            <param name="baseUri">Base uri to use for service.</param>
+            <param name="baseStartPort">The start of the port range the service should connect to.</param>
+            <param name="baseEndPort">The end of the port range the service should connect to. In the case where the baseEndPort is lower than the start of the range
+            this method will use start of range as end of range effectively giving a port range of 1 available port.</param>
+            <returns>The associated task</returns>
+        </member>
+        <member name="M:TPG.ServiceModel.ServiceStartupHelper.ConnectToService(System.Object,System.String,System.Int32,System.Int32)">
+            <summary>
+            Creates a service host that connects to the address and port range specified.
+            </summary>
+            <param name="singleton">The class implementing the service.</param>
+            <param name="baseUri">Base uri to use for service.</param>
+            <param name="baseStartPort">The start of the port range the service should connect to.</param>
+            <param name="baseEndPort">The end of the port range the service should connect to. In the case where the baseEndPort is lower than the start of the range
+            this method will use start of range as end of range effectively giving a port range of 1 available port.</param>
+            <returns>The associated task</returns>
+        </member>
+        <member name="E:TPG.ServiceModel.ServiceStartupHelper.ServiceStartupFailure">
+            <summary>
+            Signals that the service was unable to to connect
+            </summary>
+        </member>
+        <member name="E:TPG.ServiceModel.ServiceStartupHelper.ServiceStartupSuccess">
+            <summary>
+            Signals that the service was able to connect.
+            </summary>
+        </member>
+    </members>
+</doc>

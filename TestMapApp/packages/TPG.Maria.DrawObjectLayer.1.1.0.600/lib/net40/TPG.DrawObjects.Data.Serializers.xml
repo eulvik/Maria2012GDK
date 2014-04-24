@@ -1,0 +1,837 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.DrawObjects.Data.Serializers</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlParserProvider">
+            <summary>
+            Provides XML parsers for coordinate systems of various types.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlParserProvider.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider)">
+            <summary>
+             Default constructor
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlParserProvider.AddParser(System.String,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlParser)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlParserProvider.GetParser(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlParserProvider.ParserExists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlParserProvider.ParserCount">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlSerializerProvider">
+            <summary>
+             Providers XML serializers for various types of coordinate systems.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlSerializerProvider.#ctor(TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider)">
+            <summary>
+             Constructor with dependencies.
+            </summary>
+            <param name="xmlUtils"></param>
+            <param name="primitiveSerializerProvider"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlSerializerProvider.AddSerializer(System.String,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlSerializerProvider.GetSerializer(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlSerializerProvider.SerializerExists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Serializers.Xml.CoordinateSystemXmlSerializerProvider.SerializerCount">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.ObjectReferenceCoordinateSystemXmlSerializer">
+            <summary>
+            XML Serializer for CoordinateSystem objects.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.ObjectReferenceCoordinateSystemXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils)">
+            <summary>
+            Constructor with dependencies.
+            </summary>
+            <param name="primitiveXmlSerializerProvider"></param>
+            <param name="xmlUtils"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.ObjectReferenceCoordinateSystemXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.ObjectReferenceCoordinateSystemXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.PointReferenceCoordinateSystemXmlParser">
+            <summary>
+            XML Parser for CoordinateSystem objects.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PointReferenceCoordinateSystemXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider)">
+            <summary>
+            Constructor with dependencies.
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider for subprimitives.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PointReferenceCoordinateSystemXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.PointReferenceCoordinateSystemXmlSerializer">
+            <summary>
+            XML Serializer for CoordinateSystem objects.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PointReferenceCoordinateSystemXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils)">
+            <summary>
+            Constructor with dependencies.
+            </summary>
+            <param name="primitiveXmlSerializerProvider"></param>
+            <param name="xmlUtils"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PointReferenceCoordinateSystemXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PointReferenceCoordinateSystemXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataListXmlTags">
+            <summary>
+             XML tags used to for DrawObjectData lists
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataListXmlParser">
+            <summary>
+             Loader for DrawObjectData xml
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataListXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlParser)">
+            <summary>
+             Constructor with injected dependencies.
+            </summary>
+            <param name="drawObjectDataXmlParser"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataListXmlParser.Parse(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.IocInstaller">
+            <summary>
+             Ioc installer for Serializer assembly
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.IocInstaller.Install(Castle.Windsor.IWindsorContainer,Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore)">
+            <inheritdoc />
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlParser">
+            <summary>
+             XML parser for DrawObjectData
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlParserProvider)">
+            <summary>
+             Constructor with dependencies
+            </summary>
+            <param name="primitiveXmlParserProvider"></param>
+            <param name="extensibleDataXmlParserProvider"></param>
+            <param name="coordinateSystemXmlParserProvider"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlParser.Parse(System.Xml.Linq.XElement)">
+            <summary>
+             Parses a DrawObjectData from XML
+            </summary>
+            <param name="drawObjectDataElement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlParser.ParsePrimitives(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlParser.ParseFields(System.Xml.Linq.XElement)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlParser.ParseCoordinateSystems(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlSerializer">
+            <summary>
+             Serializer for DrawObjectData
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlSerializerProvider)">
+            <summary>
+             Constructor with dependencies
+            </summary>
+             <remarks>
+             Use IocProvider to construct/retrieve this class
+             </remarks>
+            <param name="primitiveXmlSerializerProvider"></param>
+            <param name="extensibleDataXmlSerializerProvider"></param>
+            <param name="xmlUtils"></param>
+            <param name="coordinateSystemXmlSerializerProvider"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+             Serializes a DrawObjectData object to string
+            </summary>
+            <param name="drawObjectData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+             Serializes a DrawObjectData object to a XElement
+            </summary>
+            <param name="drawObjectData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlSerializer.SerializeCoordinateSystemToXElement(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlSerializer.SerializePrimitivesToXElement(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlSerializer.SerializeFieldsToXElement(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.DrawObjectDataXmlTags">
+            <summary>
+             Contains xml tags used by DrawObjectDataXmlSerializer and DrawObjectXmlParser
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlParserProvider">
+            <summary>
+            Provides XML parsers for ExtensibleData.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlParserProvider.AddParser(System.Guid,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlParser)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlParserProvider.RemoveParser(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlParserProvider.GetParser(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlParserProvider.ParserExists(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlParserProvider.ParserCount">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlSerializerProvider">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlSerializerProvider.AddSerializer(System.Guid,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlSerializerProvider.RemoveSerializer(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlSerializerProvider.GetSerializer(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlSerializerProvider.SerializerExists(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Serializers.Xml.ExtensibleDataXmlSerializerProvider.SerializerCount">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.CorridorAreaXmlParser">
+            <summary>
+            XML Parser for CorridorArea primitives
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.CorridorAreaXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.CorridorAreaXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.CorridorAreaXmlSerializer">
+            <summary>
+            Serialize a CorridorArea primitive to XML
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.CorridorAreaXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives.</param>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.CorridorAreaXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.CorridorAreaXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.EllipseXmlParser">
+            <summary>
+            Parse an Ellipse XML primitive.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.EllipseXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.EllipseXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.EllipseXmlSerializer">
+            <summary>
+            Serialize an Ellipse primitive to XML
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.EllipseXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives.</param>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.EllipseXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.EllipseXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.FanAreaXmlParser">
+            <summary>
+            Parse an XML block representing a Fan Area primitive.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.FanAreaXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.FanAreaXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.FanAreaXmlSerializer">
+            <summary>
+            XML Serializer for a FanArea primitive.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.FanAreaXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives.</param>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.FanAreaXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.FanAreaXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.LineXmlParser">
+            <summary>
+            XML Parser for Line primitives.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.LineXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.LineXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.LineXmlSerializer">
+            <summary>
+            SerializeToString a Line primitive to XML.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.LineXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives</param>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.LineXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.LineXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc />
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.AbsoluteGeoPointXmlParser">
+            <summary>
+            XML Parser for GeoPoint primitives
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.AbsoluteGeoPointXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor (normally called through IOC by the PrimitiveXmlParserProvider).
+            </summary>
+            <param name="primitiveBaseXmlParser">Parser for the basic primitive data.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.AbsoluteGeoPointXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.AbsoluteGeoPointXmlSerializer">
+            <summary>
+            XML Serializer for GeoPoint primitives
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.AbsoluteGeoPointXmlSerializer.#ctor(TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="xmlUtils">Instance of XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.AbsoluteGeoPointXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.AbsoluteGeoPointXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.OrbitAreaXmlParser">
+            <summary>
+            XML Parser for Orbit Area primitives.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.OrbitAreaXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.OrbitAreaXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.OrbitAreaXmlSerializer">
+            <summary>
+            Serialize a OrbitArea primitive to XML
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.OrbitAreaXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives.</param>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.OrbitAreaXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.OrbitAreaXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.LinePointXmlParser">
+            <summary>
+            XML Parser for LinePoint primitives
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.LinePointXmlParser.#ctor(TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.LinePointXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.LinePointXmlSerializer">
+            <summary>
+            XML Serializer for LinePoint primitives
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.LinePointXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor with dependencies
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives</param>
+            <param name="xmlUtils">Instance of XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolygonAreaXmlParser">
+            <summary>
+            XML Parser for PolygonArea primitives.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolygonAreaXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolygonAreaXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolygonAreaXmlSerializer">
+            <summary>
+            Serialize a PolygonArea primitive to XML.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolygonAreaXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives.</param>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolygonAreaXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolygonAreaXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PrimitiveBaseXmlParser">
+            <summary>
+            Parser class for the common base primitive parameters.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PrimitiveBaseXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc />
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PrimitiveBaseXmlSerializer">
+            <summary>
+            XML Serializer for common base properties.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PrimitiveBaseXmlSerializer.CreateBaseElement(System.String,TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PrimitiveBaseXmlSerializer.CreateBaseElement(System.String,TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PrimitiveXmlTags">
+            <summary>
+            XML tag names for DrawObject primitives
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.RelativePointXmlParser">
+            <summary>
+            XML Parser for relative point data primitives. 
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.RelativePointXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor (normally called through IOC by the PrimitiveXmlParserProvider).
+            </summary>
+            <param name="primitiveBaseXmlParser">Parser for the basic primitive data.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.RelativePointXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.RelativePointXmlSerializer">
+            <summary>
+             XML Serializer for RelativePoint primitives.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.RelativePointXmlSerializer.#ctor(TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.RelativePointXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Points.RelativePointXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.TrackAreaXmlParser">
+            <summary>
+            Parse an XML block containing a TrackArea primitive
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.TrackAreaXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.TrackAreaXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.TrackAreaXmlSerializer">
+            <summary>
+            Serialize a TrackArea primitive to XML.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.TrackAreaXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives.</param>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.TrackAreaXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.TrackAreaXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.ConeVolumeXmlParser">
+            <summary>
+            Parse an ConeVolume XML primitive.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.ConeVolumeXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.ConeVolumeXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SphereVolumeXmlParser">
+            <summary>
+            Parse an SphereVolume XML primitive.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SphereVolumeXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SphereVolumeXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SphereVolumeXmlSerializer">
+            <summary>
+            Serialize a SphereVolume primitive to XML
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SphereVolumeXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives.</param>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SphereVolumeXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SphereVolumeXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SurfaceVolumeXmlParser">
+            <summary>
+            Parse an SurfaceVolume XML primitive.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SurfaceVolumeXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SurfaceVolumeXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SurfaceVolumeXmlSerializer">
+            <summary>
+            Serialize a SurfaceVolume primitive to XML
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SurfaceVolumeXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives.</param>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SurfaceVolumeXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.SurfaceVolumeXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.VerticalDistanceXmlParser">
+            <summary>
+            Parse an VerticalDistance XML primitive.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.VerticalDistanceXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.VerticalDistanceXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.VerticalDistanceXmlSerializer">
+            <summary>
+            Serialize a VerticalDistance primitive to XML
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.VerticalDistanceXmlSerializer.#ctor(TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.VerticalDistanceXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.VerticalDistanceXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.ConeVolumeXmlSerializer">
+            <summary>
+            Serialize a ConeVolume primitive to XML
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.ConeVolumeXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives.</param>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.ConeVolumeXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.Volumes.ConeVolumeXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlParserProvider">
+            <summary>
+             Provides XML parsers for Draw Object Primitives
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlParserProvider.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+             Default constructor.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlParserProvider.AddParser(System.String,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IDrawObjectPrimitiveXmlParser)">
+            <summary>
+             Adds a new draw object primitive parser to provider
+            </summary>
+            <param name="primitiveTypeId">Type id of Primitive</param>
+            <param name="drawObjectPrimitiveXmlParser">XML parser that can parse primitive type from xml.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlParserProvider.GetParser(System.String)">
+            <summary>
+             Returns XML parser for primitive type.
+            </summary>
+            <param name="primitiveTypeId">Type id of Primitive</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlParserProvider.ParserExists(System.String)">
+            <summary>
+             Returns if parser exists for specified primitive type.
+            </summary>
+            <param name="primitiveTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlParserProvider.ParserCount">
+            <summary>
+             Returns parser dictionary
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolyArcAreaXmlParser">
+            <summary>
+             Parser for Poly Arc Area primitve
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolyArcAreaXmlParser.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser)">
+            <summary>
+            Constructor. Normally handled by the ParserProvider
+            </summary>
+            <param name="primitiveXmlParserProvider">Parser provider to provide parsers for child primitives.</param>
+            <param name="primitiveBaseXmlParser">XML Parser for common base parameters</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolyArcAreaXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <inheritdoc />
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolyArcAreaXmlSerializer">
+            <summary>
+             XML serializer for PolyArcArea
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolyArcAreaXmlSerializer.#ctor(TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider,TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+            Constructor. Normally handled by the SerializerProvider
+            </summary>
+            <param name="primitiveXmlSerializerProvider">Serializer provider to provide serializers for child primitives.</param>
+            <param name="xmlUtils">XML Utility class</param>
+            <param name="primitiveBaseSerializer">Serializer class for common primitive properties</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolyArcAreaXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.Primitives.PolyArcAreaXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlSerializerProvider">
+            <summary>
+             Provider of XML serializers for Draw Object Primitives
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlSerializerProvider.#ctor(TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer)">
+            <summary>
+             Standard constructor
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlSerializerProvider.AddSerializer(System.String,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IDrawObjectPrimitiveXmlSerializer)">
+            <summary>
+             Adds a serializer to the provider
+            </summary>
+            <param name="primitiveTypeId">Type id of the primitive type the serializer supports</param>
+            <param name="drawObjectPrimitiveXmlSerializer">Specifies serializer to use for primitive type</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlSerializerProvider.GetSerializer(System.String)">
+            <summary>
+             Retrieves serializer for specified primitive type id.
+            </summary>
+            <param name="primitiveTypeId">Type id of the primitive type the serializer supports</param>
+            <returns>Returns serializer to use for primitive type</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlSerializerProvider.SerializerExists(System.String)">
+            <summary>
+             Checks if provider contains a serializer for specified primitive type id.
+            </summary>
+            <param name="primitiveTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Data.Serializers.Xml.PrimitiveXmlSerializerProvider.SerializerCount">
+            <summary>
+             Return number of serializers in the provider
+            </summary>
+        </member>
+    </members>
+</doc>

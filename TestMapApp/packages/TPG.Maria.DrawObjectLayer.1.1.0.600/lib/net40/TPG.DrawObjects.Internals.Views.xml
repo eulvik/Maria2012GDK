@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.DrawObjects.Internals.Views</name>
+    </assembly>
+    <members>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.DrawLine(System.Windows.Point,System.Windows.Point,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.DrawLines(System.Windows.Point[],System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.DrawCurve(System.Windows.Point[],System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.Clear(System.Windows.Media.Color)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.DrawString(System.String,System.Windows.Point,System.String,System.Single,System.Windows.Media.Color,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.MeasureString(System.String,System.Single,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.PushTransform">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.PopTransform">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.TranslateTransform(System.Windows.Vector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.RotateTransform(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.RotateTransform(System.Double,System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.PushOpacity(System.Double)">
+            <inheritdoc/>
+            Not supported for GDI renderer.
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.ScaleTransform(System.Double,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.ResetTransform">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.FillRectangle(System.Windows.Point,System.Double,System.Double,System.Windows.Media.Color)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.DrawRectangle(System.Windows.Point,System.Double,System.Double,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.FillEllipse(System.Windows.Point,System.Double,System.Double,System.Windows.Media.Color)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.DrawEllipse(System.Windows.Point,System.Double,System.Double,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.DrawEllipseArc(System.Windows.Point,System.Double,System.Double,System.Double,System.Double,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.DrawPolygon(System.Windows.Point[],System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.FillPolygon(System.Windows.Point[],System.Windows.Media.Color,TPG.DrawObjects.Internals.Contracts.Views.FillStyle,System.Nullable{System.Windows.Media.Color})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.FillPath(System.Windows.Media.PathGeometry,System.Windows.Media.Color,TPG.DrawObjects.Internals.Contracts.Views.FillStyle,System.Nullable{System.Windows.Media.Color})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.DrawPath(System.Windows.Media.PathGeometry,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.DrawImage(System.Windows.Media.Imaging.BitmapSource,System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiRenderer.DrawImage(System.Windows.Media.Imaging.BitmapSource,System.Windows.Point,System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.IocInstaller.Install(Castle.Windsor.IWindsorContainer,Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore)">
+            <inheritdoc />
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.PreviewImages.PreviewManager.SetDrawObjectStyle(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.PreviewImages.PreviewManager.SetDrawObjectDefaultValueStyle(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.PreviewImages.PreviewManager.Get(System.String,System.Windows.Size,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.PreviewImages.PreviewManager.Get(System.Guid,System.Windows.Size,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.PreviewImages.PreviewManager.GenerateImages(System.Windows.Size,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.PreviewImages.PreviewManager.Clear">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.PreviewImages.PreviewManager.StyleSet">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.PreviewImages.PreviewManager.DafaultValueStyleSet">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.PreviewImages.PreviewManager.GetUnitsSetting">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Views.Transforms.LineTransform">
+            <summary>
+            Transformations of Line primitives.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.Transforms.LineTransform.PrimitiveTransformFactory">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Views.Transforms.PointTransform">
+            <summary>
+            Transforms for point primitives.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.Transforms.PointTransform.Rotate(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive,TPG.GeoUnits.GeoPos,System.Double,TPG.GeoFramework.Contracts.IViewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.Transforms.PointTransform.RotateAbsolute(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive,TPG.GeoUnits.GeoPos,System.Double,TPG.GeoFramework.Contracts.IViewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.Transforms.PointTransform.Scale(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive,System.Double,System.Double,System.Windows.Point,System.Double,TPG.GeoFramework.Contracts.IViewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.Transforms.PointTransform.MoveAbsolute(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive,System.Windows.Vector,TPG.GeoFramework.Contracts.IViewport)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.Transforms.PointTransform.Move(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive,System.Windows.Vector,TPG.GeoFramework.Contracts.IViewport)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.Transforms.PointTransform.PrimitiveTransformFactory">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Views.Transforms.PrimitiveTransformFactory">
+            <summary>
+            Provider for different types of Primitive transforms
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.Transforms.PrimitiveTransformFactory.AddPrimitiveTransformType``1(System.String)">
+            <summary>
+            Register a new PrimitiveTransform type
+            </summary>
+            <typeparam name="T">Type of the transform</typeparam>
+            <param name="primitiveTypeId">Type ID to register it under.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.Transforms.PrimitiveTransformFactory.CreateTransform(System.String)">
+            <summary>
+            Create a primitive transform instance for the given primitive type ID.
+            </summary>
+            <param name="primitiveTypeId">Primitive type ID. Must be one of the types defined in DrawObjectPrimitiveTypeIds</param>
+            <returns>A new primitive transform object of the correct type.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Views.GdiViewRender">
+            <summary>
+            View class for GDI+-based renderers.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.ViewRender.Initialize(TPG.GeoFramework.Contracts.IViewport,System.Windows.UIElement)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.ViewRender.Render(TPG.GeoFramework.Contracts.IViewport,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.ViewRender.IsReadOnly(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.ViewRender.IsReadOnly(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.ViewRender.Render(TPG.GeoFramework.Contracts.IViewport,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,System.Collections.Generic.IList{TPG.DrawObjects.Contracts.Data.IDrawObjectData})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.ViewRender.UpdateMousePosition(System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.ViewRender.HitTest(System.Windows.Point)">
+            <summary>
+            Check if we have data in the HitTest buffer for a radius about the given view X,Y coordinate. 
+            </summary>
+            Any pixel that is not black is considered a hit.
+            <param name="pointInView">Point in view coordinates</param>
+            <returns>True if the position is a hit, false if not.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.ViewRender.ClearHitTest(TPG.GeoFramework.Contracts.IViewport)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.ViewRender.RefreshStyle">
+            <Inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.ViewRender.FontScale">
+            <Inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.ViewRender.SymbolScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.ViewRender.DeclutterGrid">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.ViewRender.MousePosition">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.ViewRender.Renderer">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.ViewRender.HitTestRenderer">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.ViewRender.ReadOnlyFilter">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.ViewRender.GeoUnitsSetting">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiViewRender.#ctor(TPG.DrawObjects.Internals.Contracts.DrawObjectType.IDrawObjectTypeDefinitionStore,TPG.DrawObjects.Internals.Contracts.Module.ToolHandling.IToolManager,TPG.DrawObjects.Internals.Contracts.Module.ViewState.IDrawObjectViewStateProvider,TPG.DrawObjects.Contracts.Filters.IDrawObjectQueryManager,TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleProvider,TPG.DrawObjects.Internals.Contracts.Module.CreationWorkflow.ICreationWorkflowManager)">
+            <summary>
+            Constructor with dependencies.
+            </summary>
+            <param name="typeDefinitionStore">Type definitions store</param>
+            <param name="toolManager">Tool manager</param>
+            <param name="drawObjectViewStateProvider">Draw object view state provider</param>
+            <param name="drawObjectQueryManager">Draw object query manager</param>
+            <param name="drawObjectStyleProvider">Draw object style provider.</param>
+            <param name="creationWorkflowManager"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.GdiViewRender.HitTest(System.Windows.Point)">
+            <summary>
+            Check if we have data in the HitTest buffer for a radius about the given view X,Y coordinate. 
+            </summary>
+            Any pixel that is not black is considered a hit.
+            <param name="pointInView">Point in view coordinates</param>
+            <returns>True if the position is a hit, false if not.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.GdiViewRender.Graphics">
+            <summary>
+            GDI+ drawing surface.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.GdiViewRender.HitTestGraphics">
+            <summary>
+            GDI+ drawing surface for Hit Test drawing operations.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.GdiViewRender.HitTestBitmap">
+            <summary>
+            Bitmap used for hit testing. 
+            This bitmap has the same size as the graphics bitmap and can be used by Renderers and ToolDecorations to
+            test intersection between a mouse point and the drawn graphics.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.GdiViewRender.ViewTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.Views.WpfFormattedText">
+            <summary>
+            Text formated for wpf rendering.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfFormattedText.#ctor(System.String,System.String,System.Single,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Windows.Media.Color)">
+            <summary>
+            Creates a new instance of WpfFormattedText.
+            </summary>
+            <param name="text">Text string.</param>
+            <param name="fontName">Font name of text.</param>
+            <param name="fontSize">Font size of text.</param>
+            <param name="bold">Bold flag for text.</param>
+            <param name="italic">Italic flag of text.</param>
+            <param name="underline">Underline flag for text.</param>
+            <param name="strikethrough">Strikethrough flag of text.</param>
+            <param name="color">Text color.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfFormattedText.GetGlyphRun(System.Windows.Point)">
+            <summary>
+            Create GlyphRun positioned at a given point.
+            </summary>
+            <param name="position">Position for GlyphRun.</param>
+            <returns>Positioned GlyphRun.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.WpfFormattedText.Text">
+            <summary>
+            Get text.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.WpfFormattedText.Size">
+            <summary>
+            Get formated text size.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.WpfFormattedText.Color">
+            <summary>
+            Get formated text color.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.WpfFormattedText.UnderlineThickness">
+            <summary>
+            Get formated glyph underline thickness.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.WpfFormattedText.StrikethroughThickness">
+            <summary>
+            Get formated glyph strikethrough thickness.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.WpfFormattedText.Strikethrough">
+            <summary>
+            Get if strikethrough is set.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.Views.WpfFormattedText.Underline">
+            <summary>
+            Get if underline is set.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawLine(System.Windows.Point,System.Windows.Point,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawLines(System.Windows.Point[],System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawCurve(System.Windows.Point[],System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.Clear(System.Windows.Media.Color)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawFormattedText(TPG.DrawObjects.Internals.Contracts.Rendering.IFormattedText,System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawTextDecorations(TPG.DrawObjects.Internals.Views.WpfFormattedText,System.Windows.Media.GlyphRun)">
+            <summary>
+            Draw underline and strikethrough decorations.
+            </summary>
+            <param name="wpfFormattedText">Formated text instance.</param>
+            <param name="gf">GlyphRun instance.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.CreateFormattedText(System.String,System.String,System.Single,System.Windows.Media.Color,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawString(System.String,System.Windows.Point,System.String,System.Single,System.Windows.Media.Color,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.MeasureString(System.String,System.Single,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.PushTransform">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.PopTransform">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.TranslateTransform(System.Windows.Vector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.RotateTransform(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.RotateTransform(System.Double,System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.ScaleTransform(System.Double,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.ResetTransform">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.FillRectangle(System.Windows.Point,System.Double,System.Double,System.Windows.Media.Color)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawRectangle(System.Windows.Point,System.Double,System.Double,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.FillEllipse(System.Windows.Point,System.Double,System.Double,System.Windows.Media.Color)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawEllipse(System.Windows.Point,System.Double,System.Double,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawEllipseArc(System.Windows.Point,System.Double,System.Double,System.Double,System.Double,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawPolygon(System.Windows.Point[],System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.FillPolygon(System.Windows.Point[],System.Windows.Media.Color,TPG.DrawObjects.Internals.Contracts.Views.FillStyle,System.Nullable{System.Windows.Media.Color})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.FillPath(System.Windows.Media.PathGeometry,System.Windows.Media.Color,TPG.DrawObjects.Internals.Contracts.Views.FillStyle,System.Nullable{System.Windows.Media.Color})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawPath(System.Windows.Media.PathGeometry,System.Windows.Media.Color,System.Double,System.Windows.Media.DashStyle)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawImage(System.Windows.Media.Imaging.BitmapSource,System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.Views.WpfRenderer.DrawImage(System.Windows.Media.Imaging.BitmapSource,System.Windows.Point,System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

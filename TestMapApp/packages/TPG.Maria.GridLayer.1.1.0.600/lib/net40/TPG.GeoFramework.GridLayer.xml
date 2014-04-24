@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.GridLayer</name>
+    </assembly>
+    <members>
+        <member name="M:TPG.GeoFramework.GridLayer.GridLayerViewModel.GridsOnCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Handle weps maps layers collection changed.
+            </summary>
+            <param name="sender"></param>
+            <param name="notifyCollectionChangedEventArgs"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.GridLayer.GridLayerViewModel.OnGridVisibilityChanged">
+            <summary>
+            Handles grid visibility changed.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GridLayer.GridLayerViewModel.PreExport">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.GridLayer.GridLayerViewModel.Export(System.Windows.Controls.Canvas,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.GridLayer.GridLayerViewModel.PostExport">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.GridLayer.GridLayerViewModel.LayerChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.GridLayer.GridLayerViewModel.Grids">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

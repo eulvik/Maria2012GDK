@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.Maria.GridContracts</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.Maria.GridContracts.IMariaGridLayer">
+            <summary>
+            Grid layer interface in Maria.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.GridContracts.IMariaGridLayer.Grids">
+            <summary>
+            Get or set maria grids.
+            </summary>
+        </member>
+    </members>
+</doc>

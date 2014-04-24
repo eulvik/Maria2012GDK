@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>TPG.GeoFramework.Symbols.Contracts</id>
+    <version>1.1.0.600</version>
+    <title>TPG.GeoFramework.Symbols.Contracts</title>
+    <authors>Teleplan Globe AS</authors>
+    <owners>Teleplan Globe AS</owners>
+    <licenseUrl>http://support.teleplanglobe.com/Teleplan_Globe_software_License_Agreement_Release.pdf</licenseUrl>
+    <projectUrl>http://www.teleplanglobe.com/products/maria</projectUrl>
+    <iconUrl>http://support.teleplanglobe.com/MARIA.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Common Maria GDK Symbol Contract Assemblies referenced by other Maria GDK packages.</description>
+    <releaseNotes>First Release</releaseNotes>
+    <tags>GIS Tactical Map</tags>
+    <references>
+      <reference file="TPG.GeoFramework.Symbols.Contracts.dll" />
+    </references>
+  </metadata>
+</package>

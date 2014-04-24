@@ -1,0 +1,692 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.Maria.DrawObjectLayer</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.Maria.DrawObjectLayer.DrawObjectFactory">
+            <summary>
+            Factory for creating draw object instances.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.#ctor(TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory,TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISimpleDrawObjectFactory)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="drawObjectDataFactory">Draw object data facory.</param>
+            <param name="simpleDrawObjectFactory">Simple draw object data factory.</param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateTacticalGraphic(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateTacticalGraphicInView(System.String,System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreatePolyArea">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreatePolyAreaInView(System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreatePolyLine">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreatePolyLineInView(System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateEllipse">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateEllipseInView(System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateFanArea">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateFanAreaInView(System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateRangeRings">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateRangeRingsInView(System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateOrbitArea">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateOrbitAreaInView(System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateVolumeOrbitArea">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateVolumeOrbitAreaInView(System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateLane">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateLaneInView(System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateVolumeLane">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateVolumeLaneInView(System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateCrossHairs">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateCrossHairsInView(System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateSymbolInView(System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateSymbol">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateText(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.CreateTextInView(System.String,System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectFactory.FitToView(TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISimpleDrawObject,System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectFactory.Viewport">
+            <summary>
+            Get or set viewport.
+            </summary>
+        </member>
+        <member name="T:TPG.Maria.DrawObjectLayer.CreationWorkflow">
+            <summary>
+            Represents a draw object creation workflow in Maria.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.CreationWorkflow.#ctor(TPG.GeoFramework.DrawObjectLayer.Contracts.IDrawObjectLayerViewModel,System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="drawObjectLayerViewModel">Draw object layer view model.</param>
+            <param name="group">The group of the object of this workflow.</param>
+            <param name="hierarchyCode">The complete hierarchy code of this workflow.</param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.CreationWorkflow.DrawObjectLayerViewModelOnActiveCreationWorkflowCompleted(System.Object,TPG.DrawObjects.Contracts.GenericObjects.ActiveWorkflowCompletedEventArgs)">
+            <summary>
+            Handle creation workflow completed.
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.CreationWorkflow.IsActive">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.CreationWorkflow.Group">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.CreationWorkflow.HierarchyCode">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.CreationWorkflow.ObjectTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.CreationWorkflow.Image">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.CreationWorkflow.Name">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.Maria.DrawObjectLayer.DrawObjectInstanceIdProvider">
+            <summary>
+            Draw object instance id provider.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectInstanceIdProvider.CreateInstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.Maria.DrawObjectLayer.DrawObjectLayer">
+            <summary>
+            Provides access to Maria User Control, draw object layer.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.#ctor(System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.AddService(TPG.Maria.Contracts.IMariaService)">
+            <summary>
+            Add draw object service.
+            </summary>
+            <param name="drawObjectService">Maria service.</param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.DrawObjectServiceClientOnServiceConnected(System.Object,System.EventArgs)">
+            <summary>
+            Draw object service is connected. Raise ServiceConnected event.
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.DrawObjectServicesOnCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Handle dra object services collection changed.
+            </summary>
+            <param name="sender"></param>
+            <param name="notifyCollectionChangedEventArgs"></param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.AddDrawObjectServiceStore(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.DeleteDrawObjectServiceStore(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.DeleteAllDrawObjectServiceStores">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CreateDrawObjectServiceStore(System.String)">
+            <summary>
+            Create draw object store on service.
+            </summary>
+            <param name="storeId">Store id.</param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.DrawObjectServiceStoresOnCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Handle draw object seervice store collection changed.
+            </summary>
+            <param name="sender"></param>
+            <param name="notifyCollectionChangedEventArgs"></param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.GetDrawObjectServiceStores">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.GetDrawObjectFromStore(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.GetDrawObjectXMLFromStore(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.GetSortedDrawObjectsFromStore(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition,System.Collections.Generic.IList{TPG.GeoFramework.Style.Core.Contracts.Sorting.SortInfoItem},System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.GetSortedDrawObjectsXMLFromStore(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition,System.Collections.Generic.IList{TPG.GeoFramework.Style.Core.Contracts.Sorting.SortInfoItem},System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.UpdateStore(TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISimpleDrawObject)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.UpdateStore(System.Collections.Generic.IEnumerable{TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.ISimpleDrawObject})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.UpdateStore(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.UpdateStore(System.Collections.Generic.IEnumerable{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.Delete(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.Delete(System.Collections.Generic.IEnumerable{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.GetGeoLayer(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoFramework.Contracts.Geo.Context.IGeoNavigator,TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel,TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack,TPG.GeoUnits.IGeoUnitsSetting)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.SetUndoRedoStack(TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CreationWorkflowsOnCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Handle creation worklfow collection changed.
+            </summary>
+            <param name="sender"></param>
+            <param name="notifyCollectionChangedEventArgs"></param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.InitCreationWorkflows(TPG.GeoUnits.IGeoUnitsSetting)">
+            <summary>
+            Initialize creation workflows.
+            </summary>
+            <param name="geoUnitsSetting">Geo unit settings.</param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CreateCreationWorkflow(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.PreviewImages.IPreviewManager)">
+            <summary>
+            Create creation workflow.
+            </summary>
+            <param name="xItem">Creation workflow xml.</param>
+            <param name="previewManager">Preview manager.</param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CanExecuteDeleteDrawObjectCommand(System.Object)">
+            <summary>
+            Can execute delete handler.
+            </summary>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ExecuteDeletePrimitiveCommand(System.Object)">
+            <summary>
+            Execute delete command.
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ExecuteCopyCommand(System.Object)">
+            <summary>
+            Execute copy command.
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CanExecuteCopyCommand(System.Object)">
+            <summary>
+            Can execute copy handler.
+            </summary>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ExecuteCutCommand(System.Object)">
+            <summary>
+            Execute cut command.
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CanExecuteCutCommand(System.Object)">
+            <summary>
+            Can execute cut handler.
+            </summary>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ExecutePasteCommand(System.Object)">
+            <summary>
+            Execute paste command.
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CanExecutePasteCommand(System.Object)">
+            <summary>
+            Can execute paste handler.
+            </summary>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ExecutePasteCenteredCommand(System.Object)">
+            <summary>
+            Execute paste centered command.
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ExecuteEditPointsCommand(System.Object)">
+            <summary>
+            Execute edit points command.
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CanEditPointsCommand(System.Object)">
+            <summary>
+            Can execute edit points handler.
+            </summary>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CanCancelCurrentOperationCommand(System.Object)">
+            <summary>
+            Can execute cancel current operation handler.
+            </summary>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ExecuteCancelCurrentOperationCommand(System.Object)">
+            <summary>
+            Execute cancel current opeartion command.
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.HandlePreviewKeyDown">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.HandlePreviewKeyUp">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.DrawObjectLayer.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.Maria.DrawObjectLayer.DrawObjectLayer.LayerInitialized">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ServiceConnected">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.GeoContext">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ClipMargins">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ActiveDrawObjectServiceStore">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ActiveDrawObjectService">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.DrawObjectServices">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.DrawObjectServiceStores">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.DrawObjectFactory">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.ExtendedDrawObjectLayer">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.IsInitialized">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.SymbolColorScheme">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.StyleXml">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.DisplayFilter">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.InitializeCreationWorkflows">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.InitializeGenericCreationWorkflows">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.InitializeTacticalCreationWorkflows">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.Visible">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.SymbolScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.Tools">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.GeoLayerViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.GenericCreationWorkflows">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CreationWorkflows">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.DeleteDrawObjectCommand">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.EditPointsCommand">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.PasteCenteredCommand">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.PasteCommand">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CopyCommand">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CutCommand">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.DrawObjectLayer.CancelCurrentOperationCommand">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer">
+            <summary>
+            Extended draw object layer in Maria.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.EditPoints(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.EndEditPoints">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.DeleteAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.CanDeleteSelectedPrimitives">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.DeleteSelectedPrimitives">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.IsSelected(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.Select(System.String,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.Select(System.Collections.Generic.List{System.String},System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.DeSelect(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.DeSelect(System.Collections.Generic.List{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.DeSelectAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.SetDirty(System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.HasDrawObjectChanged(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.HasDrawObjectChangedSince(System.String,System.DateTime)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.ClearChangedState(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.RemoveDrawObjectFromUndoRedoStack(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.ClearUndoRedoStack">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.CanDeleteSelectedDrawObjects">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.CanDeleteSelected">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.DeleteSelected">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.EnsureWithinMapView(System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.ActivateCreationWorkflow(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.DeactivateCreationWorkflow">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.HasActiveCreationWorkflow(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.GetClickedDrawObjects(System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.GetVisibleObjectCount">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.GetVisibleObjectIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.Update">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.GetEnvelopeForDrawObjects(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.SetSymbolProvider(System.String,TPG.GeoFramework.Symbols.Contracts.Providers.IRasterSymbolProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.ClearSymbolCache">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.BeforeDrawObjectSelection">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.ActiveCreationWorkflowCompleted">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.LayerChanged">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.LayerSelectionChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.DrawObjectLayerViewModel">
+            <summary>
+            Get or set draw object layer view model.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.InternalLayerId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.DrawObjectIds">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.ReadOnlyFilter">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.EditPointsInstanceId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.SelectedDrawObjectIds">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.RenderTarget">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.DisabledFilter">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.SuppressDrawObjectMove">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.IsMultiSelectionEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.IsAspectRatioActionEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.IsSymmetricActionEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.OverrideDefaultKeyBindings">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.IsAutoRefreshEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.ExtendedDrawObjectLayer.AutoRefreshInterval">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.Maria.DrawObjectLayer.Factories.DrawObjectInstanceIdProviderFactory">
+            <summary>
+            Factory for creating draw object instance id provider.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.Factories.DrawObjectInstanceIdProviderFactory.New">
+            <summary>
+            Creates a new instance of draw object instance id provider.
+            </summary>
+            <returns>Instance of draw object instance id provider.</returns>
+        </member>
+        <member name="T:TPG.Maria.DrawObjectLayer.Factories.DrawObjectLayerViewModelFactory">
+            <summary>
+            Factory for creating draw object layer view model.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.Factories.DrawObjectLayerViewModelFactory.#ctor(TPG.Maria.DrawObjectLayer.Factories.DrawObjectInstanceIdProviderFactory)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="drawObjectInstanceIdProviderFactory">Draw object instanceId provider factory.</param>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.Factories.DrawObjectLayerViewModelFactory.New(TPG.GeoUnits.IGeoUnitsSetting,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoFramework.Contracts.Geo.Context.IGeoNavigator,TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack,TPG.DrawObjects.Internals.Contracts.ServiceResources.IDrawObjectServiceSynchronizer)">
+            <summary>
+            Creates a new instance of draw object layer view model.
+            </summary>
+            <param name="geoUnitsSetting">Geo unit settings.</param>
+            <param name="geoContext">Geo context.</param>
+            <param name="geoNavigator">Geo navigator.</param>
+            <param name="undoRedoStack">Undo redo stack.</param>
+            <param name="drawObjectServiceSynchronizer">Draw object service synchronizer.</param>
+            <returns>Instance of draw object layer view model.</returns>
+        </member>
+        <member name="T:TPG.Maria.DrawObjectLayer.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.Properties.Resources.DrawObjectStyle">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+            &lt;styleset name=&quot;Default&quot;&gt;
+              &lt;stylecategory name=&quot;DrawObjects&quot;&gt;
+                &lt;style&gt;
+                  &lt;valueitem name=&quot;ColorScheme&quot; value=&quot;Medium&quot;/&gt;
+                  
+                  &lt;compositeitem name=&quot;Line&quot;&gt;
+                    &lt;valueitem name=&quot;Width&quot; value=&quot;[LineWidth]&quot; /&gt;
+                    &lt;valueitem name=&quot;Color&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFactor]&quot; /&gt;
+                    &lt;valueitem name=&quot;ColorLight&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFactor]&quot; /&gt;
+                    &lt;valueitem name=&quot;ColorMedium&quot; value=&quot;[LineColor]&quot; factor=&quot;[AlphaFacto [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="T:TPG.Maria.DrawObjectLayer.SortedDrawObjectXMLInfo">
+            <summary>
+            Contains result of sorted draw object query.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.DrawObjectLayer.SortedDrawObjectXMLInfo.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Int32,TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="sortedDrawObjectXmls">List of sorted draw objects xml.</param>
+            <param name="totalDrawObjectCount">Total draw object count.</param>
+            <param name="query">Draw object query.</param>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.SortedDrawObjectXMLInfo.SortedDrawObjects">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.SortedDrawObjectXMLInfo.TotalDrawObjectCount">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.Maria.DrawObjectLayer.SortedDrawObjectXMLInfo.Query">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

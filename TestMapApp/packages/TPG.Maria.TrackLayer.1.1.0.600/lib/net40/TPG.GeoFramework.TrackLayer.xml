@@ -1,0 +1,1037 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.TrackLayer</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.BoundsRenderer">
+            <summary>
+            Renders bound track clusters.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.BoundsRenderer.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoContext">Geo context instance.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.BoundsRenderer.Render(System.Windows.Media.DrawingContext,System.Collections.Generic.List{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem},TPG.GeoUnits.GeoPos,TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.BoundsRenderer.RenderTrackPositions(System.Windows.Media.DrawingContext,System.Collections.Generic.IEnumerable{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem})">
+            <summary>
+            Render track positions.
+            </summary>
+            <param name="dc">Drawing context.</param>
+            <param name="items">Tracks for which to render position.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.BoundsRenderer.GetBounds(System.Collections.Generic.List{System.Windows.Point})">
+            <summary>
+            Get bounds of polygon.
+            </summary>
+            <param name="points">Polygon points.</param>
+            <returns>Rect representing the bounds of teh polygon.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.BoundsRenderer.CleanUpPolygon(System.Collections.Generic.IList{System.Windows.Point})">
+            <summary>
+            Remove duplicate points.
+            </summary>
+            <param name="polygon">List of points representing the polygon.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.BoundsRenderer.LoadStyle(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem)">
+            <summary>
+            Load style used during rendering.
+            </summary>
+            <param name="items">Tracks.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.BoundsRenderer.LoadDefaultStyle">
+            <summary>
+            Load default style used during rendering.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.Cluster">
+            <summary>
+            Represenst a cluster of tracks.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.#ctor(TPG.GeoFramework.TrackLayer.Contracts.Clustering.IClusterRendererFactory,TPG.GeoFramework.TrackLayer.Contracts.Clustering.IClusterLabelRendererFactory,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="clusterRendererFactory">Factory for creating cluster renderer.</param>
+            <param name="clusterLabelRendererFactory">Factory for creating cluster label renderer.</param>
+            <param name="geoContext">Current geo context.</param>
+            <param name="displayItem">Item used as the display item for the cluster.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.AddItem(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.AddItemRange(System.Collections.Generic.IList{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.GetItems">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.GetItemIds">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.GetItemIdsSortedAccordingToPosition">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.GetCenterPosition">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.HitTestRender(System.Windows.Media.DrawingContext,TPG.GeoFramework.TrackLayer.Contracts.Clustering.ClusterMode,TPG.GeoFramework.TrackLayer.Contracts.Clustering.ClusterType)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.Render(System.Windows.Media.DrawingContext,TPG.GeoFramework.TrackLayer.Contracts.Clustering.ClusterMode,TPG.GeoFramework.TrackLayer.Contracts.Clustering.ClusterType)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.RenderCluster(System.Windows.Media.DrawingContext,TPG.GeoFramework.TrackLayer.Contracts.Clustering.ClusterMode)">
+            <summary>
+            Render the cluster
+            </summary>
+            <param name="dc">Drawing context.</param>
+            <param name="mode">Clustering mode.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.SortItemsAccordingToPosition(System.Collections.Generic.IEnumerable{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem})">
+            <summary>
+            Sort items according to their position.
+            </summary>
+            <param name="items">Items to sort.</param>
+            <returns>Sorted list of items.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.Cluster.CompareTrackBearing``1(``0,``0)">
+            <summary>
+            Compare to items according to their position..
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Clustering.Cluster.DisplayItem">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.ClustererFactory">
+            <summary>
+            Factory for creating clusterer instances.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClustererFactory.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoUnits.IGeoUnitsSetting)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoContext">Geo context.</param>
+            <param name="geoUnitsSetting">Geo unit settings.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClustererFactory.New(TPG.GeoFramework.TrackLayer.Contracts.Clustering.ClusterType)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.ClusterLabelRenderer">
+            <summary>
+            Renders track labels in clusters.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterLabelRenderer.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoUnits.IGeoUnitsSetting)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoContext">Geo context instance.</param>
+            <param name="geoUnitsSetting">Geo unit settings</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterLabelRenderer.Render(System.Windows.Media.DrawingContext,System.Collections.Generic.List{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem},TPG.GeoUnits.GeoPos,TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterLabelRenderer.DrawLabelComponents(System.Windows.Media.DrawingContext,System.Collections.Generic.IEnumerable{TPG.GeoFramework.TrackCore.Contracts.ITrackLabelComponent},System.Windows.Rect)">
+            <summary>
+            Render track labels.
+            </summary>
+            <param name="dc">Drawing context.</param>
+            <param name="labelComponents">List of label components to render.</param>
+            <param name="symbolRect">Rec of symbol to draw labels for.</param>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.ClusterLabelRendererFactory">
+            <summary>
+            Factory for creating cluster label renderer instances.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterLabelRendererFactory.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoUnits.IGeoUnitsSetting)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoContext">Geo context.</param>
+            <param name="geoUnitsSetting">Geo unit settings.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterLabelRendererFactory.New">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.ClusterRendererFactory">
+            <summary>
+            Factory for creating cluster renderer instances.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterRendererFactory.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoContext">Geo context.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterRendererFactory.New(TPG.GeoFramework.TrackLayer.Contracts.Clustering.ClusterMode)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.ClusterRendererUtils">
+            <summary>
+            Utillities for track clustering.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterRendererUtils.GetBackgroundColor(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem,System.String)">
+            <summary>
+            Get cluster background color for track from style. 
+            </summary>
+            <param name="item">Track item.</param>
+            <param name="clusterCategory">Cluster category name.</param>
+            <returns>Color brush from style.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.CombinedClusterer.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoUnits.IGeoUnitsSetting,TPG.GeoFramework.TrackLayer.Contracts.Clustering.ITrackGrouper)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoContext">Geo context instance.</param>
+            <param name="geoUnitsSetting">Geo unit settings.</param>
+            <param name="trackGrouper">Track grouper for creating cluster groups.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.CombinedClusterer.ClusterItems(System.Collections.Generic.List{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem},System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.GridClusterer">
+            <summary>
+            Grid clustering algorithm.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.GridClusterer.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoUnits.IGeoUnitsSetting,TPG.GeoFramework.TrackLayer.Contracts.Clustering.ITrackGrouper)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoContext">Geo context instance.</param>
+            <param name="geoUnitsSetting">Geo unit settings.</param>
+            <param name="trackGrouper">Track grouper for creating cluster groups.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.GridClusterer.ClusterItems(System.Collections.Generic.List{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem},System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer">
+            <summary>
+            Groups tracks hierarchically.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoUnits.IGeoUnitsSetting)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoContext">Geo context instance.</param>
+            <param name="geoUnitsSetting">Geo unit settings.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer.ClusterItems(System.Collections.Generic.List{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem},System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer.GroupItems(System.Collections.Generic.List{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem}}@,System.Collections.Generic.Dictionary{System.String,TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem}@)">
+            <summary>
+            Group track items according to parent.
+            </summary>
+            <param name="items">Track display items.</param>
+            <param name="groupedItems">Grouped items.</param>
+            <param name="itemMap">Item map.</param>
+            <returns>Track groups.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer.CombineGroups(System.Collections.Generic.Dictionary{System.String,TPG.GeoFramework.TrackLayer.Contracts.Clustering.ICluster},TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer.TrackGroup,System.Collections.Generic.List{TPG.GeoFramework.TrackLayer.Contracts.Clustering.ICluster},System.Int32)">
+            <summary>
+            Combine groups into hierarchy.
+            </summary>
+            <param name="groupMap">Map of groups.</param>
+            <param name="trackGroup">List of groups.</param>
+            <param name="delGroups">List of groups to delete.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer.BuildTrackGroupHierarchy(System.Collections.Generic.List{TPG.GeoFramework.TrackLayer.Contracts.Clustering.ICluster})">
+            <summary>
+            Build track group hierarchy.
+            </summary>
+            <param name="groups">Track groups.</param>
+            <returns>Track group hierarchy.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer.GetParentField(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem)">
+            <summary>
+            Get parent field.
+            </summary>
+            <param name="trackItem">Track display item.</param>
+            <returns>Parent field.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer.GetIDField(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem)">
+            <summary>
+            Get ID field.
+            </summary>
+            <param name="trackItem">Track display item.</param>
+            <returns>ID field.</returns>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer.TrackGroup">
+            <summary>
+            Holds information needed when grouping tracks hierarchically.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer.TrackGroup.GroupId">
+            <summary>
+            Group id.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Clustering.GroupClusterer.TrackGroup.Children">
+            <summary>
+            Group children.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.ClusteringResourceCache">
+            <summary>
+            Caches clustering resources such as pens and brushes. 
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusteringResourceCache.#ctor">
+            <summary>
+            Initializes a new instance of MediaResourceCache.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusteringResourceCache.GetColorHashCode(System.Windows.Media.Color)">
+            <summary>
+            Create hash code for color.
+            </summary>
+            <param name="color">Color to create hash code for.</param>
+            <returns>HAsh code for color.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusteringResourceCache.CreatePenHash(System.Windows.Media.Color,System.Double)">
+            <summary>
+            Create pen hash.
+            </summary>
+            <param name="color">Pen color.</param>
+            <param name="thickness">Pen thickness.</param>
+            <returns>Hash code for pen.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusteringResourceCache.CreateBrushHash(System.Windows.Media.Color)">
+            <summary>
+            Create brush hash.
+            </summary>
+            <param name="color">Brush color.</param>
+            <returns>Hash code for brush.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusteringResourceCache.GetBrush(System.Windows.Media.Color)">
+            <summary>
+            Get brush.
+            </summary>
+            <param name="color">Brush color.</param>
+            <returns>Brush with given color.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusteringResourceCache.GetPen(System.Windows.Media.Color,System.Double)">
+            <summary>
+            Get pen.
+            </summary>
+            <param name="color">Pen color.</param>
+            <param name="thickness">Pen thickness.</param>
+            <returns>Pen with color, thickness and dash style.</returns>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Clustering.ClusteringResourceCache.Instance">
+            <summary>
+            Get MediaResourceCache instance.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Clustering.ClusteringResourceCache.MaxCount">
+            <summary>
+            get or set max count for cache.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.SequentialClusterer">
+            <summary>
+            Sequential clustering algorithm.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.SequentialClusterer.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoUnits.IGeoUnitsSetting,TPG.GeoFramework.TrackLayer.Contracts.Clustering.ITrackGrouper)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoContext">Geo context instance.</param>
+            <param name="geoUnitsSetting">Geo unit settings.</param>
+            <param name="trackGrouper">Track grouper for creating cluster groups.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.SequentialClusterer.ClusterItems(System.Collections.Generic.List{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem},System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.TrackGrouper.GroupItems(System.Collections.Generic.List{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem},System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterUtils.LineLineIntersection(System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Computes the intersection point of two infinite length lines defined each by two points.
+            Algorithm from wikipedia http://en.wikipedia.org/wiki/Line-line_intersection (10/05/11).
+            The algorithm does not handle the case where the two lines are parallel. Client code should
+            test for NaN or infinity in the returned point.
+            </summary>
+            <param name="Line0P0">First point on first line</param>
+            <param name="Line0P1">Second point on first line</param>
+            <param name="Line1P0">First point on second line</param>
+            <param name="Line1P1">Second line on second point</param>
+            <returns>The intersection point</returns>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.ClusterXYComparer">
+            <summary>
+            Compares two clusters and returns the sort postion.
+            Sorts by y then by x
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ConvexHull.ConvexHullPoints(System.Collections.Generic.List{System.Windows.Point})">
+            <summary>
+            Takes a bulk set of points and returns points of outer edge (for drawing polygon)
+            </summary>
+            <param name="points">Expects Point(double x, double y) x = Lat, y = Lng</param>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel">
+            <summary>
+            Track clustering view model.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoFramework.TrackLayer.Contracts.Track.ITrackContext,TPG.GeoFramework.TrackLayer.Contracts.Clustering.IClustererFactory)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoContext">Geo context instance.</param>
+            <param name="trackContext">Context for tracks.</param>
+            <param name="clustererFactory">Factory for creating clusterers.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel.GetClusterAtPoint(System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel.ClusterTracks(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItems,System.Windows.Media.DrawingContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel.GetSelectedState(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItems)">
+            <summary>
+            Get a dictionary of item ids that are selected.
+            </summary>
+            <param name="items">Items for which to get selection state.</param>
+            <returns>Dictionary of item ids that are selected.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel.GetClusteredItemIds">
+            <summary>
+            From the set of new clusters, returns a hashSet containing all clustered track Ids
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel.PerformHitTest(System.Windows.Media.DrawingVisual,TPG.GeoFramework.Core.VisualHost,TPG.GeoFramework.TrackLayer.Contracts.Clustering.ICluster,System.Windows.Media.EllipseGeometry)">
+            <summary>
+            Peform hit testing on cluster item.
+            </summary>
+            <param name="hitVisual"></param>
+            <param name="hitVisualHost"></param>
+            <param name="cluster"></param>
+            <param name="hitTestGeometry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel.HitTestFilterCB(System.Windows.DependencyObject)">
+            <summary>
+            Hit test filter handler.
+            </summary>
+            <param name="potentialhittesttarget"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel.HitTestResultCB(System.Windows.Media.HitTestResult)">
+            <summary>
+            Hit test result handler.
+            </summary>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel.ClusteringMode">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel.ClusteringType">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Clustering.TrackClusterViewModel.ClusterSize">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.ClusterRenderer">
+            <summary>
+            Renders circular track clusters.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterRenderer.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoContext">Geo context instance.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterRenderer.Render(System.Windows.Media.DrawingContext,System.Collections.Generic.List{TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem},TPG.GeoUnits.GeoPos,TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterRenderer.LoadStyle(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem)">
+            <summary>
+            Load style used during rendering.
+            </summary>
+            <param name="item">Tracks.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterRenderer.LoadDefaultStyle">
+            <summary>
+            Load default style used during rendering.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Clustering.ClusterSelectionStrategy">
+            <summary>
+            Determines selectable items and selection control state for clustering.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterSelectionStrategy.#ctor(TPG.GeoFramework.TrackLayer.Contracts.Layer.ITrackLayerViewModel)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="trackLayerViewModel">View model instance for track layer.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterSelectionStrategy.GetSelectableItemsIds(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterSelectionStrategy.HandleSelectionControlStateEvent(TPG.GeoFramework.Interaction.Contracts.Selection.SelectionControlStateEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Clustering.ClusterSelectionStrategy.GetShowDelay(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem)">
+            <summary>
+            Get popup delay.
+            </summary>
+            <param name="item">Display item to retrieve style from.</param>
+            <returns>Popup delay in ms.</returns>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Properties.Resources.DefaultTrackStyleSet">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+            &lt;styleset name=&quot;Default&quot;&gt;
+              &lt;stylecategory name=&quot;TrackSymbol&quot;&gt;
+                &lt;style&gt;
+                  &lt;valueitem name=&quot;Visible&quot; value=&quot;true&quot;/&gt;
+            
+                  &lt;compositestyleitem name=&quot;CoreSymbol&quot;&gt;
+                    &lt;valueitem name=&quot;Opacity&quot; value=&quot;1.0&quot;/&gt;
+                    &lt;valueitem name=&quot;Scale&quot; value=&quot;[track.symbolscale]&quot;/&gt;
+                    &lt;valueitem name=&quot;DynamicScale&quot; value=&quot;true&quot;/&gt;
+                  &lt;/compositestyleitem&gt;
+            
+                  &lt;compositestyleitem name=&quot;SpeedVector&quot;&gt;
+                    &lt;valueitem name=&quot;Visible&quot; value=&quot;true&quot;/&gt;
+               [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool">
+            <summary>
+            Tool for moving a track.
+            </summary>
+            <summary>
+            TrackMoveTool
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.#ctor(TPG.GeoFramework.TrackLayer.Contracts.Layer.ITrackLayerViewModel,TPG.GeoUnits.IGeoUnitsSetting,TPG.GeoFramework.Contracts.Geo.Tool.IGeoTool)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="trackLayerViewModel">Track layer view model.</param>
+            <param name="geoUnitsSetting">Geo unit settings.</param>
+            <param name="selectionTool">Selection tool.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.Hide">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.Refresh">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.HandleInputEvent(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="F:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.LineColorProperty">
+            <summary>
+            Line color.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.TextForegroundColorProperty">
+            <summary>
+            Text foreground color.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.TextBackgroundColorProperty">
+            <summary>
+            Text color.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.TextFontSizeProperty">
+            <summary>
+            Text font size.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.TextFontNameProperty">
+            <summary>
+            Text font name.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.DependencyPropertyChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle dependency property changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Render moving the track.
+            </summary>
+            <param name="drawingContext"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.DrawStringOnLine(System.Windows.Media.DrawingContext,System.String,System.Windows.Point,System.Windows.Point,System.Windows.Vector,System.String,System.Single,System.Windows.Media.Color,System.Single,System.Boolean)">
+            <summary>
+            Draw a text string centered on a line.
+            </summary>
+            <param name="drawingContext"></param>
+            <param name="str">Text string</param>
+            <param name="screenp0">First point of line.</param>
+            <param name="screenp1">Second point of line.</param>
+            <param name="offset">Offset in X,Y direction.</param>
+            <param name="fontName">Font name</param>
+            <param name="fontSize">Font size</param>
+            <param name="color">Color</param>
+            <param name="rotationAngle">optional if we want to rotate text.</param>
+            <param name="flip">flip's text if up-side-down.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.OnTrackMoved">
+            <summary>
+            Track moved event.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.ToolName">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.IsActive">
+            <summary>
+            Get if tool is activated (this is not Active as in the tool is selected).
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.Active">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.LineColor">
+            <summary>
+            Get or set line color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.TextForegroundColor">
+            <summary>
+            Get or set text color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.TextBackgroundColor">
+            <summary>
+            Get or set text background color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.TextFontSize">
+            <summary>
+            Get or set text font size.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Tools.TrackMoveTool.TextFontName">
+            <summary>
+            Get or set text font name.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Tools.TrackMovedEventHandler">
+            <summary>
+            Track moved event handler.
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Tools.TrackMovedEventArgs">
+            <summary>
+            Event arguments for TrackMoved event.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Tools.TrackMovedEventArgs.#ctor(TPG.GeoFramework.Contracts.ItemId,TPG.GeoUnits.GeoPos)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="itemId">Item id of moved track.</param>
+            <param name="newTrackPosition">New position for moved track.</param>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Tools.TrackMovedEventArgs.ItemId">
+            <summary>
+            Get item id of moved track.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Tools.TrackMovedEventArgs.NewTrackPosition">
+            <summary>
+            Get new track position for moved track.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.Tools.TrackSelectTool">
+            <summary>
+            Interaction logic for track selection tool
+            </summary>
+            <summary>
+            TrackSelectTool
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Tools.TrackSelectTool.#ctor(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoFramework.TrackLayer.Contracts.Layer.ITrackLayerViewModel)">
+            <summary>
+            Tool for selecting tracks.
+            </summary>
+            <param name="geoContext">Geo context.</param>
+            <param name="tlvm">Track layer view model.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.Tools.TrackSelectTool.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.Tools.TrackSelectTool.ToolName">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.ToolTip.SimpleTooltipViewModel.NotifyPropertyChanged``1(System.Linq.Expressions.Expression{System.Func{``0}},System.ComponentModel.INotifyPropertyChanged)">
+            <remarks>
+            Type-safe PropertyChanged notification
+            </remarks>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.ToolTip.SimpleTrackToolTip">
+            <summary>
+            Interaction logic for SimpleTrackToolTip.xaml
+            </summary>
+            <summary>
+            SimpleTrackToolTip
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.ToolTip.SimpleTrackToolTip.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.TrackContext">
+            <summary>
+            The <c>TrackContext</c> is a track related wrapper for the ItemContext.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackContext.GetSelectedTracks">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackContext.SelectTracks(System.Collections.Generic.IEnumerable{TPG.GeoFramework.Contracts.ItemId})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackContext.DeselectTracks(System.Collections.Generic.IEnumerable{TPG.GeoFramework.Contracts.ItemId})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackContext.UpdateSelectionInfo(System.Collections.Generic.List{TPG.GeoFramework.Contracts.ItemId})">
+            <summary>
+            Update selected track info and raise track selection changed event.
+            </summary>
+            <param name="currentSelection">The current selection state before selection changed.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackContext.SetSelectedTracks(System.Collections.Generic.IEnumerable{TPG.GeoFramework.Contracts.ItemId},TPG.GeoFramework.Contracts.EventManager.GeoInputEventActions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackContext.GetSelectionChangedArgs(System.Collections.Generic.List{TPG.GeoFramework.Contracts.ItemId},System.Collections.Generic.List{TPG.GeoFramework.Contracts.ItemId})">
+            <summary>
+            Get selection changed event arguments.
+            </summary>
+            <param name="currentSelection">Current track selection.</param>
+            <param name="newSelection">New track selection</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackContext.UpdateSelectedTracks">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackContext.ApplyStateFilters(System.Collections.Generic.IEnumerable{TPG.GeoFramework.Style.Core.Contracts.Condition.IGenericGeoObjectAdapter})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackContext.SetStateFilter(System.String,TPG.GeoFramework.TrackLayer.Contracts.Track.IItemStateFilter)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackContext.AnyStateFilters">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackContext.IsStateSet(System.String,TPG.GeoFramework.Contracts.ItemId)">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.TrackLayer.TrackContext.TrackSelectionChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackContext.ItemContext">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackContext.SelectedTracksInfo">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.TrackItemFieldProvider">
+            <summary>
+            Provides fields from style for tracks.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackItemFieldProvider.#ctor(TPG.GeoFramework.TrackLayer.Contracts.Track.IClientTrackInfoStore,TPG.GeoUnits.IGeoUnitsSetting)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="clientTrackInfoStore">Client track info store instance.</param>
+            <param name="geoUnitsSetting"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackItemFieldProvider.GetFieldValue(TPG.GeoFramework.Contracts.ItemId,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackItemFieldProvider.GetStyleFromCategory(TPG.GeoFramework.Contracts.ItemId,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.TrackContextOnTrackSelectionChanged(System.Object,TPG.GeoFramework.TrackLayer.Contracts.Selection.TrackSelectionChangedEventArgs)">
+            <summary>
+            Forward track selection changed event.
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.OnDispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.Update">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.Select(TPG.GeoFramework.Contracts.ItemId,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.Select(System.Collections.Generic.List{TPG.GeoFramework.Contracts.ItemId},System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.DeSelect(TPG.GeoFramework.Contracts.ItemId)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.DeSelect(System.Collections.Generic.List{TPG.GeoFramework.Contracts.ItemId})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.DeSelectAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.EnsureWithinMapView(TPG.GeoFramework.Contracts.ItemId[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.HandleInputEvent(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.SetTracksStyleSet(System.String,TPG.GeoFramework.Style.Core.Contracts.Style.IStyleSet)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.SetTracksStyle(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.SetStateFilter(System.String,TPG.GeoFramework.TrackLayer.Contracts.Track.IItemStateFilter)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.GetEnvelopeForTracks(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.GetEnvelopeForTracks(TPG.GeoFramework.Style.Core.Contracts.Condition.ICondition,System.Collections.Generic.IEnumerable{System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.GetClickedSymbols(System.Windows.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.PreExport">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.Export(System.Windows.Controls.Canvas,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.PostExport">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.SelectionControlMouseClick">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.CurrentTrackDisplayItemsChanged">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.BeforeTrackSelection">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.RenderOneFrame">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.TrackSelectionChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.GeoFilterBufferFactor">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.ShowTrackHistory">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.CurrentTrackDisplayItems">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.TrackRefreshInterval">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.Selected">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.SelectedInfo">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.DisplayFilter">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.SymbolScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.TrackClustering">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.TrackListIds">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.ClientTrackStores">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.Tooltip">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.IsMultiSelectionEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackLayerViewModel.InteractionHandlers">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.TrackQueryGenerator">
+            <summary>
+            Helper class for generating track queries.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.TrackSelectionHandler">
+            <summary>
+            Handles track selection.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.#ctor(System.Collections.Generic.List{TPG.GeoFramework.TrackLayer.Contracts.ISelectionStrategy},TPG.GeoFramework.TrackLayer.Contracts.Layer.ITrackLayerViewModel,TPG.GeoFramework.TrackLayer.Contracts.Track.IClientTrackInfoStore,TPG.GeoFramework.TrackLayer.Contracts.ITrackServiceSynchronizer,TPG.GeoFramework.Interaction.Contracts.Tooltip.IItemFieldProvider)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="selectionStrategies">A list of selection strategies. First item in list has highest precedens etc.</param>
+            <param name="trackLayerViewModel">Track layer view model instance.</param>
+            <param name="clientTrackInfoStore">Client track info store instance.</param>
+            <param name="trackServiceSynchronizer"></param>
+            <param name="itemFieldProvider">Provider of fields.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.TrackLayerViewModelOnCurrentTrackDisplayItemsChanged">
+            <summary>
+            Set completed status for tracks in selection control i fit is active.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.HandleSelectionControlMouseClick(TPG.GeoFramework.Interaction.Contracts.Selection.SelectionControlMouseEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.HandleSelectionControlStateEvent(TPG.GeoFramework.Interaction.Contracts.Selection.SelectionControlStateEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.HandleInteractionInputEvent(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.GetFieldValue(TPG.GeoFramework.Contracts.ItemId,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.GetSelectedState(TPG.GeoFramework.Contracts.ItemId)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.GetStyleFromCategory(TPG.GeoFramework.Contracts.ItemId,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.HandleSelection(System.Collections.Generic.List{TPG.GeoFramework.Contracts.ItemId})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.HandleSelectionControlClosed">
+            <inheritdoc/>
+        </member>
+        <member name="E:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.SelectionControlMouseClick">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.GetClickedItemsFromSelectionControl">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.IsSelectionControlActive">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackSelectionHandler.Items">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.TrackSelectionStrategy">
+            <summary>
+            Determines selectable items and selection control state for tracks.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionStrategy.#ctor(TPG.GeoFramework.TrackLayer.Contracts.Layer.ITrackLayerViewModel,TPG.GeoFramework.TrackLayer.Contracts.Track.IClientTrackInfoStore,TPG.GeoFramework.TrackLayer.Contracts.Track.ITrackContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="trackLayerViewModel">View model instance for track layer.</param>
+            <param name="clientTrackInfoStore">Information store for client tracks.</param>
+            <param name="trackContext">Context for tracks.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionStrategy.GetSelectableItemsIds(TPG.GeoFramework.Contracts.EventManager.GeoInputEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackSelectionStrategy.HandleSelectionControlStateEvent(TPG.GeoFramework.Interaction.Contracts.Selection.SelectionControlStateEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackLayer.TrackServiceSynchronizer">
+            <summary>
+            Responsible for getting track and track history data from track service at regular intervals.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackServiceSynchronizer.AddService(System.String,TPG.GeoFramework.TrackServiceClient.ITrackServiceClient)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackServiceSynchronizer.AddHistoryService(System.String,TPG.GeoFramework.TrackServiceClient.ITrackServiceClient)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackServiceSynchronizer.RemoveService(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackServiceSynchronizer.GetService(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackLayer.TrackServiceSynchronizer.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackServiceSynchronizer.ShowTrackHistory">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackServiceSynchronizer.ServiceName">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackLayer.TrackServiceSynchronizer.HistoryServiceName">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

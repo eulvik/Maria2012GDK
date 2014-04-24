@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.DrawObjects.Internals.DataUtils</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataCopier">
+            <summary>
+             implementation of the IDrawObjectDataCopier which uses the ICopyable framework to copy objects (very easily)..
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataCopier.Copy(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataCopier.Copy(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.#ctor(TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataCopier,TPG.DrawObjects.Internals.Contracts.DrawObjectType.IDrawObjectTypeDefinitionStore,TPG.DrawObjects.Contracts.Data.BoundsCalculator.IPrimitiveBoundsCalculatorProvider,TPG.DrawObjects.Internals.Contracts.Views.Transforms.IPrimitiveTransformFactory,TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleProvider,TPG.DrawObjects.Internals.Contracts.Rendering.IDrawObjectStyleManager)">
+            <summary>
+            Constructor with dependencies
+            </summary>
+            <param name="drawObjectDataCopier">Instance of IDrawObjectDataCopier implementation</param>
+            <param name="drawObjectTypeDefinitionStore">Draw object type definition store</param>
+            <param name="primitiveBoundsCalculatorProvider">Instance of bounds calculator.</param>
+            <param name="primitiveTransformFactory">Instance of transforms factory.</param>
+            <param name="drawObjectStyleProvider"> </param>
+            <param name="drawObjectStyleManager"> </param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.CreateFromTemplate(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.CreateFrom2525cHierarchyCode(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetTypeId(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetHierarchyCode(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetHierarchyCodes">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetTypeDefinitions">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetPolyArea(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetPolyAreaBasedTriangle(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetPolyAreaBasedRectangle(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetText(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetEllipse(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetPolyLine(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetFanArea(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetRangeRings(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetOrbitArea(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetVolumeOrbitArea(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetLane(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetVolumeLane(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetCrossHairs(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetSymbol(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.CreateFromTypeId(System.Guid,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.GetTypeDefinitionNameFromTypeId(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.FitToViewport(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.DataProviders.DrawObjectDataFactory.SetDefaultProperties(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Set default draw object field values from style.
+            </summary>
+            <param name="drawObjectData">Draw object to update with default field values</param>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.DataUtils.IocInstaller">
+            <summary>
+             Installs all services provided by this assembly into IOC container
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DataUtils.IocInstaller.Install(Castle.Windsor.IWindsorContainer,Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore)">
+            <summary>
+            Installs services implemented in this assembly
+            </summary>
+            <param name="container"></param>
+            <param name="store"></param>
+        </member>
+    </members>
+</doc>

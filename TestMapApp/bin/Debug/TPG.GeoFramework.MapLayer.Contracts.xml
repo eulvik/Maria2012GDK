@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.MapLayer.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.GeoFramework.MapLayer.Contracts.RenderMode">
+            <summary>
+            Supported render modes.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapLayer.Contracts.RenderMode.SlimDx">
+            <summary>
+            Hardware rendering using DirectX via SlimDx
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.MapLayer.Contracts.RenderMode.Wpf">
+            <summary>
+            Software rendering using Wpf
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.MapLayer.Contracts.IMapLayerView">
+            <summary>
+            Defines the view of a map layer.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.Contracts.IMapLayerView.IsRequesteRenderModeUsed">
+            <summary>
+            Checks if the RenderMode in use is the one requested.
+            </summary>
+            <returns>True if RenderModes correspond.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.Contracts.IMapLayerView.PreRenderOneFrame(System.Windows.Controls.Canvas,TPG.GeoFramework.Contracts.Geo.Context.IGeoContext)">
+            <summary>
+            Prepare for render of one frame.
+            </summary>
+            <param name="canvas">Canvas to render map into.</param>
+            <param name="geoContext">The geo context to use.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.MapLayer.Contracts.IMapLayerView.PostRenderOneFrame">
+            <summary>
+            Cleans up after render one frame.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.Contracts.IMapLayerView.ActualRenderMode">
+            <summary>
+            Indicates which RenderMode is actually used.
+            </summary>
+        </member>
+        <member name="E:TPG.GeoFramework.MapLayer.Contracts.IMapLayerView.ActualRenderModeChangedEvent">
+            <summary>
+            Event fired when the actual rendering system is changed.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.Contracts.IMapLayerView.RequestedRenderMode">
+            <summary>
+            Requests render mode to use.
+            If the graphics capabilities of the underlying platform supports it, the given render mode will be used.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.Contracts.IMapLayerViewModel.MaxTileCacheSize">
+            <summary>
+            Maximum amount of memory to use for the tile caches. (In Mb)
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.Contracts.IMapLayerViewModel.ActualRenderMode">
+            <summary>
+            The RenderMode that is actually in use.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.Contracts.IMapLayerViewModel.RequestedRenderMode">
+            <summary>
+            Requests render mode to use.
+            If the graphics capabilities of the underlying platform supports it, the given render mode will be used.
+            
+            NOTE: The user should be careful with using the set method as changing render modes might have undesired effects.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.MapLayer.Contracts.IMapLayerViewModel.PixelScale">
+            <summary>
+            Map resolution parameter 1.0 guarantees that the pixels are at least 
+            the same resolution as the viewport resolution. 
+            2.0  allows the pixels to be up to 2x as big as the viewport resolution.
+            </summary>
+        </member>
+    </members>
+</doc>

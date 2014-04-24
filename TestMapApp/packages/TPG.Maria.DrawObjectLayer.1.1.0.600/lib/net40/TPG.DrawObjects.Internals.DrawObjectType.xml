@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.DrawObjects.Internals.DrawObjectType</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionCreator">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionCreator.Create">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionCreator.DrawObjectTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionCreator.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionCreator.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionCreator.ExtraTags">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionCreator.Renderers">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionCreator.ToolHandlers">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionCreator.CreationWorkflows">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionCreator.DataTemplate">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionCreator.Validator">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition">
+            <summary>
+             Draw Object Type defintion
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition.GetRendererByViewTypeId(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition.GetToolHandlerByViewTypeId(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition.GetCreationWorkflowByViewTypeId(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition.Description">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition.DrawObjectTypeId">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition.Renderers">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition.ToolHandlers">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition.CreationWorkflows">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition.DataTemplate">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinition.Validator">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionStore">
+            <summary>
+             Data store for draw object type definitons, responsible for all draw object type definitions used by DrawObjectsNG
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionStore.Add(TPG.DrawObjects.Internals.Contracts.DrawObjectType.IDrawObjectTypeDefinition)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionStore.Contains(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionStore.Get(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionStore.Remove(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.DrawObjects.Internals.DrawObjectType.DrawObjectTypeDefinitionStore.DrawObjectTypeDefinitions">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.DrawObjectType.Serializers.DrawObjectTypeXmlParser">
+            <summary>
+             Parses a draw object type definition from XML
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.Serializers.DrawObjectTypeXmlParser.#ctor(TPG.DrawObjects.Internals.Contracts.Rendering.Serializers.IDrawObjectRendererXmlParser,TPG.DrawObjects.Internals.Contracts.ToolHandling.Serializers.IDrawObjectToolHandlerXmlParser,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlParser,TPG.DrawObjects.Internals.Contracts.Module.CreationWorkflow.Serializers.IDrawObjectCreationWorkflowHandlerXmlParser)">
+            <summary>
+             Constructor with dependencies
+            </summary>
+            <param name="rendererParser"></param>
+            <param name="toolHandlerParser"></param>
+            <param name="drawObjectDataParser"></param>
+            <param name="workflowHandlerParser"> </param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.Serializers.DrawObjectTypeXmlParser.Parse(System.Xml.Linq.XElement)">
+            <summary>
+            Parses a draw object type defintion from XML
+            </summary>
+            <param name="drawObjectTypeDefinitionElement"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.DrawObjectType.Serializers.DrawObjectTypeXmlSerializer">
+            <summary>
+             Serialized a draw object type definition to XML
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.Serializers.DrawObjectTypeXmlSerializer.#ctor(TPG.DrawObjects.Internals.Common.XmlUtils,TPG.DrawObjects.Internals.Contracts.Rendering.Serializers.IDrawObjectRendererXmlSerializer,TPG.DrawObjects.Internals.Contracts.ToolHandling.Serializers.IDrawObjectToolHandlerXmlSerializer,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlSerializer,TPG.DrawObjects.Internals.Contracts.Module.CreationWorkflow.Serializers.IDrawObjectCreationWorkflowHandlerXmlSerializer)">
+            <summary>
+             Default constructor with dependencies
+            </summary>
+            <param name="xmlUtils"></param>
+            <param name="rendererSerializer"></param>
+            <param name="toolHandlerSerializer"></param>
+            <param name="drawObjectDataSerializer"></param>
+            <param name="workflowHandlerSerializer"> </param>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.Serializers.DrawObjectTypeXmlSerializer.SerializeToString(TPG.DrawObjects.Internals.Contracts.DrawObjectType.IDrawObjectTypeDefinition)">
+            <summary>
+             Serialize to XML string.
+            </summary>
+            <param name="drawObjectTypeDefinition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.Serializers.DrawObjectTypeXmlSerializer.SerializeToXElement(TPG.DrawObjects.Internals.Contracts.DrawObjectType.IDrawObjectTypeDefinition)">
+            <summary>
+             Serialize to XElement
+            </summary>
+            <param name="drawObjectTypeDefinition"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Internals.DrawObjectType.IocInstaller">
+            <summary>
+             Ioc installer for Serializer assembly
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Internals.DrawObjectType.IocInstaller.Install(Castle.Windsor.IWindsorContainer,Castle.MicroKernel.SubSystems.Configuration.IConfigurationStore)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

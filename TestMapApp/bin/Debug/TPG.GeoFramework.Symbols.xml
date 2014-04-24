@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.Symbols</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.GeoFramework.Symbols.CanvasToRasterSymbolProvider">
+            <summary>
+            This symbol provider takes a Canvas symbol provider, such as the 2525C milsym provider
+            or the NTDS provider and converts the Canvas to a raster with correct anchoring and 
+            bounding box.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Symbols.CanvasToRasterSymbolProvider.GetSymbol(System.String,System.Double,TPG.GeoFramework.Symbols.Contracts.Storage.SymbolColorScheme,System.Boolean,System.Nullable{System.Windows.Media.Color},System.Nullable{TPG.GeoFramework.Symbols.Contracts.Storage.SymbolColorOverride},System.Collections.Generic.SortedDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="P:TPG.GeoFramework.Symbols.CanvasToRasterSymbolProvider.BaseSymbolScaling">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.Symbols.GrayScaleBitmapConverter">
+            <summary>
+            Converts a bitmap to gray scale.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Symbols.GrayScaleBitmapConverter.Convert(System.Windows.Media.Imaging.BitmapSource)">
+            <summary>
+            Converts bitmap to gray sacle.
+            </summary>
+            <param name="source">Bitmap source.</param>
+            <returns>Gray scale bitmap.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Symbols.GrayScaleBitmapConverter.CopyPixels(System.Windows.Media.Imaging.BitmapSource)">
+            <summary>
+            Get pixels from bitmap source.
+            </summary>
+            <param name="source">Bitmap source.</param>
+            <returns>Pixel matrix.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.Symbols.GrayScaleBitmapConverter.SavePixels(System.Windows.Media.Imaging.WriteableBitmap,TPG.GeoFramework.Symbols.GrayScaleBitmapConverter.PixelColor[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            Save pixels to bitmap.
+            </summary>
+            <param name="bitmap">Bitmap.</param>
+            <param name="pixels">Pixels.</param>
+            <param name="x">Destination x.</param>
+            <param name="y">Destination y.</param>
+        </member>
+        <member name="T:TPG.GeoFramework.Symbols.GrayScaleBitmapConverter.PixelColor">
+            <summary>
+            Represents BGRA a pixel.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.Symbols.MilSymbol2525CProvider.GetSymbol(System.String,System.Double,TPG.GeoFramework.Symbols.Contracts.Storage.SymbolColorScheme,System.Nullable{TPG.GeoFramework.Symbols.Contracts.Storage.SymbolColorOverride},System.Collections.Generic.SortedDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Symbols.SymbolManager.GetSymbol(TPG.GeoFramework.Symbols.Contracts.Storage.SymbolQuery)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.Symbols.SymbolManager.GetSymbols(System.Collections.Generic.IEnumerable{TPG.GeoFramework.Symbols.Contracts.Storage.SymbolQuery})">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

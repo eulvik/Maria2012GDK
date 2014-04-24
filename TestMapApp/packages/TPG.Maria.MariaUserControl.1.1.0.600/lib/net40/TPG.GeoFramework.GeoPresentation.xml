@@ -1,0 +1,345 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.GeoPresentation</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.GeoFramework.GeoPresentation.Animation.Block">
+            <summary>
+            Interaction logic for Block.
+            </summary>
+            <summary>
+            Block
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.Animation.Block.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.GeoPresentation.Animation.Block.BackgroundColorProperty">
+            <summary>
+            Background color.
+             </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.Animation.Block.BackgroundColorChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle background color changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.Animation.Block.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.GeoPresentation.Animation.Block.BackgroundColor">
+            <summary>
+            Get or set background color.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.GeoPresentation.Animation.ProgressAnimation">
+            <summary>
+            Interaction logic for ProgressAnimation.
+            </summary>
+            <summary>
+            ProgressAnimation
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.Animation.ProgressAnimation.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.GeoPresentation.Animation.ProgressAnimation.BackgroundColorProperty">
+            <summary>
+            Background color.
+             </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.Animation.ProgressAnimation.BackgroundColorChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle background color changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.Animation.ProgressAnimation.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.GeoPresentation.Animation.ProgressAnimation.BackgroundColor">
+            <summary>
+            Get or set background color.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.GeoPresentation.CenterPositionIndicator">
+            <summary>
+            Interaction logic for CenterPositionIndicator.xaml
+            </summary>
+            <summary>
+            CenterPositionIndicator
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.CenterPositionIndicator.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.GeoPresentation.CenterPositionIndicator.ColorProperty">
+            <summary>
+            Center position indicator color.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.CenterPositionIndicator.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.GeoPresentation.CenterPositionIndicator.Color">
+            <summary>
+            Get or set center position indicator color.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.GeoPresentation.ClearImage">
+            <summary>
+            Draws a clear image.
+            (Prevents fuzzy images in WPF when images are positioned on non-pixel boundaries)
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ClearImage.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ClearImage.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draw clear image.
+            </summary>
+            <param name="dc">Drawing context object.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ClearImage.OnLayoutUpdated(System.Object,System.EventArgs)">
+            <summary>
+            Layout updated.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ClearImage.GetVisualTransform(System.Windows.Media.Visual)">
+            <summary>
+            Get visual transform matrix.
+            </summary>
+            <param name="visual"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ClearImage.ApplyVisualTransform(System.Windows.Point,System.Windows.Media.Visual,System.Boolean)">
+            <summary>
+            Apply visual transform.
+            </summary>
+            <param name="point"></param>
+            <param name="visual"></param>
+            <param name="inverse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ClearImage.GetOffset">
+            <summary>
+            Get offset.
+            </summary>
+            <returns>Offset.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ClearImage.ClosePoints(System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Check closeness of points.
+            </summary>
+            <param name="point1"></param>
+            <param name="point2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.GeoFramework.GeoPresentation.GeoControl">
+            <summary>
+            Interaction logic for GeoControl.xaml
+            </summary>
+            <summary>
+            GeoControl
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.GeoControl.CaptureMouseInFrame">
+            <summary>
+            Captures the mouse within the frame of the control.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.GeoControl.ReleaseMouseCaptureInFrame">
+            <summary>
+            Releases the mouse from capture.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.GeoControl.AddTopLevelControl(System.Windows.UIElement)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.GeoControl.RemoveTopLevelControl(System.Windows.UIElement)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.GeoControl.SetFocus">
+            <summary>
+            Sets focus the the control.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.GeoControl.control_SizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+            Signals the view model of a size change, or cashes the new size if view model has not been set.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.GeoControl.UpdateLayers">
+            <summary>
+            Updates the list of geo layers and creates new geo layer views.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.GeoControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.GeoOverviewControl.OnLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Set correct geo context device rect after load.
+            </summary>
+            <param name="sender"></param>
+            <param name="routedEventArgs"></param>
+        </member>
+        <member name="T:TPG.GeoFramework.GeoPresentation.ParentViewportBox">
+            <summary>
+            Displays a rectangle visualizing a parent GeoControl's viewport.
+            </summary>
+            <remarks>
+            If the viewport is larger than the size of the control, the viewport box will be hidden.
+            </remarks>
+            <summary>
+            ParentViewportBox
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ParentViewportBox.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ParentViewportBoxViewModel.CheckDisplayViewportBox(System.Nullable{System.Windows.Rect})">
+            <summary>
+            Returns a boolean value indicating whether to display the viewport box.
+            </summary>
+            <param name="rect"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.GeoFramework.GeoPresentation.ParentViewportBoxViewModel.PanStep">
+            <summary>
+            Gets or sets the amount to pan the overview map when the panning viewportbox is moved over an edge.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.GeoPresentation.ParentViewportBoxViewModel.PanStepInterval">
+            <summary>
+            Gets or sets the time, in milliseconds, between panning steps of the overview map when the panning viewportbox is moved over an edge.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.GeoPresentation.ProgressIndicator">
+            <summary>
+            'shows progress indication and information.
+            </summary>
+            <summary>
+            ProgressIndicator
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ProgressIndicator.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="F:TPG.GeoFramework.GeoPresentation.ProgressIndicator.BackgroundProperty">
+            <summary>
+            Background color.
+             </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ProgressIndicator.BackgroundColorChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle background color changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:TPG.GeoFramework.GeoPresentation.ProgressIndicator.ForegroundProperty">
+            <summary>
+            Foreground color.
+             </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ProgressIndicator.ForegroundColorChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle foreground color changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:TPG.GeoFramework.GeoPresentation.ProgressIndicator.ProgressColorProperty">
+            <summary>
+            Progress color.
+             </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ProgressIndicator.ProgressColorChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle progress color changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:TPG.GeoFramework.GeoPresentation.ProgressIndicator.ProgressTextProperty">
+            <summary>
+            Progress text.
+             </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ProgressIndicator.ProgressTextChangedCallback(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handle progress text changed.
+            </summary>
+            <param name="d"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.ProgressIndicator.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.GeoPresentation.ProgressIndicator.Background">
+            <summary>
+            Get or set background color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.GeoPresentation.ProgressIndicator.Foreground">
+            <summary>
+            Get or set foreground color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.GeoPresentation.ProgressIndicator.ProgressColor">
+            <summary>
+            Get or set progress color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.GeoPresentation.ProgressIndicator.ProgressText">
+            <summary>
+            Get or set progress text.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.GeoPresentation.StaticRuler">
+            <summary>
+            Interaction logic for StaticRuler.xaml
+            </summary>
+            <summary>
+            StaticRuler
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.GeoPresentation.StaticRuler.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1836 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.DrawObjects.Contracts.Data</name>
+    </assembly>
+    <members>
+        <member name="F:TPG.DrawObjects.Contracts.Data.DrawObjectDataFields.InstanceId">
+            <summary>
+            Instance ID field name. This is not actually a field, but the name can be used in field queries.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.DrawObjectDataFields.Name">
+            <summary>
+            Name of the object.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.DrawObjectDataFields.RotationAngle">
+            <summary>
+            Rotation angle. Hint to the roattion tool. Mostly for internal use.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.DrawObjectDataFields.ReadOnly">
+            <summary>
+            Utility field to tag object as read-only. Can be used in in conjunction with a ReadOnlyFilter.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.DrawObjectDataFields.DrawDepth">
+            <summary>
+            Rendering depth indicator. Objects with lower value are drawn on top of objects with higher values.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.DrawObjectDataFields.NumberOfRadials">
+            <summary>
+            Number of radials for range rings.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.DrawObjectDataFields.Smooth">
+            <summary>
+            Smooth rendering property.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.DrawObjectDataFields.Version">
+            <summary>
+            Version of the object.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.DrawObjectDataFields.StoreId">
+            <summary>
+            Draw object service store id of the object.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.DrawObjectDataFields.UpdatedById">
+            <summary>
+            Id of the last one to update the draw object.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.DrawObjectFields">
+            <summary>
+            Contains predefined field names used by IDrawObjectRuntimeData
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.IDrawObjectRuntimeData">
+            <summary>
+            Interface for draw object data that are not persisted.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.IDrawObjectRuntimeData.AddLayerId(System.String)">
+            <summary>
+            Adds a new layer to show the draw object in
+            </summary>
+            <param name="layerId"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.IDrawObjectRuntimeData.ContainsLayerId(System.String)">
+            <summary>
+            Returns whether draw object contains layer id
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.IDrawObjectRuntimeData.RemoveLayerId(System.String)">
+            <summary>
+            Removes a layer to show the draw object in
+            </summary>
+            <param name="layerId"></param>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.IDrawObjectRuntimeData.Fields">
+            <summary>
+             Dictionary of generic fields.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.IDrawObjectRuntimeData.LayerIds">
+            <summary>
+            Lists which layers the draw object is shown in
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.ISortedDrawObjectInfo">
+            <summary>
+            Interface for result of sorted draw object query.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.ISortedDrawObjectInfo.SortedDrawObjects">
+            <summary>
+            Sorted draw objects in order
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.ISortedDrawObjectInfo.TotalDrawObjectCount">
+            <summary>
+            Count of all draw objects matching query. When sorting, offset and count settings can cause the count of SortedDrawObjects to be less than TotalDrawObjectCount
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.ISortedDrawObjectInfo.Query">
+            <summary>
+            Source query
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.CredebilityRatingModifier">
+            <summary>
+            Credebility rating modifier
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.ReliabilityRatingModifier">
+            <summary>
+            Reliability rating modifier
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.ReinforcedOrReducedModifier">
+            <summary>
+            Reinforced or reduced modifier
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.SymbolModifier">
+            <summary>
+             Symbol modifiers
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon">
+            <summary>
+            Support methods for managing the Echelon portion of symbols in MIL STD-2525C
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.Army">
+            <summary>
+            The character echelon code for Army
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.ArmyGroupFront">
+            <summary>
+            The character echelon code for Army/Group/Front
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.BattalionSquadron">
+            <summary>
+            The character echelon code for Battalion/Squadron
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.Brigade">
+            <summary>
+            The character echelon code for Brigade
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.Command">
+            <summary>
+            The character echelon code for Command
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.CompanyBatteryTroop">
+            <summary>
+            The character echelon code for Company/Battery/Troop
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.CorpsMarineExpeditionaryForce">
+            <summary>
+            The character echelon code for Corps/Marine Expeditionary Force (MEF)
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.Division">
+            <summary>
+            The character echelon code for Division
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.None">
+            <summary>
+            The character echelon code for Null - there is no echelon code
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.PlatoonDetachment">
+            <summary>
+            The character echelon code for Platoon/Detachment
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.RegimentGroup">
+            <summary>
+            The character echelon code for Regiment/Group
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.Region">
+            <summary>
+            The character echelon code for Region
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.Section">
+            <summary>
+            The character echelon code for Section
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.Squad">
+            <summary>
+            The character echelon code for Squad
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.TeamCrew">
+            <summary>
+            The character echelon code for Team/Crew
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.Index">
+            <summary>
+            The symbol code index corresponding to the echelon code. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.Echelons">
+            <summary>
+            Dictionary mapping the echelon symbol codes to strings to represent echelon value graphically
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.Echelon.Names">
+            <summary>
+            Dictionary mapping the echelon symbol codes to friendly string descriptions
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory">
+            <summary>
+            Dynamically creates draw object data instances
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.CreateFromTemplate(TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.String)">
+            <summary>
+            Creates a draw object data instance from a template
+            </summary>
+            <param name="template">Template for new draw object data</param>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.CreateFrom2525cHierarchyCode(System.String,System.String)">
+            <summary>
+            Creates a draw object instance from 2525C hierachy code
+            </summary>
+            <param name="hierarchyCode">2525C hierarchy code</param>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.CreateFromTypeId(System.Guid,System.String)">
+            <summary>
+            Creates a draw object instance from type definition store ID.
+            </summary>
+            <param name="typeId">Internal ID in type definition store</param>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.FitToViewport(TPG.GeoFramework.Contracts.IViewport,TPG.DrawObjects.Contracts.Data.IDrawObjectData,System.Double,System.Nullable{TPG.GeoUnits.GeoPos})">
+            <summary>
+            Fit draw object to viewport. This method will scale and translate the draw object data so that it fits within the given viewport.
+            </summary>
+            <param name="viewport">The viewport in which to place the draw object.</param>
+            <param name="drawObjectData">The data to fit in the viewport.</param>
+            <param name="relSize">Size of object relative to viewport, in the range [0.0,1.0]</param>
+            <param name="centerGeo">Point inside the viewport to place the draw object on. If no point is given, the center of the viewport is assumed.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetTypeId(System.String)">
+            <summary>
+            Get type definition Guid from 2525C Hierarchy code
+            </summary>
+            <param name="hierarchyCode">2525C Hierarchy code</param>
+            <returns>The corresponding type definition Guid</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetHierarchyCode(System.Guid)">
+            <summary>
+            Get 2525C Hierarchy code from type definition Guid. Please note that not all type ID's have a corresponding Hierarchy code, in which case an empty string is returned.
+            </summary>
+            <param name="typeId">Type definition type ID</param>
+            <returns>2525C Hierarachy code corresponding to the type ID.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetHierarchyCodes">
+            <summary>
+            Get all 2525C Hierarchy codes we know about.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetTypeDefinitions">
+            <summary>
+            Get all type definition IDs we know about.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetPolyArea(System.String)">
+            <summary>
+            Gets a new polyarea standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetPolyAreaBasedTriangle(System.String)">
+            <summary>
+            Gets a new polyarea-based triangle standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetPolyAreaBasedRectangle(System.String)">
+            <summary>
+            Gets a new polyarea-based rectangle standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetText(System.String,System.String)">
+            <summary>
+            Gets a new text standard draw object.
+            </summary>
+            <param name="text">The text to display.</param>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetEllipse(System.String)">
+            <summary>
+            Gets a new ellipse standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetPolyLine(System.String)">
+            <summary>
+            Gets a new polyline standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetFanArea(System.String)">
+            <summary>
+            Gets a new fan area standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetRangeRings(System.String)">
+            <summary>
+            Gets a new range rings standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetOrbitArea(System.String)">
+            <summary>
+            Gets a new orbit area standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetVolumeOrbitArea(System.String)">
+            <summary>
+            Gets a new volume orbit area standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetLane(System.String)">
+            <summary>
+            Gets new lane standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetVolumeLane(System.String)">
+            <summary>
+            Gets new volume lane standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetSymbol(System.String)">
+            <summary>
+            Gets a new symbol standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successful, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetCrossHairs(System.String)">
+            <summary>
+            Gets a new cross hairs standard draw object.
+            </summary>
+            <param name="newInstanceId">Instance id of new draw object data instance</param>
+            <returns>Draw object data instance if successfull, otherwise null</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataFactory.GetTypeDefinitionNameFromTypeId(System.Guid)">
+            <summary>
+            Get name property of draw object type definition from type id.
+            </summary>
+            <param name="typeId">Type id.</param>
+            <returns>Draw object name in type definition.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.ILinePoint">
+            <summary>
+            Point that is part of a line
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint">
+            <summary>
+            A geographical point according to the MIP standard.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive">
+            <summary>
+             Contract for a draw object primitive implementation
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.IDeepCopy">
+            <summary>
+             describes methods for creating a deep copy
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.IDeepCopy.CopyObject(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+             return a deep copy of this object
+            </summary>
+            <param name="objects"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.IDeepCopy.CopyFromObject(System.Object,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+             copies the data from a given source object and return's this reference
+            </summary>
+            <param name="src">the object to copy data from</param>
+            <param name="objects"></param>
+            <returns>the reference to this object</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive.PrimitiveTypeId">
+            <summary>
+            Globally unique identifier for primitive type
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive.LocalPrimitiveId">
+            <summary>
+            Identifier used when primitive is part of a DrawObjectType definition, used by interaction and rendering logic
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive.Fields">
+            <summary>
+             Optional extra tags
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive.ChildPrimitives">
+            <summary>
+            Sub-primitives contained in this primitive
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.IDeepCopy`1">
+            <summary>
+             describes methods for creating a deep copy of a given generic type
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.IDeepCopy`1.Copy(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+             return a deep copy of this generic typed object
+            </summary>
+            <param name="objects"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.IDeepCopy`1.CopyFrom(`0,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+             copies the data from a given source generic typed object and return's this reference
+            </summary>
+            <param name="src">the object to copy data from</param>
+            <param name="objects"></param>
+            <returns>the reference to this object</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint.IsAbsolute">
+            <summary>
+            Check if point is an absolute point.
+            </summary>
+            Absolute points are points that are defined as an absolute position relative to WGS84,
+            either as a Latitude/longitude/Altitude or as a cartesian geocentric point.
+            <returns>True if absolute, false if not.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint.IsRelative">
+            <summary>
+            Check if point is a relative point.
+            </summary>
+            Relative points are points that are defined relative to either a reference point/coordinate system or 
+            relative to another object.
+            <returns>True if relative, false if not.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint.SetLatLon(TPG.GeoUnits.GeoPos)">
+            <summary>
+            Set geographical latitude and longitude relative to WGS84
+            </summary>
+            <param name="latLon">A GeoPos struct containing the latitude and longitude of the point.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint.SetAltitude(System.Double)">
+            <summary>
+            Set altitude.
+            </summary>
+            The altitude should be given relative to the Datum given by VerticalDatum and VerticalReferenceCode.
+            If nothing is specified, meters above the WGS84 ellipsoid is assumed.
+            <param name="altitude">Altitude in the specified datum.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint.GetLatLon">
+            <summary>
+            Get Latitude/Longitude in WGS84
+            </summary>
+            <returns>A GeoPos struct containing the geographical latitude and longitude of the point.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint.GetAltitude">
+            <summary>
+            Get altitude.
+            </summary>
+            The altitude is given relative to the Datum defined by VerticalDatum and VerticalReferenceCode.
+            If nothing is specified, meters above the WGS84 ellipsoid is assumed.
+            <returns>Altitude relative to the specified datum.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint.Data">
+            <summary>
+            Actual implementation of the point object.
+            </summary>
+            This is the internal data object containing the actual positional information for the
+            point. This representation will vary among the different point definitions.
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint.VerticalDatumText">
+            <summary>
+            Sets/gets the name of the vertical datum.
+            </summary>
+            <remarks>
+            Setting properties for vertical distance is optional.
+            </remarks>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IGeoPoint.VerticalReferenceCode">
+            <summary>
+            Sets/gets the vertical distance reference code according to the Mip standard. Represents the reference system, for example QNH, QFE, MSL, etc.
+            </summary>
+            <remarks>
+            Setting properties for vertical distance is optional.
+            </remarks>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.ILinePoint.GeoPoint">
+            <summary>
+            Point geo data
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.ILinePoint.Index">
+            <summary>
+            Index of point in parent line
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.ILinePoint.Text">
+            <summary>
+            Get or set point text.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlParser">
+            <summary>
+             Interface for the CoordinateSystem parser
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <summary>
+            Parse a CoordinateSystem from an XML element.
+            </summary>
+            <param name="xElement">XML element containing the CoordinateSystem serialization.</param>
+            <param name="coordinateSystemProvider"></param>
+            <returns>CoordinateSystem instance.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlParserProvider">
+            <summary>
+             Interface for the Coordinate system XML parser provider.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlParserProvider.AddParser(System.String,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlParser)">
+            <summary>
+             Adds a new coordinate system parser to provider
+            </summary>
+            <param name="coordinateSystemTypeId">Type id of coordinateSystem</param>
+            <param name="coordinateSystemXmlParser">XML parser that can parse a coordinate system of the given type from xml.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlParserProvider.GetParser(System.String)">
+            <summary>
+             Returns XML parser for coordinate system type.
+            </summary>
+            <param name="coordinateSystemTypeId">Type id of coordinate system</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlParserProvider.ParserExists(System.String)">
+            <summary>
+             Returns if parser exists for specified coordinateSystem type.
+            </summary>
+            <param name="coordinateSystemTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlParserProvider.ParserCount">
+            <summary>
+             Returns number of registered parsers
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlSerializer">
+            <summary>
+            Interface for the Coordinate system serializer.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem)">
+            <summary>
+            Serialize a CoordinateSystem to a text string.
+            </summary>
+            <param name="coordinateSystem">CoordinateSystem to be serialized.</param>
+            <returns>A text string containing XML code for the serialized CoordinateSystem.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem)">
+            <summary>
+            Serialize a CoordinateSystem to an XElement.
+            </summary>
+            <param name="coordinateSystem">Coordinate system to be serialized.</param>
+            <returns>An XElement instance containing the serialized CoordinateSystem.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlSerializerProvider">
+            <summary>
+            Interface for the Coordinate system XML serializer provider.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlSerializerProvider.AddSerializer(System.String,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlSerializer)">
+            <summary>
+             Adds a serializer to the provider
+            </summary>
+            <param name="coordinateSystemTypeId">Type id of the coordinate system type the serializer supports</param>
+            <param name="coordinateSystemXmlSerializer">Specifies serializer to use for coordinate system type</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlSerializerProvider.GetSerializer(System.String)">
+            <summary>
+             Retrieves serializer for specified coordinateSystem type id.
+            </summary>
+            <param name="coordinateSystemTypeId">Type id of the coordinate system type the serializer supports</param>
+            <returns>Returns serializer to use for coordinate system type</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlSerializerProvider.SerializerExists(System.String)">
+            <summary>
+             Checks if provider contains a serializer for specified coordinateSystem type id.
+            </summary>
+            <param name="coordinateSystemTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.ICoordinateSystemXmlSerializerProvider.SerializerCount">
+            <summary>
+             Return number of serializers in the provider
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlParser">
+            <summary>
+             Interface for DrawObjectData XML parser
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlParser.Parse(System.Xml.Linq.XElement)">
+            <summary>
+            Parse a DrawObjectData from an XML element.
+            </summary>
+            <param name="xElement">XML element containing the DrawObjectData serialization.</param>
+            <returns>DrawObjectData instance.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlParser.ParsePrimitives(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <summary>
+            Parse DrawObjectData primitives from an XML element.
+            </summary>
+            <param name="xElement">XML element containing the DrawObjectData primitive serialization.</param>
+            <param name="coordinateSystemProvider"></param>
+            <returns>DrawObjectData primitives.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlParser.ParseFields(System.Xml.Linq.XElement)">
+            <summary>
+            Parse DrawObjectData fields from an XML element.
+            </summary>
+            <param name="xElement">XML element containing the DrawObjectData fields serialization.</param>
+            <returns>DrawObjectData fields.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlParser.ParseCoordinateSystems(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <summary>
+            Parse DrawObjectData coordinate systems from an XML element.
+            </summary>
+            <param name="xElement">XML element containing the DrawObjectData coordinate systems serialization.</param>
+            <param name="coordinateSystemProvider"></param>
+            <returns>DrawObjectData coordinate systems.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlSerializer">
+            <summary>
+             Definition of a DrawObjectData XML serializer
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Serialize a DrawObjectData primitive to a text string.
+            </summary>
+            <param name="drawObjectData">DrawObjectData to be serialized.</param>
+            <returns>A text string containing XML code for the serialized DrawObjectData.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Serialize a DrawObjectData to an XElement.
+            </summary>
+            <param name="drawObjectData">DrawObjectData to be serialized.</param>
+            <returns>An XElement instance containing the serialized DrawObjectData.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlSerializer.SerializeCoordinateSystemToXElement(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Serialize DrawObjectData coordinate systems to an XElement.
+            </summary>
+            <param name="drawObjectData">DrawObjectData to be serialized.</param>
+            <returns>An XElement instance containing the serialized DrawObjectData coordinate systems.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlSerializer.SerializePrimitivesToXElement(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Serialize DrawObjectData primitives to an XElement.
+            </summary>
+            <param name="drawObjectData">DrawObjectData to be serialized.</param>
+            <returns>An XElement instance containing the serialized DrawObjectData primitives.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IDrawObjectDataXmlSerializer.SerializeFieldsToXElement(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+            Serialize DrawObjectData fields to an XElement.
+            </summary>
+            <param name="drawObjectData">DrawObjectData to be serialized.</param>
+            <returns>An XElement instance containing the serialized DrawObjectData fields.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlParser">
+            <summary>
+            Interface for ExtensibleData XML parsers
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlParser.Parse(System.Xml.Linq.XElement)">
+            <summary>
+            Parse the given XElement and return an ExtensibleData object.
+            </summary>
+            <param name="xElement">XML element containing the ExtensibleData serialization.</param>
+            <returns>An ExtensibleData object</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlParserProvider">
+            <summary>
+            XML Parser provider for extensible data on DrawObjects. 
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlParserProvider.AddParser(System.Guid,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlParser)">
+            <summary>
+             Register a parser with the given type key.
+            </summary>
+            <param name="extensibleDataTypeId">Type identifier for this parser. Used as key for retrieval later.</param>
+            <param name="parser">Parser for ExtensibleData</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlParserProvider.RemoveParser(System.Guid)">
+            <summary>
+            Remove a registered parser.
+            </summary>
+            <param name="extensibleDataTypeId">Type identifier for the parser to remove.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlParserProvider.GetParser(System.Guid)">
+            <summary>
+            Get a parser object for the given ExtensibleData type.
+            </summary>
+            <param name="extensibleDataTypeId">Type identifier for the requested ExtensibleData parser.</param>
+            <returns>XML Parser for ExtensibleData.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlParserProvider.ParserExists(System.Guid)">
+            <summary>
+             Returns true if there is a parser registered on the given type ID.
+            </summary>
+            <param name="extensibleDataTypeId">Type identifier for an ExtensibleData parser.</param>
+            <returns>True if found, false if not.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlParserProvider.ParserCount">
+            <summary>
+            Returns number of registered parsers.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializer">
+            <summary>
+             Interface for Extensible Data XML serializers.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.IExtensibleData)">
+            <summary>
+            Serialize an ExtensibleData item to an XML string.
+            </summary>
+            <param name="extensibleData">ExtensibleData element to serialize.</param>
+            <returns>Text string containing the XML code for the serialized ExtensibleData.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.IExtensibleData)">
+            <summary>
+            Serialize an ExtensibleData item to an XElement object.
+            </summary>
+            <param name="extensibleData">ExtensibleData element to serialize.</param>
+            <returns>An XElement containing the serialization of the ExtensibleData.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializerProvider">
+            <summary>
+             Provider for ExtensibleData XML Serializers
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializerProvider.AddSerializer(System.Guid,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializer)">
+            <summary>
+             Register a serializer with the given type key.
+            </summary>
+            <param name="extensibleDataTypeId">Type identifier for this serializer. Used as key for retrieval later.</param>
+            <param name="serializer">Serializer for ExtensibleData</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializerProvider.RemoveSerializer(System.Guid)">
+            <summary>
+            Remove a registered serializer.
+            </summary>
+            <param name="extensibleDataTypeId">Type identifier for the serializer to remove.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializerProvider.GetSerializer(System.Guid)">
+            <summary>
+            Get a serializer object for the given ExtensibleData type.
+            </summary>
+            <param name="extensibleDataTypeId">Type identifier for the requested ExtensibleData serializer.</param>
+            <returns>XML Serializer for ExtensibleData.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializerProvider.SerializerExists(System.Guid)">
+            <summary>
+             Returns true if there is a serializer registered on the given type ID.
+            </summary>
+            <param name="extensibleDataTypeId">Type identifier for an ExtensibleData serializer.</param>
+            <returns>True if found, false if not.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.IExtensibleDataXmlSerializerProvider.SerializerCount">
+            <summary>
+            Returns number of registered serializers.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IDrawObjectPrimitiveXmlParser">
+            <summary>
+            Interface for DrawObject primitive XML parsers.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IDrawObjectPrimitiveXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider)">
+            <summary>
+            Parse a draw object primitive from an XML element.
+            </summary>
+            <param name="xElement">XML element containing the primitive serialization.</param>
+            <param name="coordinateSystemProvider"></param>
+            <returns>Draw object primitive of the correct type.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IDrawObjectPrimitiveXmlSerializer">
+            <summary>
+            Interface for DrawObject primtive XML serializers.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IDrawObjectPrimitiveXmlSerializer.SerializeToString(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <summary>
+            Serialize a DrawObject primitive to a text string.
+            </summary>
+            <param name="drawObjectPrimitive">The primitive to be serialized.</param>
+            <returns>A text string containing XML code for the serialized primitive.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IDrawObjectPrimitiveXmlSerializer.SerializeToXElement(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <summary>
+            Serialize a DrawObject to an XElement.
+            </summary>
+            <param name="drawObjectPrimitive">The primitive to be serialized.</param>
+            <returns>An XElement instance containing the serialized primitive.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser">
+            <summary>
+            Definition of the PrimitiveBase XML parser.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlParser.Parse(System.Xml.Linq.XElement,TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <summary>
+            Parses the given XML code and populates the given primitive with the basic common elements of the primitive, including Fields and LocalPrimitiveId.
+            </summary>
+            <param name="xElement">Input XML code tree</param>
+            <param name="primitive">Input primitive</param>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer">
+            <summary>
+            XML Serializer for common base properties.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer.CreateBaseElement(System.String,TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <summary>
+            Serialize the base primitive data, such as LocalPrimitiveId and Fields (if any).
+            </summary>
+            <param name="tagName">The tag name for the base element</param>
+            <param name="primitive">The primitive data to be serialized</param>
+            <returns>XML Element with serialized data.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveBaseXmlSerializer.CreateBaseElement(System.String,TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive,System.Object[])">
+            <summary>
+            Serialize the base primitive data, such as LocalPrimitiveId and Fields (if any).
+            </summary>
+            <param name="tagName">The tag name for the base element</param>
+            <param name="primitive">The primitive data to be serialized</param>
+            <param name="content">Child elements/attributes for the XElement</param>
+            <returns>XML Element with serialized data.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider">
+            <summary>
+             XML parser provider for draw object geodata primitives
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider.AddParser(System.String,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IDrawObjectPrimitiveXmlParser)">
+            <summary>
+             Adds a new draw object primitive parser to provider
+            </summary>
+            <param name="primitiveTypeId">Type id of Primitive</param>
+            <param name="drawObjectPrimitiveXmlParser">XML parser that can parse primitive type from xml.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider.GetParser(System.String)">
+            <summary>
+             Returns XML parser for primitive type.
+            </summary>
+            <param name="primitiveTypeId">Type id of Primitive</param>
+            <returns></returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider.ParserExists(System.String)">
+            <summary>
+             Returns if parser exists for specified primitive type.
+            </summary>
+            <param name="primitiveTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlParserProvider.ParserCount">
+            <summary>
+             Returns parser dictionary
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider">
+            <summary>
+             Interface for provider of XML serializers for Draw Object Primitives
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider.AddSerializer(System.String,TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IDrawObjectPrimitiveXmlSerializer)">
+            <summary>
+             Adds a serializer to the provider
+            </summary>
+            <param name="primitiveTypeId">Type id of the primitive type the serializer supports</param>
+            <param name="drawObjectPrimitiveXmlSerializer">Specifies serializer to use for primitive type</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider.GetSerializer(System.String)">
+            <summary>
+             Retrieves serializer for specified primitive type id.
+            </summary>
+            <param name="primitiveTypeId">Type id of the primitive type the serializer supports</param>
+            <returns>Returns serializer to use for primitive type</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider.SerializerExists(System.String)">
+            <summary>
+             Checks if provider contains a serializer for specified primitive type id.
+            </summary>
+            <param name="primitiveTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Serializers.Xml.Data.Primitives.IPrimitiveXmlSerializerProvider.SerializerCount">
+            <summary>
+             Return number of serializers in the provider
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Serializers.Xml.IDrawObjectDataListXmlParser">
+            <summary>
+             Parsers a list of DrawObjectDataObjects in XML
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Serializers.Xml.IDrawObjectDataListXmlParser.Parse(System.String)">
+            <summary>
+             Loads a list of draw object data from an xml string
+            </summary>
+            <param name="xml"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataCopier">
+            <summary>
+             interface for copying IDrawObjectData types
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataCopier.Copy(TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+             creates a copy given a src data object
+            </summary>
+            <param name="src">src data</param>
+            <returns>new copy of data</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Utils.DataProviders.IDrawObjectDataCopier.Copy(TPG.DrawObjects.Contracts.Data.IDrawObjectData,TPG.DrawObjects.Contracts.Data.IDrawObjectData)">
+            <summary>
+             copy a IDrawObjectData given both the source data and a destination
+            </summary>
+            <param name="src"></param>
+            <param name="dst"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.CoordinateSystems.CoordinateSystemTypeIds">
+            <summary>
+            Type identifiers for coordinate system
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.DrawObjectPrimitiveTypeIds">
+            <summary>
+             Geo data primitive type ids
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem">
+            <summary>
+            Interface for a Coordinate system
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem.ToLatLon(System.Windows.Point)">
+            <summary>
+            Convert a 2D coordinate point to absolute latitude/longitude.
+            </summary>
+            <param name="point">Point in coordinate system.</param>
+            <returns>Latitude, longitude in degrees.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem.FromLatLon(TPG.GeoUnits.GeoPos)">
+            <summary>
+            Convert absolute latitude/longitude to a 2D coordinate point.
+            </summary>
+            <param name="ll"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem.OriginPoint">
+            <summary>
+            Origin point of this coordinate system, given in the parent coordinate system.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem.XAxis">
+            <summary>
+            X-axis, defined relative to the parent coordinate system.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem.YAxis">
+            <summary>
+            Y-axis, defined relative to the parent coordinate system.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem.ZAxis">
+            <summary>
+            Z-axis, defined relative to the parent coordinate system.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem.CoordinateSystemId">
+            <summary>
+            Unique ID for this coordinate system.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem.CoordinateSystemTypeId">
+            <summary>
+             Type identifier for the type of coordinate system. 
+            </summary>
+             A coordinate system can be either PointReference or ObjectReference
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider">
+            <summary>
+            Interface for the coordinate system provider class.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider.ContainsCoordinateSystem(System.Int32)">
+            <summary>
+            Check if the given coordinate system exists.
+            </summary>
+            <param name="coordinateSystemId">Unique coordinate system ID.</param>
+            <returns>true if coordinate system exists for this DrawObject, false if not.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider.AddCoordinateSystem(System.Int32,TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystem)">
+            <summary>
+            Add coordinate system to the coordinate system list.
+            </summary>
+            <param name="coordinateSystemId">Unique ID for this coordinate system</param>
+            <param name="coordinateSystem">Coordinate system object.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider.GetCoordinateSystem(System.Int32)">
+            <summary>
+            Returns the coordinate system with the given ID.
+            </summary>
+            <param name="coordinateSystemId">Unique coordinate system id.</param>
+            <returns>A coordinate system object.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.CoordinateSystems.ICoordinateSystemProvider.CoordinateSystems">
+            <summary>
+             Enumerable of Coordinate systems
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.IVerticalDistance">
+            <summary>
+             Describes the upper and lower vertical limit for a GEOMETRIC-VOLUME.
+             
+             They act as parallel cutting plantes to limit the volume.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.IVerticalDistance.ReferenceCode">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.IVerticalDistance.Dimension">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.IVerticalDistance.PrecisionCode">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.IVerticalDistance.DatumText">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Lines.ILine">
+            <summary>
+            A line consisting of 2 or more Point objects.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Lines.ILine.Points">
+            <summary>
+            The list of points constituting this line.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IPointData">
+            <summary>
+            Data point representation for the GeoPoint interface.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IPointData.IsAbsolute">
+            <summary>
+            Check if point is an absolute point.
+            </summary>
+            Absolute points are points that are defined as an absolute position relative to WGS84,
+            either as a Latitude/longitude/Altitude or as a cartesian geocentric point.
+            <returns>True if absolute, false if not.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IPointData.IsRelative">
+            <summary>
+            Check if point is a relative point.
+            </summary>
+            Relative points are points that are defined relative to either a reference point/coordinate system or 
+            relative to another object.
+            <returns>True if relative, false if not.</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IPointData.SetLatLon(TPG.GeoUnits.GeoPos)">
+            <summary>
+            Set the geographical latitude/longitude relative to WGS84.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IPointData.SetAltitude(System.Double)">
+            <summary>
+            Set altitude.
+            </summary>
+            The altitude should be given relative to the Datum given by VerticalDatum and VerticalReferenceCode.
+            If nothing is specified, meters above the WGS84 ellipsoid is assumed.
+            <param name="altitude">Altitude in the specified datum.</param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IPointData.GetLatLon">
+            <summary>
+            Get geographical latitude/longitude relative to WGS84
+            </summary>
+            <returns>Geographical latitude/longitude (in degrees)</returns>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IPointData.GetAltitude">
+            <summary>
+            Get altitude.
+            </summary>
+            The altitude is given relative to the Datum defined by VerticalDatum and VerticalReferenceCode.
+            If nothing is specified, meters above the WGS84 ellipsoid is assumed.
+            <returns>Altitude relative to the specified datum.</returns>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Points.IPointData.PrimitiveTypeId">
+            <summary>
+            Primitive type ID. 
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea">
+            <summary>
+            An area centered around a line with two or more points, 
+            defined by its width equally distibuted on each side of the center line.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ISurface">
+            <summary>
+            Toplevel interface for surface primitives.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea.Width">
+            <summary>
+            Width of the corridor side to side, equally distributed with respect to the centre line.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ICorridorArea.CentreLine">
+            <summary>
+            Central line of the corridor
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IEllipse">
+            <summary>
+            Ellipse-shaped surface with arbitrary rotation.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IEllipse.CentrePoint">
+            <summary>
+            Geometric centre of the ellipse.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IEllipse.FirstConjugateDiameterPoint">
+            <summary>
+            Point defining the first axis of the ellipse as the line from the center to this point.
+            </summary>
+            <remarks>
+            The diameter points must be placed so that the lines from the centre point to each of the diameter points are
+            perpendicular to each other.
+            </remarks>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IEllipse.SecondConjugateDiameterPoint">
+            <summary>
+            Point defining the second axis of the ellipse as the line from the center to this point.
+            </summary>
+            <remarks>
+            The diameter points must be placed so that the lines from the centre point to each of the diameter points are
+            perpendicular to each other.
+            </remarks>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea">
+            <summary>
+            A fan area is a surface in the form of a truncated ring sector. It is defined by a centre point, a sector angle, innner and outer radii.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea.MinimumRange">
+            <summary>
+            Distance from the center point to the inner ring sector.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea.MaximumRange">
+            <summary>
+            Distance from the center point to the outer ring sector.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea.OrientationAngle">
+            <summary>
+            Rotational angle clockwise between the line of true north and the left side of the sector.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea.SectorSizeAngle">
+            <summary>
+            Rotational angle clockwise between the left and right sides of the sector (opening angle).
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IFanArea.VertexPoint">
+            <summary>
+            Central point of the sector.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea">
+            <summary>
+            A rectangular area closed by two half-circles. The orbit is determined by an axis defined by two points, 
+            a width perpendicular to the axis, and an enum describing how the orbit relates to the axis line. 
+            If it is a Centre orbit, the orbit has its axis along the center of the rectangular area. If it is a Left orbit, the orbit 
+            is located to the left of the axis line with the axis itself as the right leg of the orbit. Conversely if it 
+            is a Right orbit, the orbit is placed to the right of the axis line with the axis line as the left leg.
+            Left and right of the axis is defined by the direction of the axis which is from FirstPoint to SecondPoint.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea.OrbitAreaAlignmentCode">
+            <summary>
+            Determines placement of the orbit relative to the axis. 
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea.Width">
+            <summary>
+            Width of the orbit, perpendicular to the axis.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea.FirstPoint">
+            <summary>
+            Start point of the axis.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IOrbitArea.SecondPoint">
+            <summary>
+             End point of the axis.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IPolyArcArea">
+            <summary>
+            A surface consisting of a circular arc and a polygonal segment. The last point of the 
+            polygonal segment is joined with the first point of the arc, and the last point of 
+            the arc is joined with the first point of the polyline.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IPolyArcArea.BeginBearingAngle">
+            <summary>
+            Clockwise angle from true North defining the left side of the conical section defining the arc.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IPolyArcArea.EndBearingAngle">
+            <summary>
+            Clockwise angle from true North defining the right side of the conical section defining the arc.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IPolyArcArea.ArcRadius">
+            <summary>
+            Distance from the origin point to the ring sector of the arc.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IPolyArcArea.BearingOriginPoint">
+            <summary>
+            Origin point of the arc ring sector.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IPolyArcArea.DefiningLine">
+            <summary>
+            The polyline describing the polygonal area joined to the arc.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IPolygonArea">
+            <summary>
+            A closed polygon defined by a line with three or more points.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.IPolygonArea.BoundingLine">
+            <summary>
+            The defining boundary line of the polygon. The line must begin and end at the same point.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ITrackArea">
+            <summary>
+            A rectangular section with its length defined by two points, and its width defined as 
+            separate widths to the left and right of the line between the two points.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ITrackArea.LeftWidth">
+            <summary>
+            Width of the rectangle left of the defining line.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ITrackArea.RightWidth">
+            <summary>
+            Width of the rectangle right of the defining line.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ITrackArea.BeginPoint">
+            <summary>
+            Start point of the defining line.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.ITrackArea.EndPoint">
+            <summary>
+            End point of the defining line.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.OrbitAreaAlignmentCodes">
+            <summary>
+            Orbit area alignment.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.OrbitAreaAlignmentCodes.Centre">
+            <summary>
+            Centre orbit. Orbits around the central line.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.OrbitAreaAlignmentCodes.Left">
+            <summary>
+            Left orbit. Orbits to the left of the reference line. 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Surfaces.OrbitAreaAlignmentCodes.Right">
+            <summary>
+            Right orbit. Orbits to the right of the reference line. 
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.IConeVolume">
+            <summary>
+             A GEOMETRIC-VOLUME whose boundary is swept by a line that has a fixed point and another that moves along the path defined by the border of a specific SURFACE.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.IGeometricVolume">
+            <summary>
+             A spesific LOCATION that is a three-dimensional bounded space
+             
+             Useful construct in desrcribing geometry of control features such as air corridors, surface to air missile coverat3e zones, and no fly zones.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.IGeometricVolume.LowerVerticalDistance">
+            <summary>
+             Lower vertical distance
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.IGeometricVolume.UpperVerticalDistance">
+            <summary>
+             Upper vertical distance
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.IConeVolume.DefiningSurface">
+            <summary>
+             is the defining cross-section for a specific CONE-VOLUME 
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.IConeVolume.VertexPoint">
+            <summary>
+             the fixed point 
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.ISphereVolume">
+            <summary>
+             A GEOMETRIC-VOLUME that has its horizontal boundaries defined by the spherical surface determined by the radius and the specified POINT.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.ISphereVolume.RadiusDimension">
+            <summary>
+             The one-dimensional linear distance representing the radius from the centre that defines the surface for a specific SPHERE-VOLUME.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.ISphereVolume.CentrePoint">
+            <summary>
+             defines the centre point
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.ISurfaceVolume">
+            <summary>
+             A GEOMETRIC-VOLUME that has its horizontal boundaries defined by a specific SURFACE.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Geo.Primitives.Volumes.ISurfaceVolume.DefiningSurface">
+            <summary>
+             defines the horizontal boundaries
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.DrawObjectDisplayParts">
+            <summary>
+            Draw object display part definition for controling what not to display
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.IDrawObjectData">
+            <summary>
+             Draw object data root.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.IDrawObjectData.AddPrimitive(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <summary>
+            Add another top-level primitive
+            </summary>
+            <param name="drawObjectPrimitive"></param>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.IDrawObjectData.GetPrimitive(System.Int32)">
+            <summary>
+             Returns primitives (and sub-primitives) referenced by local primitive id
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.IDrawObjectData.InstanceId">
+            <summary>
+             Instance id. System-wide unique identifier for this draw object data instace.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.IDrawObjectData.DrawObjectTypeId">
+            <summary>
+             Specifies draw object type this data applies to
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.IDrawObjectData.Primitives">
+            <summary>
+             Enumerable of top-level primitives
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.IDrawObjectData.Fields">
+            <summary>
+             Dictionary of fields, referenced by top-level element name
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.IDrawObjectData.ExtensibleData">
+            <summary>
+            Dictionary of user controlled extra data classes.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.IDrawObjectData.ActiveStyle">
+            <summary>
+            Get or set resolved style.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.IDrawObjectData.StyleValues">
+            <summary>
+            Get cached style values.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.IDrawObjectData.Generation">
+            <summary>
+            Indicates the generation of the draw object defined by this data.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.IExtensibleData">
+            <summary>
+            Interface for user-controlled data classes to be included in DrawObjectData
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.IExtensibleData.TypeId">
+            <summary>
+            Unique id for this extensible data type.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity">
+            <summary>
+             Legal standardIdentity values
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity.Unknown">
+            <summary>
+             Unknown standardIdentity
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity.Friend">
+            <summary>
+             Friend
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity.AssumedFriend">
+            <summary>
+             Assumed Friend
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity.Neutral">
+            <summary>
+            Neutral
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity.AssumedHostile">
+            <summary>
+            Assumed Hostile
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity.Hostile">
+            <summary>
+            Hostile
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity.Joker">
+            <summary>
+            Joker
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity.Faker">
+            <summary>
+            Faker
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity.Suspect">
+            <summary>
+            Suspect
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity.Pending">
+            <summary>
+            Pending
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.StandardIdentity.AllAffinities">
+            <summary>
+             all legal StandardIdentity values
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields">
+            <summary>
+             Contains predefined fields used by DrawObjectsNG for draw objects
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.OrderOfBattle">
+            <summary>
+             Used to specify order of battle
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.ReinforcedOrReducedModifier">
+            <summary>
+             Used to specify reinforced or reduced
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.StaffCommentsModifier">
+            <summary>
+             Used to specify staff comments
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.EvaluationRatingModifier">
+            <summary>
+             Used to specify evaluation rating
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.CombatEffectivenessModifier">
+            <summary>
+             Used to specify combat effectiveness
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.IFFSIFModifier">
+            <summary>
+             Used to specify IFF SIF
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.SpeedModifier">
+            <summary>
+             Used to specify speed
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.SpecialC2HQModifier">
+            <summary>
+             Used to specify special C2 HQ
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.SymbolModifier">
+            <summary>
+             Used to specify symbol modifier
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.Altitude">
+            <summary>
+             Used to specify altitude
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.StandardIdentity">
+            <summary>
+             Used to specify standardIdentity
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.TacticalStatus">
+            <summary>
+             Used to specify tactical status
+             </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.SymbolIndicator">
+            <summary>
+            The modifier for field A - Basic Graphic.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.EchelonModifier">
+            <summary>
+            The modifier for field B. Echelon
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.QuantityModifier">
+            <summary>
+            The modifier for field C. Quantity
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.AdditionalInformationModifier">
+            <summary>
+            The modifier for field H. Additional Information.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.AdditionalInformationModifier1">
+            <summary>
+            The modifier for field H1. Second Additional Information.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.DirectionOfMovementIndicatorModifier">
+            <summary>
+            The modifier for field Q. Direction Of Movement.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.OffsetLocationIndicatorModifier">
+            <summary>
+            The modifier for field S. Offset Location Indicator.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.UniqueDesignationModifier">
+            <summary>
+            The modifier for field T. Unique Designation.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.UniqueDesignationModifier1">
+            <summary>
+            The modifier for field T1. Second Unique Designation.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.TypeModifier">
+            <summary>
+            The modifier for field V. Type.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.DateTimeFromModifier">
+            <summary>
+            The modifier for field W. Date time (from).
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.DateTimeToModifier">
+            <summary>
+            The modifier for field W1. Date time to.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.LocationModifier">
+            <summary>
+            The modifier for field Y. Location (Latitiude and Longitude). 
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.DistanceModifier">
+            <summary>
+            The modifier for field AM. Distance.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.AzimuthModifier">
+            <summary>
+            The modifier for field AN. Azimuth.
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.MineType">
+            <summary>
+            Type of mine in a minefield
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.MinePattern">
+            <summary>
+            Spread pattern of a minefield
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.MineOpacity">
+            <summary>
+            Mine opacity of a minefield
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalDrawObjectDataFields.OffsetBearingRange">
+            <summary>
+            Holds the bearing and range offset from a default position. 
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus">
+            <summary>
+             Tactical status
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus.Unknown">
+            <summary>
+             Unknown tactical status
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus.PresentPosition">
+            <summary>
+             Present Position (P)
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus.Anticipated">
+            <summary>
+            Anticipated
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus.Planned">
+            <summary>
+            Planned
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus.Suspected">
+            <summary>
+            Planned
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus.OnOrder">
+            <summary>
+            Planned
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus.PresentFullyCapable">
+            <summary>
+            Present fully capable
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus.PresentDamaged">
+            <summary>
+            Present damaged
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus.PresentDestroyed">
+            <summary>
+            Present destroyed
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus.PresentFullToCapacity">
+            <summary>
+            Present full to capacity
+            </summary>
+        </member>
+        <member name="F:TPG.DrawObjects.Contracts.Data.TacticalDrawObjects.TacticalStatus.AllTacticalStatus">
+            <summary>
+             all legal Tactical Status values
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Validation.IDrawObjectPrimitiveValidatorFactory">
+            <summary>
+            Factory for creating IDrawObjectPrimitiveValidator
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Validation.IDrawObjectPrimitiveValidatorFactory.New(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive)">
+            <summary>
+            Creates the correct validator based on the parameter IDrawObjectPrimitive. 
+            If no validator for the primitive is known, null is returned.
+            </summary>
+            <param name="drawObjectPrimitive">The primitive to get validator for.</param>
+            <returns>The validator.</returns>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Validation.IPrimitiveValidator">
+            <summary>
+            Interface that defines the validation operator on IDrawObjectPrimitives.
+            </summary>
+        </member>
+        <member name="M:TPG.DrawObjects.Contracts.Data.Validation.IPrimitiveValidator.Validate(TPG.DrawObjects.Contracts.Data.Geo.IDrawObjectPrimitive,TPG.DrawObjects.Contracts.Data.Validation.IValidationResult,TPG.DrawObjects.Contracts.Data.Validation.IDrawObjectPrimitiveValidatorFactory,System.Boolean)">
+            <summary>
+            Validates an IDrawObjectPrimitive based on simple geo rules.
+            </summary>
+            <param name="drawObjectPrimitive">The primitive to validate.</param>
+            <param name="validationResult">Contains the result of the validation.</param>
+            <param name="drawObjectPrimitiveValidatorFactory">The factory for creating primitive validators.</param>
+            <param name="returnOnFirstError">If true the validation routine returns on the first error it encounters. If false all errors will be reported.</param>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Validation.ValidationErrorType">
+            <summary>
+            Describes the possible error that can be found during validation.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Validation.IValidationError">
+            <summary>
+            Defines an error in validation.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Validation.IValidationError.ErrorMessage">
+            <summary>
+            Describes the validation error.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Validation.IValidationError.ErrorType">
+            <summary>
+            The type of validation error.
+            </summary>
+        </member>
+        <member name="T:TPG.DrawObjects.Contracts.Data.Validation.IValidationResult">
+            <summary>
+            Container for result of a validation.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Validation.IValidationResult.ValidationOk">
+            <summary>
+            Is true if validation was successful.
+            </summary>
+        </member>
+        <member name="P:TPG.DrawObjects.Contracts.Data.Validation.IValidationResult.ValidationErrors">
+            <summary>
+            List errors found during validation.
+            </summary>
+        </member>
+    </members>
+</doc>

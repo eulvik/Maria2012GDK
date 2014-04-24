@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.GeoFramework.TrackRender</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.GeoFramework.TrackRender.TrackLabelDecorationRenderer">
+            <summary>
+            Renders lines/boxes etc for track label components
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackRender.TrackLabelLayoutManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.TrackLabelLayoutManager.#ctor(TPG.GeoFramework.TrackRender.Contracts.ITrackLabelDeclutter)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="declutterer">Accepts declutterer, used for actual label declutter/layout</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.TrackLabelLayoutManager.LayoutTrackLabels(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItems)">
+            <summary>
+            Performs label layout asynchronously
+            </summary>
+            <param name="trackDisplayItems"></param>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.TrackLabelLayoutManager.CurrentGrid">
+            <summary>
+            Last used/current declutter grid, for debugging/external access
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackRender.TrackFieldExtractor">
+            <summary>
+            Extracts field text from client track.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.TrackFieldExtractor.#ctor(TPG.GeoUnits.IGeoUnitsSetting)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="geoUnitsSetting">Geo units settings.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.TrackFieldExtractor.GetTrackFieldValue(TPG.GeoFramework.TrackCore.Contracts.IClientTrack,TPG.GeoFramework.TrackCore.Contracts.TrackLabelFieldDefinition)">
+            <summary>
+            Get track field value as string based on fieldinfo with display info
+            </summary>
+            <param name="track">Track to extract value from</param>
+            <param name="fieldDef">Field info containing field id and display info</param>
+            <returns>String representing field</returns>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackRender.TrackLabelRenderer">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.TrackDisplayItems.GetScaledSymbolData(TPG.GeoFramework.Contracts.ItemId,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackRender.HistoryRenderResources">
+            <summary>
+            Contains resources for track history rendering.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.HistoryRenderResources.#ctor(TPG.GeoFramework.Style.Core.Contracts.Style.ICompositeStyleItem)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="styleItem">Style item with resources.</param>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.HistoryRenderResources.CalcFadeColor(System.Int32)">
+            <summary>
+            Calculate faded color based on age.
+            </summary>
+            <param name="age">Age value.</param>
+            <returns>Faded color.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.HistoryRenderResources.RGBA_Mix(System.UInt32,System.UInt32,System.Int32)">
+            <summary>
+            Mix colors.
+            c1, c2 RGBA, mix = 1-255 (0 or 256 give pure c1/c2)
+            </summary>
+            <param name="c1">Color 1.</param>
+            <param name="c2">Color 2.</param>
+            <param name="mix">Mix value.</param>
+            <returns>Mixed color.</returns>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.ThinningLength">
+            <summary>
+            Get thinning length.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.MaxLength">
+            <summary>
+            Get max track length.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.MaxAge">
+            <summary>
+            Get max track age.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.FadeTime">
+            <summary>
+            Get fade time.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.MaxCount">
+            <summary>
+            Get max track count.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.Color">
+            <summary>
+            Get history color..
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.CutoffColor">
+            <summary>
+            Get history cutoff color..
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.RawColor">
+            <summary>
+            Get raw history color..
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.FadedColor">
+            <summary>
+            Get faded history color.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.RawFadedColor">
+            <summary>
+            Get raw faded history color..
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.Visible">
+            <summary>
+            Get track history visibility..
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.DrawLines">
+            <summary>
+            Get if track history lines should be drawn..
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.LineThickness">
+            <summary>
+            Get track history line thickness.
+            </summary>
+        </member>
+        <member name="P:TPG.GeoFramework.TrackRender.HistoryRenderResources.LinePen">
+            <summary>
+            Get track history pen.
+            </summary>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackRender.TrackHistoryRenderer">
+            <summary>
+            Renders track history.
+            </summary>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.TrackHistoryRenderer.GetUpdateHistoryResources(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItem,System.Collections.Generic.Dictionary{TPG.GeoFramework.Style.Core.Contracts.Style.IStyleItem,TPG.GeoFramework.TrackRender.HistoryRenderResources})">
+            <summary>
+            Get track history resources.
+            </summary>
+            <param name="tdi">Track display item to get resources for.</param>
+            <param name="resources">Existing resources.</param>
+            <returns>Track history resources.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.TrackHistoryRenderer.TrimAndReversePoints(TPG.GeoFramework.Contracts.IViewport,System.Windows.Point[],System.Int64[],System.Int32,System.Int32,System.Int32,System.Double,System.Collections.Generic.List{System.Windows.Point},System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.Windows.Point})">
+            <summary>
+            Trim and reverse points.
+            </summary>
+            <param name="vp">Viewport.</param>
+            <param name="pts">Points to trim.</param>
+            <param name="timeInfo">Time info for history.</param>
+            <param name="maxAge">Max age value.</param>
+            <param name="maxPoints">Max count value.</param>
+            <param name="maxLength">Max length value.</param>
+            <param name="thinningLength">Thinning length value.</param>
+            <param name="validPts">Valid points on return.</param>
+            <param name="ages">Valid ages on return.</param>
+            <param name="clipIndicationPoints">Clip points if history is clipped.</param>
+            <returns>True if valid points count is greater than zero, otherwise false.</returns>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.TrackHistoryRenderer.Render(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItems,System.Windows.Media.DrawingContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:TPG.GeoFramework.TrackRender.TrackHistoryRenderer.Render(TPG.GeoFramework.TrackRender.Contracts.ITrackDisplayItems,TPG.GeoFramework.TrackRender.Contracts.IWriteableBitmapWrapper)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TPG.GeoFramework.TrackRender.TrackSimpleCellRenderer">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

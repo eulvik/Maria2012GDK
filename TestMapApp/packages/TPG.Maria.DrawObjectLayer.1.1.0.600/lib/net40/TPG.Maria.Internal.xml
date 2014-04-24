@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPG.Maria.Internal</name>
+    </assembly>
+    <members>
+        <member name="T:TPG.Maria.Internal.IMariaInternalLayer">
+            <summary>
+            Internal interface for layers in Maria.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.Internal.IMariaInternalLayer.GetGeoLayer(TPG.GeoFramework.Contracts.Geo.Context.IGeoContext,TPG.GeoFramework.Contracts.Geo.Context.IGeoNavigator,TPG.GeoFramework.Contracts.Geo.Control.IGeoControlViewModel,TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack,TPG.GeoUnits.IGeoUnitsSetting)">
+            <summary>
+            Creates the geo layer used by Maria.
+            </summary>
+            <param name="geoContext">Geo context used by Maria 2012 geo layer.</param>
+            <param name="geoNavigator">Geo navigator. Go forward and back between map center position and scale.</param>
+            <param name="geoControlViewModel">Geo control view model.</param>
+            <param name="undoRedoStack">The UndoRedoStack to use in this layer.</param>
+            <param name="geoUnitsSetting">Geo units setting. Format and unit of position, speed etc.</param>
+            <returns>Maria 2012 geo layer.</returns>
+        </member>
+        <member name="M:TPG.Maria.Internal.IMariaInternalLayer.HandlePreviewKeyDown">
+            <summary>
+            Handle preview key down.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.Internal.IMariaInternalLayer.HandlePreviewKeyUp">
+            <summary>
+            Handle preview key up.
+            </summary>
+        </member>
+        <member name="M:TPG.Maria.Internal.IMariaInternalLayer.SetUndoRedoStack(TPG.GeoFramework.Contracts.Presentation.IUndoRedoStack)">
+            <summary>
+            Set the UndoRedo stack to use for this layer.
+            </summary>
+            <param name="undoRedoStack">The undo redo stack.</param>
+        </member>
+        <member name="P:TPG.Maria.Internal.IMariaInternalLayer.Tools">
+            <summary>
+            Get tools.
+            </summary>
+        </member>
+        <member name="P:TPG.Maria.Internal.IMariaInternalLayer.GeoLayerViewModel">
+            <summary>
+            Gives access to the already created geo layer. Will return null if layer still has not been 
+            created.
+            </summary>
+        </member>
+    </members>
+</doc>

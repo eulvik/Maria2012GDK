@@ -37,6 +37,8 @@ namespace TestMapApp
             //    new MariaService("DrawObjectService") { WaitForConnection = true };
             //DrawObjectLayer.ActiveDrawObjectServiceStore = "test";
             
+            DrawObjectLayer.ExtendedDrawObjectLayer.SetSymbolProvider("WaypointSymbology", new BitmapFileSymbolProvider());
+
             DrawObjectLayer.GeoContext.ViewportChanged += ViewportChanged;
 
             if (!Directory.Exists("Data"))
@@ -56,6 +58,27 @@ namespace TestMapApp
             DrawObjectLayer.ExtendedDrawObjectLayer.ActiveCreationWorkflowCompleted += CreateionWorkflowCompleted;
             StyleXml = DrawObjectLayer.StyleXml;
 
+        }
+
+        private DelegateCommand _createWaypointCommand;
+        public ICommand CreateWaypointCommand
+        {
+            get
+            {
+                if (_createWaypointCommand == null)
+                    _createWaypointCommand =
+                        new DelegateCommand(CreateWaypoint);
+
+                return _createWaypointCommand;
+            }
+        }
+
+        private void CreateWaypoint(object obj)
+        {
+            ISimpleDrawObject symbol = DrawObjectLayer.DrawObjectFactory.CreateSymbolInView(DrawObjectLayer.GeoContext.Viewport.Center);
+            symbol.GenericDataFields.SymbolCode = "waypoint.jpg";
+            symbol.GenericDataFields.SymbolType = "WaypointSymbology";
+            DrawObjectLayer.UpdateStore(symbol);
         }
 
         private void CreateionWorkflowCompleted(object sender, ActiveWorkflowCompletedEventArgs args)

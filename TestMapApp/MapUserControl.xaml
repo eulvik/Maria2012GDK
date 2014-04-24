@@ -65,7 +65,8 @@
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left">
             <ListView ItemsSource="{Binding DrawObjectViewModel.DrawObjectsQueried}"/>
             <Button Command="{Binding DrawObjectViewModel.PerformQueryCommand}" Content="Query"></Button>
-            <ComboBox ItemsSource="{Binding MapViewModel.ActiveMapNames}" SelectedItem="{Binding MapViewModel.ActiveMapName}"></ComboBox>
+            <ComboBox ItemsSource="{Binding MapViewModel.ActiveMapNames}" SelectedItem="{Binding MapViewModel.ActiveMapName}"/>
+            <Button Content="Create waypnt" Command="{Binding DrawObjectViewModel.CreateWaypointCommand}"/>
         </StackPanel>
         <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
             <ToggleButton Content="Zoom Tool" ToolTip="Zoom Tool" Height="30" Name="ZoomTool" IsChecked="{Binding IsZoomToolActive}" />

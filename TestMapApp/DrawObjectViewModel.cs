@@ -4,10 +4,10 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
+using System.Xml.Linq;
 using TPG.DrawObjects.Contracts.DrawObjectState;
 using TPG.DrawObjects.Contracts.GenericObjects;
 using TPG.DrawObjects.Contracts.SimpleDrawObjectAPI;
-using TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives;
 using TPG.GeoFramework.Core;
 using TPG.GeoFramework.Style.Core.Contracts.Condition;
 using TPG.GeoFramework.Style.Core.Contracts.Sorting;
@@ -54,6 +54,8 @@ namespace TestMapApp
                 }
             }
 
+            var xdoc = XDocument.Load("DrawObjectStyle.xml");
+            DrawObjectLayer.StyleXml = xdoc.ToString();
             DrawObjectLayer.ExtendedDrawObjectLayer.LayerChanged += OnLayerChanged;
             DrawObjectLayer.ExtendedDrawObjectLayer.ActiveCreationWorkflowCompleted += CreateionWorkflowCompleted;
             StyleXml = DrawObjectLayer.StyleXml;
@@ -78,6 +80,7 @@ namespace TestMapApp
             ISimpleDrawObject symbol = DrawObjectLayer.DrawObjectFactory.CreateSymbolInView(DrawObjectLayer.GeoContext.Viewport.Center);
             symbol.GenericDataFields.SymbolCode = "waypoint.jpg";
             symbol.GenericDataFields.SymbolType = "WaypointSymbology";
+            symbol.GenericDataFields.Text = "Waypoint to somewhere";
             DrawObjectLayer.UpdateStore(symbol);
         }
 

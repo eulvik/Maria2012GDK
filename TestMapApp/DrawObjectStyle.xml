@@ -233,6 +233,12 @@
           <valueitem name="XOffset" value="0"/>
           <valueitem name="YOffset" value="0"/>
         </compositeitem>
+        <compositeitem name="LabelText2">
+          <valueitem name="Fields" value="Info1,Info2"/>
+          <valueitem name="Position" value="BottomRight"/>
+          <valueitem name="XOffset" value="0"/>
+          <valueitem name="YOffset" value="0"/>
+        </compositeitem>
         <valueitem name="GenericLabel" value="true"/>
       </compositeitem>
     </style>

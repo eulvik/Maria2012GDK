@@ -81,6 +81,8 @@ namespace TestMapApp
             symbol.GenericDataFields.SymbolCode = "waypoint.jpg";
             symbol.GenericDataFields.SymbolType = "WaypointSymbology";
             symbol.GenericDataFields.Text = "Waypoint to somewhere";
+            symbol.GenericDataFields.ExtraFields["Info1"] = "Some info 1";
+            symbol.GenericDataFields.ExtraFields["Info2"] = "Some info 2";
             DrawObjectLayer.UpdateStore(symbol);
         }
 

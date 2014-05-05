@@ -6,6 +6,7 @@ using System.Windows.Threading;
 using TestMapApp.Annotations;
 using TPG.GeoFramework.Contracts.Geo.Tool;
 using TPG.Maria.Contracts;
+using TPG.Maria.CustomLayer;
 using TPG.Maria.DrawObjectContracts;
 using TPG.Maria.DrawObjectLayer;
 using TPG.Maria.GridContracts;
@@ -33,6 +34,8 @@ namespace TestMapApp
         public GridLayerViewModel GridLayerViewModel { get; set; }
         private readonly IMariaGridLayer _gridLayer;
 
+        private readonly CustomLayer<CustomViewModel> _customLayer;
+        
         private DispatcherTimer _timer;
         public MariaWindowViewModel()
         {
@@ -54,6 +57,9 @@ namespace TestMapApp
             _gridLayer = new GridLayer();
             GridLayerViewModel = new GridLayerViewModel(_gridLayer);
             Layers.Add(_gridLayer);
+
+            _customLayer = new CustomLayer<CustomViewModel>(new CustomLayerViewModelFactory());
+            Layers.Add(_customLayer);
 
             _timer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(500)};
             _timer.Tick += IsMapWorking;

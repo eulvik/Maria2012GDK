@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System.Globalization;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using TPG.GeoFramework.Contracts.Geo.Context;
 using TPG.GeoFramework.Contracts.Geo.Layer;
@@ -19,18 +21,18 @@ namespace TestMapApp
             Children.Add(_visualHost);
         }
 
-        public IGeoContext GeoContext { get; set; }
-
         public void Generate()
         {
-            DrawingContext dc = _drawingVisual.RenderOpen();
-            Render(dc);
-            dc.Close();
+
         }
 
-        private void Render(DrawingContext dc)
+        public void Render(IGeoContext geoContext)
         {
-            //Do you rendering stuff here.
+            DrawingContext dc = _drawingVisual.RenderOpen();
+            dc.DrawLine(new Pen(new SolidColorBrush(Colors.HotPink), 5), new Point(0, 0), new Point(geoContext.Viewport.Width, geoContext.Viewport.Height));
+            dc.DrawText(new FormattedText("FFI Layer", CultureInfo.InvariantCulture, FlowDirection.LeftToRight, new Typeface("Arial"), 22, new SolidColorBrush(Colors.HotPink)), 
+                geoContext.Viewport.CenterPoint);
+            dc.Close();
         }
     }
 }

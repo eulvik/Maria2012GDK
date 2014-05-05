@@ -11,7 +11,6 @@ namespace TestMapApp
         {
             GeoLayerViewFactory = new CustomViewFactory();
             _view = (CustomView)GeoLayerViewFactory.New();
-            _view.GeoContext = GeoContext;
         }
 
         public override void HandleInputEvent(GeoInputEventArgs inputEventArgs)
@@ -21,7 +20,7 @@ namespace TestMapApp
 
         public override void Update()
         {
-            _view.Generate();
+            _view.Render(GeoContext);
         }
     }
 }

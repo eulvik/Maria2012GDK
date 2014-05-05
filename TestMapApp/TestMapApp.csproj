@@ -180,6 +180,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BitmapFileSymbolProvider.cs" />
+    <Compile Include="CustomLayerViewModelFactory.cs" />
     <Compile Include="CustomView.cs" />
     <Compile Include="CustomViewFactory.cs" />
     <Compile Include="CustomViewModel.cs" />

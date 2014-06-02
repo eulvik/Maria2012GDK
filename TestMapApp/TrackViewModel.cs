@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
@@ -100,6 +101,30 @@ namespace TestMapApp
         private void ApplyStyle(object obj)
         {
             TrackLayer.StyleXml = StyleXml;
+        }
+
+        private DelegateCommand _addTrackCommand;
+        public ICommand AddTrackCommand
+        {
+            get { return _addTrackCommand ?? (new DelegateCommand(AddTrack)); }
+        }
+
+        private void AddTrack(object obj)
+        {
+            var list = TrackLayer.ActiveTrackList;
+            var strId = Guid.NewGuid().ToString();
+            var itemId = new ItemId(list, strId);
+            const double speed = 0.0;
+            const double course = 0.0;
+            var pos = TrackLayer.GeoContext.CenterPosition;
+
+            var trackData = new TrackData(itemId, pos, course, speed) { ObservationTime = DateTime.UtcNow };
+
+            trackData.Fields["name"] = strId;
+            trackData.Fields["symbol.2525code"] = "SNGPIUT---*M**X";
+
+            TrackLayer.SetTrackData(trackData);
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -33,6 +33,16 @@ namespace TestMapApp
             return symbol;
         }
 
+        public string GetProviderType()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> GetAvailableSymbols()
+        {
+            throw new NotImplementedException();
+        }
+
         public double BaseSymbolScaling { get { return 1.0; } }
     }
 }

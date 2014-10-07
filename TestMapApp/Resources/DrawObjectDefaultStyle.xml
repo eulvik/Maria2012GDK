@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<styleset name="Default">
+  <stylepropertymap>
+    <mapitem name="Line.Width" target="LineWidth"/>
+    <mapitem name="Line.Color" target="LineColor"/>
+    <mapitem name="Line.DashStyle" target="LineDashStyle"/>
+    <mapitem name="Fill.Fill" target="Fill"/>
+    <mapitem name="Fill.ForegroundColor" target="FillForegroundColor"/>
+    <mapitem name="Fill.BackgroundColor" target="FillBackgroundColor"/>
+    <mapitem name="Fill.Style" target="FillStyle"/>
+    <mapitem name="Buffer.ShowBuffer" target="ShowBuffer"/>
+    <mapitem name="Buffer.Width" target="BufferLineWidth"/>
+    <mapitem name="Buffer.Color" target="BufferLineColor"/>
+    <mapitem name="Buffer.DashStyle" target="BufferLineDashStyle"/>
+  </stylepropertymap>
+
+  <stylecategory name="DrawObjects">
+    <style>
+      <compositeitem name="Line">
+        <valueitem name="Width" value="[LineWidth]"/>
+        <valueitem name="Color" value="[LineColor]"/>
+        <valueitem name="DashStyle" value="[LineDashStyle]"/>
+      </compositeitem>
+
+      <compositeitem name="Fill">
+        <valueitem name="Fill" value="[Fill]"/>
+        <valueitem name="ForegroundColor" value="[FillForegroundColor]"/>
+        <valueitem name="BackgroundColor" value="[FillBackgroundColor]"/>
+        <valueitem name="Style" value="[FillStyle]"/>
+      </compositeitem>
+
+      <compositeitem name="Buffer">
+        <valueitem name="ShowBuffer" value="[ShowBuffer]"/>
+        <valueitem name="Width" value="[BufferLineWidth]"/>
+        <valueitem name="Color" value="[BufferLineColor]"/>
+        <valueitem name="DashStyle" value="[BufferLineDashStyle]"/>
+      </compositeitem>
+    </style>
+  </stylecategory>
+</styleset>

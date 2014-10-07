@@ -214,7 +214,7 @@
 
     <!-- This create style for our generic symbol -->
     <style>
-      <fieldcondition field="SymbolType" op="Eq" value="WaypointSymbology"/>
+      <fieldcondition field="Warfighting" op="Eq" value="true"/>
       <compositeitem name="Label">
         <valueitem name="Draw" value="[DrawLabel]"/>
         <valueitem name="DrawMovementIndicator" value="true"/>

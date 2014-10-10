@@ -71,6 +71,7 @@ namespace TestMapApp
             ShowProgress = (MapViewModel.MapLayer.TileCacheManager.TileDataReader.WorkQueueSize > 0);
         }
 
+
         #region Tools
 
         private ObservableCollection<IGeoTool> _tools;

@@ -1,14 +1,29 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using TestMapApp.Annotations;
 using TPG.GeoFramework.Map.Core.Contracts;
 using TPG.GeoFramework.MapServiceInterfaces;
 using TPG.GeoUnits;
 using TPG.Maria.MapContracts;
+using TPG.Maria.MapLayer;
 
 namespace TestMapApp
 {
-    public class MapViewModel
+    public class MapViewModel : INotifyPropertyChanged
     {
+        private IMariaMapLayer _miniMapLayer;
         public IMariaMapLayer MapLayer { get; private set; }
+
+        public IMariaMapLayer MiniMapLayer
+        {
+            get { return _miniMapLayer; }
+            set
+            {
+                _miniMapLayer = value;
+                OnPropertyChanged("MiniMapLayer");
+            }
+        }
 
         public ObservableCollection<string> ActiveMapNames { get; set; }
 
@@ -40,6 +55,8 @@ namespace TestMapApp
 
             MapLayer = mapLayer;
             MapLayer.LayerInitialized += OnMapLayerInitialized;
+
+            MiniMapLayer = new MapLayer(MapLayer.MapCatalogServiceClient);
         }
 
         private void OnMapLayerInitialized()
@@ -47,7 +64,6 @@ namespace TestMapApp
             Scale = 100000;
             CenterPosition = new GeoPos(60, 10);
 
-            MapLayer.ActiveMapName = "NorgeRaster";
             MapLayer.ExtendedMapLayer.FetchVectorLabels = false;
             MapLayer.ExtendedMapLayer.MapRenderSimple = false;
             UpdateData();
@@ -55,6 +71,8 @@ namespace TestMapApp
             ActiveMapNames.Clear();
             foreach (string activeMapName in MapLayer.ActiveMapNames)
                 ActiveMapNames.Add(activeMapName);
+            MapLayer.ActiveMapName = ActiveMapNames.First();
+            MiniMapLayer.ActiveMapName = ActiveMapNames.First();
         }
 
         
@@ -77,6 +95,15 @@ namespace TestMapApp
             LayerDatas.Clear();
             foreach (IRasterLayerData rasterLayerData in MapLayer.MapDataLayers)
                 LayerDatas.Add(rasterLayerData);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

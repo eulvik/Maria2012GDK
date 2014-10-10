@@ -38,6 +38,8 @@
             IsPanNavigationVisible="True" 
             IsScaleBarVisible="True" 
             IsRulerVisible="True"
+            IsMiniMapVisible="True"
+            MiniMapLayer="{Binding MapViewModel.MiniMapLayer}"
             Layers="{Binding Layers}"
             CenterPosition="{Binding MapViewModel.CenterPosition}"
             CenterScale="{Binding MapViewModel.Scale}"

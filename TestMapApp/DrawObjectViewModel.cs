@@ -1,339 +1,400 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 using System.Windows.Input;
-using System.Xml.Linq;
-using TPG.DrawObjects.Contracts.DrawObjectState;
+using System.Windows.Media;
+using MariaGeoFencing.Utilities;
 using TPG.DrawObjects.Contracts.GenericObjects;
 using TPG.DrawObjects.Contracts.SimpleDrawObjectAPI;
+using TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Primitives;
+using TPG.DrawObjects.Contracts.SimpleDrawObjectAPI.Types;
 using TPG.GeoFramework.Core;
-using TPG.GeoFramework.Style.Core.Contracts.Condition;
-using TPG.GeoFramework.Style.Core.Contracts.Sorting;
-using TPG.GeoFramework.StyleCore.Condition;
+using TPG.GeoUnits;
+using TPG.Maria.Common;
+using TPG.Maria.Contracts;
 using TPG.Maria.DrawObjectContracts;
 
-namespace TestMapApp
+namespace MariaGeoFencing.ViewModels
 {
-    public class DrawObjectViewModel
+    public class DrawObjectViewModel : ViewModelBase
     {
-        public IMariaDrawObjectLayer DrawObjectLayer { get; private set; }
-        public ObservableCollection<string> DrawObjectsInView { get; private set; }
-        public ObservableCollection<string> DrawObjectsQueried { get; private set; }
+        private readonly MariaWindowViewModel _parent;
+        private readonly IMariaDrawObjectLayer _drawObjectLayer;
+        private ICreationWorkflow _activeCreationWorkflow;
+        private ulong _objCnt = 0;
 
-        public DrawObjectViewModel(IMariaDrawObjectLayer drawObjectLayer)
+        public DrawObjectViewModel(IMariaDrawObjectLayer drawObjectLayer, MariaWindowViewModel parent)
         {
-            DrawObjectsInView = new ObservableCollection<string>();
-            DrawObjectLayer = drawObjectLayer;
-            DrawObjectsQueried = new ObservableCollection<string>();
+            SingleStore = false;
+            _parent = parent;
 
-            DrawObjectLayer.LayerInitialized += OnLayerInitialized;
+            _drawObjectLayer = drawObjectLayer;
+            _drawObjectLayer.LayerInitialized += DrawObjectLayerOnLayerInitialized;
+            _drawObjectLayer.ServiceConnected += OnDrawObjectLayerServiceConnected;
+
+            _drawObjectLayer.ExtendedDrawObjectLayer.ActiveCreationWorkflowCompleted += OnExtendedDrawObjectLayerActiveCreationWorkflowCompleted;
+        }
+        private void DrawObjectLayerOnLayerInitialized()
+        {
+            _drawObjectLayer.DefaultStyleXml = "<styleset><stylecategory name=\"DrawObjects\"/></styleset>";
+
+            DrawObjectServices = new ObservableCollection<IMariaService>
+            {
+                new MariaService(GeoFenceDefs.DefaultGeoshapeServiceName)
+            };
+
+            _parent.DisplayFilters.Add(_drawObjectLayer.DisplayFilter);
+
+            if (_drawObjectLayer != null && _drawObjectLayer.GenericCreationWorkflows != null && _drawObjectLayer.GenericCreationWorkflows.Count > 0)
+            {
+                foreach (var gwf in _drawObjectLayer.GenericCreationWorkflows.Reverse())
+                    _drawObjectLayer.CreationWorkflows.Insert(0, gwf);
+            }
         }
 
-        private void OnLayerInitialized()
+        private void OnDrawObjectLayerServiceConnected(object sender, MariaServiceEventArgs args)
         {
-            //DrawObjectLayer.ActiveDrawObjectService =
-            //    new MariaService("DrawObjectService") { WaitForConnection = true };
-            //DrawObjectLayer.ActiveDrawObjectServiceStore = "test";
-            
-            DrawObjectLayer.ExtendedDrawObjectLayer.SetSymbolProvider("WaypointSymbology", new BitmapFileSymbolProvider());
-
-            DrawObjectLayer.GeoContext.ViewportChanged += ViewportChanged;
-
-            if (!Directory.Exists("Data"))
-                Directory.CreateDirectory("Data");
-
-            var files = Directory.GetFiles("Data");
-            foreach (var file in files)
+            if (DrawObjectServices.Count > 0)
             {
-                if (Path.GetExtension(file).Contains("xml"))
+                var activeName = _parent.StoreId;
+                ActiveDrawObjectService = DrawObjectServices[0];
+
+                if (SingleStore)
                 {
-                    string xml = File.ReadAllText(file);
-                    DrawObjectLayer.UpdateStore(xml);
+                    DrawObjectServiceStores = new ObservableCollection<string> { activeName };
                 }
-            }
-
-            var xdoc = XDocument.Load("DrawObjectStyle.xml");
-            DrawObjectLayer.StyleXml = xdoc.ToString();
-            DrawObjectLayer.ExtendedDrawObjectLayer.LayerChanged += OnLayerChanged;
-            DrawObjectLayer.ExtendedDrawObjectLayer.ActiveCreationWorkflowCompleted += CreateionWorkflowCompleted;
-            StyleXml = DrawObjectLayer.StyleXml;
-
-        }
-
-        private DelegateCommand _createWaypointCommand;
-        public ICommand CreateWaypointCommand
-        {
-            get
-            {
-                if (_createWaypointCommand == null)
-                    _createWaypointCommand =
-                        new DelegateCommand(CreateWaypoint);
-
-                return _createWaypointCommand;
-            }
-        }
-
-        private void CreateWaypoint(object obj)
-        {
-            ISimpleDrawObject symbol = DrawObjectLayer.DrawObjectFactory.CreateSymbolInView(DrawObjectLayer.GeoContext.Viewport.Center);
-            symbol.GenericDataFields.SymbolCode = "waypoint.jpg";
-            symbol.GenericDataFields.SymbolType = "WaypointSymbology";
-            symbol.GenericDataFields.Text = "Waypoint to somewhere";
-            symbol.GenericDataFields.ExtraFields["Info1"] = "Some info 1";
-            symbol.GenericDataFields.ExtraFields["Info2"] = "Some info 2";
-            DrawObjectLayer.UpdateStore(symbol);
-        }
-
-        private void CreateionWorkflowCompleted(object sender, ActiveWorkflowCompletedEventArgs args)
-        {
-
-            if (DrawObjectLayer.ExtendedDrawObjectLayer.SelectedDrawObjectIds.Any())
-            {
-                try
+                else
                 {
-                    string selectedId = DrawObjectLayer.ExtendedDrawObjectLayer.SelectedDrawObjectIds.First();
-                    ISimpleDrawObject simpleDrawObject = DrawObjectLayer.GetDrawObjectFromStore(selectedId);
-                    simpleDrawObject.DataFields.ExtraFields.Add("DrawingLayerId", Guid.NewGuid().ToString());
-                    simpleDrawObject.DataFields.ExtraFields.Add("Visible", "true");
-                    DrawObjectLayer.UpdateStore(simpleDrawObject);
+                    DrawObjectServiceStores =
+                        new ObservableCollection<string>(_drawObjectLayer.GetDrawObjectServiceStores());
+
+
+                    if (!DrawObjectServiceStores.Contains(activeName))
+                    {
+                        DrawObjectServiceStores.Add(activeName);
+                    }
                 }
-                catch (Exception ex)
-                {
 
-                }
-            }
-
-        }
-
-        private void OnLayerChanged(object sender, DataStoreChangedEventArgs args)
-        {
-            if (args.DataStoreChangedAction == DataStoreChangeAction.Delete)
-                DeleteDrawObjects(args.AffectedDrawObjects);
-            else if (args.DataStoreChangedAction == DataStoreChangeAction.Update)
-            {
-                UpdateDrawObjects(args.AffectedDrawObjects);
+                ActiveDrawObjectServiceStore = activeName;
             }
         }
 
-        private void UpdateDrawObjects(IEnumerable<string> affectedDrawObjects)
-        {
-            foreach (var affectedDrawObject in affectedDrawObjects)
-            {
-                string file = CreateDrawObjectFileString(affectedDrawObject);
-                if (File.Exists(file))
-                    File.Delete(file);
-                File.WriteAllText(file, DrawObjectLayer.GetDrawObjectXMLFromStore(affectedDrawObject));
-            }
-        }
+        #region Connection properties
+        public bool SingleStore { get; set; }
 
-        private void DeleteDrawObjects(IEnumerable<string> affectedDrawObjects)
+        public ObservableCollection<string> DrawObjectServiceStores
         {
-            foreach (var affectedDrawObject in affectedDrawObjects)
-            {
-                string file = CreateDrawObjectFileString(affectedDrawObject);
-                if(File.Exists(file))
-                    File.Delete(file);
-            }
-        }
-
-        private string CreateDrawObjectFileString(string instanceId)
-        {
-            return string.Format("Data/{0}.xml", instanceId);
-        }
-
-        private void ViewportChanged(object sender, EventArgs args)
-        {
-            
-            DrawObjectsInView.Clear();
-            List<string> inView = DrawObjectLayer.ExtendedDrawObjectLayer.GetVisibleObjectIds();
-            foreach (var idInView in inView)
-            {
-                DrawObjectsInView.Add(idInView);
-            }
-        }
-
-        private string _selectDrawObject;
-        public string SelectDrawObject
-        {
-            get { return _selectDrawObject; }
+            get { return _drawObjectLayer.DrawObjectServiceStores; }
             set
             {
-                _selectDrawObject = value;
-                DrawObjectLayer.ExtendedDrawObjectLayer.Select(_selectDrawObject, true);
-                DrawObjectLayer.ExtendedDrawObjectLayer.EnsureWithinMapView(_selectDrawObject);
+                _drawObjectLayer.DrawObjectServiceStores = value;
+                NotifyPropertyChanged(() => DrawObjectServiceStores);
             }
         }
-
-        private DelegateCommand _creationWorkflowActivatedCommand;
-        public ICommand CreationWorkflowActivatedCommand
+        public ObservableCollection<IMariaService> DrawObjectServices
         {
-            get
+            get { return _drawObjectLayer.DrawObjectServices; }
+            set
             {
-                if (_creationWorkflowActivatedCommand == null)
-                    _creationWorkflowActivatedCommand = 
-                        new DelegateCommand(ActivateDelegateCommand);
+                _drawObjectLayer.DrawObjectServices = value;
+                NotifyPropertyChanged(() => DrawObjectServices);
+            }
+        }
+        public string ActiveDrawObjectServiceStore
+        {
+            get { return _drawObjectLayer.ActiveDrawObjectServiceStore; }
+            set
+            {
+                _drawObjectLayer.ActiveDrawObjectServiceStore = value;
+                NotifyPropertyChanged(() => ActiveDrawObjectServiceStore);
+            }
+        }
+        public IMariaService ActiveDrawObjectService
+        {
+            get { return _drawObjectLayer.ActiveDrawObjectService; }
+            set
+            {
+                _drawObjectLayer.ActiveDrawObjectService = value;
+                NotifyPropertyChanged(() => ActiveDrawObjectService);
+            }
+        }
+        #endregion Connection properties
+        public ICreationWorkflow ActiveCreationWorkflow
+        {
+            get { return _activeCreationWorkflow; }
+            set
+            {
+                if (_activeCreationWorkflow != null)
+                    _activeCreationWorkflow.IsActive = false;
 
-                return _creationWorkflowActivatedCommand;
+                _activeCreationWorkflow = value;
+
+                if (_activeCreationWorkflow != null)
+                {
+                    _activeCreationWorkflow.IsActive = true;
+                    _parent.Cursor = Cursors.Cross;
+                }
+
+                NotifyPropertyChanged(() => ActiveCreationWorkflow);
             }
         }
 
-        private void ActivateDelegateCommand(object obj)
+        public ICommand AddObjects {get { return new DelegateCommand(x => AddMiscObjects()); }}
+        public ICommand EditSelected { get { return _drawObjectLayer.EditPointsCommand; } }
+        public ICommand RemoveObject { get { return _drawObjectLayer.DeleteDrawObjectCommand; } }
+       
+
+        #region DrawObjectStoreDisplay
+
+        public ObservableCollection<IMariaLayer> DrawObjectStoreDisplay
         {
-            var creationWorkflow = obj as ICreationWorkflow;
-            if (creationWorkflow == null)
+            get { return new ObservableCollection<IMariaLayer>(); }
+        }
+        #endregion DrawObjectStoreDisplay
+ 
+        private void OnExtendedDrawObjectLayerActiveCreationWorkflowCompleted(object sender, ActiveWorkflowCompletedEventArgs args)
+        {
+            ActiveCreationWorkflow = null;
+            _parent.Cursor = null;
+
+            if (_drawObjectLayer.ExtendedDrawObjectLayer.SelectedDrawObjectIds.Count() != 1)
                 return;
 
-            DrawObjectLayer.ExtendedDrawObjectLayer.
-                ActivateCreationWorkflow(creationWorkflow.ObjectTypeId);
+            var simpleObject = _drawObjectLayer.GetDrawObjectFromStore(_drawObjectLayer.ExtendedDrawObjectLayer.SelectedDrawObjectIds.First());
+            if (simpleObject.GenericDataFields == null)
+                return;
+
+            simpleObject.GenericDataFields.FontForegroundColor = Colors.Black;
+            simpleObject.GenericDataFields.FontName = "Arial";
+            simpleObject.GenericDataFields.FontSize = 10;
+            simpleObject.GenericDataFields.FillForegroundColor = Colors.Transparent;
+
+            _drawObjectLayer.UpdateStore(simpleObject);
         }
 
-        private string _currentSite;
-        public string CurrentSite
+        #region Object helpers
+        
+        private void AddMiscObjects()
         {
-            get { return _currentSite; }
-            set
+            switch (_objCnt++%6)
             {
-                _currentSite = value;
-                ICondition filter = new FieldCondition("Layer", _currentSite, FieldOperator.Eq);
-                DrawObjectLayer.DisplayFilter.Filter = filter;
+                case 0:
+                    AddPolyLine();
+                    break;
+                case 1:
+                    AddRecttangle();
+                    break;
+                case 2:
+                    AddRangeCircle();
+                    break;
+                case 3:
+                    AddEllipse();
+                    break;
+                case 4:
+                    AddFanArea();
+                    break;
+                case 5:
+                    AddText();
+                    break;
             }
         }
-
-
-        private DelegateCommand _applyNewStyleCommand;
-        public ICommand ApplyNewStyleCommand
+        
+        public void DoCleanObjects()
         {
-            get
+            _drawObjectLayer.ExtendedDrawObjectLayer.DeleteAll();
+        }
+
+        private void AddText()
+        {
+            var text = _drawObjectLayer.DrawObjectFactory.CreateText("Text Object");
+
+            text.Points = new[] { RandomProvider.GetRandomGeoPoint(_drawObjectLayer.GeoContext.Viewport.GeoRect)};
+
+            text.DataFields.AlphaFactor = RandomProvider.GetRandomDouble(0.5, 1.0);
+            text.DataFields.Name = "TextObject-" + DateTime.UtcNow.ToString(GeoFenceDefs.DateTimeFormat);
+            text.DataFields.DrawDepth = 4;
+            text.DataFields.RotationAngle = 0;
+            text.DataFields.ExtraFields.Add("MyTag", "MyTagValue");
+
+            text.GenericDataFields.LineColor = Colors.Red;
+            text.GenericDataFields.FillBackgroundColor = Colors.BlueViolet;
+            text.GenericDataFields.FillForegroundColor = Colors.Yellow;
+            text.GenericDataFields.FontForegroundColor = Colors.Black;
+            text.GenericDataFields.FontBackgroundColor = Colors.Orange;
+
+            text.GenericDataFields.LineWidth = 4;
+            text.GenericDataFields.LineDashStyle = new List<double>(); // DashStyles.Solid
+
+            _drawObjectLayer.UpdateStore(text);
+        }
+        private void AddPolyLine()
+        {
+            var rect = _drawObjectLayer.GeoContext.Viewport.GeoRect;
+            ISimpleDrawObject obj = _drawObjectLayer.DrawObjectFactory.CreatePolyLine();
+            obj.Points = new[]
+                             {
+                                 RandomProvider.GetRandomGeoPoint(rect),
+                                 RandomProvider.GetRandomGeoPoint(rect),
+                                 RandomProvider.GetRandomGeoPoint(rect)
+                             };
+
+            obj.DataFields.Name = "PolyLineObject-" + DateTime.UtcNow.ToString(GeoFenceDefs.DateTimeFormat);
+            obj.DataFields.DrawDepth = 4;
+            obj.DataFields.RotationAngle = 0;
+            obj.DataFields.ExtraFields.Add("MyTag", "MyTagValue");
+
+            obj.GenericDataFields.LineColor = Colors.Brown;
+            obj.GenericDataFields.LineWidth = 4;
+            obj.GenericDataFields.LineDashStyle = null; // DashStyles.Solid
+            _drawObjectLayer.UpdateStore(obj);
+        }
+        private void AddEllipse()
+        {
+            var rect = _drawObjectLayer.GeoContext.Viewport.GeoRect;
+            rect.Center = RandomProvider.GetRandomPosition(rect);
+            rect.InflateRelative(0.1);
+
+            var obj = _drawObjectLayer.DrawObjectFactory.CreateEllipse();
+
+            if (obj.GetType().IsSubclassOf(typeof(IEllipse)))
+                return;
+
+            var ellipse = (IEllipse)obj;
+            ellipse.CentrePoint = RandomProvider.GetRandomGeoPoint(rect);
+            ellipse.FirstConjugateDiameterPoint = RandomProvider.GetRandomGeoPoint(rect);
+            ellipse.SecondConjugateDiameterPoint = RandomProvider.GetRandomGeoPoint(rect);
+
+            obj.DataFields.Name = "EllipsisObject-" + DateTime.UtcNow.ToString(GeoFenceDefs.DateTimeFormat);
+            obj.DataFields.DrawDepth = 4;
+            obj.DataFields.RotationAngle = 0;
+            obj.DataFields.ExtraFields.Add("MyTag", "MyTagValue");
+
+            obj.GenericDataFields.LineColor = Colors.DarkOrange;
+            obj.GenericDataFields.LineWidth = 4;
+            obj.GenericDataFields.LineDashStyle = new List<double>();
+            obj.GenericDataFields.Fill = true;
+            obj.GenericDataFields.FillStyle = FillStyle.Cross;
+            obj.GenericDataFields.FillBackgroundColor = Color.FromArgb(150, 255, 215, 0); //Colors.Gold;
+            obj.GenericDataFields.FillForegroundColor = Colors.Yellow;
+
+            _drawObjectLayer.UpdateStore(obj);
+        }
+        private void AddFanArea()
+        {
+            var rect = _drawObjectLayer.GeoContext.Viewport.GeoRect;
+            rect.InflateRelative(0.9);
+            rect.Center = RandomProvider.GetRandomPosition(rect);
+            rect.InflateRelative(0.3);
+
+            var obj = _drawObjectLayer.DrawObjectFactory.CreateFanArea();
+
+            if (obj.GetType().IsSubclassOf(typeof(IFanArea)))
+                return;
+
+            var ptCenter = RandomProvider.GetRandomPosition(rect);
+            var ptOuter =  RandomProvider.GetRandomPosition(rect);
+            var br = Earth.BearingRange(ptCenter, ptOuter);
+
+            var fan = (IFanArea)obj;
+            fan.VertexPoint = new GeoPoint(){Latitude = ptCenter.Lat, Longitude = ptCenter.Lon};
+
+            fan.MaximumRange = br.Range; 
+            fan.MinimumRange = br.Range/(RandomProvider.GetRandomInt(2,8));
+            fan.OrientationAngle = (float) br.Bearing;
+            fan.SectorSizeAngle = (float)RandomProvider.GetRandomDouble(45.0, 135);
+
+            obj.DataFields.Name = "Fan Object-" + DateTime.UtcNow.ToString(GeoFenceDefs.DateTimeFormat);
+            obj.DataFields.DrawDepth = 4;
+            obj.DataFields.RotationAngle = 0;
+            obj.DataFields.ExtraFields.Add("MyTag", "MyTagValue");
+
+            obj.GenericDataFields.LineColor = Colors.Green;
+            obj.GenericDataFields.LineWidth = 4;
+            obj.GenericDataFields.LineDashStyle = new List<double>();
+            obj.GenericDataFields.Fill = true;
+            obj.GenericDataFields.FillStyle = FillStyle.Solid;
+            obj.GenericDataFields.FillForegroundColor = Colors.LawnGreen;
+
+            _drawObjectLayer.UpdateStore(obj);
+        }
+        private void AddRecttangle()
+        {
+            var rect = _drawObjectLayer.GeoContext.Viewport.GeoRect;
+            var obj = _drawObjectLayer.DrawObjectFactory.CreatePolyArea();
+
+            var pt1 = RandomProvider.GetRandomGeoPoint(rect);
+            var pt2 = RandomProvider.GetRandomGeoPoint(rect);
+            obj.Points = new[]
             {
-                if (_applyNewStyleCommand == null)
-                    _applyNewStyleCommand = new DelegateCommand(ApplyStyle);
+                pt1, new GeoPoint {Latitude = pt2.Latitude, Longitude = pt1.Longitude},
+                pt2, new GeoPoint {Latitude = pt1.Latitude, Longitude = pt2.Longitude}
+            };
 
-                return _applyNewStyleCommand;
-            }
+            obj.DataFields.Name = "RecttangleObject-" + DateTime.UtcNow.ToString(GeoFenceDefs.DateTimeFormat);
+            obj.DataFields.DrawDepth = 4;
+            obj.DataFields.RotationAngle = 0;
+            obj.DataFields.ExtraFields.Add("MyTag", "MyTagValue");
+
+            obj.GenericDataFields.LineColor = Colors.DeepPink;
+            obj.GenericDataFields.LineWidth = 4;
+            obj.GenericDataFields.LineDashStyle = new List<double>();
+
+            _drawObjectLayer.UpdateStore(obj);
         }
-
-        private void ApplyStyle(object obj)
+        private void AddTriangle()
         {
-            DrawObjectLayer.StyleXml = StyleXml;
+            var rect = _drawObjectLayer.GeoContext.Viewport.GeoRect;
+
+            var obj = _drawObjectLayer.DrawObjectFactory.CreatePolyArea();
+            obj.Points = new[]
+                                  {
+                                      RandomProvider.GetRandomGeoPoint(rect),
+                                      RandomProvider.GetRandomGeoPoint(rect),
+                                      RandomProvider.GetRandomGeoPoint(rect)
+                                  };
+
+            obj.DataFields.Name = "TriangleObject-" + DateTime.UtcNow.ToString(GeoFenceDefs.DateTimeFormat);
+            obj.DataFields.DrawDepth = 4;
+            obj.DataFields.RotationAngle = 0;
+            obj.DataFields.ExtraFields.Add("MyTag", "MyTagValue");
+
+            obj.GenericDataFields.LineColor = Colors.Red;
+            obj.GenericDataFields.LineWidth = 4;
+            obj.GenericDataFields.LineDashStyle = new List<double>(); // DashStyles.Solid
+
+            _drawObjectLayer.UpdateStore(obj);
         }
 
-        public string StyleXml { get; set; }
-
-        public string A { get; set; }
-        public string R { get; set; }
-        public string G { get; set; }
-        public string B { get; set; }
-        public string W { get; set; }
-
-        private DelegateCommand _centerToSelectedCommand;
-        public ICommand CenterToSelectedCommand
+        private void AddRangeCircle()
         {
-            get
-            {
-                if (_centerToSelectedCommand == null)
-                    _centerToSelectedCommand = new DelegateCommand(CenterToSelected, 
-                        CanCenterToSelected);
+            var rect = _drawObjectLayer.GeoContext.Viewport.GeoRect;
+            rect.InflateRelative(0.8);
+            rect.Center = RandomProvider.GetRandomPosition(rect);
+            rect.InflateRelative(0.25);
 
-                return _centerToSelectedCommand;
-            }
+            var obj = _drawObjectLayer.DrawObjectFactory.CreateRangeRings();
+
+            obj.DataFields.Name = "RangeCircle-" + DateTime.UtcNow.ToString(GeoFenceDefs.DateTimeFormat); 
+            var ptCenter = RandomProvider.GetRandomPosition(rect);
+            var ptOuter =  RandomProvider.GetRandomPosition(rect);
+            var br = Earth.BearingRange(ptCenter, ptOuter);
+
+            var rangeRings = (IRangeRings)obj;
+            rangeRings.VertexPoint = new GeoPoint(){Latitude = ptCenter.Lat, Longitude = ptCenter.Lon};
+
+            var cnt = RandomProvider.GetRandomInt(3,8);
+            rangeRings.MaximumRange = br.Range;
+            rangeRings.NumberOfRadials = cnt;
+            rangeRings.RangeBetweenRings = (int)(br.Range / cnt);
+
+            obj.GenericDataFields.LineColor = Colors.Black;
+            obj.GenericDataFields.LineWidth = 2;
+            obj.GenericDataFields.LineDashStyle = new List<double>(); // DashStyles.Solid
+
+            _drawObjectLayer.UpdateStore(obj);
+
         }
-
-        private bool CanCenterToSelected(object obj)
-        {
-            return DrawObjectLayer.ExtendedDrawObjectLayer.SelectedDrawObjectIds.Any();
-        }
-
-        private void CenterToSelected(object obj)
-        {
-            DrawObjectLayer.ExtendedDrawObjectLayer.EnsureWithinMapView(
-                DrawObjectLayer.ExtendedDrawObjectLayer.SelectedDrawObjectIds.ToArray());
-        }
-
-
-
-
-        private DelegateCommand _disableSelectedCommand;
-        public ICommand DisableSelectedCommand
-        {
-            get
-            {
-                if (_disableSelectedCommand == null)
-                    _disableSelectedCommand = new DelegateCommand(DisableSelected);
-
-                return _disableSelectedCommand;
-            }
-        }
-
-        private void DisableSelected(object obj)
-        {
-            foreach (string selectedDrawObjectId in DrawObjectLayer.ExtendedDrawObjectLayer.SelectedDrawObjectIds)
-            {
-                ISimpleDrawObject simpleDrawObject = DrawObjectLayer.GetDrawObjectFromStore(selectedDrawObjectId);
-                simpleDrawObject.DataFields.ExtraFields["myDisabled"] = "true";
-                DrawObjectLayer.UpdateStore(simpleDrawObject);
-            }
-            DrawObjectLayer.ExtendedDrawObjectLayer.DisabledFilter = new FieldCondition("myDisabled", "true", FieldOperator.Eq);
-        }
-
-
-        private DelegateCommand _saveDrawObjectsCommand;
-        public ICommand SaveDrawObjectsCommand
-        {
-            get
-            {
-                if(_saveDrawObjectsCommand == null)
-                    _saveDrawObjectsCommand = new DelegateCommand(SaveDrawObjects);
-
-                return _saveDrawObjectsCommand;
-            }
-            
-        }
-
-        private void SaveDrawObjects(object obj)
-        {
-            foreach (var drawObjectId in DrawObjectLayer.ExtendedDrawObjectLayer.DrawObjectIds)
-            {
-                var xml = DrawObjectLayer.GetDrawObjectXMLFromStore(drawObjectId);
-                File.WriteAllText(string.Format("Data/{0}.xml", drawObjectId), xml);
-            }
-        }
-
-        private DelegateCommand _performQueryCommand;
-        public ICommand PerformQueryCommand 
-        {
-            get
-            {
-                if (_performQueryCommand == null)
-                    _performQueryCommand = new DelegateCommand(PerformQuery);
-
-                return _performQueryCommand;
-            }
-            
-        }
-
-        private void PerformQuery(object obj)
-        {
-            DrawObjectsQueried.Clear();
-            FieldCondition fc = new FieldCondition("Site", "Site10", FieldOperator.Eq);
-
-            var drawObjects = DrawObjectLayer.GetSortedDrawObjectsFromStore(fc, new List<SortInfoItem>(), 0, int.MaxValue);
-            foreach (var drawObject in drawObjects.SortedDrawObjects)
-            {
-                DrawObjectsQueried.Add(drawObject.Id);
-            }
-        }
-
-        public void SetDashStyle()
-        {
-            var drawObjects = DrawObjectLayer.GetSortedDrawObjectsFromStore(null, null, 0, int.MaxValue);
-            foreach (var dObj in drawObjects.SortedDrawObjects)
-            {
-                dObj.GenericDataFields.LineDashStyle.Add(1.0);
-                dObj.GenericDataFields.LineDashStyle.Add(2.0);
-                DrawObjectLayer.UpdateStore(dObj);
-            }
-        }
+        #endregion Object helpers
     }
 }

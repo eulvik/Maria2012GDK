@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using TestMapApp.Annotations;
@@ -41,14 +42,12 @@ namespace TestMapApp
 
             SelectedTrackDatas = new ObservableCollection<ITrackData>();
         }
-
         
-
         private void OnLayerInitialized()
         {
             TrackLayer.TrackLists = new ObservableCollection<string>()
                                     {
-                                        "ais.test"
+                                        "hackathon"
                                     };
             TrackLayer.TrackServices = new ObservableCollection<IMariaService>
                                     {
@@ -62,7 +61,13 @@ namespace TestMapApp
             TrackLayer.ExtendedTrackLayer.TrackSelectionChanged += 
                 HandleTrackSelectionChanged;
 
-            StyleXml = TrackLayer.StyleXml;
+            StyleXml = File.ReadAllText("trackstyle.xml");
+            TrackLayer.StyleXml = StyleXml;
+            TrackLayer.SymbolProviders["nora"] = new BitmapFileSymbolProvider("nora");
+            TrackLayer.SymbolProviders["nora@2x"] = new BitmapFileSymbolProvider("nora@2x");
+            TrackLayer.SymbolProviders["games"] = new BitmapFileSymbolProvider("games");
+            TrackLayer.SymbolProviders["traffic"] = new BitmapFileSymbolProvider("traffic");
+            TrackLayer.SymbolProviders["Team3l33t"] = new BitmapFileSymbolProvider("Team3l33t");
         }
 
         private void HandleTrackSelectionChanged(object sender, 

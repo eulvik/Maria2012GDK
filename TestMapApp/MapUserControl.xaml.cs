@@ -24,25 +24,8 @@ namespace TestMapApp
             MariaCtrl.Dispose();
         }
 
-        protected override void OnDrop(DragEventArgs e)
-        {
-            base.OnDrop(e);
-        }
 
-        private void MapUserControl_OnDrop(object sender, DragEventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            var dc = DataContext as MariaWindowViewModel;
-            if (dc == null)
-                return;
-
-            dc.DrawObjectViewModel.SetDashStyle();
-
-        }
 
         public void Dispose()
         {

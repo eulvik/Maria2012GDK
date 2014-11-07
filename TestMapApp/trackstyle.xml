@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<styleset name="Default">
+  <stylecategory name="TrackSymbol">
+    <style>
+      <valueitem name="Visible" value="true"/>
+      <valueitem name="ColorScheme" value="Medium"/>
+      <valueitem name="OverrideColor" value=""/>
+
+      <compositeitem name="CoreSymbol">
+        <valueitem name="GrayScale" value="false"/>
+        <valueitem name="Opacity" value="1.0"/>
+        <valueitem name="Scale" value="[track.symbolscale]"/>
+        <valueitem name="DynamicScale" value="true"/>
+        <valueitem name="SymbolKeyField" value="symbol.2525code"/>
+        <valueitem name="Symbology" value="MilStd2525"/>
+        <valueitem name="DropShadow" value="false"/>
+        <valueitem name="DropShadowColor" value="255,255,255,255"/>
+      </compositeitem>
+
+      <compositeitem name="SpeedVector">
+        <valueitem name="Thickness" value="2.0"/>
+        <valueitem name="Len" value="30.0"/>
+      </compositeitem>
+
+      <compositeitem name="Label">
+        <valueitem name="Color" value="50,50,50,155"/>
+        <valueitem name="Background" value="255,255,255,127"/>
+        <valueitem name="FontName" value="Verdana"/>
+        <valueitem name="FontSize" value="10.0"/>
+        <valueitem name="Bold" value="false"/>
+        <valueitem name="Italic" value="false"/>
+        <compositeitem name="LabelText1">
+          <valueitem name="Fields" value="course,speed"/>
+          <valueitem name="FieldSeparator" value="-"/>
+          <valueitem name="Position" value="TopLeft"/>
+          <valueitem name="XOffset" value="0"/>
+          <valueitem name="YOffset" value="12"/>
+        </compositeitem>
+        <compositeitem name="LabelText3">
+          <valueitem name="Fields" value="name,ais.name"/>
+          <valueitem name="Position" value="TopLeft"/>
+          <valueitem name="XOffset" value="0"/>
+          <valueitem name="YOffset" value="0"/>
+        </compositeitem>
+      </compositeitem>
+
+      <compositeitem name="History">
+        <compositeitem name="Limits">
+          <valueitem name="MaxCount" value="1000"/>
+          <valueitem name="MaxAge" value="300"/>
+          <valueitem name="MaxLength" value="100"/>
+        </compositeitem>
+
+        <compositeitem name="Visual">
+          <valueitem name="Color" value="0,32,32,196"/>
+          <valueitem name="FadedColor" value="0,32,32,32"/>
+        <valueitem name="DrawLines" value="false"/>
+        </compositeitem>
+      </compositeitem>
+    </style>
+ 
+    <style>
+      <statecondition key="Selected" scope="PerItem" state="Active"/>
+      <compositeitem name="Selected">
+        <valueitem name="Type" value="Rect"/>
+        <valueitem name="Color" value="255,255,0,255"/>
+        <valueitem name="Thickness" value="4.0"/>
+      </compositeitem>
+
+      <compositeitem name="CoreSymbol">
+        <valueitem name="Scale" value="[track.symbolscale]" factor="2.0"/>
+      </compositeitem>
+
+      <compositeitem name="History">
+        <compositeitem name="Limits">
+          <valueitem name="MaxCount" value="2000"/>
+          <valueitem name="MaxAge" value="300"/>
+        </compositeitem>
+        <compositeitem name="Visual">
+          <valueitem name="Color" value="0,32,32,196"/>
+          <valueitem name="FadedColor" value="0,32,32,32"/>
+          <valueitem name="DrawLines" value="true"/>
+          <valueitem name="LineThickness" value="2.0"/>
+        </compositeitem>
+      </compositeitem>
+      <valueitem name="RelDispPri" value="1.0"/>
+    </style>
+
+
+    <style>
+      <statecondition key="Disabled" scope="PerItem" state="Active"/>
+      <valueitem name="RelDispPri" value="-1.0"/>
+      <compositeitem name="CoreSymbol">
+        <valueitem name="Opacity" value="1.0"/>
+        <valueitem name="GrayScale" value="true"/>
+      </compositeitem>
+      <compositeitem name="SpeedVector">
+        <valueitem name="Color" value="64,128,128,128"/>
+      </compositeitem>
+      <compositeitem name="Label">
+        <valueitem name="Color" value="64,128,128,128"/>
+      </compositeitem>
+    </style>
+   
+    <style>
+      <fieldcondition field="ais.VESSELTYPE" value="Cargo ship"/>
+      <compositeitem name="CoreSymbol">
+        <valueitem name="Scale" value="[track.symbolscale]" factor="0.5"/>
+        <valueitem name="Symbology" value="NTDS"/>
+      </compositeitem>
+    </style>
+
+	
+	
+    <style>
+      <speedcondition value="1kts" op="Lt"/>
+      <compositeitem name="SpeedVector" state="suppress"/>
+    </style>
+    
+    <style>
+      <mapscalecondition value="1:150k" op="Gt"/>
+      <compositeitem name="Label" state="suppress"/>
+    </style>
+    
+    <style>
+      <mapscalecondition value="1:1m" op="Gt"/>
+      <compositeitem name="SpeedVector" state="suppress"/>
+    </style>
+
+    <style>
+      <mapscalecondition value="1:5m" op="Gt"/>
+      <valueitem name="Simplified" value="true"/>
+      <compositeitem name="CoreSymbol" state="suppress"/>
+    </style>
+
+    <style>
+      <mapscalecondition value="1:10m" op="Gt"/>
+      <valueitem name="Simplified" value="false"/>
+      <compositeitem name="Gridded">
+        <valueitem name="GridSizeX" value="30" />
+        <valueitem name="GridSizeY" value="50" />
+        <valueitem name="BorderColor" value="0,0,0,64"/>
+        <valueitem name="BaseFillColor" value="0,0,255,32"/>
+        <valueitem name="DenseFillColor" value="0,0,255,196"/>
+        <valueitem name="DenseCount" value="500"/>
+        <valueitem name="TextFontName" value="Arial"/>
+        <valueitem name="TextSize" value="10.0"/>
+        <valueitem name="TextColor" value="0,0,0,128"/>        
+      </compositeitem>
+    </style>
+
+    <style>
+      <statecondition key="track.simplifiedrendring" scope="Global" state="Active"/>
+      <valueitem name="Simplified" value="true"/>
+      <compositeitem name="Label" state="suppress"/>
+      <compositeitem name="CoreSymbol" state="suppress"/>
+      <compositeitem name="SpeedVector" state="suppress"/>
+    </style>
+
+    <style>
+      <fieldcondition field="symbol.provider" value="nora" op="Eq"/>
+      <compositeitem name="CoreSymbol">
+        <valueitem name="SymbolKeyField" value="symbol.code"/>
+        <valueitem name="Symbology" value="nora"/>
+      </compositeitem>
+    </style>
+
+    <style>
+      <fieldcondition field="symbol.provider" value="nora@2x"/>
+      <compositeitem name="CoreSymbol">
+        <valueitem name="SymbolKeyField" value="symbol.code"/>
+        <valueitem name="Symbology" value="nora@2x"/>
+      </compositeitem>
+    </style>
+
+    <style>
+      <fieldcondition field="symbol.provider" value="games"/>
+      <compositeitem name="CoreSymbol">
+        <valueitem name="SymbolKeyField" value="symbol.code"/>
+        <valueitem name="Symbology" value="games"/>
+      </compositeitem>
+    </style>
+
+    <style>
+      <fieldcondition field="symbol.provider" value="traffic"/>
+      <compositeitem name="CoreSymbol">
+        <valueitem name="SymbolKeyField" value="symbol.code"/>
+        <valueitem name="Symbology" value="traffic"/>
+      </compositeitem>
+    </style>
+
+    <style>
+      <fieldcondition field="symbol.provider" value="Team3l33t"/>
+      <compositeitem name="CoreSymbol">
+        <valueitem name="SymbolKeyField" value="symbol.code"/>
+        <valueitem name="Symbology" value="Team3l33t"/>
+      </compositeitem>
+    </style>
+    
+  </stylecategory>
+
+  <stylecategory name="TrackClustering">
+    <style>
+      <valueitem name="ClusterCategory" value="0"/>
+      <valueitem name="CanCluster" value="true"/>
+      <valueitem name="ParentFieldID" value="GroupParent"/>
+      <valueitem name="ShowSymbol" value="true"/>
+      <valueitem name="ClusterSymbolKeyField" value="symbol.2525code"/>
+      <valueitem name="BackgroundColor" value="0,128,255,100"/>
+      <valueitem name="OutlineColor" value="0,0,0,150"/>
+      <valueitem name="OutlineThickness" value="2"/>
+      <valueitem name="OutlineColorAboveMaxCount" value="0,0,0,150"/>
+      <valueitem name="OutlineThicknessAboveMaxCount" value="1"/>
+      <valueitem name="FontFamilyName" value="Segoe UI"/>
+      <valueitem name="FontColor" value="0,0,0,255"/>
+      <valueitem name="FontSize" value="11"/>
+      <valueitem name="BoundsBufferWidth" value="10"/>
+      <valueitem name="ShowSymbolSelection" value="false"/>
+      <valueitem name="SymbolAsSymbolLocation" value="false"/>
+      <valueitem name="ShowSymbolLocation" value="true"/>
+      <valueitem name="SymbolLocationRadius" value="1.0"/>
+      <valueitem name="SymbolLocationColor" value="0,0,0,200"/>
+      <compositeitem name="Label">
+        <valueitem name="Show" value="false"/>
+        <valueitem name="Fields" value="name"/>
+        <valueitem name="FieldSeparator" value="-"/>
+      </compositeitem>
+    </style>
+
+    <style>
+      <compositecondition op="And">
+        <statecondition key="track.groupclustering" scope="Global" state="Active"/>
+        <ms2525condition field="symbol.2525code" op="Or">
+          <entry field="Identity" value="H"/>
+          <entry field="Identity" value="S"/>
+          <entry field="Identity" value="J"/>
+          <entry field="Identity" value="K"/>
+        </ms2525condition>
+      </compositecondition>
+      <valueitem name="BackgroundColorLight" value="255,128,128,100"/>
+      <valueitem name="BackgroundColorMedium" value="255,48,49,100"/>
+      <valueitem name="BackgroundColorDark" value="200,0,0,100"/>
+    </style>
+
+    <style>
+      <compositecondition op="And">
+        <statecondition key="track.groupclustering" scope="Global" state="Active"/>
+        <ms2525condition field="symbol.2525code" op="Or">
+          <entry field="Identity" value="P"/>
+          <entry field="Identity" value="U"/>
+        </ms2525condition>
+      </compositecondition>
+      <valueitem name="BackgroundColorLight" value="255,255,128,100"/>
+      <valueitem name="BackgroundColorMedium" value="255,255,0,100"/>
+      <valueitem name="BackgroundColorDark" value="225,220,0,100"/>
+    </style>
+
+    <style>
+      <compositecondition op="And">
+        <statecondition key="track.groupclustering" scope="Global" state="Active"/>
+        <ms2525condition field="symbol.2525code" op="Or">
+          <entry field="Identity" value="N"/>
+        </ms2525condition>
+      </compositecondition>
+      <valueitem name="BackgroundColorLight" value="170,255,170,100"/>
+      <valueitem name="BackgroundColorMedium" value="0,226,0,100"/>
+      <valueitem name="BackgroundColorDark" value="0,160,0,100"/>
+    </style>
+
+    <style>
+      <compositecondition op="And">
+        <statecondition key="track.groupclustering" scope="Global" state="Active"/>
+        <ms2525condition field="symbol.2525code" op="Or">
+          <entry field="Identity" value="F"/>
+          <entry field="Identity" value="A"/>
+        </ms2525condition>
+      </compositecondition>
+      <valueitem name="BackgroundColorLight" value="128,224,255,100"/>
+      <valueitem name="BackgroundColorMedium" value="0,168,220,100"/>
+      <valueitem name="BackgroundColorDark" value="0,107,140,100"/>
+    </style>
+
+    <style>
+      <statecondition key="SupressCluster" scope="PerItem"/>
+      <compositeitem name="Clustering">
+        <valueitem name="CanCluster" value="true"/>
+      </compositeitem>
+    </style>
+
+  </stylecategory >
+
+  <stylecategory name="SelectionFan">
+    <style>
+      <valueitem name="MaxCount" value="10"/>
+      <valueitem name="BackgroundColor" value="224,255,255,200"/>
+      <valueitem name="FontColor" value="0,0,0"/>
+      <compositeitem name="Selected">
+        <valueitem name="Color" value="255,255,0,255"/>
+        <valueitem name="Thickness" value="4.0"/>
+      </compositeitem>
+      <compositeitem name="Label">
+        <valueitem name="Show" value="false"/>
+        <valueitem name="Fields" value="name,ais.name"/>
+        <valueitem name="FieldSeparator" value="-"/>
+      </compositeitem>
+      <compositeitem name="MouseOver">
+        <valueitem name="ShowDelay" value="200"/>
+      </compositeitem>
+    </style>
+  </stylecategory>
+
+  <stylecategory name="Tooltip">
+    <style>
+      <valueitem name="ShowDelay" value="500"/>
+      <valueitem name="HideDelay" value="5000"/>
+      <valueitem name="TopBackgroundColor" value="255,255,255,255"/>
+      <valueitem name="BottomBackgroundColor" value="228,228,240,255"/>
+      <valueitem name="OutlineColor" value="0,0,0"/>
+      <valueitem name="OutlineThickness" value="1"/>
+      <valueitem name="FontColor" value="0,0,0"/>
+      <valueitem name="FontFamilyName" value="Segoe UI"/>
+      <valueitem name="FontSize" value="10"/>
+      <compositeitem name="TooltipLine1">
+        <valueitem name="Label" value="Name:"/>
+        <valueitem name="Fields" value="name"/>
+      </compositeitem>
+      <compositeitem name="TooltipLine2">
+        <valueitem name="Label" value="Crs-Spd:"/>
+        <valueitem name="Fields" value="course,speed"/>
+        <valueitem name="FieldSeparator" value="-"/>
+      </compositeitem>
+    </style>    
+  </stylecategory>
+</styleset>

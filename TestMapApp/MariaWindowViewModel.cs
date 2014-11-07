@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MariaGeoFencing.ViewModels;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -7,10 +8,7 @@ using TestMapApp.Annotations;
 using TPG.GeoFramework.Contracts.Geo.Tool;
 using TPG.Maria.Contracts;
 using TPG.Maria.CustomLayer;
-using TPG.Maria.DrawObjectContracts;
 using TPG.Maria.DrawObjectLayer;
-using TPG.Maria.GridContracts;
-using TPG.Maria.GridLayer;
 using TPG.Maria.MapContracts;
 using TPG.Maria.MapLayer;
 using TPG.Maria.TrackContracts;
@@ -29,10 +27,6 @@ namespace TestMapApp
         private readonly IMariaTrackLayer _trackLayer;
 
         public DrawObjectViewModel DrawObjectViewModel { get; set; }
-        private readonly IMariaDrawObjectLayer _drawObjectLayer;
-
-        public GridLayerViewModel GridLayerViewModel { get; set; }
-        private readonly IMariaGridLayer _gridLayer;
 
         private readonly CustomLayer<CustomViewModel> _customLayer;
         
@@ -49,16 +43,11 @@ namespace TestMapApp
             TrackViewModel = new TrackViewModel(_trackLayer);
             Layers.Add(_trackLayer);
 
-            _drawObjectLayer = new DrawObjectLayer(false)
-            { InitializeCreationWorkflows = true };
-            DrawObjectViewModel = new DrawObjectViewModel(_drawObjectLayer);
-            Layers.Add(_drawObjectLayer);
+            var drawObjectLayer = new DrawObjectLayer(true);
+            DrawObjectViewModel = new DrawObjectViewModel(drawObjectLayer);
+            Layers.Add(drawObjectLayer);
 
-            _gridLayer = new GridLayer();
-            GridLayerViewModel = new GridLayerViewModel(_gridLayer);
-            Layers.Add(_gridLayer);
-
-            _customLayer = new CustomLayer<CustomViewModel>(new CustomLayerViewModelFactory());
+            _customLayer = new CustomLayer<CustomViewModel>(new CustomLayerViewModelFactory(MapViewModel));
             Layers.Add(_customLayer);
 
             _timer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(500)};

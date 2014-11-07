@@ -7,9 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" 
              Loaded="MapUserControl_OnLoaded" 
-             Unloaded="MapUserControl_OnUnloaded" 
-             AllowDrop="True" Drop="MapUserControl_OnDrop">
-    
+             Unloaded="MapUserControl_OnUnloaded" >    
     <UserControl.InputBindings>
 
         <MouseBinding Command="{Binding DrawObjectViewModel.DrawObjectLayer.EditPointsCommand}" 
@@ -27,63 +25,40 @@
         <KeyBinding Command="{Binding UndoCommand, ElementName=MariaCtrl}" Gesture="Ctrl+Z" />
         <KeyBinding Command="{Binding RedoCommand, ElementName=MariaCtrl}" Gesture="Ctrl+Y" />
     </UserControl.InputBindings>
-    
+        
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80*"/>
-            <!--<ColumnDefinition Width="20*"/>-->
-        </Grid.ColumnDefinitions>
-        <mariaUserControl:MariaUserControl 
+        <mariaUserControl:MariaUserControl Grid.Column="0"
             Name="MariaCtrl" 
             IsPanNavigationVisible="True" 
             IsScaleBarVisible="True" 
             IsRulerVisible="True"
-            IsMiniMapVisible="True"
-            MiniMapLayer="{Binding MapViewModel.MiniMapLayer}"
             Layers="{Binding Layers}"
             CenterPosition="{Binding MapViewModel.CenterPosition}"
             CenterScale="{Binding MapViewModel.Scale}"
             Tools="{Binding Tools, Mode=OneWayToSource}"
             ActiveTool="{Binding ActiveTool}"
-            Grid.Column="0"
             MinWidth="300"
             MinHeight="300" IsProgressIndicatorVisible="{Binding ShowProgress}"/>
-        
-        <ListView Width="65" HorizontalAlignment="Right" VerticalAlignment="Top" ItemsSource="{Binding DrawObjectViewModel.DrawObjectLayer.GenericCreationWorkflows}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Button Width="45" Height="45" 
-                            Command="{Binding DataContext.DrawObjectViewModel.CreationWorkflowActivatedCommand, 
-                        RelativeSource={RelativeSource AncestorType=UserControl}}" 
-                            CommandParameter="{Binding}" ToolTip="{Binding Name}">
-                        <Button.Content>
-                            <Image Source="{Binding Image}"/>
-                        </Button.Content>
-                    </Button>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
 
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <ListView ItemsSource="{Binding DrawObjectViewModel.DrawObjectsQueried}"/>
-            <Button Command="{Binding DrawObjectViewModel.PerformQueryCommand}" Content="Query"/>
-            <ComboBox ItemsSource="{Binding MapViewModel.ActiveMapNames}" SelectedItem="{Binding MapViewModel.ActiveMapName}"/>
-            <Button Content="Create waypnt" Command="{Binding DrawObjectViewModel.CreateWaypointCommand}"/>
-            <Button Content="AddTrack" Command="{Binding TrackViewModel.AddTrackCommand}"/>
-            <Slider Minimum="0.0" Maximum="3.0" Value="{Binding DrawObjectViewModel.DrawObjectLayer.SymbolScale}"/>
-            <ComboBox ItemsSource="{Binding GridLayerViewModel.GridLayer.Grids}" SelectedItem="{Binding GridLayerViewModel.SelectedGrid}"></ComboBox>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-            <ToggleButton Content="Zoom Tool" ToolTip="Zoom Tool" Height="30" Name="ZoomTool" IsChecked="{Binding IsZoomToolActive}" />
-            <ToggleButton Content="Distance Tool" ToolTip="Distance Tool" Height="30" Name="DistanceTool" IsChecked="{Binding IsDistanceToolActive}"/>
-            <ToggleButton Content="Map Feature Query Tool" ToolTip="Map Feature Query Tool" Height="30" Name="MapFeatureQueryTool" IsChecked="{Binding IsMapFeatureQueryToolActive}"/>
-        </StackPanel>
-        <!--<StackPanel Orientation="Vertical" Grid.Column="1">
-            <TextBox Text="{Binding DrawObjectViewModel.StyleXml}"/>
-            <Button Content="Apply" Command="{Binding DrawObjectViewModel.ApplyNewStyleCommand}"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+            <StackPanel.Background>
+                <SolidColorBrush Color="Wheat" Opacity="0.5"/>
+            </StackPanel.Background>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding MapViewModel.Address}" MinWidth="150"/>
+                <Button Content="Apply" Command="{Binding MapViewModel.ApplyCmnd}" CommandParameter="{Binding ElementName=trackUpdateUri, Path=Text}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="30" x:Name="trackUpdateUri"/>
+                <TextBox Text="{Binding MapViewModel.TrackUpdateUri}" MinWidth="150"/>
+            </StackPanel>
             
-        </StackPanel>-->
-        <!--<Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="DashStyle" Click="ButtonBase_OnClick"></Button>-->
+            <StackPanel Orientation="Horizontal">
+                <ComboBox ItemsSource="{Binding MapViewModel.ActiveMapNames}" SelectedItem="{Binding MapViewModel.ActiveMapName}" />
+                <Button Content="SetSymbol" Command="{Binding MapViewModel.SetSymbolCommand}" />
+            </StackPanel>
+        </StackPanel>
+       
     </Grid>
     
 </UserControl>

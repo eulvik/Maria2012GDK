@@ -14,7 +14,6 @@ namespace TestMapApp
     {
         public App()
         {
-            log4net.Config.XmlConfigurator.Configure(); 
         }
     }
 }

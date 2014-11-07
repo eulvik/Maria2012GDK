@@ -29,7 +29,6 @@ namespace MariaSearch.ViewModels
 
         public ICommand OnSearchCmd { get { return new DelegateCommand(x => DoSearch()); } }
         public ICommand OnClearCmd { get { return new DelegateCommand(x => DoClearSearch()); } }
-        public ICommand OnClearFacetsCmd { get { return new DelegateCommand(x => DoClearFacet()); } }
 
         private string _searchText;
         public string SearchText
@@ -80,18 +79,7 @@ namespace MariaSearch.ViewModels
             }
         }
 
-        public ObservableCollection<ExtendedSearchFacet> Facets { get; private set; }
-        public ObservableCollection<ExtendedSearchFacet> SelectedFacets { get; private set; }
-        public ExtendedSearchFacet SelectedFacet
-        {
-            set
-            {
-                if (value != null)
-                    _searchLayer.SelectedFacets.Add(value.Facet);
-                else
-                     _searchLayer.SelectedFacets.Clear();
-            }
-        }
+       
         public int MinimumFacetOccurenceFilter
         {
             get { return _searchLayer.MinimumFacetOccurenceFilter; }
@@ -186,12 +174,6 @@ namespace MariaSearch.ViewModels
             ShowSearchMatchName = true;
             NotifyPropertyChanged(() => ShowSearchMatchMark);
             NotifyPropertyChanged(() => ShowSearchMatchName);
-
-            Facets = new ObservableCollection<ExtendedSearchFacet>();
-            SelectedFacets = new ObservableCollection<ExtendedSearchFacet>();
-
-            _searchLayer.Facets.CollectionChanged += OnFacetsCollectionChanged;
-            _searchLayer.SelectedFacets.CollectionChanged += OnSelectedFacetsCollectionChanged;
         }
 
         void OnCurrentChanged(object sender, EventArgs e)
@@ -209,40 +191,10 @@ namespace MariaSearch.ViewModels
             NotifyPropertyChanged(() => SelectedSearchMatch);
         }
         
-        private void OnSelectedFacetsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            HandleFacetCollectionChanged(e, SelectedFacets);
-            NotifyPropertyChanged(() => SelectedFacets);
-        }
-        private void OnFacetsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            HandleFacetCollectionChanged(e, Facets);
-            NotifyPropertyChanged(() => Facets);
-        }
-        private void HandleFacetCollectionChanged(NotifyCollectionChangedEventArgs e,
-            ObservableCollection<ExtendedSearchFacet> facets)
-        {
-            if (e.Action == NotifyCollectionChangedAction.Reset)
-                facets.Clear();
-            else if (e.Action == NotifyCollectionChangedAction.Add)
-            {
-                foreach (var obj in e.NewItems)
-                {
-                    var facet = (ISearchFacet) obj;
-                    if (facet == null)
-                        continue;
-
-                    var extended = new ExtendedSearchFacet(facet);
-                    facets.Add(extended);
-                }
-            }
-        }
-
+       
         private void SearchLayerOnSearchCompleted(object sender, EventArgs args)
         {
-            NotifyPropertyChanged(() => SearchMatches);           
-            NotifyPropertyChanged(() => Facets);
-            NotifyPropertyChanged(() => SelectedFacets);
+            NotifyPropertyChanged(() => SearchMatches);      
         }
 
         #endregion Initialization
@@ -253,13 +205,7 @@ namespace MariaSearch.ViewModels
             SearchText = "";
 
         }
-        private void DoClearFacet()
-        {
-            SelectedFacet = null;
-            SelectedFacets.Clear();
-
-            DoSearch();
-        }
+  
 
         public void DoSearch()
         {           
@@ -277,20 +223,11 @@ namespace MariaSearch.ViewModels
                 CenterPosition = _searchLayer.GeoContext.CenterPosition,
                 AutoWildcard = false,
                 ExtractFacets = true,
-                Facets = ConvertList(SelectedFacets)
             };
 
             _searchLayer.Search(query);
         }
 
-        private List<ISearchFacet> ConvertList(IEnumerable<ExtendedSearchFacet> extendedList)
-        {
-            var list = new List<ISearchFacet>();
-            foreach (var extFacet in extendedList)
-            {
-                list.Add(extFacet.Facet);
-            }
-            return list;
-        }
+
     }
 }

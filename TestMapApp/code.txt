@@ -1,0 +1,10 @@
+        private Rectangle GetExplosionFrame(int frame)
+        {
+            int w = 480/5;
+            int h = 384/4;
+
+            frame = frame%20;
+            int x = frame%5;
+            int y = frame/5;
+            return new Rectangle(x*w,y*h,w,h);
+        }

@@ -1,0 +1,30 @@
+﻿<Window x:Class="TestMapApp2_0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestMapApp2_0"
+        xmlns:mariaUserControl="clr-namespace:TPG.Maria.MariaUserControl;assembly=TPG.Maria.MariaUserControl"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Closing="Window_Closing">
+    <Grid>
+        <mariaUserControl:MariaUserControl Name="MariaCtrl" 
+                                           IsPanNavigationVisible="True" 
+                                           IsScaleBarVisible="True" 
+                                           IsRulerVisible="True" 
+                                           IsMiniMapVisible="False" 
+                                           Layers="{Binding Layers}"
+                                           CenterPosition="{Binding MapViewModel.CenterPosition}"
+                                           CenterScale="{Binding MapViewModel.CenterScale}"
+                                           Tools="{Binding Tools, Mode=OneWayToSource}"
+                                           ActiveTool="{Binding ActiveTool}"/>
+        
+        <ComboBox ItemsSource="{Binding MapViewModel.Maps}" SelectedItem="{Binding MapViewModel.CurrentMap}" Width="200" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Path=Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    </Grid>
+</Window>

@@ -29,12 +29,11 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         
-        <ListView Width="65" HorizontalAlignment="Right" VerticalAlignment="Top" ItemsSource="{Binding DrawObjectViewModel.DrawObjectLayer.GenericCreationWorkflows}">
+        <ListView Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Bottom" ItemsSource="{Binding DrawObjectViewModel.DrawObjectLayer.GenericCreationWorkflows}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Button Width="45" Height="45" 
-                            Command="{Binding DataContext.DrawObjectViewModel.CreationWorkflowActivatedCommand, 
-                        RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                            Command="{Binding DataContext.DrawObjectViewModel.CreationWorkflowActivatedCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
                             CommandParameter="{Binding}" ToolTip="{Binding Name}">
                         <Button.Content>
                             <Image Source="{Binding Image}"/>
@@ -42,6 +41,11 @@
                     </Button>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
         </ListView>
     </Grid>
 </Window>

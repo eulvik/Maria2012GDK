@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using TestMapApp2_0.Annotations;
+using TPG.DrawObjects.Internals.Module.DrawObjectType;
 using TPG.GeoFramework.Contracts.Geo.Tool;
 using TPG.Maria.Contracts;
 using TPG.Maria.DrawObjectLayer;
@@ -33,11 +34,9 @@ namespace TestMapApp2_0
             TrackViewModel = new TrackViewModel(trackLayer);
             Layers.Add(trackLayer);
 
-            var drawObjectLayer = new DrawObjectLayer(false)
+            var drawObjectLayer = new DrawObjectLayer(new DefaultDrawObjectTypeDefinitionProvider())
             {
-                InitializeCreationWorkflows = true,
-                InitializeGenericCreationWorkflows = true,
-                InitializeTacticalCreationWorkflows = false
+                InitializeGenericCreationWorkflows = true
             };
 
             DrawObjectViewModel = new DrawObjectViewModel(drawObjectLayer);

@@ -19,12 +19,29 @@
                                            Tools="{Binding Tools, Mode=OneWayToSource}"
                                            ActiveTool="{Binding ActiveTool}"/>
         
-        <ComboBox ItemsSource="{Binding MapViewModel.Maps}" SelectedItem="{Binding MapViewModel.CurrentMap}" Width="200" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top">
+        <ComboBox ItemsSource="{Binding MapViewModel.Maps}" 
+                  SelectedItem="{Binding MapViewModel.CurrentMap}" 
+                  Width="200" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Path=Name}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        
+        <ListView Width="65" HorizontalAlignment="Right" VerticalAlignment="Top" ItemsSource="{Binding DrawObjectViewModel.DrawObjectLayer.GenericCreationWorkflows}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button Width="45" Height="45" 
+                            Command="{Binding DataContext.DrawObjectViewModel.CreationWorkflowActivatedCommand, 
+                        RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                            CommandParameter="{Binding}" ToolTip="{Binding Name}">
+                        <Button.Content>
+                            <Image Source="{Binding Image}"/>
+                        </Button.Content>
+                    </Button>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

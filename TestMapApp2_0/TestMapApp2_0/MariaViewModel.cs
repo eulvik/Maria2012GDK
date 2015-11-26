@@ -5,7 +5,9 @@ using System.Runtime.CompilerServices;
 using TestMapApp2_0.Annotations;
 using TPG.GeoFramework.Contracts.Geo.Tool;
 using TPG.Maria.Contracts;
+using TPG.Maria.DrawObjectLayer;
 using TPG.Maria.MapLayer;
+using TPG.Maria.TrackLayer;
 
 namespace TestMapApp2_0
 {
@@ -15,6 +17,9 @@ namespace TestMapApp2_0
 
         public MapViewModel MapViewModel { get; set; }
 
+        public TrackViewModel TrackViewModel { get; set; }
+
+
         public ObservableCollection<IMariaLayer> Layers { get; set; }
 
         public MariaViewModel()
@@ -23,7 +28,24 @@ namespace TestMapApp2_0
             var mapLayer = new MapLayer();
             MapViewModel = new MapViewModel(mapLayer);
             Layers.Add(mapLayer);
+
+            var trackLayer = new TrackLayer();
+            TrackViewModel = new TrackViewModel(trackLayer);
+            Layers.Add(trackLayer);
+
+            var drawObjectLayer = new DrawObjectLayer(false)
+            {
+                InitializeCreationWorkflows = true,
+                InitializeGenericCreationWorkflows = true,
+                InitializeTacticalCreationWorkflows = false
+            };
+
+            DrawObjectViewModel = new DrawObjectViewModel(drawObjectLayer);
+            Layers.Add(drawObjectLayer);
         }
+
+        public DrawObjectViewModel DrawObjectViewModel { get; set; }
+
 
         public ObservableCollection<IGeoTool> Tools
         {

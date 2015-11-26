@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace TestMapApp2_0
 {
@@ -13,5 +7,9 @@ namespace TestMapApp2_0
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            log4net.Config.XmlConfigurator.Configure();
+        }
     }
 }

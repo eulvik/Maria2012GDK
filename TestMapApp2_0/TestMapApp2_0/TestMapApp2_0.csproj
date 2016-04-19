@@ -53,7 +53,7 @@
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TPG.Maria.Common.2.0.1.195\lib\net452\log4net.dll</HintPath>
+      <HintPath>..\packages\TPG.Maria.Common.2.1.0.238\lib\net452\log4net.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net, Version=2.0.0.621, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
       <HintPath>..\packages\protobuf-net.2.0.0.621\lib\net40\protobuf-net.dll</HintPath>
@@ -70,148 +70,144 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="TPG.DrawObjects.Contracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.0.1.195\lib\net45\TPG.DrawObjects.Contracts.dll</HintPath>
+    <Reference Include="TPG.DrawObjects.Contracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.1.0.238\lib\net45\TPG.DrawObjects.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.DrawObjects.Contracts.Data, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.0.1.195\lib\net45\TPG.DrawObjects.Contracts.Data.dll</HintPath>
+    <Reference Include="TPG.DrawObjects.Contracts.Data, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.1.0.238\lib\net45\TPG.DrawObjects.Contracts.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.DrawObjects.Data, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.0.1.195\lib\net45\TPG.DrawObjects.Data.dll</HintPath>
+    <Reference Include="TPG.DrawObjects.Data, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.1.0.238\lib\net45\TPG.DrawObjects.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.DrawObjects.Data.Filters, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.0.1.195\lib\net45\TPG.DrawObjects.Data.Filters.dll</HintPath>
+    <Reference Include="TPG.DrawObjects.Data.Filters, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.1.0.238\lib\net45\TPG.DrawObjects.Data.Filters.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.DrawObjects.Internals.Module, Version=2.0.0.132, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TPG.Maria.Common.2.0.1.195\lib\net452\TPG.DrawObjects.Internals.Module.dll</HintPath>
-    </Reference>
-    <Reference Include="TPG.Geo.Proto, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.Common.2.0.1.195\lib\net45\TPG.Geo.Proto.dll</HintPath>
+    <Reference Include="TPG.Geo.Proto, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.Common.2.1.0.238\lib\net45\TPG.Geo.Proto.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.Contracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.0.1.195\lib\net45\TPG.GeoFramework.Contracts.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.Contracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.1.0.238\lib\net45\TPG.GeoFramework.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.Core, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MariaUserControl.2.0.1.195\lib\net45\TPG.GeoFramework.Core.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.Core, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MariaUserControl.2.1.0.238\lib\net45\TPG.GeoFramework.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.DrawObjectLayer.Contracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.0.1.195\lib\net45\TPG.GeoFramework.DrawObjectLayer.Contracts.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.DrawObjectLayer.Contracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.1.0.238\lib\net45\TPG.GeoFramework.DrawObjectLayer.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.Map.Core, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MapLayer.2.0.1.195\lib\net45\TPG.GeoFramework.Map.Core.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.Map.Core, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MapLayer.2.1.0.238\lib\net45\TPG.GeoFramework.Map.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.Map.Core.Contracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MapLayer.2.0.1.195\lib\net45\TPG.GeoFramework.Map.Core.Contracts.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.Map.Core.Contracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MapLayer.2.1.0.238\lib\net45\TPG.GeoFramework.Map.Core.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.MapCatalogServiceClient, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MapLayer.2.0.1.195\lib\net45\TPG.GeoFramework.MapCatalogServiceClient.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.MapCatalogServiceClient, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MapLayer.2.1.0.238\lib\net45\TPG.GeoFramework.MapCatalogServiceClient.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.MapServiceInterfaces, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MapLayer.2.0.1.195\lib\net45\TPG.GeoFramework.MapServiceInterfaces.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.MapServiceInterfaces, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MapLayer.2.1.0.238\lib\net45\TPG.GeoFramework.MapServiceInterfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.MapTemplateServiceClient, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MapLayer.2.0.1.195\lib\net45\TPG.GeoFramework.MapTemplateServiceClient.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.MapTemplateServiceClient, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MapLayer.2.1.0.238\lib\net45\TPG.GeoFramework.MapTemplateServiceClient.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.RasterExport, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.Common.2.0.1.195\lib\net45\TPG.GeoFramework.RasterExport.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.RasterExport, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.Common.2.1.0.238\lib\net45\TPG.GeoFramework.RasterExport.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.Style.Core.Contracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.GeoFramework.Style.Core.Contracts.2.0.1.195\lib\net45\TPG.GeoFramework.Style.Core.Contracts.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.Style.Core.Contracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.GeoFramework.Style.Core.Contracts.2.1.0.238\lib\net45\TPG.GeoFramework.Style.Core.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.StyleCore, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.0.1.195\lib\net45\TPG.GeoFramework.StyleCore.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.StyleCore, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.1.0.238\lib\net45\TPG.GeoFramework.StyleCore.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.Symbols.Contracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.GeoFramework.Symbols.Contracts.2.0.1.195\lib\net45\TPG.GeoFramework.Symbols.Contracts.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.Symbols.Contracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.GeoFramework.Symbols.Contracts.2.1.0.238\lib\net45\TPG.GeoFramework.Symbols.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.Track.Proto, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.TrackLayer.2.0.1.195\lib\net45\TPG.GeoFramework.Track.Proto.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.Track.Proto, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.TrackLayer.2.1.0.238\lib\net45\TPG.GeoFramework.Track.Proto.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.TrackCore, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.TrackLayer.2.0.1.195\lib\net45\TPG.GeoFramework.TrackCore.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.TrackCore, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.TrackLayer.2.1.0.238\lib\net45\TPG.GeoFramework.TrackCore.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.TrackCore.Contracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.TrackLayer.2.0.1.195\lib\net45\TPG.GeoFramework.TrackCore.Contracts.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.TrackCore.Contracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.TrackLayer.2.1.0.238\lib\net45\TPG.GeoFramework.TrackCore.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.TrackLayer, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.TrackLayer.2.0.1.195\lib\net45\TPG.GeoFramework.TrackLayer.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.TrackLayer, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.TrackLayer.2.1.0.238\lib\net45\TPG.GeoFramework.TrackLayer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.TrackLayer.Contracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.TrackLayer.2.0.1.195\lib\net45\TPG.GeoFramework.TrackLayer.Contracts.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.TrackLayer.Contracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.TrackLayer.2.1.0.238\lib\net45\TPG.GeoFramework.TrackLayer.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoFramework.TrackServiceClient, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.TrackLayer.2.0.1.195\lib\net45\TPG.GeoFramework.TrackServiceClient.dll</HintPath>
+    <Reference Include="TPG.GeoFramework.TrackServiceClient, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.TrackLayer.2.1.0.238\lib\net45\TPG.GeoFramework.TrackServiceClient.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.GeoUnits, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MariaUserControl.2.0.1.195\lib\net45\TPG.GeoUnits.dll</HintPath>
+    <Reference Include="TPG.GeoUnits, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MariaUserControl.2.1.0.238\lib\net45\TPG.GeoUnits.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.Maria.Common, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.Common.2.0.1.195\lib\net45\TPG.Maria.Common.dll</HintPath>
+    <Reference Include="TPG.Maria.Common, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.Common.2.1.0.238\lib\net45\TPG.Maria.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.Maria.Contracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MariaUserControl.2.0.1.195\lib\net45\TPG.Maria.Contracts.dll</HintPath>
+    <Reference Include="TPG.Maria.Contracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MariaUserControl.2.1.0.238\lib\net45\TPG.Maria.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.Maria.DrawObjectContracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.0.1.195\lib\net45\TPG.Maria.DrawObjectContracts.dll</HintPath>
+    <Reference Include="TPG.Maria.DrawObjectContracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.1.0.238\lib\net45\TPG.Maria.DrawObjectContracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.Maria.DrawObjectLayer, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.0.1.195\lib\net45\TPG.Maria.DrawObjectLayer.dll</HintPath>
+    <Reference Include="TPG.Maria.DrawObjectLayer, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.DrawObjectLayer.2.1.0.238\lib\net45\TPG.Maria.DrawObjectLayer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.Maria.Internal, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MariaUserControl.2.0.1.195\lib\net45\TPG.Maria.Internal.dll</HintPath>
+    <Reference Include="TPG.Maria.Internal, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MariaUserControl.2.1.0.238\lib\net45\TPG.Maria.Internal.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.Maria.MapContracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MapLayer.2.0.1.195\lib\net45\TPG.Maria.MapContracts.dll</HintPath>
+    <Reference Include="TPG.Maria.MapContracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MapLayer.2.1.0.238\lib\net45\TPG.Maria.MapContracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.Maria.MapLayer, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MapLayer.2.0.1.195\lib\net45\TPG.Maria.MapLayer.dll</HintPath>
+    <Reference Include="TPG.Maria.MapLayer, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MapLayer.2.1.0.238\lib\net45\TPG.Maria.MapLayer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.Maria.MariaUserControl, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MariaUserControl.2.0.1.195\lib\net45\TPG.Maria.MariaUserControl.dll</HintPath>
+    <Reference Include="TPG.Maria.MariaUserControl, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MariaUserControl.2.1.0.238\lib\net45\TPG.Maria.MariaUserControl.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.Maria.TrackContracts, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.TrackLayer.2.0.1.195\lib\net45\TPG.Maria.TrackContracts.dll</HintPath>
+    <Reference Include="TPG.Maria.TrackContracts, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.TrackLayer.2.1.0.238\lib\net45\TPG.Maria.TrackContracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.Maria.TrackLayer, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.TrackLayer.2.0.1.195\lib\net45\TPG.Maria.TrackLayer.dll</HintPath>
+    <Reference Include="TPG.Maria.TrackLayer, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.TrackLayer.2.1.0.238\lib\net45\TPG.Maria.TrackLayer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TPG.ServiceModel, Version=2.0.1.195, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
-      <HintPath>..\packages\TPG.Maria.MapLayer.2.0.1.195\lib\net45\TPG.ServiceModel.dll</HintPath>
+    <Reference Include="TPG.ServiceModel, Version=2.1.0.238, Culture=neutral, PublicKeyToken=e1f08960486e3cdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\TPG.Maria.MapLayer.2.1.0.238\lib\net45\TPG.ServiceModel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />

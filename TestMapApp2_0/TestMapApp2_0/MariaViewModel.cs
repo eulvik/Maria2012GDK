@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using TestMapApp2_0.Annotations;
 using TPG.GeoFramework.Contracts.Geo.Tool;
 using TPG.Maria.Contracts;
+using TPG.Maria.CustomLayer;
 using TPG.Maria.DrawObjectLayer;
 using TPG.Maria.MapLayer;
 using TPG.Maria.TrackLayer;
@@ -21,6 +22,8 @@ namespace TestMapApp2_0
 
 
         public ObservableCollection<IMariaLayer> Layers { get; set; }
+
+        private readonly CustomLayer<CustomViewModel> _customLayer;
 
         public MariaViewModel()
         {
@@ -40,6 +43,9 @@ namespace TestMapApp2_0
 
             DrawObjectViewModel = new DrawObjectViewModel(drawObjectLayer);
             Layers.Add(drawObjectLayer);
+
+            _customLayer = new CustomLayer<CustomViewModel>(new CustomLayerViewModelFactory());
+            Layers.Add(_customLayer);
         }
 
         public DrawObjectViewModel DrawObjectViewModel { get; set; }
